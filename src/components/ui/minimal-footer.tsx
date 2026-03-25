@@ -24,6 +24,10 @@ const resources = [
     title: "Instagram",
     href: "https://www.instagram.com/misafirkurucu/",
   },
+  {
+    title: "LinkedIn",
+    href: "https://www.linkedin.com/in/sevincgurguzel/",
+  },
   { title: "E-posta", href: "mailto:misafirkurucu@gmail.com" },
 ];
 
@@ -34,7 +38,7 @@ const socialLinks = [
   },
   {
     icon: <Linkedin className="size-4" />,
-    link: "https://www.instagram.com/misafirkurucu/",
+    link: "https://www.linkedin.com/in/sevincgurguzel/",
   },
   {
     icon: <Youtube className="size-4" />,
