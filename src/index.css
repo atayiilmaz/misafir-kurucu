@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Neue Kabel";
+  src: url("/fonts/NeueKabel-Bold.otf") format("opentype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light;
+  --background: 38 31% 95%;
+  --foreground: 18 19% 18%;
+  --card: 0 0% 100%;
+  --card-foreground: 18 19% 18%;
+  --muted: 40 23% 90%;
+  --muted-foreground: 25 10% 36%;
+  --primary: 27 42% 47%;
+  --primary-foreground: 36 60% 97%;
+  --border: 32 18% 82%;
+  --accent: 104 18% 39%;
+  --accent-foreground: 40 30% 96%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-background font-sans text-foreground antialiased;
+  margin: 0;
+  min-width: 320px;
+  font-size: 16px;
+  line-height: 1.6;
+  font-family: "Manrope", "Segoe UI", Arial, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  background-image:
+    radial-gradient(circle at top, rgba(201, 172, 134, 0.22), transparent 34%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(248, 242, 234, 0.95));
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.section-shell {
+  @apply mx-auto w-full max-w-[90rem] px-3 sm:px-4 lg:px-5;
+}
+
+.section-title {
+  @apply font-display text-[2.7rem] leading-[0.94] text-foreground md:text-[4rem];
+}
+
+.section-kicker {
+  @apply mb-3 inline-flex rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold tracking-[0.24em] text-primary;
+}
+
+.glass-panel {
+  @apply rounded-[2rem] border border-white/70 bg-white/70 shadow-soft backdrop-blur;
+}
+
+.font-sans,
+body,
+p,
+a,
+button,
+input,
+textarea,
+label,
+li,
+small {
+  font-family: "Manrope", "Segoe UI", Arial, sans-serif;
+}
+
+.font-display {
+  font-family: "Neue Kabel", sans-serif !important;
+  font-weight: 700;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Neue Kabel", sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
