@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { RevealSection } from "@/components/gsap/reveal-section";
 import { PageIntro } from "@/components/page-intro";
 
 export function ConsultationPage() {
@@ -31,13 +32,13 @@ export function ConsultationPage() {
         description="Ücretsiz ön görüşmede mevcut durumunuzu, hedefinizi ve hangi programın size daha uygun olduğunu değerlendiriyoruz."
       />
 
-      <section className="section-shell py-10">
+      <RevealSection as="section" className="section-shell py-10">
         <div
           className="calendly-inline-widget min-w-[320px]"
           data-url="https://calendly.com/misafirkurucu/30min"
           style={{ minWidth: "320px", height: "700px" }}
         />
-      </section>
+      </RevealSection>
     </>
   );
 }

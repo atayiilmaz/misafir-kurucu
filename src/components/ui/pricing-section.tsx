@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { CheckCircle2, Sparkles } from "lucide-react";
+import { RevealSection } from "@/components/gsap/reveal-section";
 import { AppLink } from "@/components/ui/app-link";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -103,17 +104,23 @@ function PricingCard({
 
 export function PricingSection({ plans }: PricingSectionProps) {
   return (
-    <section className="section-shell py-20">
-      <div className="text-center">
+    <RevealSection
+      as="section"
+      className="section-shell py-20"
+      itemSelector="[data-gsap-item]"
+    >
+      <div className="text-center" data-gsap-item>
         <div className="section-kicker">Programlar</div>
         <h2 className="section-title">Hedefinize göre seçebileceğiniz çalışma modelleri</h2>
       </div>
 
       <div className="mt-12 grid gap-8 lg:grid-cols-3">
         {plans.map((plan) => (
-          <PricingCard key={plan.title} {...plan} />
+          <div key={plan.title} data-gsap-item>
+            <PricingCard {...plan} />
+          </div>
         ))}
       </div>
-    </section>
+    </RevealSection>
   );
 }

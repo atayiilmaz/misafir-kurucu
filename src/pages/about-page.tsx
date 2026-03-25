@@ -1,4 +1,5 @@
 import { Badge } from "@/components/ui/badge";
+import { RevealSection } from "@/components/gsap/reveal-section";
 import { AppLink } from "@/components/ui/app-link";
 import { buttonVariants } from "@/components/ui/button";
 import FeatureSection from "@/components/ui/feature-section";
@@ -7,9 +8,13 @@ import { cn } from "@/lib/utils";
 export function AboutPage() {
   return (
     <>
-      <section className="section-shell pb-16 pt-8 md:pt-10">
+      <RevealSection
+        as="section"
+        className="section-shell pb-16 pt-8 md:pt-10"
+        itemSelector="[data-gsap-item]"
+      >
         <div className="grid items-center gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:gap-14">
-          <div className="relative">
+          <div className="relative" data-gsap-item>
             <div className="absolute -left-4 -top-4 hidden h-32 w-32 rounded-full bg-primary/10 blur-3xl md:block" />
             <img
               src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1200&q=80"
@@ -18,7 +23,10 @@ export function AboutPage() {
             />
           </div>
 
-          <div className="rounded-[2rem] border border-border/60 bg-white/45 p-8 backdrop-blur-sm md:p-10 lg:p-12">
+          <div
+            className="rounded-[2rem] border border-border/60 bg-white/45 p-8 backdrop-blur-sm md:p-10 lg:p-12"
+            data-gsap-item
+          >
             <Badge>Hakkımda</Badge>
             <h1 className="mt-4 font-display text-[3.1rem] leading-[0.95] md:text-[4.4rem]">
               Sevinç ile tekstilde fikirden üretime uzanan gerçek saha bilgisi
@@ -64,13 +72,20 @@ export function AboutPage() {
             </AppLink>
           </div>
         </div>
-      </section>
+      </RevealSection>
 
       <FeatureSection />
 
-      <section className="section-shell py-20">
+      <RevealSection
+        as="section"
+        className="section-shell py-20"
+        itemSelector="[data-gsap-item]"
+      >
         <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
-          <div className="rounded-[2rem] border border-border/60 bg-white/70 p-8 shadow-soft md:p-10">
+          <div
+            className="rounded-[2rem] border border-border/60 bg-white/70 p-8 shadow-soft md:p-10"
+            data-gsap-item
+          >
             <Badge>Yaklaşımım</Badge>
             <h2 className="mt-4 font-display text-5xl leading-none">
               İlham değil, uygulanabilir netlik
@@ -88,7 +103,10 @@ export function AboutPage() {
             </p>
           </div>
 
-          <div className="rounded-[2rem] border border-border/60 bg-gradient-to-br from-primary/10 via-white/70 to-accent/10 p-8 shadow-soft md:p-10">
+          <div
+            className="rounded-[2rem] border border-border/60 bg-gradient-to-br from-primary/10 via-white/70 to-accent/10 p-8 shadow-soft md:p-10"
+            data-gsap-item
+          >
             <p className="text-xs tracking-[0.24em] text-muted-foreground">
               Çalışma biçimi
             </p>
@@ -117,7 +135,7 @@ export function AboutPage() {
             </div>
           </div>
         </div>
-      </section>
+      </RevealSection>
     </>
   );
 }

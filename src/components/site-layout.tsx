@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
+import { PageTransitionShell } from "@/components/gsap/page-transition-shell";
 import { Navbar1 } from "@/components/ui/navbar-1";
 import { MinimalFooter } from "@/components/ui/minimal-footer";
 import { navItems } from "@/content/site";
@@ -26,12 +27,16 @@ function ScrollToTop() {
 }
 
 export function SiteLayout() {
+  const location = useLocation();
+
   return (
     <div className="pb-6">
       <ScrollToTop />
       <Navbar1 items={navItems} />
       <main>
-        <Outlet />
+        <PageTransitionShell routeKey={location.pathname}>
+          <Outlet />
+        </PageTransitionShell>
       </main>
       <MinimalFooter />
     </div>

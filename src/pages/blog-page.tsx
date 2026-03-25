@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { RevealSection } from "@/components/gsap/reveal-section";
 import { PageIntro } from "@/components/page-intro";
 import { AppLink } from "@/components/ui/app-link";
 import { blogPosts } from "@/content/site";
@@ -12,7 +13,11 @@ export function BlogPage() {
         description="Kısa videolarda değindiğim başlıkları burada daha geniş bağlamıyla anlatıyorum: marka kurulumundan üretim risklerine, içerikten satışa kadar."
       />
 
-      <section className="section-shell py-10">
+      <RevealSection
+        as="section"
+        className="section-shell py-10"
+        itemSelector="[data-gsap-item]"
+      >
         <div className="grid gap-8 lg:grid-cols-3">
           {blogPosts.map((post) => {
             const Icon = post.icon;
@@ -20,6 +25,7 @@ export function BlogPage() {
               <article
                 key={post.title}
                 className="overflow-hidden rounded-[2rem] border border-white/70 bg-white/85 shadow-soft"
+                data-gsap-item
               >
                 <img
                   src={post.image}
@@ -47,12 +53,13 @@ export function BlogPage() {
           <AppLink
             href="/gorusme-planlayin"
             className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-primary"
+            data-gsap-item
           >
             Bu konuları markana uyarlayalım
             <ArrowRight className="h-4 w-4" />
           </AppLink>
         </div>
-      </section>
+      </RevealSection>
     </>
   );
 }

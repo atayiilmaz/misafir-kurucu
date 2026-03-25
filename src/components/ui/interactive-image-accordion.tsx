@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
+import { RevealSection } from "@/components/gsap/reveal-section";
 import { AppLink } from "@/components/ui/app-link";
 import { cn } from "@/lib/utils";
 
@@ -28,9 +29,14 @@ export function LandingAccordionItem({
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="section-shell py-20" id="programlar">
+    <RevealSection
+      as="section"
+      className="section-shell py-20"
+      id="programlar"
+      itemSelector="[data-gsap-item]"
+    >
       <div className="grid items-center gap-12 lg:grid-cols-[0.78fr_1.22fr]">
-        <div>
+        <div data-gsap-item>
           <div className="section-kicker">{eyebrow}</div>
           <h2 className="section-title max-w-xl">{title}</h2>
           <p className="mt-6 max-w-lg text-base leading-7 text-muted-foreground md:text-lg">
@@ -45,7 +51,10 @@ export function LandingAccordionItem({
           </AppLink>
         </div>
 
-        <div className="overflow-hidden rounded-[2rem] border border-white/70 bg-white/70 p-4 shadow-soft backdrop-blur">
+        <div
+          className="overflow-hidden rounded-[2rem] border border-white/70 bg-white/70 p-4 shadow-soft backdrop-blur"
+          data-gsap-item
+        >
           <div className="flex min-h-[420px] flex-col gap-4 overflow-x-auto md:flex-row">
             {items.map((item, index) => {
               const isActive = index === activeIndex;
@@ -91,6 +100,6 @@ export function LandingAccordionItem({
           </div>
         </div>
       </div>
-    </section>
+    </RevealSection>
   );
 }

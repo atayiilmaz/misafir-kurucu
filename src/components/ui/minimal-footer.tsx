@@ -7,6 +7,7 @@ import {
   Send,
   Youtube,
 } from "lucide-react";
+import { RevealSection } from "@/components/gsap/reveal-section";
 import { AppLink } from "@/components/ui/app-link";
 
 const company = [
@@ -53,13 +54,21 @@ export function MinimalFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative pb-10 pt-20">
+    <RevealSection
+      as="footer"
+      className="relative pb-10 pt-20"
+      itemSelector="[data-gsap-item]"
+      start="top 92%"
+    >
       <div className="section-shell">
         <div className="relative mx-auto max-w-6xl border-border/70 md:border-x">
           <div className="absolute inset-x-0 top-0 h-px bg-border/80" />
           <div className="bg-[radial-gradient(35%_80%_at_30%_0%,rgba(97,70,45,0.08),transparent)]">
             <div className="grid max-w-6xl grid-cols-6 gap-8 p-5 md:p-8">
-              <div className="col-span-6 flex flex-col gap-5 md:col-span-4">
+              <div
+                className="col-span-6 flex flex-col gap-5 md:col-span-4"
+                data-gsap-item
+              >
                 <div className="flex items-center gap-4">
                   <AppLink href="/" className="w-max text-primary/30">
                     <Grid2x2Plus className="size-8" />
@@ -96,7 +105,7 @@ export function MinimalFooter() {
                 </div>
               </div>
 
-              <div className="col-span-3 w-full md:col-span-1">
+              <div className="col-span-3 w-full md:col-span-1" data-gsap-item>
                 <span className="mb-1 text-xs tracking-[0.24em] text-muted-foreground">
                   Sayfalar
                 </span>
@@ -113,7 +122,7 @@ export function MinimalFooter() {
                 </div>
               </div>
 
-              <div className="col-span-3 w-full md:col-span-1">
+              <div className="col-span-3 w-full md:col-span-1" data-gsap-item>
                 <span className="mb-1 text-xs tracking-[0.24em] text-muted-foreground">
                   İletişim
                 </span>
@@ -134,12 +143,15 @@ export function MinimalFooter() {
 
           <div className="absolute inset-x-0 bottom-14 h-px bg-border/80" />
           <div className="flex max-w-6xl flex-col justify-between gap-2 px-5 pb-5 pt-3 md:px-8">
-            <p className="text-center text-sm font-light text-muted-foreground">
+            <p
+              className="text-center text-sm font-light text-muted-foreground"
+              data-gsap-item
+            >
               © {year} Misafir Kurucu. Tüm hakları saklıdır.
             </p>
           </div>
         </div>
       </div>
-    </footer>
+    </RevealSection>
   );
 }

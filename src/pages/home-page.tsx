@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { RevealSection } from "@/components/gsap/reveal-section";
 import { HeroSection } from "@/components/ui/hero-section-2";
 import { Features } from "@/components/ui/features";
 import { AppLink } from "@/components/ui/app-link";
@@ -45,15 +46,20 @@ export function HomePage() {
 
       <PricingSection plans={plans} />
 
-      <section className="section-shell py-20">
+      <RevealSection
+        as="section"
+        className="section-shell py-20"
+        itemSelector="[data-gsap-item]"
+      >
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <div>
+          <div data-gsap-item>
             <div className="section-kicker">Blog Önizleme</div>
             <h2 className="section-title">İçerik üretimini stratejiye bağlayan yazılar</h2>
           </div>
           <AppLink
             href="/blog"
             className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-primary"
+            data-gsap-item
           >
             Tüm yazıları gör
             <ArrowRight className="h-4 w-4" />
@@ -67,6 +73,7 @@ export function HomePage() {
               <article
                 key={post.title}
                 className="overflow-hidden rounded-[2rem] border border-white/70 bg-white/85 shadow-soft"
+                data-gsap-item
               >
                 <img
                   src={post.image}
@@ -89,7 +96,7 @@ export function HomePage() {
             );
           })}
         </div>
-      </section>
+      </RevealSection>
     </>
   );
 }
