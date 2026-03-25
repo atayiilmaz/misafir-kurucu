@@ -74,9 +74,6 @@ export function MinimalFooter() {
                 data-gsap-item
               >
                 <div className="flex items-center gap-4">
-                  <AppLink href="/" className="w-max text-primary/30">
-                    <Grid2x2Plus className="size-8" />
-                  </AppLink>
                   <div className="flex items-center gap-3">
                     <span className="flex h-11 w-11 items-center justify-center rounded-full bg-primary text-primary-foreground">
                       <Scissors className="size-4" />
