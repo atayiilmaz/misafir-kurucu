@@ -114,21 +114,6 @@ export function PricingSection({ plans }: PricingSectionProps) {
           <PricingCard key={plan.title} {...plan} />
         ))}
       </div>
-
-      <div className="mt-8 rounded-[2rem] border border-border/70 bg-white/80 p-8 shadow-soft">
-        <h3 className="font-display text-4xl leading-none">Özel proje ihtiyacı mı var?</h3>
-        <p className="mt-3 max-w-2xl text-base leading-7 text-muted-foreground">
-          Atölye kurulumu, üretim ekibi organizasyonu, marka revizyonu veya
-          lansman öncesi yoğun danışmanlık gibi özel ihtiyaçlarınız için ayrı
-          kapsamlı bir çalışma planı oluşturabiliriz.
-        </p>
-        <AppLink
-          href="/gorusme-planlayin"
-          className={cn(buttonVariants(), "mt-6")}
-        >
-          Bana özel yol haritası oluştur
-        </AppLink>
-      </div>
     </section>
   );
 }
