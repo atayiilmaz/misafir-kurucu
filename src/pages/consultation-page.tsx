@@ -1,6 +1,28 @@
+import { useEffect } from "react";
 import { PageIntro } from "@/components/page-intro";
 
 export function ConsultationPage() {
+  useEffect(() => {
+    const existingScript = document.querySelector(
+      'script[src="https://assets.calendly.com/assets/external/widget.js"]',
+    );
+
+    if (existingScript) {
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.src = "https://assets.calendly.com/assets/external/widget.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      if (script.parentNode) {
+        script.parentNode.removeChild(script);
+      }
+    };
+  }, []);
+
   return (
     <>
       <PageIntro
@@ -10,18 +32,11 @@ export function ConsultationPage() {
       />
 
       <section className="section-shell py-10">
-        <div className="overflow-hidden rounded-[2rem] border border-border/70 bg-white/85 p-3 shadow-soft md:p-4">
-          <iframe
-            src="https://calendar.google.com/calendar/embed?src=misafirkurucu%40gmail.com&ctz=Europe%2FIstanbul"
-            style={{ border: 0 }}
-            width="100%"
-            height="720"
-            frameBorder="0"
-            scrolling="no"
-            className="min-h-[720px] w-full rounded-[1.5rem]"
-            title="Misafir Kurucu Google Calendar"
-          />
-        </div>
+        <div
+          className="calendly-inline-widget min-w-[320px]"
+          data-url="https://calendly.com/misafirkurucu/30min"
+          style={{ minWidth: "320px", height: "700px" }}
+        />
       </section>
     </>
   );
