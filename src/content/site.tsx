@@ -13,10 +13,10 @@ export const navItems = [
   {
     label: "Programlar",
     children: [
-      { label: "Program 1 · Marka Başlangıcı", href: "/programlar/program-1" },
-      { label: "Program 2 · Üretim Planı", href: "/programlar/program-2" },
+      { label: "1 · Strateji", href: "/programlar/program-1" },
+      { label: "2 · Strateji + Kurulum", href: "/programlar/program-2" },
       {
-        label: "Program 3 · Lansman Mentorluğu",
+        label: "3 · Büyüme / Yeniden Yapılandırma",
         href: "/programlar/program-3",
       },
     ],
@@ -58,24 +58,25 @@ export const featureItems = [
 export const accordionPrograms = [
   {
     id: 1,
-    title: "Program 1",
-    caption: "Tekstil markasını sıfırdan kurmak isteyenler için başlangıç programı.",
+    title: "Strateji",
+    caption:
+      "Moda markası kurmak isteyen ama nereden başlayacağını bilmeyenler için stratejik temel programı.",
     imageUrl:
       "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80",
   },
   {
     id: 2,
-    title: "Program 2",
+    title: "Strateji + Kurulum",
     caption:
-      "Üretim tarafını kontrol altına almak, maliyeti ve terminleri netleştirmek isteyen markalar için.",
+      "Strateji sonrası markasını gerçek kurulum planına dönüştürmek isteyenler için uygulama odaklı program.",
     imageUrl:
       "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=900&q=80",
   },
   {
     id: 3,
-    title: "Program 3",
+    title: "Büyüme",
     caption:
-      "Lansman, ilk satışlar ve içerik planını birlikte yürütmek isteyen girişimciler için yoğun mentorluk.",
+      "Mevcut moda veya tekstil markasını yeniden konumlandırmak ve büyütmek isteyenler için yeniden yapılanma programı.",
     imageUrl:
       "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80",
   },
@@ -91,16 +92,16 @@ export const accordionPrograms = [
 
 export const plans = [
   {
-    title: "Program 1",
-    price: "4 Hafta",
-    priceDescription: "Marka Başlangıcı",
+    title: "Strateji",
+    price: "01",
+    priceDescription: "Marka Stratejisi Programı",
     description:
-      "Yeni başlayan girişimciler için marka kimliği, ürün grubu ve başlangıç üretim planını netleştiren temel paket.",
+      "Moda markası kurmak isteyen ama nereden başlayacağını bilmeyenler için fikri netleştiren stratejik temel programı.",
     features: [
-      "Hedef kitle ve konumlandırma",
-      "Mini koleksiyon kurgusu",
-      "Fiyat ve maliyet temeli",
-      "İlk aksiyon planı",
+      "Marka fikrinin uygulanabilirliği",
+      "Doğru niş ve hedef müşteri",
+      "Ürün kategorisi başlangıç netliği",
+      "Başlangıç yol haritası",
     ],
     buttonText: "Programı İncele",
     href: "/programlar/program-1",
@@ -109,16 +110,16 @@ export const plans = [
     imageAlt: "Program 1",
   },
   {
-    title: "Program 2",
-    price: "6 Hafta",
-    priceDescription: "Üretim Planı",
+    title: "Strateji + Kurulum",
+    price: "02",
+    priceDescription: "Kurulum Programı",
     description:
-      "Üretim akışını kurmak, tedarikçileri yönetmek ve operasyonu kontrol altına almak isteyen markalar için.",
+      "Marka fikrini gerçek bir moda markasına dönüştürmek isteyenler için strateji ve kurulum sürecini birleştiren kapsamlı program.",
     features: [
-      "Numune ve termin yönetimi",
-      "Atölye iletişim planı",
-      "Kalite kontrol check-list'i",
-      "Stok ve sipariş akışı",
+      "İlk koleksiyon planı",
+      "Üretim ve tedarik planı",
+      "Maliyet ve fiyatlandırma",
+      "Satış ve iletişim stratejisi",
     ],
     buttonText: "Programı İncele",
     href: "/programlar/program-2",
@@ -128,16 +129,16 @@ export const plans = [
     highlight: true,
   },
   {
-    title: "Program 3",
-    price: "8 Hafta",
-    priceDescription: "Lansman Mentorluğu",
+    title: "Büyüme / Yeniden Yapılandırma",
+    price: "03",
+    priceDescription: "Büyüme Programı",
     description:
-      "Marka hazırlığını lansman ve satış süreciyle bağlayan, içerik ve satış akışını birlikte kurduğumuz yoğun çalışma.",
+      "Mevcut moda veya tekstil markasını daha güçlü bir kimliğe, daha sade bir ürün yapısına ve daha net bir büyüme yönüne taşımak için.",
     features: [
-      "Lansman takvimi",
-      "İçerik ve teklif dili",
-      "Satış hedefleri ve takip",
-      "Canlı geri bildirim oturumları",
+      "Mevcut durum analizi",
+      "Ürün gamı sadeleştirme",
+      "Marka hikayesi güçlendirme",
+      "Büyüme stratejisi oluşturma",
     ],
     buttonText: "Programı İncele",
     href: "/programlar/program-3",
@@ -149,43 +150,136 @@ export const plans = [
 
 export const programDetails = {
   "program-1": {
-    title: "Program 1 · Marka Başlangıcı",
+    title: "1 · Strateji",
     description:
-      "Fikir aşamasındaki tekstil girişimcileri için ilk ürün, hedef kitle, konumlandırma ve başlangıç planını netleştiren yapı.",
+      "Bir moda markası aceleyle kurulmaz. Doğru temeller üzerine kurulduğunda sürdürülebilir olur. Bu program, moda markası fikrini netleştirmek ve sağlam bir stratejik temel oluşturmak için tasarlanmıştır.",
     image:
       "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=80",
-    outcomes: [
-      "Net bir marka çerçevesi",
-      "İlk koleksiyon karar listesi",
-      "Maliyet ve fiyat temel tablosu",
-      "İlk 30 gün eylem planı",
+    audienceTitle: "Kimler için",
+    audience: [
+      "Moda markası kurmak isteyen fakat nereden başlayacağını bilmeyenler",
+      "Fikrinin gerçekten güçlü ve uygulanabilir olup olmadığını anlamak isteyenler",
+      "Trendler, tavsiyeler ve fikirler arasında kaybolanlar",
+      "Para harcamadan önce doğru kararları vermek isteyenler",
+      "Kuruluş aşamasında hatalı kararlar almak istemeyenler",
+      "Hangi ürünle ve hangi müşteri kitlesiyle başlaması gerektiğini netleştirmek isteyenler",
     ],
+    topicsTitle: "Bu programda hangi konularda birlikte çalışacağız",
+    topics: [
+      "Marka fikrinin uygulanabilirliği",
+      "Moda markası için doğru nişin belirlenmesi",
+      "Hedef müşteri ve pazar yönünün tanımlanması",
+      "Markanın amacı ve konumlandırması",
+      "Hangi ürün kategorisi ile başlanması gerektiği",
+      "Fikrin güçlü ve zayıf yönlerinin analizi",
+      "Markayı kurmak için gerekli zaman ve bütçe planı",
+      "Gerekli olabilecek eğitimler ve gelişim alanları",
+      "Markaya özel başlangıç yol haritası",
+    ],
+    outputsTitle: "Program sonunda elde edeceğin çıktılar",
+    outcomes: [
+      "Net bir marka yönü",
+      "Tanımlanmış bir niş ve hedef müşteri",
+      "Fikrinin güçlü ve zayıf yönlerinin analizi",
+      "Hangi ürünle başlanması gerektiğine dair netlik",
+      "Markayı kurmak için gerekli zaman ve bütçe planı",
+      "Uygulanabilir bir başlangıç yol haritası",
+    ],
+    closing:
+      "Bu programın sonunda elinde netleşmiş bir marka fikri ve uygulanabilir bir plan olur. Böylece moda markanı aceleyle değil, bilinçli ve sağlam bir temel üzerine kurabilirsin.",
   },
   "program-2": {
-    title: "Program 2 · Üretim Planı",
+    title: "2 · Strateji + Kurulum",
     description:
-      "Numune, termin, atölye ve kalite tarafında dağınık ilerleyen süreçleri ölçülebilir hale getirir.",
+      "Bu program, Marka Stratejisi Programı’nda yapılan stratejik çalışmayı da içerir. Strateji netleştirildikten sonra markanın kurulum sürecini birlikte planlar ve hayata geçiririz.",
     image:
       "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1200&q=80",
-    outcomes: [
-      "Üretim akış haritası",
-      "Tedarikçi ve atölye iletişim sistemi",
-      "Kontrol listeleri",
-      "Operasyonel risk azaltma planı",
+    audienceTitle: "Kimler için",
+    audience: [
+      "Marka fikrini artık hayata geçirmek isteyenler",
+      "Moda sektöründe deneyimi olmayan fakat kendi markasını kurmak isteyenler",
+      "İlk koleksiyonunu nasıl oluşturacağını bilmeyenler",
+      "Üretim, atölye ve tedarik süreçlerini nasıl yöneteceğini öğrenmek isteyenler",
+      "Ürün seçimi, fiyatlandırma ve satış konularında yön arayanlar",
+      "Moda markasını plansız değil, doğru bir sistemle kurmak isteyenler",
     ],
+    topicsTitle: "Bu programda hangi konularda birlikte çalışacağız",
+    topics: [
+      "Marka stratejisinin uygulamaya aktarılması",
+      "Ürün kategorisi ve ürün yapısının belirlenmesi",
+      "İlk koleksiyonun planlanması",
+      "Koleksiyon yapısı ve ürün seçimi",
+      "Üretim sürecinin planlanması",
+      "Atölye ve üretim süreçleri konusunda yönlendirme",
+      "Ürün maliyet hesapları ve fiyatlandırma stratejisi",
+      "Üretim ve tedarik planının oluşturulması",
+      "Satış kanalları ve satış stratejisinin belirlenmesi",
+      "Sosyal medya ve marka iletişim planı",
+      "Pazaryerleri konusunda yönlendirme",
+      "Markaya özel kurulum yol haritası",
+      "Gerçek taleplere dayalı bir niş tanımlamak",
+      "Güçlü bir marka stratejisi inşa etmek",
+      "Hedef müşteri ve hedef pazar belirlemek",
+      "Marka hikayesi ve marka kimliğini oluşturmak",
+      "Ürün kategorisini ve ürün yapısını belirlemek",
+      "Gerekli durumlarda mevcut atölye ve üretim bağlantıları konusunda yönlendirme sağlamak",
+    ],
+    outputsTitle: "Program sonunda elde edeceğin çıktılar",
+    outcomes: [
+      "Net bir marka yönü",
+      "Tanımlanmış bir niş ve hedef müşteri",
+      "Güçlü bir marka hikayesi ve görsel kimlik",
+      "Gerçekçi bir ilk koleksiyon planı",
+      "Üretim ve tedarik planı",
+      "Üretime hazır sistemler",
+      "Maliyet ve fiyatlandırma netliği",
+      "Satış kanalları ve satış stratejisi",
+      "Lansman aşamasına geçme konusunda güven",
+    ],
+    closing:
+      "Bu programın sonunda elinde uygulanabilir ve gerçekçi bir marka kurulum planı olur. Böylece moda markanı plansız değil, doğru bir sistemle hayata geçirebilirsin.",
   },
   "program-3": {
-    title: "Program 3 · Lansman Mentorluğu",
+    title: "3 · Büyüme / Yeniden Yapılandırma",
     description:
-      "İçerik üretimi, teklif dili ve satış başlangıcını tek takvimde toplayan yoğun mentorluk programı.",
+      "Bir moda markası kurulduktan sonra en önemli şey doğru yönü bulmak ve büyüme stratejisini oluşturabilmektir. Bu program mevcut markayı analiz ederek daha güçlü bir konuma taşımak için tasarlanmıştır.",
     image:
       "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=80",
-    outcomes: [
-      "Lansman haftası takvimi",
-      "İçerik ve satış mesajı eşleşmesi",
-      "İlk satış hedefleri",
-      "Canlı geri bildirim döngüsü",
+    audienceTitle: "Kimler için",
+    audience: [
+      "Halihazırda bir moda veya tekstil markası olanlar",
+      "Markasını daha güçlü bir kimliğe kavuşturmak isteyenler",
+      "Tanınırlığını ve satışlarını artırmak isteyen markalar",
+      "Satış yapan fakat büyüme sağlayamayan markalar",
+      "Ürün yapısı zamanla karmaşık hale gelmiş markalar",
+      "Ürün gamını sadeleştirmek isteyen markalar",
+      "Markasını yeniden konumlandırmak isteyenler",
     ],
+    topicsTitle: "Bu programda hangi konularda birlikte çalışacağız",
+    topics: [
+      "Markanın mevcut durum analizi",
+      "Marka konumlandırmasının yeniden değerlendirilmesi",
+      "Hedef müşteri ve pazarın netleştirilmesi",
+      "Marka hikayesi ve marka kimliğinin güçlendirilmesi",
+      "Ürün gamının analiz edilmesi ve sadeleştirilmesi",
+      "Güçlü ve satış potansiyeli yüksek ürünlerin belirlenmesi",
+      "Koleksiyon mimarisinin yeniden düzenlenmesi",
+      "Fiyatlandırma stratejisinin gözden geçirilmesi",
+      "Satış kanallarının değerlendirilmesi",
+      "Markaya özel büyüme stratejisinin oluşturulması",
+    ],
+    outputsTitle: "Program sonunda elde edeceğin çıktılar",
+    outcomes: [
+      "Daha net bir marka kimliği",
+      "Sadeleşmiş ve güçlü bir ürün yapısı",
+      "Markanın odak noktası",
+      "Daha güçlü bir marka hikâyesi",
+      "Satış potansiyeli yüksek ürün yapısı",
+      "Markaya özel büyüme stratejisi",
+      "Tanınırlığı ve satışları artırmaya yönelik net bir plan",
+    ],
+    closing:
+      "Bu programın sonunda marka daha güçlü bir yön ve büyüme potansiyeli kazanır.",
   },
 } as const;
 
