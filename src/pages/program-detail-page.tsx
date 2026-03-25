@@ -133,15 +133,13 @@ export function ProgramDetailPage() {
             </div>
           </div>
 
-          <div className="grid gap-4 md:grid-cols-2">
+          <div className="grid auto-rows-fr gap-4 md:grid-cols-2">
             {program.outcomes.map((outcome, index) => (
               <div
                 key={outcome}
                 className={cn(
-                  "rounded-[1.8rem] border border-border/70 bg-white/88 p-6 shadow-soft",
-                  index === 0 || index === program.outcomes.length - 1
-                    ? "md:translate-y-4"
-                    : "",
+                  "rounded-[1.8rem] border border-border/70 bg-white/88 p-6 shadow-soft md:min-h-[14.5rem]",
+                  index === 0 ? "md:col-span-2" : "",
                 )}
               >
                 <div className="flex items-start gap-4">
@@ -149,7 +147,7 @@ export function ProgramDetailPage() {
                     0{index + 1}
                   </span>
                   <div>
-                    <p className="font-display text-[1.35rem] leading-tight text-foreground">
+                    <p className="font-display text-[1.35rem] leading-tight text-foreground md:text-[1.55rem]">
                       {outcome}
                     </p>
                     <p className="mt-2 text-sm leading-7 text-muted-foreground">
