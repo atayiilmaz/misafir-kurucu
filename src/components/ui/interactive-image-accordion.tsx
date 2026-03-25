@@ -54,9 +54,10 @@ export function LandingAccordionItem({
                 <button
                   key={item.id}
                   className={cn(
-                    "relative overflow-hidden rounded-[1.5rem] transition-all duration-700 ease-in-out",
-                    isActive ? "md:w-[340px]" : "md:w-[92px]",
-                    "h-[320px] w-full md:h-[420px]",
+                    "relative h-[320px] w-full overflow-hidden rounded-[1.5rem] transition-all duration-700 ease-in-out md:h-[420px]",
+                    isActive
+                      ? "md:flex-[3.6]"
+                      : "md:min-w-0 md:flex-[1.2]",
                   )}
                   onClick={() => setActiveIndex(index)}
                   onMouseEnter={() => setActiveIndex(index)}

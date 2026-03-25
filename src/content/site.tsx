@@ -80,14 +80,6 @@ export const accordionPrograms = [
     imageUrl:
       "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80",
   },
-  {
-    id: 4,
-    title: "Atölye",
-    caption:
-      "Ekip içi eğitim, kurum içi workshop ve özel oturumlar için ayrı yapılandırılmış format.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=80",
-  },
 ];
 
 export const plans = [
