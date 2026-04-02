@@ -55,7 +55,7 @@ function PricingCard({
       iconClass: "text-[#d47b47]",
       imageClass: "border border-white/70 shadow-[0_12px_24px_-18px_rgba(170,96,44,0.55)]",
       buttonClass:
-        "border-[#efc2a2] bg-white/72 text-foreground hover:bg-white",
+        "border-[#efc2a2] bg-white text-foreground hover:bg-white",
     },
     {
       cardClass:
@@ -64,7 +64,7 @@ function PricingCard({
       iconClass: "text-[#a45a43]",
       imageClass: "border border-white/55 shadow-[0_12px_24px_-18px_rgba(124,71,54,0.55)]",
       buttonClass:
-        "border-[#c98668] bg-white/28 text-foreground hover:bg-white/42",
+        "border-[#c98668] bg-white text-foreground hover:bg-white",
     },
     {
       cardClass:
@@ -73,7 +73,7 @@ function PricingCard({
       iconClass: "text-[#ffbf95]",
       imageClass: "border border-white/12 shadow-[0_12px_24px_-18px_rgba(0,0,0,0.8)]",
       buttonClass:
-        "border-white/14 bg-white/10 text-white hover:bg-white/16",
+        "border-white/70 bg-white text-foreground hover:bg-white",
     },
   ] as const;
   const theme = themes[index] ?? themes[themes.length - 1];
