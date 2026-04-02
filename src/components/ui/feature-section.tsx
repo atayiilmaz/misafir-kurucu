@@ -17,6 +17,8 @@ type FeatureSectionProps = {
   imageSrc?: string;
   imageAlt?: string;
   backgroundClassName?: string;
+  compactImage?: boolean;
+  compactGap?: boolean;
 };
 
 export default function FeatureSection({
@@ -28,25 +30,46 @@ export default function FeatureSection({
   imageSrc = "/images/aboutme.jpeg",
   imageAlt = "Sevinç hakkında görsel",
   backgroundClassName,
+  compactImage = false,
+  compactGap = false,
 }: FeatureSectionProps) {
   return (
     <section className={cn("py-20", backgroundClassName)} id={id}>
       <div className="section-shell">
-        <div className="grid items-center gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+        <div
+          className={cn(
+            "mx-auto grid max-w-[80rem] items-center gap-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] xl:max-w-[82rem] xl:gap-12",
+            compactGap && "lg:gap-7 xl:gap-8",
+          )}
+        >
           <div
-            className={`relative w-full max-w-md ${
-              reverse ? "lg:order-2 lg:justify-self-end" : ""
-            }`}
+            className={cn(
+              "relative w-full lg:justify-self-start",
+              compactImage ? "max-w-[26rem] xl:max-w-[28rem]" : "max-w-[31rem] xl:max-w-[33rem]",
+              reverse && "lg:order-2 lg:justify-self-end",
+            )}
           >
             <img
               src={imageSrc}
               alt={imageAlt}
-              className="h-full min-h-[420px] w-full rounded-[2rem] object-cover shadow-soft"
+              className={cn(
+                "w-full rounded-[2rem] object-cover shadow-soft",
+                compactImage
+                  ? "aspect-[4/5] object-[center_top]"
+                  : "h-[28rem] xl:h-[32rem]",
+              )}
             />
           </div>
 
-          <div className={`space-y-6 ${reverse ? "lg:order-1" : ""}`}>
-            <h2 className="font-display text-5xl leading-none">{title}</h2>
+          <div
+            className={cn(
+              "w-full max-w-[40rem] space-y-6 lg:justify-self-end",
+              reverse && "lg:order-1 lg:justify-self-start",
+            )}
+          >
+            <h2 className="font-display text-[2.8rem] leading-[0.94] md:text-5xl">
+              {title}
+            </h2>
             {items ? (
               <ul className="max-w-2xl space-y-3 text-lg leading-8 text-muted-foreground">
                 {items.map((item) => (

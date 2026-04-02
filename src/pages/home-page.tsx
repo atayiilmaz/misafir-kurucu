@@ -81,6 +81,8 @@ Bu süreçte ben misafirim, siz kurucusunuz.`}
         imageSrc="/images/featuresection1.jpeg"
         imageAlt="Strateji ve yatırım sürecini anlatan görsel"
         backgroundClassName="bg-[#eef2f6]"
+        compactImage
+        compactGap
       />
       <FeatureSection
         title="NE ELDE EDERSİN?"
