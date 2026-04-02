@@ -83,6 +83,15 @@ export const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
                 className="order-1 flex flex-col justify-center lg:order-2"
                 variants={containerVariants}
               >
+                {slogan ? (
+                  <motion.p
+                    className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-foreground"
+                    variants={itemVariants}
+                  >
+                    {slogan}
+                  </motion.p>
+                ) : null}
+
                 <motion.h1
                   className="max-w-[11ch] font-display text-[3.35rem] leading-[0.9] md:text-[4.8rem] lg:text-[5.5rem]"
                   variants={itemVariants}
@@ -90,18 +99,8 @@ export const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
                   {title}
                 </motion.h1>
 
-                <motion.div
-                  className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm font-semibold uppercase tracking-[0.16em] text-foreground/78"
-                  variants={itemVariants}
-                >
-                  <span className="text-[1.05rem] tracking-[0.14em] text-foreground">
-                    ★★★★★
-                  </span>
-                  <span>{slogan}</span>
-                </motion.div>
-
                 <motion.p
-                  className="mt-6 max-w-2xl text-lg leading-8 text-muted-foreground md:text-[1.15rem]"
+                  className="mt-6 max-w-2xl whitespace-pre-line text-lg leading-8 text-muted-foreground md:text-[1.15rem]"
                   variants={itemVariants}
                 >
                   {subtitle}

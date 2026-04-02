@@ -1,35 +1,44 @@
 import { ArrowRight } from "lucide-react";
 import { RevealSection } from "@/components/gsap/reveal-section";
 import { HeroSection } from "@/components/ui/hero-section-2";
-import { Features } from "@/components/ui/features";
 import { AppLink } from "@/components/ui/app-link";
-import { LandingAccordionItem } from "@/components/ui/interactive-image-accordion";
 import { PricingSection } from "@/components/ui/pricing-section";
-import {
-  accordionPrograms,
-  blogPosts,
-  featureItems,
-  plans,
-} from "@/content/site";
+import { blogPosts, plans } from "@/content/site";
 
 export function HomePage() {
   return (
     <>
       <HeroSection
         logo={{ alt: "Misafir Kurucu", text: "Misafir Kurucu" }}
-        slogan="Sevinç ile birebir, uygulanabilir mentorluk"
+        slogan="Merhaba, ben Sevinç."
         title={
           <>
-            Tekstilde kendi markanı
-            <br />
-            <span className="text-primary">fikirden satışa taşı.</span>
+            <span className="text-primary">Kazançlı bir moda markası</span>{" "}
+            oluşturmanız için yanınızdayım.
           </>
         }
-        subtitle="Sevinç olarak 16 yılı aşan saha deneyimimi; marka kurmak, üretim sürecini doğru yönetmek ve görünürlüğünü satışa çevirmek isteyen tekstil girişimcileri için sade, uygulanabilir bir sisteme dönüştürüyorum."
+        subtitle={`İster yeni başlıyor olun, ister markanızı büyütüyor olun; bu süreci netleştiriyor ve satış getiren bir yapıya dönüştürüyorum.
+Bu süreçte ben misafirim, siz kurucusunuz.`}
         callToAction={{ text: "Programları Keşfet", href: "/#programlar" }}
         backgroundImage="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=80"
       />
 
+      <RevealSection as="section" className="bg-[#eef2f6] py-12 md:py-16">
+        <div className="section-shell">
+          <p
+            className="mx-auto max-w-6xl text-center font-display text-[2.2rem] leading-[1.02] text-foreground md:text-[3.45rem]"
+            data-gsap-item
+          >
+            Her marka farklıdır ve aynı yöntemlerle büyümez.
+            <br />
+            Bu yüzden hazır bir eğitim programı sunmak yerine, markanıza
+            <br />
+            özel ve birebir çalışarak birlikte ilerliyoruz.
+          </p>
+        </div>
+      </RevealSection>
+
+      {/*
       <Features
         eyebrow="Nasıl çalışıyoruz?"
         title="Danışmanlık sürecinde fikir, üretim ve satış birbirinden kopuk ilerlemez"
@@ -43,6 +52,7 @@ export function HomePage() {
         cta={{ label: "Görüşme planlayın", href: "/gorusme-planlayin" }}
         items={accordionPrograms}
       />
+      */}
 
       <PricingSection plans={plans} />
 
