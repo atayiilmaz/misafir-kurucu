@@ -1,3 +1,4 @@
+import { RevealSection } from "@/components/gsap/reveal-section";
 import { cn } from "@/lib/utils";
 
 const aboutParagraphs = [
@@ -34,7 +35,15 @@ export default function FeatureSection({
   compactGap = false,
 }: FeatureSectionProps) {
   return (
-    <section className={cn("py-20", backgroundClassName)} id={id}>
+    <RevealSection
+      as="section"
+      className={cn("py-20", backgroundClassName)}
+      id={id}
+      itemSelector="[data-gsap-item]"
+      start="top 84%"
+      stagger={0.1}
+      distance={28}
+    >
       <div className="section-shell">
         <div
           className={cn(
@@ -48,6 +57,7 @@ export default function FeatureSection({
               compactImage ? "max-w-[26rem] xl:max-w-[28rem]" : "max-w-[31rem] xl:max-w-[33rem]",
               reverse && "lg:order-2 lg:justify-self-end",
             )}
+            data-gsap-item
           >
             <img
               src={imageSrc}
@@ -67,13 +77,16 @@ export default function FeatureSection({
               reverse && "lg:order-1 lg:justify-self-start",
             )}
           >
-            <h2 className="font-display text-[2.8rem] leading-[0.94] md:text-5xl">
+            <h2
+              className="font-display text-[2.8rem] leading-[0.94] md:text-5xl"
+              data-gsap-item
+            >
               {title}
             </h2>
             {items ? (
               <ul className="max-w-2xl space-y-3 text-lg leading-8 text-muted-foreground">
                 {items.map((item) => (
-                  <li key={item} className="flex gap-3">
+                  <li key={item} className="flex gap-3" data-gsap-item>
                     <span className="mt-3 h-2 w-2 shrink-0 rounded-full bg-primary" />
                     <span>{item}</span>
                   </li>
@@ -82,13 +95,15 @@ export default function FeatureSection({
             ) : (
               <div className="max-w-2xl space-y-4 text-lg leading-8 text-muted-foreground">
                 {paragraphs.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
+                  <p key={paragraph} data-gsap-item>
+                    {paragraph}
+                  </p>
                 ))}
               </div>
             )}
           </div>
         </div>
       </div>
-    </section>
+    </RevealSection>
   );
 }
