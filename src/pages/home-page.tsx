@@ -23,6 +23,16 @@ const outcomeItems = [
   "Süreç boyunca yalnız ilerlemezsin, sürekli geri bildirim ve yönlendirme alırsın",
 ];
 
+const resourceItems = [
+  "Marka kurulum ve büyütme şablonları",
+  "Ürün, koleksiyon ve fiyatlandırma analiz dökümanları",
+  "Numune ve üretim süreci kılavuzları",
+  "Çekim, içerik ve marka dili rehberleri",
+  "Satış ve lansman planları",
+  "Güvenilir üretici ve tedarikçi bağlantıları",
+  "Mevcut markalar için yeniden yapılandırma dökümanları",
+];
+
 export function HomePage() {
   return (
     <>
@@ -73,14 +83,13 @@ Bu süreçte ben misafirim, siz kurucusunuz.`}
       */}
 
       <PricingSection plans={plans} />
-      <FeatureSection id="hakkimda" />
+      <FeatureSection id="hakkimda" backgroundClassName="bg-[#eef2f6]" />
       <FeatureSection
         reverse
-        title="NEYE YATIRIM YAPIYORSUNUZ"
+        title="NEYE YATIRIM YAPIYORSUNUZ?"
         items={investmentItems}
         imageSrc="/images/featuresection1.jpeg"
         imageAlt="Strateji ve yatırım sürecini anlatan görsel"
-        backgroundClassName="bg-[#eef2f6]"
         compactImage
         compactGap
       />
@@ -89,6 +98,16 @@ Bu süreçte ben misafirim, siz kurucusunuz.`}
         items={outcomeItems}
         imageSrc="/images/featuresection2.jpeg"
         imageAlt="Program kazanımlarını anlatan görsel"
+        backgroundClassName="bg-[#eef2f6]"
+      />
+      <FeatureSection
+        reverse
+        title="HANGİ KAYNAKLARA ERİŞİRSİN?"
+        items={resourceItems}
+        imageSrc="/images/featuresection3.jpeg"
+        imageAlt="Kaynaklara erişimi anlatan görsel"
+        compactImage
+        compactGap
       />
 
       {/*
