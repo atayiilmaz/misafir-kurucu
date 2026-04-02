@@ -19,7 +19,7 @@ export function HomePage() {
         subtitle={`İster yeni başlıyor olun, ister markanızı büyütüyor olun; bu süreci netleştiriyor ve satış getiren bir yapıya dönüştürüyorum.
 Bu süreçte ben misafirim, siz kurucusunuz.`}
         callToAction={{ text: "Programları Keşfet", href: "/#programlar" }}
-        backgroundImage="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=80"
+        backgroundImage="/images/herosection.jpeg"
       />
 
       <RevealSection as="section" className="bg-[#eef2f6] py-12 md:py-16">
