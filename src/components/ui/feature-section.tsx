@@ -25,7 +25,7 @@ type FeatureSectionProps = {
 export default function FeatureSection({
   id,
   reverse = false,
-  title = "Hakkımda",
+  title = "HAKKIMDA",
   paragraphs = aboutParagraphs,
   items,
   imageSrc = "/images/aboutme.jpeg",
