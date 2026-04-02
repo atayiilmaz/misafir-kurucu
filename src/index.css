@@ -14,17 +14,17 @@
 
 :root {
   color-scheme: light;
-  --background: 38 31% 95%;
-  --foreground: 18 19% 18%;
+  --background: 28 100% 98%;
+  --foreground: 18 24% 11%;
   --card: 0 0% 100%;
-  --card-foreground: 18 19% 18%;
-  --muted: 40 23% 90%;
-  --muted-foreground: 25 10% 36%;
-  --primary: 27 42% 47%;
-  --primary-foreground: 36 60% 97%;
-  --border: 32 18% 82%;
-  --accent: 104 18% 39%;
-  --accent-foreground: 40 30% 96%;
+  --card-foreground: 18 24% 11%;
+  --muted: 29 100% 92%;
+  --muted-foreground: 20 12% 34%;
+  --primary: 22 92% 71%;
+  --primary-foreground: 20 28% 12%;
+  --border: 24 54% 80%;
+  --accent: 34 100% 74%;
+  --accent-foreground: 18 24% 11%;
 }
 
 html {
@@ -41,8 +41,9 @@ body {
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   background-image:
-    radial-gradient(circle at top, rgba(201, 172, 134, 0.22), transparent 34%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(248, 242, 234, 0.95));
+    radial-gradient(circle at top left, rgba(249, 162, 111, 0.18), transparent 28%),
+    radial-gradient(circle at 88% 12%, rgba(255, 211, 177, 0.22), transparent 24%),
+    linear-gradient(180deg, rgba(255, 254, 251, 0.92), rgba(255, 247, 240, 0.98));
 }
 
 * {

@@ -17,17 +17,17 @@ export function HomePage() {
     <>
       <HeroSection
         logo={{ alt: "Misafir Kurucu", text: "Misafir Kurucu" }}
-        slogan="Sevinç ile tekstil girişimciliği danışmanlığı"
+        slogan="Sevinç ile birebir, uygulanabilir mentorluk"
         title={
           <>
             Tekstilde kendi markanı
             <br />
-            <span className="text-primary">sağlam temellerle büyüt.</span>
+            <span className="text-primary">fikirden satışa taşı.</span>
           </>
         }
-        subtitle="Sevinç olarak sektörde 16 yılı aşan deneyimimi; marka kurmak, üretim sürecini yönetmek ve sosyal medyada görünürlüğünü satışa taşımak isteyen girişimciler için uygulanabilir bir sisteme dönüştürüyorum."
+        subtitle="Sevinç olarak 16 yılı aşan saha deneyimimi; marka kurmak, üretim sürecini doğru yönetmek ve görünürlüğünü satışa çevirmek isteyen tekstil girişimcileri için sade, uygulanabilir bir sisteme dönüştürüyorum."
         callToAction={{ text: "Programları Keşfet", href: "/#programlar" }}
-        backgroundImage="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1100&q=80"
+        backgroundImage="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=80"
       />
 
       <Features
