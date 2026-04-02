@@ -43,6 +43,14 @@ const tasks = [
   },
 ];
 
+const aboutParagraphs = [
+  "16 yılı aşkın süredir tekstil sektörünün içindeyim.",
+  "Kendi mağazamı kurarak başladım; üretim, tedarik, e-ticaret ve marka kurma süreçlerinin tamamını sahada deneyimledim. Bu süreçte hem büyüttüm hem yeniden başlamak zorunda kaldım.",
+  "Üretim ve e-ticaret alanında kendi iş modellerimi kurarak markalar geliştirdim ve devrettim.",
+  "Bugün, edindiğim bu deneyimle markalara danışmanlık veriyorum.",
+  "Amacım; teorik bilgi aktarmak değil, markaların doğru yapı ve stratejiyle büyümesini sağlamak.",
+];
+
 export default function FeatureSection() {
   return (
     <section className="section-shell py-20" id="hakkimda">
@@ -53,12 +61,12 @@ export default function FeatureSection() {
               <motion.div
                 className="absolute inset-x-0 flex flex-col gap-2"
                 animate={{ y: ["0%", "-50%"] }}
-                  transition={{
-                    repeat: Infinity,
-                    repeatType: "loop",
-                    duration: 15,
-                    ease: "linear" as const,
-                  }}
+                transition={{
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 15,
+                  ease: "linear" as const,
+                }}
               >
                 {[...tasks, ...tasks].map((task, index) => (
                   <div
@@ -85,16 +93,12 @@ export default function FeatureSection() {
 
         <div className="space-y-6">
           <Badge variant="secondary">Hakkımda</Badge>
-          <h2 className="font-display text-5xl leading-none">
-            Sahadaki üretim deneyimini, girişimcinin diline çeviren mentorluk
-          </h2>
-          <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
-            16 yılı aşkın tekstil geçmişim boyunca koleksiyon hazırlama,
-            üretim, tedarik, marka konumlandırma ve satış tarafında aktif
-            çalıştım. Bugün sosyal medyada içerik üretirken aynı zamanda
-            tekstilde kendi markasını kurmak isteyen girişimcilere daha net,
-            ölçülebilir ve uygulanabilir bir yol sunuyorum.
-          </p>
+          <h2 className="font-display text-5xl leading-none">Hakkımda</h2>
+          <div className="max-w-2xl space-y-4 text-lg leading-8 text-muted-foreground">
+            {aboutParagraphs.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
           <div className="flex flex-wrap gap-3">
             <Badge>Marka Kurulumu</Badge>
             <Badge>Üretim Planlama</Badge>

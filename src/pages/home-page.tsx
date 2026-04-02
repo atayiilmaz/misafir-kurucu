@@ -1,4 +1,5 @@
 import { RevealSection } from "@/components/gsap/reveal-section";
+import FeatureSection from "@/components/ui/feature-section";
 import { HeroSection } from "@/components/ui/hero-section-2";
 import { PricingSection } from "@/components/ui/pricing-section";
 import { plans } from "@/content/site";
@@ -53,6 +54,7 @@ Bu süreçte ben misafirim, siz kurucusunuz.`}
       */}
 
       <PricingSection plans={plans} />
+      <FeatureSection />
 
       {/*
       <RevealSection
