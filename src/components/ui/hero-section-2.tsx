@@ -56,18 +56,13 @@ export const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
     return (
       <motion.section
         ref={ref}
-        className={cn("relative overflow-hidden pb-12 pt-4 md:pb-20", className)}
+        className={cn("relative overflow-hidden pb-12 pt-0 md:pb-20", className)}
         initial="hidden"
         animate="visible"
         variants={containerVariants}
       >
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-[34rem] bg-[radial-gradient(circle_at_20%_10%,rgba(255,169,98,0.22),transparent_24%),radial-gradient(circle_at_75%_18%,rgba(255,208,166,0.36),transparent_22%)]" />
-
         <div className="section-shell">
-          <div className="relative overflow-hidden px-4 py-5 md:px-7 md:py-7 lg:px-8 lg:py-8">
-            <div className="pointer-events-none absolute left-8 top-10 h-32 w-32 rounded-full bg-primary/16 blur-3xl" />
-            <div className="pointer-events-none absolute bottom-10 right-8 h-28 w-28 rounded-full bg-accent/20 blur-3xl" />
-
+          <div className="relative overflow-hidden px-4 py-4 md:px-7 md:py-6 lg:px-8 lg:py-8">
             <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:gap-16">
               <motion.div
                 className="relative order-2 lg:order-1"
