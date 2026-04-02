@@ -1,9 +1,7 @@
-import { ArrowRight } from "lucide-react";
 import { RevealSection } from "@/components/gsap/reveal-section";
 import { HeroSection } from "@/components/ui/hero-section-2";
-import { AppLink } from "@/components/ui/app-link";
 import { PricingSection } from "@/components/ui/pricing-section";
-import { blogPosts, plans } from "@/content/site";
+import { plans } from "@/content/site";
 
 export function HomePage() {
   return (
@@ -56,6 +54,7 @@ Bu süreçte ben misafirim, siz kurucusunuz.`}
 
       <PricingSection plans={plans} />
 
+      {/*
       <RevealSection
         as="section"
         className="section-shell py-20"
@@ -107,6 +106,7 @@ Bu süreçte ben misafirim, siz kurucusunuz.`}
           })}
         </div>
       </RevealSection>
+      */}
     </>
   );
 }
