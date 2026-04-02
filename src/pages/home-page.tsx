@@ -4,6 +4,25 @@ import { HeroSection } from "@/components/ui/hero-section-2";
 import { PricingSection } from "@/components/ui/pricing-section";
 import { plans } from "@/content/site";
 
+const investmentItems = [
+  "Özel birebir Zoom strateji görüşmeleri",
+  "Kaynaklar ve çalışma sayfaları",
+  "Günlük sohbet desteği",
+  "Markanın tüm kararlarını yöneten net bir marka çerçevesi",
+  "Ürün ve koleksiyon oluşturma yapıları",
+  "Üretim ve tedarik ağına yönlendirme",
+  "Satış ve lansman planları",
+  "Sürekli geri bildirim ve karar desteği",
+];
+
+const outcomeItems = [
+  "Tek başına karar almak zorunda kalmazsın",
+  "Deneme-yanılma yerine sistemle ilerlersin",
+  "Kararsız kalmazsın, kritik kararları hızlı ve net alırsın",
+  "Üretim ve tedarikte doğru insanlara ulaşırsın",
+  "Süreç boyunca yalnız ilerlemezsin, sürekli geri bildirim ve yönlendirme alırsın",
+];
+
 export function HomePage() {
   return (
     <>
@@ -54,7 +73,21 @@ Bu süreçte ben misafirim, siz kurucusunuz.`}
       */}
 
       <PricingSection plans={plans} />
-      <FeatureSection />
+      <FeatureSection id="hakkimda" />
+      <FeatureSection
+        reverse
+        title="NEYE YATIRIM YAPIYORSUNUZ"
+        items={investmentItems}
+        imageSrc="/images/featuresection1.jpeg"
+        imageAlt="Strateji ve yatırım sürecini anlatan görsel"
+        backgroundClassName="bg-[#eef2f6]"
+      />
+      <FeatureSection
+        title="NE ELDE EDERSİN?"
+        items={outcomeItems}
+        imageSrc="/images/featuresection2.jpeg"
+        imageAlt="Program kazanımlarını anlatan görsel"
+      />
 
       {/*
       <RevealSection
