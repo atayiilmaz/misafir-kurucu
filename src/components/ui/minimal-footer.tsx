@@ -6,6 +6,7 @@ import {
   Send,
   Youtube,
 } from "lucide-react";
+import { useLocation } from "react-router-dom";
 import { RevealSection } from "@/components/gsap/reveal-section";
 import { AppLink } from "@/components/ui/app-link";
 
@@ -54,10 +55,12 @@ const socialLinks = [
 ];
 
 export function MinimalFooter() {
+  const location = useLocation();
   const year = new Date().getFullYear();
 
   return (
     <RevealSection
+      key={location.pathname}
       as="footer"
       className="relative px-3 pb-10 pt-20 md:px-4"
       itemSelector="[data-gsap-item]"
