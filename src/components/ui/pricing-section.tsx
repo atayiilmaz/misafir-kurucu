@@ -148,7 +148,7 @@ export function PricingSection({ plans }: PricingSectionProps) {
       itemSelector="[data-gsap-item]"
     >
       <div className="text-center" data-gsap-item>
-        <div className="section-kicker">Programlar</div>
+        {/* <div className="section-kicker">Programlar</div> */}
         <h2 className="section-title">Hedefinize göre seçebileceğiniz çalışma modelleri</h2>
       </div>
 

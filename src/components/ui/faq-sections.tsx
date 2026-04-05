@@ -34,7 +34,7 @@ const App = () => {
         alt="Sıkça sorulan sorular görseli"
       />
       <div className="w-full">
-        <p className="section-kicker">Sıkça Sorulan Sorular</p>
+        {/* <p className="section-kicker">Sıkça Sorulan Sorular</p> */}
         <h1 className="font-display text-[2.5rem] leading-[0.95] text-foreground md:text-[3.5rem]">
           Aradığınız cevap burada olabilir
         </h1>
