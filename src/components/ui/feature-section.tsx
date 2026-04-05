@@ -13,6 +13,7 @@ type FeatureSectionProps = {
   id?: string;
   reverse?: boolean;
   title?: string;
+  headline?: string;
   paragraphs?: string[];
   items?: string[];
   imageSrc?: string;
@@ -26,6 +27,7 @@ export default function FeatureSection({
   id,
   reverse = false,
   title = "HAKKIMDA",
+  headline,
   paragraphs = aboutParagraphs,
   items,
   imageSrc = "/images/aboutme.jpeg",
@@ -77,12 +79,22 @@ export default function FeatureSection({
               reverse && "lg:order-1 lg:justify-self-start",
             )}
           >
-            <h2
-              className="font-display text-[2.8rem] leading-[0.94] md:text-5xl"
-              data-gsap-item
-            >
-              {title}
-            </h2>
+            {title ? (
+              <h2
+                className="font-display text-[2.8rem] leading-[0.94] md:text-5xl"
+                data-gsap-item
+              >
+                {title}
+              </h2>
+            ) : null}
+            {headline ? (
+              <h3
+                className="font-display text-[2.15rem] leading-[0.98] text-foreground md:text-[3.1rem]"
+                data-gsap-item
+              >
+                {headline}
+              </h3>
+            ) : null}
             {items ? (
               <ul className="max-w-2xl space-y-3 text-lg leading-8 text-muted-foreground">
                 {items.map((item) => (

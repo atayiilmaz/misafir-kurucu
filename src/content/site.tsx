@@ -13,10 +13,10 @@ export const navItems = [
   {
     label: "Programlar",
     children: [
-      { label: "1 · Strateji", href: "/programlar/program-1" },
-      { label: "2 · Strateji + Kurulum", href: "/programlar/program-2" },
+      { label: "Strateji", href: "/programlar/program-1" },
+      { label: "Strateji + Kurulum", href: "/programlar/program-2" },
       {
-        label: "3 · Büyüme / Yeniden Yapılandırma",
+        label: "Büyüme / Yeniden Yapılandırma",
         href: "/programlar/program-3",
       },
     ],

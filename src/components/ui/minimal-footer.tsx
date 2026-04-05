@@ -64,8 +64,7 @@ export function MinimalFooter() {
       start="top 92%"
     >
       <div className="mx-auto w-full max-w-[90rem]">
-        <div className="relative w-full border-border/70 md:border-x">
-          <div className="absolute inset-x-0 top-0 h-px bg-border/80" />
+        <div className="relative w-full overflow-hidden rounded-t-[2.25rem] border border-b-0 border-border/70 md:rounded-t-[2.75rem]">
           <div className="bg-[radial-gradient(35%_80%_at_30%_0%,rgba(97,70,45,0.08),transparent)]">
             <div className="grid grid-cols-6 gap-8 p-5 md:p-8">
               <div

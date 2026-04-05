@@ -37,7 +37,6 @@ const cardVariants = {
 
 function PricingCard({
   title,
-  price,
   priceDescription,
   description,
   features,
@@ -50,30 +49,30 @@ function PricingCard({
   const themes = [
     {
       cardClass:
-        "border-[#f3cdb4] bg-[linear-gradient(180deg,#fff8f3_0%,#ffe7d7_54%,#ffd8c2_100%)] text-foreground",
+        "border-[#efbe9d] bg-[linear-gradient(180deg,#ffc9a8_0%,#ffe0cc_58%,#fff4eb_100%)] text-foreground",
       bodyClass: "text-foreground/72",
       iconClass: "text-[#d47b47]",
       imageClass: "border border-white/70 shadow-[0_12px_24px_-18px_rgba(170,96,44,0.55)]",
       buttonClass:
-        "border-[#efc2a2] bg-white text-foreground hover:bg-white",
+        "border-[#f3a574] bg-[#f6ac7e] text-white shadow-[0_16px_30px_-22px_rgba(211,107,43,0.8)] hover:bg-[#f1a06d]",
     },
     {
       cardClass:
-        "border-[#d9b3aa] bg-[linear-gradient(180deg,#f5dfd6_0%,#ebc0b1_56%,#d99a81_100%)] text-foreground",
+        "border-[#d59a84] bg-[linear-gradient(180deg,#e09a79_0%,#efc0ae_54%,#fbebe3_100%)] text-foreground",
       bodyClass: "text-foreground/78",
       iconClass: "text-[#a45a43]",
       imageClass: "border border-white/55 shadow-[0_12px_24px_-18px_rgba(124,71,54,0.55)]",
       buttonClass:
-        "border-[#c98668] bg-white text-foreground hover:bg-white",
+        "border-[#f0a06d] bg-[#f3a776] text-white shadow-[0_16px_30px_-22px_rgba(211,107,43,0.8)] hover:bg-[#ee9c67]",
     },
     {
       cardClass:
-        "border-[#55302b] bg-[linear-gradient(180deg,#6c4540_0%,#472723_58%,#241211_100%)] text-white",
+        "border-[#5d3731] bg-[linear-gradient(180deg,#2f1412_0%,#6b433d_40%,#9a675b_72%,#d8b0a2_100%)] text-white",
       bodyClass: "text-white/76",
       iconClass: "text-[#ffbf95]",
       imageClass: "border border-white/12 shadow-[0_12px_24px_-18px_rgba(0,0,0,0.8)]",
       buttonClass:
-        "border-white/70 bg-white text-foreground hover:bg-white",
+        "border-[#f3a574] bg-[#f6ac7e] text-white shadow-[0_16px_30px_-22px_rgba(211,107,43,0.85)] hover:bg-[#f1a06d]",
     },
   ] as const;
   const theme = themes[index] ?? themes[themes.length - 1];
@@ -94,11 +93,8 @@ function PricingCard({
             <h3 className="font-display text-4xl leading-none md:text-[2.65rem]">
               {title}
             </h3>
-            <div className="mt-4">
-              <span className="text-4xl font-extrabold">{price}</span>
-              <p className={cn("mt-1 text-sm", theme.bodyClass)}>
-                {priceDescription}
-              </p>
+            <div className="mt-5">
+              <p className={cn("text-sm", theme.bodyClass)}>{priceDescription}</p>
             </div>
           </div>
           <motion.img
@@ -134,7 +130,7 @@ function PricingCard({
         href={href ?? "/gorusme-planlayin"}
         className={cn(
           buttonVariants({ variant: "outline" }),
-          "mt-8 w-full",
+          "mt-8 w-full border-none",
           theme.buttonClass,
         )}
       >

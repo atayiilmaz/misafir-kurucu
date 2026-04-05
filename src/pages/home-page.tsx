@@ -81,7 +81,18 @@ Bu süreçte ben misafirim, siz kurucusunuz.`}
       */}
 
       <PricingSection plans={plans} />
-      <FeatureSection id="hakkimda" backgroundClassName="bg-[#eef2f6]" />
+      <FeatureSection
+        id="hakkimda"
+        title=""
+        headline="16 yılı aşkın süredir tekstil sektörünün içindeyim."
+        paragraphs={[
+          "Kendi mağazamı kurarak başladım; üretim, tedarik, e-ticaret ve marka kurma süreçlerinin tamamını sahada deneyimledim. Bu süreçte hem büyüttüm hem yeniden başlamak zorunda kaldım.",
+          "Üretim ve e-ticaret alanında kendi iş modellerimi kurarak markalar geliştirdim ve devrettim.",
+          "Bugün, edindiğim bu deneyimle markalara danışmanlık veriyorum.",
+          "Amacım; teorik bilgi aktarmak değil, markaların doğru yapı ve stratejiyle büyümesini sağlamak.",
+        ]}
+        backgroundClassName="bg-[#eef2f6]"
+      />
       <FeatureSection
         reverse
         title="NEYE YATIRIM YAPIYORSUNUZ?"
