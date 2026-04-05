@@ -142,7 +142,7 @@ export const plans = [
 
 export const programDetails = {
   "program-1": {
-    title: "1 · Strateji",
+    title: "Strateji",
     description:
       "Bir moda markası aceleyle kurulmaz. Doğru temeller üzerine kurulduğunda sürdürülebilir olur. Bu program, moda markası fikrini netleştirmek ve sağlam bir stratejik temel oluşturmak için tasarlanmıştır.",
     image:
@@ -181,7 +181,7 @@ export const programDetails = {
       "Bu programın sonunda elinde netleşmiş bir marka fikri ve uygulanabilir bir plan olur. Böylece moda markanı aceleyle değil, bilinçli ve sağlam bir temel üzerine kurabilirsin.",
   },
   "program-2": {
-    title: "2 · Strateji + Kurulum",
+    title: "Strateji + Kurulum",
     description:
       "Bu program, Marka Stratejisi Programı’nda yapılan stratejik çalışmayı da içerir. Strateji netleştirildikten sonra markanın kurulum sürecini birlikte planlar ve hayata geçiririz.",
     image:
@@ -232,7 +232,7 @@ export const programDetails = {
       "Bu programın sonunda elinde uygulanabilir ve gerçekçi bir marka kurulum planı olur. Böylece moda markanı plansız değil, doğru bir sistemle hayata geçirebilirsin.",
   },
   "program-3": {
-    title: "3 · Büyüme / Yeniden Yapılandırma",
+    title: "Büyüme / Yeniden Yapılandırma",
     description:
       "Bir moda markası kurulduktan sonra en önemli şey doğru yönü bulmak ve büyüme stratejisini oluşturabilmektir. Bu program mevcut markayı analiz ederek daha güçlü bir konuma taşımak için tasarlanmıştır.",
     image:

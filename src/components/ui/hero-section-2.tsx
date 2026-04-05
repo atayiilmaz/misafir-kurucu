@@ -68,7 +68,7 @@ export const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
           <div className="home-hero-frame relative overflow-hidden px-3 py-3 md:px-6 md:py-5 lg:px-6 lg:py-4 xl:px-8 xl:py-8">
             <div className="home-hero-grid grid items-center gap-6 md:gap-8 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:gap-10 xl:gap-16">
               <motion.div
-                className="home-hero-media-wrap relative order-2 lg:order-1"
+                className="home-hero-media-wrap relative order-2 lg:order-1 lg:max-w-[31rem] xl:max-w-[35rem]"
                 variants={itemVariants}
               >
                 <div className="group relative overflow-hidden rounded-[2rem] border border-foreground/10 bg-card shadow-none">
