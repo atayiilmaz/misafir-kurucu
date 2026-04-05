@@ -5,6 +5,21 @@ import { buttonVariants } from "@/components/ui/button";
 import FeatureSection from "@/components/ui/feature-section";
 import { cn } from "@/lib/utils";
 
+const workingMethodItems = [
+  {
+    step: "01",
+    text: "Mevcut durumu netleştirir, problemi gerçekten nerede yaşadığını görünür hale getiririz.",
+  },
+  {
+    step: "02",
+    text: "Marka, üretim ve satış tarafını birbirinden kopuk değil tek sistem içinde ele alırız.",
+  },
+  {
+    step: "03",
+    text: "Program sonunda yalnızca fikir değil, uygulanabilir bir aksiyon akışı çıkarırız.",
+  },
+];
+
 export function AboutPage() {
   return (
     <>
@@ -43,27 +58,6 @@ export function AboutPage() {
               biçimde göstermek.
             </p>
 
-            <div className="mt-8 grid gap-4 sm:grid-cols-3">
-              <div className="rounded-[1.5rem] bg-white/70 p-5 shadow-sm">
-                <p className="font-display text-4xl">16+</p>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  yıl sektör deneyimi
-                </p>
-              </div>
-              <div className="rounded-[1.5rem] bg-white/70 p-5 shadow-sm">
-                <p className="font-display text-4xl">3</p>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  ana program akışı
-                </p>
-              </div>
-              <div className="rounded-[1.5rem] bg-white/70 p-5 shadow-sm">
-                <p className="font-display text-4xl">1:1</p>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  yakın takipli mentorluk
-                </p>
-              </div>
-            </div>
-
             <AppLink
               href="/gorusme-planlayin"
               className={cn(buttonVariants({ size: "lg" }), "mt-8")}
@@ -74,14 +68,23 @@ export function AboutPage() {
         </div>
       </RevealSection>
 
-      <FeatureSection />
+      <FeatureSection
+        title=""
+        headline="16 yılı aşkın süredir tekstil sektörünün içindeyim."
+        paragraphs={[
+          "Kendi mağazamı kurarak başladım; üretim, tedarik, e-ticaret ve marka kurma süreçlerinin tamamını sahada deneyimledim. Bu süreçte hem büyüttüm hem yeniden başlamak zorunda kaldım.",
+          "Üretim ve e-ticaret alanında kendi iş modellerimi kurarak markalar geliştirdim ve devrettim.",
+          "Bugün, edindiğim bu deneyimle markalara danışmanlık veriyorum.",
+          "Amacım; teorik bilgi aktarmak değil, markaların doğru yapı ve stratejiyle büyümesini sağlamak.",
+        ]}
+      />
 
       <RevealSection
         as="section"
         className="section-shell py-20"
         itemSelector="[data-gsap-item]"
       >
-        <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
           <div
             className="rounded-[2rem] border border-border/60 bg-white/70 p-8 shadow-soft md:p-10"
             data-gsap-item
@@ -103,36 +106,24 @@ export function AboutPage() {
             </p>
           </div>
 
-          <div
-            className="rounded-[2rem] border border-border/60 bg-gradient-to-br from-primary/10 via-white/70 to-accent/10 p-8 shadow-soft md:p-10"
-            data-gsap-item
-          >
-            <p className="text-xs tracking-[0.24em] text-muted-foreground">
+          <div className="space-y-5">
+            {/* <p className="text-xs tracking-[0.24em] text-muted-foreground">
               Çalışma biçimi
-            </p>
-            <div className="mt-6 space-y-5">
-              <div className="rounded-[1.5rem] bg-white/80 p-5">
-                <p className="font-display text-3xl">01</p>
-                <p className="mt-2 text-sm leading-7 text-muted-foreground">
-                  Mevcut durumu netleştirir, problemi gerçekten nerede yaşadığını
-                  görünür hale getiririz.
+            </p> */}
+            {workingMethodItems.map((item) => (
+              <div
+                key={item.step}
+                className="rounded-[1.75rem] border border-border/60 bg-gradient-to-br from-primary/10 via-white/90 to-accent/10 p-6 shadow-soft md:p-7"
+                data-gsap-item
+              >
+                <p className="font-display text-[2.4rem] leading-none">
+                  {item.step}
+                </p>
+                <p className="mt-4 text-base leading-8 text-muted-foreground">
+                  {item.text}
                 </p>
               </div>
-              <div className="rounded-[1.5rem] bg-white/80 p-5">
-                <p className="font-display text-3xl">02</p>
-                <p className="mt-2 text-sm leading-7 text-muted-foreground">
-                  Marka, üretim ve satış tarafını birbirinden kopuk değil tek
-                  sistem içinde ele alırız.
-                </p>
-              </div>
-              <div className="rounded-[1.5rem] bg-white/80 p-5">
-                <p className="font-display text-3xl">03</p>
-                <p className="mt-2 text-sm leading-7 text-muted-foreground">
-                  Program sonunda yalnızca fikir değil, uygulanabilir bir aksiyon
-                  akışı çıkarırız.
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </RevealSection>
