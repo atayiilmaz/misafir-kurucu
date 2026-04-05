@@ -20,10 +20,10 @@
   --card-foreground: 18 24% 11%;
   --muted: 29 100% 92%;
   --muted-foreground: 20 12% 34%;
-  --primary: 22 92% 71%;
+  --primary: 22 84% 63%;
   --primary-foreground: 20 28% 12%;
-  --border: 24 54% 80%;
-  --accent: 34 100% 74%;
+  --border: 24 48% 74%;
+  --accent: 30 92% 68%;
   --accent-foreground: 18 24% 11%;
 }
 
@@ -41,8 +41,8 @@ body {
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   background-image:
-    radial-gradient(circle at top left, rgba(249, 162, 111, 0.18), transparent 28%),
-    radial-gradient(circle at 88% 12%, rgba(255, 211, 177, 0.22), transparent 24%),
+    radial-gradient(circle at top left, rgba(235, 138, 76, 0.19), transparent 28%),
+    radial-gradient(circle at 88% 12%, rgba(247, 182, 132, 0.24), transparent 24%),
     linear-gradient(180deg, rgba(255, 254, 251, 0.92), rgba(255, 247, 240, 0.98));
 }
 

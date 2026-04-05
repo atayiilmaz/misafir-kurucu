@@ -54,7 +54,7 @@ function PricingCard({
       iconClass: "text-[#d47b47]",
       imageClass: "border border-white/70 shadow-[0_12px_24px_-18px_rgba(170,96,44,0.55)]",
       buttonClass:
-        "border-[#f3a574] bg-[#f6ac7e] text-white shadow-[0_16px_30px_-22px_rgba(211,107,43,0.8)] hover:bg-[#f1a06d]",
+        "bg-primary text-white shadow-[0_16px_30px_-22px_hsl(var(--primary)/0.6)] hover:bg-primary/92",
     },
     {
       cardClass:
@@ -63,7 +63,7 @@ function PricingCard({
       iconClass: "text-[#a45a43]",
       imageClass: "border border-white/55 shadow-[0_12px_24px_-18px_rgba(124,71,54,0.55)]",
       buttonClass:
-        "border-[#f0a06d] bg-[#f3a776] text-white shadow-[0_16px_30px_-22px_rgba(211,107,43,0.8)] hover:bg-[#ee9c67]",
+        "bg-primary text-white shadow-[0_16px_30px_-22px_hsl(var(--primary)/0.6)] hover:bg-primary/92",
     },
     {
       cardClass:
@@ -72,7 +72,7 @@ function PricingCard({
       iconClass: "text-[#ffbf95]",
       imageClass: "border border-white/12 shadow-[0_12px_24px_-18px_rgba(0,0,0,0.8)]",
       buttonClass:
-        "border-[#f3a574] bg-[#f6ac7e] text-white shadow-[0_16px_30px_-22px_rgba(211,107,43,0.85)] hover:bg-[#f1a06d]",
+        "bg-primary text-white shadow-[0_16px_30px_-22px_hsl(var(--primary)/0.65)] hover:bg-primary/92",
     },
   ] as const;
   const theme = themes[index] ?? themes[themes.length - 1];
