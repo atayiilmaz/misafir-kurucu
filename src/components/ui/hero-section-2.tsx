@@ -57,7 +57,7 @@ export const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
       <motion.section
         ref={ref}
         className={cn(
-          "relative overflow-hidden pb-8 pt-0 md:pb-14 lg:flex lg:min-h-[calc(100svh-5.75rem)] lg:items-center lg:pb-8 xl:pb-16",
+          "home-hero relative overflow-hidden pb-8 pt-0 md:pb-14 lg:flex lg:min-h-[calc(100svh-5.75rem)] lg:items-center lg:pb-8 xl:pb-16",
           className,
         )}
         initial="hidden"
@@ -65,15 +65,15 @@ export const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
         variants={containerVariants}
       >
         <div className="section-shell">
-          <div className="relative overflow-hidden px-3 py-3 md:px-6 md:py-5 lg:px-6 lg:py-4 xl:px-8 xl:py-8">
-            <div className="grid items-center gap-6 md:gap-8 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:gap-10 xl:gap-16">
+          <div className="home-hero-frame relative overflow-hidden px-3 py-3 md:px-6 md:py-5 lg:px-6 lg:py-4 xl:px-8 xl:py-8">
+            <div className="home-hero-grid grid items-center gap-6 md:gap-8 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:gap-10 xl:gap-16">
               <motion.div
-                className="relative order-2 lg:order-1"
+                className="home-hero-media-wrap relative order-2 lg:order-1"
                 variants={itemVariants}
               >
-                <div className="group relative overflow-hidden rounded-[2rem] border border-foreground/10 bg-card shadow-[0_28px_60px_-28px_rgba(55,32,16,0.42)]">
+                <div className="group relative overflow-hidden rounded-[2rem] border border-foreground/10 bg-card shadow-none">
                   <motion.div
-                    className="aspect-[5/6] w-full bg-cover bg-center sm:aspect-[4/5] lg:min-h-[29rem] xl:min-h-[38rem]"
+                    className="home-hero-media aspect-[5/6] w-full bg-cover bg-center sm:aspect-[4/5] lg:min-h-[27rem] xl:min-h-[38rem]"
                     style={{ backgroundImage: `url(${backgroundImage})` }}
                     initial={{ scale: 1.08, opacity: 0.78 }}
                     animate={{ scale: 1, opacity: 1 }}
@@ -83,12 +83,12 @@ export const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
               </motion.div>
 
               <motion.div
-                className="order-1 flex flex-col justify-center lg:order-2"
+                className="home-hero-copy order-1 flex flex-col justify-center lg:order-2"
                 variants={containerVariants}
               >
                 {slogan ? (
                   <motion.p
-                    className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-foreground sm:text-sm md:mb-4"
+                    className="home-hero-kicker mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-foreground sm:text-sm md:mb-4"
                     variants={itemVariants}
                   >
                     {slogan}
@@ -96,28 +96,28 @@ export const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
                 ) : null}
 
                 <motion.h1
-                  className="max-w-[12ch] font-display text-[2.65rem] leading-[0.92] sm:text-[3rem] md:text-[4.1rem] lg:text-[4.45rem] xl:max-w-[11ch] xl:text-[5.35rem]"
+                  className="home-hero-title max-w-[12ch] font-display text-[2.65rem] leading-[0.92] sm:text-[3rem] md:text-[4.1rem] lg:text-[4.45rem] xl:max-w-[11ch] xl:text-[5.35rem]"
                   variants={itemVariants}
                 >
                   {title}
                 </motion.h1>
 
                 <motion.p
-                  className="mt-4 max-w-2xl whitespace-pre-line text-base leading-7 text-muted-foreground sm:text-[1.02rem] md:mt-5 md:text-[1.08rem] md:leading-8 xl:mt-6 xl:text-[1.15rem]"
+                  className="home-hero-subtitle mt-4 max-w-2xl whitespace-pre-line text-base leading-7 text-muted-foreground sm:text-[1.02rem] md:mt-5 md:text-[1.08rem] md:leading-8 xl:mt-6 xl:text-[1.15rem]"
                   variants={itemVariants}
                 >
                   {subtitle}
                 </motion.p>
 
                 <motion.div
-                  className="mt-7 flex flex-wrap items-center gap-3 md:mt-8 md:gap-4"
+                  className="home-hero-actions mt-7 flex flex-wrap items-center gap-3 md:mt-8 md:gap-4"
                   variants={itemVariants}
                 >
                   <AppLink
                     href={callToAction.href}
                     className={cn(
                       buttonVariants({ size: "lg" }),
-                      "h-11 w-full px-6 text-[0.95rem] sm:h-12 sm:w-auto sm:min-w-[13rem] sm:px-8 sm:text-base",
+                      "home-hero-action h-11 w-full px-6 text-[0.95rem] sm:h-12 sm:w-auto sm:min-w-[13rem] sm:px-8 sm:text-base",
                     )}
                   >
                     {callToAction.text}
@@ -126,7 +126,7 @@ export const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
                     href="/blog"
                     className={cn(
                       buttonVariants({ variant: "outline", size: "lg" }),
-                      "h-11 w-full px-6 text-[0.95rem] sm:h-12 sm:w-auto sm:min-w-[13rem] sm:px-8 sm:text-base",
+                      "home-hero-action h-11 w-full px-6 text-[0.95rem] sm:h-12 sm:w-auto sm:min-w-[13rem] sm:px-8 sm:text-base",
                     )}
                   >
                     Son içeriklere göz atın
