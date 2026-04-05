@@ -156,8 +156,8 @@ h6 {
     gap: 1.75rem;
   }
 
-  .about-top-media {
-    min-height: clamp(23rem, calc(100svh - 14rem), 29rem);
+  .about-top-media-wrap {
+    max-width: 22rem;
   }
 
   .about-top-card {
@@ -200,8 +200,8 @@ h6 {
     font-size: clamp(2.8rem, 4.1vw, 3.6rem);
   }
 
-  .about-top-media {
-    min-height: clamp(20rem, calc(100svh - 15rem), 25.5rem);
+  .about-top-media-wrap {
+    max-width: 20rem;
   }
 
   .about-top-copy {

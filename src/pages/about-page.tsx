@@ -29,12 +29,15 @@ export function AboutPage() {
         itemSelector="[data-gsap-item]"
       >
         <div className="about-top-grid grid items-center gap-6 md:gap-8 lg:grid-cols-[0.72fr_1.08fr] lg:gap-10 xl:grid-cols-[0.78fr_1.22fr] xl:gap-14">
-          <div className="about-top-media-wrap relative" data-gsap-item>
+          <div
+            className="about-top-media-wrap relative w-full lg:max-w-[24rem] xl:max-w-[28rem]"
+            data-gsap-item
+          >
             <div className="absolute -left-4 -top-4 hidden h-32 w-32 rounded-full bg-primary/10 blur-3xl md:block" />
             <img
-              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1200&q=80"
+              src="/images/aboutme.jpeg"
               alt="Sevinç portresi"
-              className="about-top-media relative h-full min-h-[360px] w-full rounded-[2.25rem] object-cover shadow-soft sm:min-h-[430px] lg:min-h-[27rem] xl:min-h-[36rem]"
+              className="about-top-media relative aspect-[4/5] w-full rounded-[2.25rem] object-cover shadow-soft"
             />
           </div>
 
@@ -42,7 +45,6 @@ export function AboutPage() {
             className="about-top-card rounded-[2rem] border border-border/60 bg-white/45 p-6 backdrop-blur-sm md:p-8 lg:p-8 xl:p-12"
             data-gsap-item
           >
-            <Badge>Hakkımda</Badge>
             <h1 className="about-top-title mt-4 font-display text-[2.45rem] leading-[0.96] sm:text-[2.8rem] md:text-[3.4rem] lg:text-[3.8rem] xl:text-[4.4rem]">
               Sevinç ile tekstilde fikirden üretime uzanan gerçek saha bilgisi
             </h1>
