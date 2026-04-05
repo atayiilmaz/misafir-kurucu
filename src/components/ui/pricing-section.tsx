@@ -90,7 +90,7 @@ function PricingCard({
       <div>
         <div className="flex items-start justify-between gap-4">
           <div>
-            <h3 className="font-display text-4xl leading-none md:text-[2.65rem]">
+            <h3 className="font-display text-[2rem] leading-none sm:text-[2.2rem] md:text-[2.65rem]">
               {title}
             </h3>
             <div className="mt-5">

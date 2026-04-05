@@ -25,34 +25,34 @@ export function AboutPage() {
     <>
       <RevealSection
         as="section"
-        className="section-shell pb-16 pt-8 md:pt-10"
+        className="section-shell pb-12 pt-6 md:pt-8 lg:flex lg:min-h-[calc(100svh-5.75rem)] lg:items-center lg:pb-8 xl:pb-16"
         itemSelector="[data-gsap-item]"
       >
-        <div className="grid items-center gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:gap-14">
+        <div className="grid items-center gap-6 md:gap-8 lg:grid-cols-[0.72fr_1.08fr] lg:gap-10 xl:grid-cols-[0.78fr_1.22fr] xl:gap-14">
           <div className="relative" data-gsap-item>
             <div className="absolute -left-4 -top-4 hidden h-32 w-32 rounded-full bg-primary/10 blur-3xl md:block" />
             <img
               src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1200&q=80"
               alt="Sevinç portresi"
-              className="relative h-full min-h-[500px] w-full rounded-[2.5rem] object-cover shadow-soft"
+              className="relative h-full min-h-[360px] w-full rounded-[2.25rem] object-cover shadow-soft sm:min-h-[430px] lg:min-h-[29rem] xl:min-h-[36rem]"
             />
           </div>
 
           <div
-            className="rounded-[2rem] border border-border/60 bg-white/45 p-8 backdrop-blur-sm md:p-10 lg:p-12"
+            className="rounded-[2rem] border border-border/60 bg-white/45 p-6 backdrop-blur-sm md:p-8 lg:p-8 xl:p-12"
             data-gsap-item
           >
             <Badge>Hakkımda</Badge>
-            <h1 className="mt-4 font-display text-[3.1rem] leading-[0.95] md:text-[4.4rem]">
+            <h1 className="mt-4 font-display text-[2.45rem] leading-[0.96] sm:text-[2.8rem] md:text-[3.4rem] lg:text-[3.8rem] xl:text-[4.4rem]">
               Sevinç ile tekstilde fikirden üretime uzanan gerçek saha bilgisi
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-muted-foreground">
+            <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground md:mt-6 md:text-[1.05rem] md:leading-8">
               Yıllar içinde üretim, koleksiyon, tedarik, satış ve görünürlük
               tarafında sahada öğrendiğim konuları; kendi markasını kurmak
               isteyenler için daha net, uygulanabilir ve takip edilebilir hale
               getiriyorum.
             </p>
-            <p className="mt-4 max-w-2xl text-base leading-8 text-muted-foreground">
+            <p className="mt-4 max-w-2xl text-[0.98rem] leading-7 text-muted-foreground md:text-base md:leading-8">
               Amacım ilham verip geri çekilmek değil. Ne yapılacağını, hangi
               sırayla yapılacağını ve nerede hata verme riskinin arttığını açık
               biçimde göstermek.
@@ -81,25 +81,25 @@ export function AboutPage() {
 
       <RevealSection
         as="section"
-        className="section-shell py-20"
+        className="section-shell py-14 md:py-20"
         itemSelector="[data-gsap-item]"
       >
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
           <div
-            className="rounded-[2rem] border border-border/60 bg-white/70 p-8 shadow-soft md:p-10"
+            className="rounded-[2rem] border border-border/60 bg-white/70 p-6 shadow-soft md:p-10"
             data-gsap-item
           >
             <Badge>Yaklaşımım</Badge>
-            <h2 className="mt-4 font-display text-5xl leading-none">
+            <h2 className="mt-4 font-display text-[2.3rem] leading-[0.95] sm:text-[2.7rem] md:text-5xl">
               İlham değil, uygulanabilir netlik
             </h2>
-            <p className="mt-5 text-base leading-8 text-muted-foreground">
+            <p className="mt-5 text-[0.98rem] leading-7 text-muted-foreground md:text-base md:leading-8">
               İçerik üretirken motivasyon vermek tek başına yeterli değil.
               Girişimcinin neyi ne sırayla yapacağını, hangi kararın neden
               öncelikli olduğunu ve sahada nerede hata verebileceğini açıkça
               görmek gerekiyor.
             </p>
-            <p className="mt-4 text-base leading-8 text-muted-foreground">
+            <p className="mt-4 text-[0.98rem] leading-7 text-muted-foreground md:text-base md:leading-8">
               Sevinç olarak çalışma biçimim; sahadaki karmaşayı sadeleştirmek,
               doğru öncelikleri belirlemek ve girişimciyi uygulanabilir bir yol
               haritasıyla bırakmak üzerine kurulu.
@@ -107,19 +107,16 @@ export function AboutPage() {
           </div>
 
           <div className="space-y-5">
-            {/* <p className="text-xs tracking-[0.24em] text-muted-foreground">
-              Çalışma biçimi
-            </p> */}
             {workingMethodItems.map((item) => (
               <div
                 key={item.step}
-                className="rounded-[1.75rem] border border-border/60 bg-gradient-to-br from-primary/10 via-white/90 to-accent/10 p-6 shadow-soft md:p-7"
+                className="rounded-[1.75rem] border border-border/60 bg-gradient-to-br from-primary/10 via-white/90 to-accent/10 p-5 shadow-soft md:p-7"
                 data-gsap-item
               >
-                <p className="font-display text-[2.4rem] leading-none">
+                <p className="font-display text-[2.1rem] leading-none md:text-[2.4rem]">
                   {item.step}
                 </p>
-                <p className="mt-4 text-base leading-8 text-muted-foreground">
+                <p className="mt-3 text-[0.98rem] leading-7 text-muted-foreground md:mt-4 md:text-base md:leading-8">
                   {item.text}
                 </p>
               </div>

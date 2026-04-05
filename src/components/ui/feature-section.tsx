@@ -39,7 +39,7 @@ export default function FeatureSection({
   return (
     <RevealSection
       as="section"
-      className={cn("py-20", backgroundClassName)}
+      className={cn("py-14 md:py-20", backgroundClassName)}
       id={id}
       itemSelector="[data-gsap-item]"
       start="top 84%"
@@ -49,7 +49,7 @@ export default function FeatureSection({
       <div className="section-shell">
         <div
           className={cn(
-            "mx-auto grid max-w-[80rem] items-center gap-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] xl:max-w-[82rem] xl:gap-12",
+            "mx-auto grid max-w-[80rem] items-center gap-8 md:gap-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] xl:max-w-[82rem] xl:gap-12",
             compactGap && "lg:gap-7 xl:gap-8",
           )}
         >
@@ -68,7 +68,7 @@ export default function FeatureSection({
                 "w-full rounded-[2rem] object-cover shadow-soft",
                 compactImage
                   ? "aspect-[4/5] object-[center_top]"
-                  : "h-[28rem] xl:h-[32rem]",
+                  : "h-[22rem] sm:h-[25rem] lg:h-[28rem] xl:h-[32rem]",
               )}
             />
           </div>
@@ -81,7 +81,7 @@ export default function FeatureSection({
           >
             {title ? (
               <h2
-                className="font-display text-[2.8rem] leading-[0.94] md:text-5xl"
+                className="font-display text-[2.25rem] leading-[0.95] sm:text-[2.55rem] md:text-5xl"
                 data-gsap-item
               >
                 {title}
@@ -89,14 +89,14 @@ export default function FeatureSection({
             ) : null}
             {headline ? (
               <h3
-                className="font-display text-[2.15rem] leading-[0.98] text-foreground md:text-[3.1rem]"
+                className="font-display text-[1.9rem] leading-[1] text-foreground sm:text-[2.1rem] md:text-[3.1rem]"
                 data-gsap-item
               >
                 {headline}
               </h3>
             ) : null}
             {items ? (
-              <ul className="max-w-2xl space-y-3 text-lg leading-8 text-muted-foreground">
+              <ul className="max-w-2xl space-y-3 text-base leading-7 text-muted-foreground md:text-lg md:leading-8">
                 {items.map((item) => (
                   <li key={item} className="flex gap-3" data-gsap-item>
                     <span className="mt-3 h-2 w-2 shrink-0 rounded-full bg-primary" />
@@ -105,7 +105,7 @@ export default function FeatureSection({
                 ))}
               </ul>
             ) : (
-              <div className="max-w-2xl space-y-4 text-lg leading-8 text-muted-foreground">
+              <div className="max-w-2xl space-y-4 text-base leading-7 text-muted-foreground md:text-lg md:leading-8">
                 {paragraphs.map((paragraph) => (
                   <p key={paragraph} data-gsap-item>
                     {paragraph}

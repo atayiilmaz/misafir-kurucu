@@ -65,7 +65,7 @@ img {
 }
 
 .section-title {
-  @apply font-display text-[2.7rem] leading-[0.94] text-foreground md:text-[4rem];
+  @apply font-display text-[2.35rem] leading-[0.95] text-foreground sm:text-[2.55rem] md:text-[4rem];
 }
 
 .section-kicker {

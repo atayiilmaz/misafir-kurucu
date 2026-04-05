@@ -144,7 +144,7 @@ export function Navbar1({ items }: Navbar1Props) {
           >
             <div className="mx-auto flex h-full max-w-md flex-col">
               <div className="mb-12 flex items-center justify-between">
-                <span className="font-display text-3xl">Menü</span>
+                <span className="font-display text-[2.35rem] sm:text-3xl">Menü</span>
                 <button
                   className="rounded-full border border-border bg-white p-2"
                   onClick={() => setIsMobileOpen(false)}
@@ -161,7 +161,7 @@ export function Navbar1({ items }: Navbar1Props) {
                       <NavLink
                         key={item.label}
                         to={item.href ?? "/"}
-                        className="block rounded-2xl bg-white/75 px-5 py-4 text-lg font-semibold"
+                        className="block rounded-2xl bg-white/75 px-5 py-4 text-base font-semibold sm:text-lg"
                         onClick={() => setIsMobileOpen(false)}
                       >
                         {item.label}
@@ -175,7 +175,7 @@ export function Navbar1({ items }: Navbar1Props) {
                       className="rounded-[1.75rem] border border-border/70 bg-white/75 p-2"
                     >
                       <button
-                        className="flex w-full items-center justify-between px-3 py-3 text-left text-lg font-semibold"
+                        className="flex w-full items-center justify-between px-3 py-3 text-left text-base font-semibold sm:text-lg"
                         onClick={() => setMobileProgramsOpen((value) => !value)}
                         type="button"
                       >
@@ -201,7 +201,7 @@ export function Navbar1({ items }: Navbar1Props) {
                                 <NavLink
                                   key={child.label}
                                   to={child.href}
-                                  className="block rounded-2xl bg-muted px-4 py-3 text-sm font-medium"
+                                  className="block rounded-2xl bg-muted px-4 py-3 text-xs font-medium sm:text-sm"
                                   onClick={() => setIsMobileOpen(false)}
                                 >
                                   {child.label}
@@ -219,7 +219,10 @@ export function Navbar1({ items }: Navbar1Props) {
               <div className="mt-auto pt-8">
                 <AppLink
                   href="/gorusme-planlayin"
-                  className={cn(buttonVariants(), "w-full")}
+                  className={cn(
+                    buttonVariants(),
+                    "h-11 w-full px-6 text-[0.95rem] sm:h-12 sm:px-8 sm:text-base",
+                  )}
                   onClick={() => setIsMobileOpen(false)}
                 >
                   Görüşme Planlayın

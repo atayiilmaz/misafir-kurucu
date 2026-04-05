@@ -56,21 +56,24 @@ export const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
     return (
       <motion.section
         ref={ref}
-        className={cn("relative overflow-hidden pb-12 pt-0 md:pb-20", className)}
+        className={cn(
+          "relative overflow-hidden pb-8 pt-0 md:pb-14 lg:flex lg:min-h-[calc(100svh-5.75rem)] lg:items-center lg:pb-8 xl:pb-16",
+          className,
+        )}
         initial="hidden"
         animate="visible"
         variants={containerVariants}
       >
         <div className="section-shell">
-          <div className="relative overflow-hidden px-4 py-4 md:px-7 md:py-6 lg:px-8 lg:py-8">
-            <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:gap-16">
+          <div className="relative overflow-hidden px-3 py-3 md:px-6 md:py-5 lg:px-6 lg:py-4 xl:px-8 xl:py-8">
+            <div className="grid items-center gap-6 md:gap-8 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:gap-10 xl:gap-16">
               <motion.div
                 className="relative order-2 lg:order-1"
                 variants={itemVariants}
               >
                 <div className="group relative overflow-hidden rounded-[2rem] border border-foreground/10 bg-card shadow-[0_28px_60px_-28px_rgba(55,32,16,0.42)]">
                   <motion.div
-                    className="aspect-[5/6] w-full bg-cover bg-center sm:aspect-[4/5] lg:min-h-[39rem]"
+                    className="aspect-[5/6] w-full bg-cover bg-center sm:aspect-[4/5] lg:min-h-[29rem] xl:min-h-[38rem]"
                     style={{ backgroundImage: `url(${backgroundImage})` }}
                     initial={{ scale: 1.08, opacity: 0.78 }}
                     animate={{ scale: 1, opacity: 1 }}
@@ -85,7 +88,7 @@ export const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
               >
                 {slogan ? (
                   <motion.p
-                    className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-foreground"
+                    className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-foreground sm:text-sm md:mb-4"
                     variants={itemVariants}
                   >
                     {slogan}
@@ -93,26 +96,29 @@ export const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
                 ) : null}
 
                 <motion.h1
-                  className="max-w-[11ch] font-display text-[3.35rem] leading-[0.9] md:text-[4.8rem] lg:text-[5.5rem]"
+                  className="max-w-[12ch] font-display text-[2.65rem] leading-[0.92] sm:text-[3rem] md:text-[4.1rem] lg:text-[4.45rem] xl:max-w-[11ch] xl:text-[5.35rem]"
                   variants={itemVariants}
                 >
                   {title}
                 </motion.h1>
 
                 <motion.p
-                  className="mt-6 max-w-2xl whitespace-pre-line text-lg leading-8 text-muted-foreground md:text-[1.15rem]"
+                  className="mt-4 max-w-2xl whitespace-pre-line text-base leading-7 text-muted-foreground sm:text-[1.02rem] md:mt-5 md:text-[1.08rem] md:leading-8 xl:mt-6 xl:text-[1.15rem]"
                   variants={itemVariants}
                 >
                   {subtitle}
                 </motion.p>
 
                 <motion.div
-                  className="mt-9 flex flex-wrap items-center gap-4"
+                  className="mt-7 flex flex-wrap items-center gap-3 md:mt-8 md:gap-4"
                   variants={itemVariants}
                 >
                   <AppLink
                     href={callToAction.href}
-                    className={cn(buttonVariants({ size: "lg" }), "min-w-[14rem]")}
+                    className={cn(
+                      buttonVariants({ size: "lg" }),
+                      "h-11 w-full px-6 text-[0.95rem] sm:h-12 sm:w-auto sm:min-w-[13rem] sm:px-8 sm:text-base",
+                    )}
                   >
                     {callToAction.text}
                   </AppLink>
@@ -120,7 +126,7 @@ export const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
                     href="/blog"
                     className={cn(
                       buttonVariants({ variant: "outline", size: "lg" }),
-                      "min-w-[14rem]",
+                      "h-11 w-full px-6 text-[0.95rem] sm:h-12 sm:w-auto sm:min-w-[13rem] sm:px-8 sm:text-base",
                     )}
                   >
                     Son içeriklere göz atın
