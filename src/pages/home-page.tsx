@@ -58,9 +58,7 @@ Bu süreçte ben misafirim, siz kurucusunuz.`}
             data-gsap-item
           >
             Her marka farklıdır ve aynı yöntemlerle büyümez.
-            <br />
             Bu yüzden hazır bir eğitim programı sunmak yerine, markanıza
-            <br />
             özel ve birebir çalışarak birlikte ilerliyoruz.
           </p>
         </div>
