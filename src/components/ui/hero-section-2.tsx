@@ -2,7 +2,7 @@ import * as React from "react";
 import { motion } from "framer-motion";
 import { AppLink } from "@/components/ui/app-link";
 import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
+import SubtleButton from "@/components/ui/subtle-button";
 
 interface HeroSectionProps {
   className?: string;
@@ -113,24 +113,22 @@ export const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
                   className="home-hero-actions mt-7 flex flex-wrap items-center gap-3 md:mt-8 md:gap-4"
                   variants={itemVariants}
                 >
-                  <AppLink
+                  <SubtleButton
                     href={callToAction.href}
-                    className={cn(
-                      buttonVariants({ size: "lg" }),
-                      "home-hero-action h-11 w-full px-6 text-[0.95rem] sm:h-12 sm:w-auto sm:min-w-[13rem] sm:px-8 sm:text-base",
-                    )}
+                    size="lg"
+                    fullWidth
+                    className="home-hero-action h-11 px-6 text-[0.95rem] sm:h-12 sm:w-auto sm:min-w-[13rem] sm:px-8 sm:text-base"
                   >
                     {callToAction.text}
-                  </AppLink>
-                  <AppLink
+                  </SubtleButton>
+                  <SubtleButton
                     href="/blog"
-                    className={cn(
-                      buttonVariants({ variant: "outline", size: "lg" }),
-                      "home-hero-action h-11 w-full px-6 text-[0.95rem] sm:h-12 sm:w-auto sm:min-w-[13rem] sm:px-8 sm:text-base",
-                    )}
+                    size="lg"
+                    fullWidth
+                    className="home-hero-action h-11 px-6 text-[0.95rem] sm:h-12 sm:w-auto sm:min-w-[13rem] sm:px-8 sm:text-base"
                   >
                     Son içeriklere göz atın
-                  </AppLink>
+                  </SubtleButton>
                 </motion.div>
               </motion.div>
             </div>

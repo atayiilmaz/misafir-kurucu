@@ -29,7 +29,7 @@ export function ConsultationPage() {
       <PageIntro
         eyebrow="Görüşme Planlayın"
         title="Markanız için bir sonraki net adımı birlikte belirleyelim"
-        description="Ücretsiz ön görüşmede mevcut durumunuzu, hedefinizi ve hangi programın size daha uygun olduğunu değerlendiriyoruz."
+        description="Ücretsiz ön görüşmede mevcut durumunuzu, hedefinizi ve hangi programın ya da çalışma modelinin size daha uygun olduğunu değerlendiriyoruz."
       />
 
       <RevealSection as="section" className="section-shell py-10">

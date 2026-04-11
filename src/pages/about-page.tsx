@@ -1,9 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { RevealSection } from "@/components/gsap/reveal-section";
-import { AppLink } from "@/components/ui/app-link";
-import { buttonVariants } from "@/components/ui/button";
+import SubtleButton from "@/components/ui/subtle-button";
 import FeatureSection from "@/components/ui/feature-section";
-import { cn } from "@/lib/utils";
 
 const workingMethodItems = [
   {
@@ -60,12 +58,13 @@ export function AboutPage() {
               biçimde göstermek.
             </p>
 
-            <AppLink
+            <SubtleButton
               href="/gorusme-planlayin"
-              className={cn(buttonVariants({ size: "lg" }), "about-top-action mt-8")}
+              size="lg"
+              className="about-top-action mt-8"
             >
               Görüşme Planlayın
-            </AppLink>
+            </SubtleButton>
           </div>
         </div>
       </RevealSection>

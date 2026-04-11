@@ -1,4 +1,4 @@
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { SiteLayout } from "@/components/site-layout";
 import { AboutPage } from "@/pages/about-page";
 import { BlogPage } from "@/pages/blog-page";
@@ -7,6 +7,7 @@ import { FaqPage } from "@/pages/faq-page";
 import { HomePage } from "@/pages/home-page";
 import { NotFoundPage } from "@/pages/not-found-page";
 import { ProgramDetailPage } from "@/pages/program-detail-page";
+import { ProgramsPage } from "@/pages/programs-page";
 
 export default function App() {
   return (
@@ -15,7 +16,7 @@ export default function App() {
         <Route element={<SiteLayout />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/hakkimda" element={<AboutPage />} />
-          <Route path="/programlar" element={<Navigate to="/#programlar" replace />} />
+          <Route path="/programlar" element={<ProgramsPage />} />
           <Route path="/programlar/:slug" element={<ProgramDetailPage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route

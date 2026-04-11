@@ -3,7 +3,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import { PageTransitionShell } from "@/components/gsap/page-transition-shell";
 import { Navbar1 } from "@/components/ui/navbar-1";
 import { MinimalFooter } from "@/components/ui/minimal-footer";
-import { navItems } from "@/content/site";
+import { navItems } from "@/content/programs";
 
 function ScrollToTop() {
   const location = useLocation();

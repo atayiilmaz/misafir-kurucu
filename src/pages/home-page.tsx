@@ -2,7 +2,7 @@ import { RevealSection } from "@/components/gsap/reveal-section";
 import FeatureSection from "@/components/ui/feature-section";
 import { HeroSection } from "@/components/ui/hero-section-2";
 import { PricingSection } from "@/components/ui/pricing-section";
-import { plans } from "@/content/site";
+import { plans } from "@/content/programs";
 
 const investmentItems = [
   "Özel birebir Zoom strateji görüşmeleri",
@@ -98,7 +98,7 @@ Bu süreçte ben misafirim, siz kurucusunuz.`}
         title="NEYE YATIRIM YAPIYORSUNUZ?"
         items={investmentItems}
         imageSrc="/images/featuresection1.jpeg"
-        imageAlt="Strateji ve yatırım sürecini anlatan görsel"
+        imageAlt="Birebir çalışma modelini anlatan görsel"
         compactImage
         compactGap
       />

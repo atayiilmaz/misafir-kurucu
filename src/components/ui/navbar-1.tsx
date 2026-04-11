@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
 import { ChevronDown, Menu, Scissors, X } from "lucide-react";
 import { AppLink } from "@/components/ui/app-link";
-import { buttonVariants } from "@/components/ui/button";
+import SubtleButton from "@/components/ui/subtle-button";
 import { cn } from "@/lib/utils";
 
 type NavItem = {
@@ -116,12 +116,12 @@ export function Navbar1({ items }: Navbar1Props) {
             })}
           </nav>
 
-          <AppLink
+          <SubtleButton
             href="/gorusme-planlayin"
-            className={buttonVariants()}
+            size="default"
           >
             Görüşme Planlayın
-          </AppLink>
+          </SubtleButton>
         </div>
 
         <button
@@ -217,16 +217,15 @@ export function Navbar1({ items }: Navbar1Props) {
               </div>
 
               <div className="mt-auto pt-8">
-                <AppLink
+                <SubtleButton
                   href="/gorusme-planlayin"
-                  className={cn(
-                    buttonVariants(),
-                    "h-11 w-full px-6 text-[0.95rem] sm:h-12 sm:px-8 sm:text-base",
-                  )}
+                  size="default"
+                  fullWidth
+                  className="h-11 px-6 text-[0.95rem] sm:h-12 sm:px-8 sm:text-base"
                   onClick={() => setIsMobileOpen(false)}
                 >
                   Görüşme Planlayın
-                </AppLink>
+                </SubtleButton>
               </div>
             </div>
           </motion.div>

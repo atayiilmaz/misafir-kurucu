@@ -1,0 +1,1008 @@
+import { useMemo, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+import { ArrowRight, MoveRight } from "lucide-react";
+import SubtleButton from "@/components/ui/subtle-button";
+import { cn } from "@/lib/utils";
+import type { ProgramData, ProgramPackageItem } from "@/content/programs";
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
+
+type ProgramHeroSceneProps = {
+  program: ProgramData;
+};
+
+type ProgramListSceneProps = {
+  eyebrow: string;
+  title: string;
+  items: string[];
+  image: string;
+  imageAlt: string;
+  dark?: boolean;
+  imageOnRight?: boolean;
+};
+
+type ProgramPackageSceneProps = {
+  title: string;
+  items: ProgramPackageItem[];
+  image: string;
+  imageAlt: string;
+};
+
+type ProgramNarrativeSceneProps = {
+  title: string;
+  paragraphs: string[];
+  image: string;
+  imageAlt: string;
+};
+
+type ProgramSupportSceneProps = {
+  title: string;
+  columns: Array<{
+    heading: string;
+    items: string[];
+  }>;
+  image: string;
+  imageAlt: string;
+};
+
+type ProgramProcessSceneProps = {
+  title: string;
+  intro: string[];
+  steps: string[];
+  image: string;
+  imageAlt: string;
+};
+
+type ProgramFinalCtaProps = {
+  title: string;
+  description: string;
+  buttonLabel: string;
+  href: string;
+};
+
+export function ProgramHeroScene({ program }: ProgramHeroSceneProps) {
+  const rootRef = useRef<HTMLElement | null>(null);
+  const tickerRef = useRef<HTMLDivElement | null>(null);
+  const tickerItems = useMemo(
+    () => [...program.hero.ticker, ...program.hero.ticker],
+    [program.hero.ticker],
+  );
+
+  useGSAP(
+    () => {
+      const root = rootRef.current;
+      const ticker = tickerRef.current;
+
+      if (!root) {
+        return;
+      }
+
+      const mm = gsap.matchMedia();
+
+      mm.add(
+        {
+          reduce: "(prefers-reduced-motion: reduce)",
+          motion: "(prefers-reduced-motion: no-preference)",
+        },
+        (context) => {
+          const conditions = context.conditions as
+            | { reduce?: boolean; motion?: boolean }
+            | undefined;
+
+          if (conditions?.reduce) {
+            gsap.set(
+              [
+                "[data-hero-word]",
+                "[data-hero-copy]",
+                "[data-hero-strip]",
+                "[data-hero-media]",
+                "[data-hero-marquee]",
+              ],
+              { autoAlpha: 1, y: 0, clearProps: "all" },
+            );
+            return;
+          }
+
+          const timeline = gsap.timeline({
+            defaults: { duration: 0.95, ease: "power3.out" },
+          });
+
+          timeline
+            .from("[data-hero-word]", {
+              yPercent: 120,
+              stagger: 0.045,
+              duration: 1.05,
+            })
+            .from(
+              "[data-hero-copy]",
+              {
+                autoAlpha: 0,
+                y: 34,
+                stagger: 0.12,
+              },
+              0.18,
+            )
+            .from(
+              "[data-hero-strip]",
+              {
+                autoAlpha: 0,
+                y: 40,
+                stagger: 0.1,
+              },
+              0.32,
+            )
+            .from(
+              "[data-hero-media]",
+              {
+                autoAlpha: 0,
+                scale: 1.08,
+                rotate: -2,
+                clipPath: "inset(14% 10% 16% 10% round 2.8rem)",
+                duration: 1.3,
+              },
+              0.08,
+            )
+            .from(
+              "[data-hero-marquee]",
+              {
+                autoAlpha: 0,
+                y: 32,
+              },
+              0.54,
+            );
+
+          if (ticker) {
+            gsap.to(ticker, {
+              xPercent: -50,
+              duration: 26,
+              ease: "none",
+              repeat: -1,
+            });
+          }
+
+          gsap.fromTo(
+            "[data-hero-media-inner]",
+            { scale: 1.12, yPercent: -4 },
+            {
+              scale: 1,
+              yPercent: 4,
+              ease: "none",
+              scrollTrigger: {
+                trigger: root,
+                start: "top top",
+                end: "bottom top",
+                scrub: 1,
+              },
+            },
+          );
+        },
+      );
+
+      return () => mm.revert();
+    },
+    { scope: rootRef },
+  );
+
+  return (
+    <section
+      ref={rootRef}
+      className="section-shell pt-4 md:pt-6"
+    >
+      <div className="overflow-hidden rounded-[2.6rem] bg-[linear-gradient(135deg,rgba(255,247,242,0.98),rgba(244,248,255,0.98))] text-foreground shadow-[0_28px_80px_-52px_rgba(77,101,255,0.18)]">
+        <div className="grid gap-0 lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="relative flex flex-col overflow-hidden px-6 py-6 md:px-8 md:py-7 lg:px-10 lg:py-7">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,79,0,0.18),transparent_34%),radial-gradient(circle_at_78%_16%,rgba(77,101,255,0.16),transparent_28%),linear-gradient(180deg,rgba(255,249,245,0.96),rgba(245,248,255,0.98))]" />
+
+            <div className="relative z-10">
+              <div className="max-w-4xl overflow-hidden">
+                <h1 className="font-display text-[1.95rem] leading-[0.92] sm:text-[2.5rem] md:text-[3rem] lg:text-[3.7rem]">
+                  {program.heroTitle.split(" ").map((word) => (
+                    <span
+                      key={`${program.slug}-${word}`}
+                      className="mr-[0.18em] inline-block"
+                      data-hero-word
+                    >
+                      {word}
+                    </span>
+                  ))}
+                </h1>
+              </div>
+              <p
+                className="mt-3 max-w-2xl text-[0.98rem] leading-7 text-foreground/78 md:text-[1rem] md:leading-8"
+                data-hero-copy
+              >
+                {program.hero.subtitle}
+              </p>
+              <p
+                className="mt-3 max-w-xl text-sm leading-6 text-foreground/58 md:text-[0.95rem] md:leading-7"
+                data-hero-copy
+              >
+                {program.hero.description}
+              </p>
+              <div className="mt-5" data-hero-copy>
+                <SubtleButton
+                  href="/gorusme-planlayin"
+                  size="lg"
+                >
+                  {program.hero.ctaLabel}
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </SubtleButton>
+              </div>
+            </div>
+
+            <div className="relative z-10 mt-5 grid gap-1.5 md:mt-6 md:pt-0">
+              {program.hero.strips.map((strip) => (
+                <div
+                  key={strip}
+                  className="border-t border-foreground/10 py-2 text-[0.68rem] uppercase tracking-[0.12em] text-foreground/62 md:text-[0.74rem]"
+                  data-hero-strip
+                >
+                  {strip}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="relative h-[20rem] overflow-hidden md:h-[24rem] lg:h-[27rem]">
+            <div
+              className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.02),rgba(33,46,117,0.14))]"
+              data-hero-media
+            />
+            <img
+              src={program.heroImage}
+              alt={program.heroImageAlt}
+              className="h-full w-full object-cover"
+              data-hero-media-inner
+              data-hero-media
+            />
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.3),transparent_26%),linear-gradient(180deg,rgba(77,101,255,0.04),rgba(255,79,0,0.12))]" />
+          </div>
+        </div>
+
+        <div
+          className="overflow-hidden border-t border-foreground/8 bg-[linear-gradient(90deg,rgba(255,79,0,0.08),rgba(77,101,255,0.08))] py-4"
+          data-hero-marquee
+        >
+          <div ref={tickerRef} className="flex min-w-max items-center gap-8 px-4">
+            {tickerItems.map((item, index) => (
+              <div
+                key={`${program.slug}-ticker-${item}-${index}`}
+                className="flex items-center gap-8 whitespace-nowrap text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-foreground/56 md:text-sm"
+              >
+                <span>{item}</span>
+                <span className="h-1.5 w-1.5 rounded-full bg-accent/80" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function ProgramListScene({
+  eyebrow,
+  title,
+  items,
+  image,
+  imageAlt,
+  dark = false,
+  imageOnRight = false,
+}: ProgramListSceneProps) {
+  const rootRef = useRef<HTMLElement | null>(null);
+
+  useGSAP(
+    () => {
+      const root = rootRef.current;
+
+      if (!root) {
+        return;
+      }
+
+      const mm = gsap.matchMedia();
+
+      mm.add(
+        {
+          reduce: "(prefers-reduced-motion: reduce)",
+          motion: "(prefers-reduced-motion: no-preference)",
+        },
+        (context) => {
+          const conditions = context.conditions as
+            | { reduce?: boolean; motion?: boolean }
+            | undefined;
+
+          const rows = gsap.utils.toArray<HTMLElement>("[data-scene-row]");
+
+          if (conditions?.reduce) {
+            gsap.set(["[data-scene-copy]", rows, "[data-scene-media-inner]"], {
+              autoAlpha: 1,
+              y: 0,
+              clearProps: "all",
+            });
+            return;
+          }
+
+          gsap.from("[data-scene-copy]", {
+            autoAlpha: 0,
+            y: 44,
+            stagger: 0.1,
+            duration: 0.82,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: root,
+              start: "top 78%",
+              once: true,
+            },
+          });
+
+          rows.forEach((row, index) => {
+            gsap.from(row, {
+              autoAlpha: 0,
+              x: index % 2 === 0 ? 48 : -48,
+              duration: 0.88,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: row,
+                start: "top 84%",
+                once: true,
+              },
+            });
+          });
+
+          gsap.fromTo(
+            "[data-scene-media-inner]",
+            { scale: 1.18, yPercent: -5 },
+            {
+              scale: 1,
+              yPercent: 5,
+              ease: "none",
+              scrollTrigger: {
+                trigger: root,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 1,
+              },
+            },
+          );
+        },
+      );
+
+      return () => mm.revert();
+    },
+    { scope: rootRef },
+  );
+
+  return (
+    <section
+      ref={rootRef}
+      className="section-shell py-12 md:py-16 text-foreground"
+    >
+      <div className="grid gap-8 lg:grid-cols-[0.88fr_1.12fr]">
+        <div className={cn("relative lg:pr-6", imageOnRight && "lg:order-2 lg:pr-0 lg:pl-6")}>
+          <div className="lg:sticky lg:top-28">
+            <p
+              className="sr-only"
+            >
+              {eyebrow}
+            </p>
+            <div className="overflow-hidden rounded-[2rem]">
+              <img
+                src={image}
+                alt={imageAlt}
+                className="h-[20rem] w-full rounded-[2rem] object-cover md:h-[27rem]"
+                data-scene-media-inner
+              />
+            </div>
+            <h2
+              className="mt-6 max-w-xl font-display text-[1.82rem] leading-[0.98] sm:text-[2.2rem] md:text-[2.65rem]"
+              data-scene-copy
+            >
+              {title}
+            </h2>
+          </div>
+        </div>
+
+        <div className={cn("space-y-4 md:space-y-5", imageOnRight && "lg:order-1")}>
+          {items.map((item) => (
+            <div
+              key={`${title}-${item}`}
+              className={cn(
+                "relative border-l pl-5 pr-2 md:pl-7",
+                dark
+                  ? "border-accent/26"
+                  : "border-primary/18",
+              )}
+              data-scene-row
+            >
+              <div className="flex gap-4 md:gap-5">
+                <span
+                  className={cn(
+                    "mt-3 h-2.5 w-2.5 shrink-0 rounded-full",
+                    dark ? "bg-accent/90" : "bg-primary",
+                  )}
+                />
+                <p
+                  className={cn(
+                    "max-w-3xl text-[1.05rem] leading-8 md:text-[1.22rem] md:leading-9",
+                    dark ? "text-foreground/74" : "text-foreground/82",
+                  )}
+                >
+                  {item}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function ProgramNarrativeScene({
+  title,
+  paragraphs,
+  image,
+  imageAlt,
+}: ProgramNarrativeSceneProps) {
+  const rootRef = useRef<HTMLElement | null>(null);
+
+  useGSAP(
+    () => {
+      const root = rootRef.current;
+
+      if (!root) {
+        return;
+      }
+
+      const mm = gsap.matchMedia();
+
+      mm.add(
+        {
+          reduce: "(prefers-reduced-motion: reduce)",
+          motion: "(prefers-reduced-motion: no-preference)",
+        },
+        (context) => {
+          const conditions = context.conditions as
+            | { reduce?: boolean; motion?: boolean }
+            | undefined;
+
+          if (conditions?.reduce) {
+            gsap.set(
+              ["[data-narrative-copy]", "[data-narrative-media]", "[data-narrative-line]"],
+              {
+                autoAlpha: 1,
+                y: 0,
+                clearProps: "all",
+              },
+            );
+            return;
+          }
+
+          const timeline = gsap.timeline({
+            scrollTrigger: {
+              trigger: root,
+              start: "top 72%",
+              once: true,
+            },
+          });
+
+          timeline
+            .from("[data-narrative-copy]", {
+              autoAlpha: 0,
+              y: 48,
+              stagger: 0.12,
+              duration: 0.9,
+              ease: "power3.out",
+            })
+            .from(
+              "[data-narrative-line]",
+              {
+                scaleX: 0,
+                transformOrigin: "left center",
+                stagger: 0.08,
+                duration: 0.7,
+                ease: "power3.out",
+              },
+              0.14,
+            )
+            .from(
+              "[data-narrative-media]",
+              {
+                autoAlpha: 0,
+                scale: 1.08,
+                clipPath: "inset(18% 18% 20% 18% round 2rem)",
+                duration: 1.2,
+                ease: "power3.out",
+              },
+              0.08,
+            );
+
+          gsap.fromTo(
+            "[data-narrative-media-inner]",
+            { scale: 1.12, yPercent: -6 },
+            {
+              scale: 1,
+              yPercent: 6,
+              ease: "none",
+              scrollTrigger: {
+                trigger: root,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 1,
+              },
+            },
+          );
+        },
+      );
+
+      return () => mm.revert();
+    },
+    { scope: rootRef },
+  );
+
+  return (
+    <section ref={rootRef} className="section-shell py-12 md:py-16">
+      <div className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr]">
+        <div className="overflow-hidden rounded-[2rem]" data-narrative-media>
+          <img
+            src={image}
+            alt={imageAlt}
+            className="h-[20rem] w-full object-cover md:h-[30rem]"
+            data-narrative-media-inner
+          />
+        </div>
+
+        <div className="flex flex-col justify-center">
+          <h2
+            className="font-display text-[1.82rem] leading-[0.98] text-foreground md:text-[2.65rem]"
+            data-narrative-copy
+          >
+            {title}
+          </h2>
+          <div className="mt-6 grid gap-4">
+            {paragraphs.map((paragraph) => (
+              <div key={paragraph}>
+                <div className="mb-4 h-px w-full bg-[linear-gradient(90deg,rgba(255,79,0,0.35),rgba(77,101,255,0.22),transparent)]" data-narrative-line />
+                <p
+                  className="max-w-3xl text-base leading-8 text-foreground/78 md:text-lg"
+                  data-narrative-copy
+                >
+                  {paragraph}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function ProgramPackageScene({
+  title,
+  items,
+  image,
+  imageAlt,
+}: ProgramPackageSceneProps) {
+  const rootRef = useRef<HTMLElement | null>(null);
+
+  useGSAP(
+    () => {
+      const root = rootRef.current;
+
+      if (!root) {
+        return;
+      }
+
+      const mm = gsap.matchMedia();
+
+      mm.add(
+        {
+          reduce: "(prefers-reduced-motion: reduce)",
+          motion: "(prefers-reduced-motion: no-preference)",
+        },
+        (context) => {
+          const conditions = context.conditions as
+            | { reduce?: boolean; motion?: boolean }
+            | undefined;
+
+          const itemsToAnimate = gsap.utils.toArray<HTMLElement>("[data-package-item]");
+
+          if (conditions?.reduce) {
+            gsap.set(["[data-package-copy]", itemsToAnimate, "[data-package-media]"], {
+              autoAlpha: 1,
+              y: 0,
+              clearProps: "all",
+            });
+            return;
+          }
+
+          gsap.from("[data-package-copy]", {
+            autoAlpha: 0,
+            y: 44,
+            stagger: 0.1,
+            duration: 0.88,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: root,
+              start: "top 78%",
+              once: true,
+            },
+          });
+
+          itemsToAnimate.forEach((item, index) => {
+            gsap.from(item, {
+              autoAlpha: 0,
+              y: 56,
+              duration: 0.92,
+              ease: "power3.out",
+              delay: index * 0.02,
+              scrollTrigger: {
+                trigger: item,
+                start: "top 84%",
+                once: true,
+              },
+            });
+          });
+
+          gsap.fromTo(
+            "[data-package-media-inner]",
+            { scale: 1.14, yPercent: -4 },
+            {
+              scale: 1,
+              yPercent: 6,
+              ease: "none",
+              scrollTrigger: {
+                trigger: root,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 1,
+              },
+            },
+          );
+        },
+      );
+
+      return () => mm.revert();
+    },
+    { scope: rootRef },
+  );
+
+  return (
+    <section ref={rootRef} className="section-shell py-12 md:py-16">
+      <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr]">
+        <div className="lg:sticky lg:top-28 lg:h-fit">
+          <div className="overflow-hidden rounded-[2.2rem]" data-package-media>
+            <img
+              src={image}
+              alt={imageAlt}
+              className="h-[20rem] w-full object-cover md:h-[26rem]"
+              data-package-media-inner
+            />
+          </div>
+          <h2
+            className="mt-6 max-w-xl font-display text-[1.82rem] leading-[0.98] md:text-[2.65rem]"
+            data-package-copy
+          >
+            {title}
+          </h2>
+        </div>
+
+        <div className="space-y-6">
+          {items.map((item) => (
+            <article
+              key={item.title}
+              className="border-b border-border/45 pb-6 last:border-b-0 md:pb-8"
+              data-package-item
+            >
+              <div className="flex items-start gap-4 md:gap-5">
+                <span className="mt-3 h-2.5 w-2.5 shrink-0 rounded-full bg-accent/80" />
+                <div>
+                  <h3 className="text-[1.2rem] font-semibold leading-tight text-foreground md:text-[1.5rem]">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 max-w-3xl text-base leading-8 text-muted-foreground md:text-[1.02rem]">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function ProgramSupportScene({
+  title,
+  columns,
+  image,
+  imageAlt,
+}: ProgramSupportSceneProps) {
+  const rootRef = useRef<HTMLElement | null>(null);
+
+  useGSAP(
+    () => {
+      const root = rootRef.current;
+
+      if (!root) {
+        return;
+      }
+
+      const mm = gsap.matchMedia();
+
+      mm.add(
+        {
+          reduce: "(prefers-reduced-motion: reduce)",
+          motion: "(prefers-reduced-motion: no-preference)",
+        },
+        (context) => {
+          const conditions = context.conditions as
+            | { reduce?: boolean; motion?: boolean }
+            | undefined;
+
+          if (conditions?.reduce) {
+            gsap.set(
+              ["[data-support-copy]", "[data-support-column]", "[data-support-media]"],
+              { autoAlpha: 1, y: 0, clearProps: "all" },
+            );
+            return;
+          }
+
+          gsap.from("[data-support-copy]", {
+            autoAlpha: 0,
+            y: 36,
+            stagger: 0.12,
+            duration: 0.82,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: root,
+              start: "top 78%",
+              once: true,
+            },
+          });
+
+          gsap.from("[data-support-column]", {
+            autoAlpha: 0,
+            y: 44,
+            stagger: 0.12,
+            duration: 0.88,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: root,
+              start: "top 72%",
+              once: true,
+            },
+          });
+
+          gsap.fromTo(
+            "[data-support-media-inner]",
+            { scale: 1.12, yPercent: -4 },
+            {
+              scale: 1,
+              yPercent: 4,
+              ease: "none",
+              scrollTrigger: {
+                trigger: root,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 1,
+              },
+            },
+          );
+        },
+      );
+
+      return () => mm.revert();
+    },
+    { scope: rootRef },
+  );
+
+  return (
+    <section ref={rootRef} className="section-shell py-12 md:py-16">
+      <div className="grid gap-8 lg:grid-cols-[1.12fr_0.88fr]">
+        <div>
+          <h2
+            className="max-w-xl font-display text-[1.82rem] leading-[0.98] text-foreground md:text-[2.65rem]"
+            data-support-copy
+          >
+            {title}
+          </h2>
+          <div className={cn("mt-8 grid gap-6", columns.length > 1 ? "lg:grid-cols-2" : "")}>
+            {columns.map((column) => (
+              <div
+                key={column.heading}
+                className="border-t border-border/35 pt-5"
+                data-support-column
+              >
+                <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-primary/88">
+                  {column.heading}
+                </h3>
+                <ul className="mt-5 space-y-4">
+                  {column.items.map((item) => (
+                    <li
+                      key={item}
+                      className="flex items-start gap-3 text-base leading-7 text-foreground/74 md:text-lg md:leading-8"
+                    >
+                      <MoveRight className="mt-1 h-4 w-4 shrink-0 text-accent" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <div className="overflow-hidden rounded-[2.2rem]" data-support-media>
+            <img
+              src={image}
+              alt={imageAlt}
+              className="h-[20rem] w-full object-cover md:h-[28rem]"
+              data-support-media-inner
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function ProgramProcessScene({
+  title,
+  intro,
+  steps,
+  image,
+  imageAlt,
+}: ProgramProcessSceneProps) {
+  const rootRef = useRef<HTMLElement | null>(null);
+
+  useGSAP(
+    () => {
+      const root = rootRef.current;
+
+      if (!root) {
+        return;
+      }
+
+      const mm = gsap.matchMedia();
+
+      mm.add(
+        {
+          reduce: "(prefers-reduced-motion: reduce)",
+          motion: "(prefers-reduced-motion: no-preference)",
+        },
+        (context) => {
+          const conditions = context.conditions as
+            | { reduce?: boolean; motion?: boolean }
+            | undefined;
+
+          if (conditions?.reduce) {
+            gsap.set(["[data-process-copy]", "[data-process-step]"], {
+              autoAlpha: 1,
+              y: 0,
+              clearProps: "all",
+            });
+            return;
+          }
+
+          gsap.from("[data-process-copy]", {
+            autoAlpha: 0,
+            y: 42,
+            stagger: 0.12,
+            duration: 0.84,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: root,
+              start: "top 78%",
+              once: true,
+            },
+          });
+
+          gsap.from("[data-process-step]", {
+            autoAlpha: 0,
+            x: 54,
+            stagger: 0.14,
+            duration: 0.9,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: root,
+              start: "top 72%",
+              once: true,
+            },
+          });
+        },
+      );
+
+      return () => mm.revert();
+    },
+    { scope: rootRef },
+  );
+
+  return (
+    <section ref={rootRef} className="section-shell py-12 md:py-16">
+      <div className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr]">
+        <div>
+          <div className="overflow-hidden rounded-[2rem]">
+            <img
+              src={image}
+              alt={imageAlt}
+              className="h-[18rem] w-full object-cover md:h-[24rem]"
+            />
+          </div>
+          <h2
+            className="mt-6 font-display text-[1.82rem] leading-[0.98] md:text-[2.65rem]"
+            data-process-copy
+          >
+            {title}
+          </h2>
+          <div className="mt-5 space-y-4">
+            {intro.map((paragraph) => (
+              <p
+                key={paragraph}
+                className="max-w-2xl text-base leading-8 text-muted-foreground md:text-lg"
+                data-process-copy
+              >
+                {paragraph}
+              </p>
+            ))}
+          </div>
+        </div>
+
+        <div className="flex flex-col justify-center gap-5">
+          {steps.map((step) => (
+            <div
+              key={step}
+              className="border-l border-primary/18 pl-5 md:pl-7"
+              data-process-step
+            >
+              <div className="flex items-start gap-4">
+                <span className="mt-3 h-2.5 w-2.5 shrink-0 rounded-full bg-primary/80" />
+                <p className="text-lg leading-8 text-foreground/82 md:text-[1.35rem] md:leading-9">
+                  {step}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function ProgramFinalCta({
+  title,
+  description,
+  buttonLabel,
+  href,
+}: ProgramFinalCtaProps) {
+  return (
+    <section className="section-shell pb-12 pt-10 md:pb-16 md:pt-14">
+      <div className="overflow-hidden rounded-[2.6rem] border border-primary/20 bg-[linear-gradient(135deg,rgba(255,231,214,0.94),rgba(255,248,243,0.98))] px-5 py-7 shadow-soft md:px-8 md:py-10 lg:px-12">
+        <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
+          <div>
+            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-primary/72">
+              Son Adım
+            </p>
+            <h2 className="mt-4 max-w-4xl font-display text-[2.45rem] leading-[0.92] text-foreground md:text-[4rem]">
+              {title}
+            </h2>
+            <p className="mt-5 max-w-2xl text-base leading-8 text-muted-foreground md:text-lg">
+              {description}
+            </p>
+          </div>
+          <div className="lg:flex lg:justify-end">
+            <SubtleButton href={href} size="lg" fullWidth className="lg:w-auto">
+              {buttonLabel}
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </SubtleButton>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

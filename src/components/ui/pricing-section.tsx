@@ -1,22 +1,9 @@
 import { motion } from "framer-motion";
 import { CheckCircle2, Sparkles } from "lucide-react";
 import { RevealSection } from "@/components/gsap/reveal-section";
-import { AppLink } from "@/components/ui/app-link";
-import { buttonVariants } from "@/components/ui/button";
+import SubtleButton from "@/components/ui/subtle-button";
 import { cn } from "@/lib/utils";
-
-interface PricingPlan {
-  title: string;
-  price: string;
-  priceDescription: string;
-  description: string;
-  features: string[];
-  buttonText: string;
-  href?: string;
-  imageSrc: string;
-  imageAlt: string;
-  highlight?: boolean;
-}
+import type { PricingPlan } from "@/content/programs";
 
 interface PricingCardProps extends PricingPlan {
   index: number;
@@ -126,16 +113,14 @@ function PricingCard({
         </ul>
       </div>
 
-      <AppLink
+      <SubtleButton
         href={href ?? "/gorusme-planlayin"}
-        className={cn(
-          buttonVariants({ variant: "outline" }),
-          "mt-8 w-full border-none",
-          theme.buttonClass,
-        )}
+        fullWidth
+        theme={index === 2 ? "dark" : "light"}
+        className={cn("mt-8", theme.buttonClass)}
       >
         {buttonText}
-      </AppLink>
+      </SubtleButton>
     </motion.article>
   );
 }
@@ -145,6 +130,7 @@ export function PricingSection({ plans }: PricingSectionProps) {
     <RevealSection
       as="section"
       className="section-shell py-20"
+      id="programlar"
       itemSelector="[data-gsap-item]"
     >
       <div className="text-center" data-gsap-item>

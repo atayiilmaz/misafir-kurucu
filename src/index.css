@@ -14,17 +14,17 @@
 
 :root {
   color-scheme: light;
-  --background: 28 100% 98%;
+  --background: 32 100% 99%;
   --foreground: 18 24% 11%;
   --card: 0 0% 100%;
   --card-foreground: 18 24% 11%;
-  --muted: 29 100% 92%;
-  --muted-foreground: 20 12% 34%;
-  --primary: 22 84% 63%;
-  --primary-foreground: 20 28% 12%;
-  --border: 24 48% 74%;
-  --accent: 30 92% 68%;
-  --accent-foreground: 18 24% 11%;
+  --muted: 220 100% 97%;
+  --muted-foreground: 220 14% 34%;
+  --primary: 28.8 100% 51%;
+  --primary-foreground: 0 0% 100%;
+  --border: 220 36% 84%;
+  --accent: 231 100% 65%;
+  --accent-foreground: 0 0% 100%;
 }
 
 html {

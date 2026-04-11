@@ -1,7 +1,5 @@
 import { RevealSection } from "@/components/gsap/reveal-section";
-import { AppLink } from "@/components/ui/app-link";
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import SubtleButton from "@/components/ui/subtle-button";
 
 export function NotFoundPage() {
   return (
@@ -20,13 +18,14 @@ export function NotFoundPage() {
         <p className="mt-5 text-muted-foreground" data-gsap-item>
           İlgili içerik kaldırılmış olabilir veya bağlantı hatalı olabilir.
         </p>
-        <AppLink
+        <SubtleButton
           href="/"
-          className={cn(buttonVariants({ size: "lg" }), "mt-8")}
+          size="lg"
+          className="mt-8"
           data-gsap-item
         >
           Anasayfa’ya dön
-        </AppLink>
+        </SubtleButton>
       </div>
     </RevealSection>
   );
