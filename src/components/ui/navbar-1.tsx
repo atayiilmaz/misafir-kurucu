@@ -39,7 +39,7 @@ export function Navbar1({ items }: Navbar1Props) {
           >
             <Scissors className="h-5 w-5" />
           </motion.div>
-          <p className="font-display text-lg font-semibold leading-none text-foreground sm:text-xl">
+          <p className="font-brand text-lg leading-none text-foreground sm:text-xl">
             Misafir Kurucu
           </p>
         </AppLink>

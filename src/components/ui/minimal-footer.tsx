@@ -79,7 +79,7 @@ export function MinimalFooter() {
                     <span className="flex h-11 w-11 items-center justify-center rounded-full bg-primary text-primary-foreground">
                       <Scissors className="size-4" />
                     </span>
-                    <p className="font-display text-3xl leading-none">
+                    <p className="font-brand text-3xl leading-none">
                       Misafir Kurucu
                     </p>
                   </div>
