@@ -6,15 +6,6 @@ const App = () => {
 
   return (
     <div className="mx-auto max-w-4xl px-4 md:px-0">
-      {/* <p className="section-kicker">Sıkça Sorulan Sorular</p> */}
-      <h1 className="font-display text-[2.5rem] leading-[0.95] text-foreground md:text-[3.5rem]">
-        Aradığınız cevap burada olabilir
-      </h1>
-      <p className="mt-3 max-w-xl text-base leading-7 text-muted-foreground">
-        Misafir Kurucu danışmanlığıyla ilgili en sık gelen soruları burada
-        topladım. Program yapısı, görüşme düzeni ve başlangıç seviyesiyle
-        ilgili temel başlıkları hızlıca inceleyebilirsiniz.
-      </p>
       {faqs.map((faq, index) => (
         <div
           className="cursor-pointer border-b border-border/80 py-5"
