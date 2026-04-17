@@ -1,0 +1,248 @@
+import { useEffect, useMemo, useState } from "react";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { ArrowRight, FileText, LogOut, Plus } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { RevealSection } from "@/components/gsap/reveal-section";
+import { AppLink } from "@/components/ui/app-link";
+import { Button } from "@/components/ui/button";
+import { useAdminSession } from "@/features/admin/admin-session";
+import { fetchAdminBlogPosts, loginAdmin } from "@/features/blog/api";
+import { formatBlogDate, getStatusLabel } from "@/features/blog/utils";
+import { ApiError } from "@/lib/api-error";
+import { hasSupabaseConfig } from "@/lib/supabase";
+
+const fieldClassName =
+  "h-12 w-full rounded-2xl border border-border/80 bg-white px-4 text-sm text-foreground outline-none transition focus:border-primary/50 focus:ring-2 focus:ring-primary/15";
+
+export function AdminPage() {
+  const isConfigured = hasSupabaseConfig();
+  const navigate = useNavigate();
+  const { session, setSession, clearSession } = useAdminSession();
+  const [password, setPassword] = useState("");
+  const loginMutation = useMutation({
+    mutationFn: loginAdmin,
+    onSuccess: (nextSession) => {
+      setSession(nextSession);
+      setPassword("");
+    },
+  });
+
+  const postsQuery = useQuery({
+    queryKey: ["admin", "blog", "list"],
+    queryFn: () => fetchAdminBlogPosts(session?.token ?? ""),
+    enabled: Boolean(session) && isConfigured,
+    staleTime: 60 * 1000,
+  });
+
+  useEffect(() => {
+    if (postsQuery.error instanceof ApiError && postsQuery.error.status === 401) {
+      clearSession();
+    }
+  }, [clearSession, postsQuery.error]);
+
+  const statusCounts = useMemo(() => {
+    const items = postsQuery.data ?? [];
+    return {
+      total: items.length,
+      drafts: items.filter((item) => item.status === "draft").length,
+      published: items.filter((item) => item.status === "published").length,
+    };
+  }, [postsQuery.data]);
+
+  if (!isConfigured) {
+    return (
+      <RevealSection as="section" className="section-shell py-16">
+        <div className="glass-panel p-8 text-center">
+          <p className="section-kicker">Admin</p>
+          <h1 className="font-display text-5xl">Supabase kurulumu eksik</h1>
+          <p className="mt-4 text-muted-foreground">
+            Admin panelini acmak icin `VITE_SUPABASE_URL` ve
+            `VITE_SUPABASE_ANON_KEY` degiskenlerini tanimlayin.
+          </p>
+        </div>
+      </RevealSection>
+    );
+  }
+
+  return (
+    <RevealSection as="section" className="section-shell py-10">
+      {!session ? (
+        <div className="mx-auto max-w-xl glass-panel p-8 md:p-10">
+          <p className="section-kicker">Admin Girisi</p>
+          <h1 className="font-display text-5xl leading-[0.96]">Blog paneline giris yapin</h1>
+          <p className="mt-4 text-sm leading-7 text-muted-foreground">
+            Bu panel yalnizca blog yazisi yonetimi icin kullanilir. Giris
+            ekraninda sadece sifre alani gorunur; dogrulama Supabase Edge
+            Function tarafinda yapilir.
+          </p>
+
+          <form
+            className="mt-8 space-y-4"
+            onSubmit={(event) => {
+              event.preventDefault();
+              loginMutation.mutate(password);
+            }}
+          >
+            <label className="block text-sm font-semibold text-foreground">
+              Sifre
+              <input
+                type="password"
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+                className={`${fieldClassName} mt-2`}
+                placeholder="Panel sifresini girin"
+                autoComplete="current-password"
+              />
+            </label>
+
+            {loginMutation.isError ? (
+              <p className="text-sm text-red-600">
+                {(loginMutation.error as Error).message}
+              </p>
+            ) : null}
+
+            <Button
+              type="submit"
+              className="w-full"
+              disabled={loginMutation.isPending || password.trim().length === 0}
+            >
+              {loginMutation.isPending ? "Giris yapiliyor..." : "Panele gir"}
+            </Button>
+          </form>
+        </div>
+      ) : (
+        <div className="space-y-8">
+          <div className="glass-panel p-8 md:p-10">
+            <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+              <div>
+                <p className="section-kicker">Admin</p>
+                <h1 className="font-display text-5xl leading-[0.96]">Blog icerik yonetimi</h1>
+                <p className="mt-4 max-w-2xl text-sm leading-7 text-muted-foreground">
+                  Taslak olusturabilir, yayinlanmis yazilari guncelleyebilir ve
+                  kapak ya da govde ici gorsel yukleyebilirsiniz.
+                </p>
+              </div>
+
+              <div className="flex flex-wrap gap-3">
+                <Button
+                  variant="outline"
+                  onClick={() => {
+                    clearSession();
+                    navigate("/admin", { replace: true });
+                  }}
+                >
+                  <LogOut className="mr-2 h-4 w-4" />
+                  Cikis yap
+                </Button>
+                <Button onClick={() => navigate("/admin/posts/new")}>
+                  <Plus className="mr-2 h-4 w-4" />
+                  Yeni yazi
+                </Button>
+              </div>
+            </div>
+
+            <div className="mt-8 grid gap-4 md:grid-cols-3">
+              <div className="rounded-[1.75rem] border border-border/70 bg-white/80 p-5">
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+                  Toplam
+                </p>
+                <p className="mt-3 font-display text-4xl">{statusCounts.total}</p>
+              </div>
+              <div className="rounded-[1.75rem] border border-border/70 bg-white/80 p-5">
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+                  Taslak
+                </p>
+                <p className="mt-3 font-display text-4xl">{statusCounts.drafts}</p>
+              </div>
+              <div className="rounded-[1.75rem] border border-border/70 bg-white/80 p-5">
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+                  Yayinlanan
+                </p>
+                <p className="mt-3 font-display text-4xl">{statusCounts.published}</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="glass-panel p-6 md:p-8">
+            {postsQuery.isLoading ? (
+              <div className="space-y-3">
+                {Array.from({ length: 4 }).map((_, index) => (
+                  <div
+                    key={index}
+                    className="h-24 animate-pulse rounded-[1.5rem] bg-white/70"
+                  />
+                ))}
+              </div>
+            ) : postsQuery.isError ? (
+              <div className="rounded-[1.75rem] border border-red-200 bg-red-50 p-5 text-sm text-red-700">
+                {(postsQuery.error as Error).message}
+              </div>
+            ) : postsQuery.data && postsQuery.data.length > 0 ? (
+              <div className="space-y-4">
+                {postsQuery.data.map((post) => (
+                  <article
+                    key={post.id}
+                    className="flex flex-col gap-4 rounded-[1.75rem] border border-border/70 bg-white/80 p-5 md:flex-row md:items-center md:justify-between"
+                  >
+                    <div className="min-w-0">
+                      <div className="flex flex-wrap items-center gap-3">
+                        <span className="rounded-full bg-primary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-primary">
+                          {getStatusLabel(post.status)}
+                        </span>
+                        <span className="text-xs text-muted-foreground">
+                          {post.status === "published" && post.publishedAt
+                            ? `Yayinda: ${formatBlogDate(post.publishedAt)}`
+                            : `Guncellendi: ${formatBlogDate(post.updatedAt)}`}
+                        </span>
+                      </div>
+
+                      <h2 className="mt-3 text-2xl font-semibold leading-tight">
+                        {post.title}
+                      </h2>
+                      <p className="mt-2 text-sm leading-7 text-muted-foreground">
+                        {post.excerpt}
+                      </p>
+                      <p className="mt-2 text-xs uppercase tracking-[0.16em] text-muted-foreground">
+                        /blog/{post.slug}
+                      </p>
+                    </div>
+
+                    <div className="flex shrink-0 flex-wrap gap-3">
+                      <AppLink
+                        href={`/admin/posts/${post.id}`}
+                        className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-white px-4 py-2 text-sm font-semibold transition hover:border-primary/30 hover:text-primary"
+                      >
+                        <FileText className="h-4 w-4" />
+                        Duzenle
+                      </AppLink>
+                      {post.status === "published" ? (
+                        <AppLink
+                          href={`/blog/${post.slug}`}
+                          className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-white px-4 py-2 text-sm font-semibold transition hover:border-primary/30 hover:text-primary"
+                        >
+                          Yaziyi gor
+                          <ArrowRight className="h-4 w-4" />
+                        </AppLink>
+                      ) : null}
+                    </div>
+                  </article>
+                ))}
+              </div>
+            ) : (
+              <div className="rounded-[1.75rem] border border-border/70 bg-white/80 p-8 text-center">
+                <h2 className="font-display text-4xl">Henuz yazi yok</h2>
+                <p className="mt-4 text-sm leading-7 text-muted-foreground">
+                  Ilk taslagi olusturmak icin yeni yazi ekranina gecin.
+                </p>
+                <Button className="mt-6" onClick={() => navigate("/admin/posts/new")}>
+                  <Plus className="mr-2 h-4 w-4" />
+                  Yeni yazi
+                </Button>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+    </RevealSection>
+  );
+}

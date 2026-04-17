@@ -118,60 +118,6 @@ Bu süreçte ben misafirim, siz kurucusunuz.`}
         compactImage
         compactGap
       />
-
-      {/*
-      <RevealSection
-        as="section"
-        className="section-shell py-20"
-        itemSelector="[data-gsap-item]"
-      >
-        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <div data-gsap-item>
-            <div className="section-kicker">Blog Önizleme</div>
-            <h2 className="section-title">İçerik üretimini stratejiye bağlayan yazılar</h2>
-          </div>
-          <AppLink
-            href="/blog"
-            className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-primary"
-            data-gsap-item
-          >
-            Tüm yazıları gör
-            <ArrowRight className="h-4 w-4" />
-          </AppLink>
-        </div>
-
-        <div className="mt-10 grid gap-8 lg:grid-cols-3">
-          {blogPosts.map((post) => {
-            const Icon = post.icon;
-            return (
-              <article
-                key={post.title}
-                className="overflow-hidden rounded-[2rem] border border-white/70 bg-white/85 shadow-soft"
-                data-gsap-item
-              >
-                <img
-                  src={post.image}
-                  alt={post.title}
-                  className="h-72 w-full object-cover"
-                />
-                <div className="p-6">
-                  <div className="mb-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-                    <Icon className="h-4 w-4" />
-                    Makale
-                  </div>
-                  <h3 className="text-2xl font-semibold leading-tight">
-                    {post.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-7 text-muted-foreground">
-                    {post.excerpt}
-                  </p>
-                </div>
-              </article>
-            );
-          })}
-        </div>
-      </RevealSection>
-      */}
     </>
   );
 }

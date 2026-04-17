@@ -1,0 +1,11 @@
+[functions.admin-login]
+verify_jwt = false
+
+[functions.admin-blog-list]
+verify_jwt = false
+
+[functions.admin-blog-upsert]
+verify_jwt = false
+
+[functions.admin-media-upload-url]
+verify_jwt = false

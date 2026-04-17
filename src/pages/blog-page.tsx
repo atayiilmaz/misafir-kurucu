@@ -1,10 +1,43 @@
-import { ArrowRight } from "lucide-react";
-import { RevealSection } from "@/components/gsap/reveal-section";
+import { useEffect } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { ArrowRight, BookOpenText } from "lucide-react";
 import { PageIntro } from "@/components/page-intro";
 import { AppLink } from "@/components/ui/app-link";
-import { blogPosts } from "@/content/site";
+import { RevealSection } from "@/components/gsap/reveal-section";
+import { BlogCard } from "@/components/blog/blog-card";
+import { BlogPagination } from "@/components/blog/blog-pagination";
+import { BLOG_PAGE_SIZE, fetchPublishedBlogPosts, getNormalizedPageParam } from "@/features/blog/api";
+import { hasSupabaseConfig } from "@/lib/supabase";
+import { useSearchParams } from "react-router-dom";
 
 export function BlogPage() {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const currentPage = getNormalizedPageParam(searchParams.get("page"));
+  const isConfigured = hasSupabaseConfig();
+  const blogQuery = useQuery({
+    queryKey: ["blog", "list", currentPage],
+    queryFn: () => fetchPublishedBlogPosts(currentPage),
+    staleTime: 5 * 60 * 1000,
+    enabled: isConfigured,
+  });
+
+  useEffect(() => {
+    const rawPage = searchParams.get("page");
+
+    if (rawPage === null) {
+      return;
+    }
+
+    if (String(currentPage) !== rawPage) {
+      const nextParams = new URLSearchParams(searchParams);
+      nextParams.set("page", String(currentPage));
+      setSearchParams(nextParams, { replace: true });
+    }
+  }, [currentPage, searchParams, setSearchParams]);
+
+  const posts = blogQuery.data?.items ?? [];
+  const totalPages = blogQuery.data?.totalPages ?? 1;
+
   return (
     <>
       <PageIntro
@@ -18,36 +51,56 @@ export function BlogPage() {
         className="section-shell py-10"
         itemSelector="[data-gsap-item]"
       >
-        <div className="grid gap-8 lg:grid-cols-3">
-          {blogPosts.map((post) => {
-            const Icon = post.icon;
-            return (
-              <article
-                key={post.title}
-                className="overflow-hidden rounded-[2rem] border border-white/70 bg-white/85 shadow-soft"
+        {!isConfigured ? (
+          <div className="glass-panel p-8 text-center" data-gsap-item>
+            <p className="section-kicker">Kurulum Gerekli</p>
+            <h2 className="font-display text-4xl">Supabase bilgileri eksik</h2>
+            <p className="mt-4 text-sm leading-7 text-muted-foreground">
+              Blog&apos;u calistirmak icin `VITE_SUPABASE_URL` ve
+              `VITE_SUPABASE_ANON_KEY` degiskenlerini tanimlayin.
+            </p>
+          </div>
+        ) : blogQuery.isLoading ? (
+          <div className="grid gap-8 lg:grid-cols-3">
+            {Array.from({ length: BLOG_PAGE_SIZE }).map((_, index) => (
+              <div
+                key={index}
+                className="h-[28rem] animate-pulse rounded-[2rem] bg-white/70 shadow-soft"
                 data-gsap-item
-              >
-                <img
-                  src={post.image}
-                  alt={post.title}
-                  className="h-80 w-full object-cover"
-                />
-                <div className="p-6">
-                  <div className="mb-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-                    <Icon className="h-4 w-4" />
-                    Makale
-                  </div>
-                  <h2 className="text-2xl font-semibold leading-tight">
-                    {post.title}
-                  </h2>
-                  <p className="mt-3 text-sm leading-7 text-muted-foreground">
-                    {post.excerpt}
-                  </p>
-                </div>
-              </article>
-            );
-          })}
-        </div>
+              />
+            ))}
+          </div>
+        ) : blogQuery.isError ? (
+          <div className="glass-panel p-8 text-center" data-gsap-item>
+            <p className="section-kicker">Blog</p>
+            <h2 className="font-display text-4xl">Yazilar yuklenemedi</h2>
+            <p className="mt-4 text-sm leading-7 text-muted-foreground">
+              {(blogQuery.error as Error).message}
+            </p>
+          </div>
+        ) : posts.length === 0 ? (
+          <div className="glass-panel p-8 text-center" data-gsap-item>
+            <BookOpenText className="mx-auto h-8 w-8 text-primary" />
+            <h2 className="mt-4 font-display text-4xl">Henuz yayinlanmis yazi yok</h2>
+            <p className="mt-4 text-sm leading-7 text-muted-foreground">
+              Yeni yazilar yayinlandiginda burada listelenecek.
+            </p>
+          </div>
+        ) : (
+          <>
+            <div className="grid gap-8 lg:grid-cols-3">
+              {posts.map((post) => (
+                <BlogCard key={post.id} post={post} />
+              ))}
+            </div>
+
+            <BlogPagination
+              className="mt-10"
+              currentPage={currentPage}
+              totalPages={totalPages}
+            />
+          </>
+        )}
 
         <div className="mt-10 flex justify-end">
           <AppLink

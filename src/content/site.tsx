@@ -1,32 +1,3 @@
-import { BookOpenText, NotebookTabs, PackageCheck } from "lucide-react";
-
-export const blogPosts = [
-  {
-    title: "Tekstil markası kurarken ilk 90 günde neye odaklanmalısınız?",
-    excerpt:
-      "Marka heyecanını kaybetmeden pazar, ürün ve üretim tarafını dengelemenin pratik çerçevesi.",
-    image:
-      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=80",
-    icon: NotebookTabs,
-  },
-  {
-    title: "Atölye ile çalışırken termin krizlerini azaltan 5 sistem",
-    excerpt:
-      "Teslim tarihi kaçmadan önce görünmeyen riskleri yakalamak için kullandığım kontrol akışları.",
-    image:
-      "https://images.unsplash.com/photo-1503342394128-c104d54dba01?auto=format&fit=crop&w=900&q=80",
-    icon: PackageCheck,
-  },
-  {
-    title: "Sosyal medyada içerik üretirken satış hedefi nasıl korunur?",
-    excerpt:
-      "Sadece görünür olmak değil, doğru kitleyi satın almaya taşıyan içerik planı nasıl kurulur?",
-    image:
-      "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=900&q=80",
-    icon: BookOpenText,
-  },
-];
-
 export const faqs = [
   {
     question: "Danışmanlık süreci nasıl işliyor?",
