@@ -41,7 +41,6 @@ export function BlogPage() {
   return (
     <>
       <PageIntro
-        eyebrow="Blog"
         title="Sosyal medya içeriklerinin derinleşmiş hali"
         description="Kısa videolarda değindiğim başlıkları burada daha geniş bağlamıyla anlatıyorum: marka kurulumundan üretim risklerine, içerikten satışa kadar."
       />
@@ -56,8 +55,8 @@ export function BlogPage() {
             <p className="section-kicker">Kurulum Gerekli</p>
             <h2 className="font-display text-4xl">Supabase bilgileri eksik</h2>
             <p className="mt-4 text-sm leading-7 text-muted-foreground">
-              Blog&apos;u calistirmak icin `VITE_SUPABASE_URL` ve
-              `VITE_SUPABASE_ANON_KEY` degiskenlerini tanimlayin.
+              Blog&apos;u çalıştırmak için <code className="text-primary">VITE_SUPABASE_URL</code> ve{" "}
+              <code className="text-primary">VITE_SUPABASE_ANON_KEY</code> değişkenlerini tanımlayın.
             </p>
           </div>
         ) : blogQuery.isLoading ? (
@@ -73,7 +72,7 @@ export function BlogPage() {
         ) : blogQuery.isError ? (
           <div className="glass-panel p-8 text-center" data-gsap-item>
             <p className="section-kicker">Blog</p>
-            <h2 className="font-display text-4xl">Yazilar yuklenemedi</h2>
+            <h2 className="font-display text-4xl">Yazılar yüklenemedi</h2>
             <p className="mt-4 text-sm leading-7 text-muted-foreground">
               {(blogQuery.error as Error).message}
             </p>
@@ -81,9 +80,9 @@ export function BlogPage() {
         ) : posts.length === 0 ? (
           <div className="glass-panel p-8 text-center" data-gsap-item>
             <BookOpenText className="mx-auto h-8 w-8 text-primary" />
-            <h2 className="mt-4 font-display text-4xl">Henuz yayinlanmis yazi yok</h2>
+            <h2 className="mt-4 font-display text-4xl">Henüz yayınlanmış yazı yok</h2>
             <p className="mt-4 text-sm leading-7 text-muted-foreground">
-              Yeni yazilar yayinlandiginda burada listelenecek.
+              Yeni yazılar yayınlandığında burada listelenecek.
             </p>
           </div>
         ) : (

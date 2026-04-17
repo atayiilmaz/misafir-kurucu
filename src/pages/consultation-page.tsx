@@ -27,12 +27,11 @@ export function ConsultationPage() {
   return (
     <>
       <PageIntro
-        eyebrow="Görüşme Planlayın"
         title="Markanız için bir sonraki net adımı birlikte belirleyelim"
         description="Ücretsiz ön görüşmede mevcut durumunuzu, hedefinizi ve hangi programın ya da çalışma modelinin size daha uygun olduğunu değerlendiriyoruz."
       />
 
-      <RevealSection as="section" className="section-shell py-10">
+      <RevealSection as="section" className="section-shell pt-0 pb-10">
         <div
           className="calendly-inline-widget min-w-[320px]"
           data-url="https://calendly.com/misafirkurucu/30min"
