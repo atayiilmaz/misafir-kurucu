@@ -82,9 +82,7 @@ export function AdminPage() {
           <p className="section-kicker">Admin Girişi</p>
           <h1 className="font-display text-5xl leading-[0.96]">Blog paneline giriş yapın</h1>
           <p className="mt-4 text-sm leading-7 text-muted-foreground">
-            Bu panel yalnızca blog yazısı yönetimi için kullanılır. Giriş
-            ekranında sadece şifre alanı görünür; doğrulama Supabase Edge
-            Function tarafında yapılır.
+            Bu panel yalnızca blog yazısı yönetimi için kullanılır.
           </p>
 
           <form
