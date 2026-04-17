@@ -90,10 +90,10 @@ export const programs: Record<ProgramSlug, ProgramData> = {
   "program-1": {
     slug: "program-1",
     order: "01",
-    name: "Moda Markanı Kur",
-    heroTitle: "MODA MARKANI KUR",
+    name: "Markanı Kur",
+    heroTitle: "MARKANI KUR",
     href: "/programlar/program-1",
-    menuLabel: "Moda Markanı Kur",
+    menuLabel: "Markanı Kur",
     listingSubtitle: "Fikrini Gerçek Bir Markaya Dönüştür: 0'dan Başarılı Bir Lansmana",
     listingDescription:
       "Deneme-yanılma ile zaman ve para kaybetme. 16 yıllık sektör tecrübemle, markanı sağlam temeller üzerine birlikte kuralım.",
@@ -482,7 +482,7 @@ export const programList = (Object.values(programs) as ProgramData[]).sort((a, b
 
 export const plans: PricingPlan[] = [
   {
-    title: "Moda Markanı Kur",
+    title: "Markanı Kur",
     price: "01",
     priceDescription: "Fikrini Gerçek Bir Markaya Dönüştür: 0'dan Başarılı Bir Lansmana",
     description:
