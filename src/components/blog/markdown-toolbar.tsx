@@ -22,14 +22,14 @@ const toolbarItems: Array<{
   label: string;
   icon: typeof Bold;
 }> = [
-  { action: "bold", label: "Kalin", icon: Bold },
-  { action: "italic", label: "Italik", icon: Italic },
+  { action: "bold", label: "Kalın", icon: Bold },
+  { action: "italic", label: "İtalik", icon: Italic },
   { action: "heading-2", label: "H2", icon: Heading2 },
   { action: "heading-3", label: "H3", icon: Heading3 },
   { action: "heading-4", label: "H4", icon: Heading4 },
   { action: "bullet-list", label: "Liste", icon: List },
-  { action: "ordered-list", label: "Numarali", icon: ListOrdered },
-  { action: "quote", label: "Alinti", icon: Quote },
+  { action: "ordered-list", label: "Numaralı", icon: ListOrdered },
+  { action: "quote", label: "Alıntı", icon: Quote },
   { action: "table", label: "Tablo", icon: Table2 },
 ];
 

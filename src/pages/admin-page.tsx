@@ -67,8 +67,8 @@ export function AdminPage() {
           <p className="section-kicker">Admin</p>
           <h1 className="font-display text-5xl">Supabase kurulumu eksik</h1>
           <p className="mt-4 text-muted-foreground">
-            Admin panelini acmak icin `VITE_SUPABASE_URL` ve
-            `VITE_SUPABASE_ANON_KEY` degiskenlerini tanimlayin.
+            Admin panelini açmak için `VITE_SUPABASE_URL` ve
+            `VITE_SUPABASE_ANON_KEY` değişkenlerini tanımlayın.
           </p>
         </div>
       </RevealSection>
@@ -79,12 +79,12 @@ export function AdminPage() {
     <RevealSection as="section" className="section-shell py-10">
       {!session ? (
         <div className="mx-auto max-w-xl glass-panel p-8 md:p-10">
-          <p className="section-kicker">Admin Girisi</p>
-          <h1 className="font-display text-5xl leading-[0.96]">Blog paneline giris yapin</h1>
+          <p className="section-kicker">Admin Girişi</p>
+          <h1 className="font-display text-5xl leading-[0.96]">Blog paneline giriş yapın</h1>
           <p className="mt-4 text-sm leading-7 text-muted-foreground">
-            Bu panel yalnizca blog yazisi yonetimi icin kullanilir. Giris
-            ekraninda sadece sifre alani gorunur; dogrulama Supabase Edge
-            Function tarafinda yapilir.
+            Bu panel yalnızca blog yazısı yönetimi için kullanılır. Giriş
+            ekranında sadece şifre alanı görünür; doğrulama Supabase Edge
+            Function tarafında yapılır.
           </p>
 
           <form
@@ -95,13 +95,13 @@ export function AdminPage() {
             }}
           >
             <label className="block text-sm font-semibold text-foreground">
-              Sifre
+              Şifre
               <input
                 type="password"
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
                 className={`${fieldClassName} mt-2`}
-                placeholder="Panel sifresini girin"
+                placeholder="Panel şifresini girin"
                 autoComplete="current-password"
               />
             </label>
@@ -117,7 +117,7 @@ export function AdminPage() {
               className="w-full"
               disabled={loginMutation.isPending || password.trim().length === 0}
             >
-              {loginMutation.isPending ? "Giris yapiliyor..." : "Panele gir"}
+              {loginMutation.isPending ? "Giriş yapılıyor..." : "Panele gir"}
             </Button>
           </form>
         </div>
@@ -127,10 +127,10 @@ export function AdminPage() {
             <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
               <div>
                 <p className="section-kicker">Admin</p>
-                <h1 className="font-display text-5xl leading-[0.96]">Blog icerik yonetimi</h1>
+                <h1 className="font-display text-5xl leading-[0.96]">Blog içerik yönetimi</h1>
                 <p className="mt-4 max-w-2xl text-sm leading-7 text-muted-foreground">
-                  Taslak olusturabilir, yayinlanmis yazilari guncelleyebilir ve
-                  kapak ya da govde ici gorsel yukleyebilirsiniz.
+                  Taslak oluşturabilir, yayınlanmış yazıları güncelleyebilir ve
+                  kapak ya da gövde içi görsel yükleyebilirsiniz.
                 </p>
               </div>
 
@@ -143,11 +143,11 @@ export function AdminPage() {
                   }}
                 >
                   <LogOut className="mr-2 h-4 w-4" />
-                  Cikis yap
+                  Çıkış yap
                 </Button>
                 <Button onClick={() => navigate("/admin/posts/new")}>
                   <Plus className="mr-2 h-4 w-4" />
-                  Yeni yazi
+                  Yeni yazı
                 </Button>
               </div>
             </div>
@@ -167,7 +167,7 @@ export function AdminPage() {
               </div>
               <div className="rounded-[1.75rem] border border-border/70 bg-white/80 p-5">
                 <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
-                  Yayinlanan
+                  Yayınlanan
                 </p>
                 <p className="mt-3 font-display text-4xl">{statusCounts.published}</p>
               </div>
@@ -207,8 +207,8 @@ export function AdminPage() {
                         </span>
                         <span className="text-xs text-muted-foreground">
                           {post.status === "published" && post.publishedAt
-                            ? `Yayinda: ${formatBlogDate(post.publishedAt)}`
-                            : `Guncellendi: ${formatBlogDate(post.updatedAt)}`}
+                            ? `Yayında: ${formatBlogDate(post.publishedAt)}`
+                            : `Güncellendi: ${formatBlogDate(post.updatedAt)}`}
                         </span>
                       </div>
 
@@ -229,7 +229,7 @@ export function AdminPage() {
                         disabled={deleteMutation.isPending}
                         onClick={() => {
                           const confirmed = window.confirm(
-                            `"${post.title}" kalici olarak silinecek. Devam etmek istiyor musunuz?`,
+                            `"${post.title}" kalıcı olarak silinecek. Devam etmek istiyor musunuz?`,
                           );
 
                           if (confirmed) {
@@ -245,14 +245,14 @@ export function AdminPage() {
                         className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-white px-4 py-2 text-sm font-semibold transition hover:border-primary/30 hover:text-primary"
                       >
                         <FileText className="h-4 w-4" />
-                        Duzenle
+                        Düzenle
                       </AppLink>
                       {post.status === "published" ? (
                         <AppLink
                           href={`/blog/${post.slug}`}
                           className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-white px-4 py-2 text-sm font-semibold transition hover:border-primary/30 hover:text-primary"
                         >
-                          Yaziyi gor
+                          Yazıyı gör
                           <ArrowRight className="h-4 w-4" />
                         </AppLink>
                       ) : null}
@@ -262,13 +262,13 @@ export function AdminPage() {
               </div>
             ) : (
               <div className="rounded-[1.75rem] border border-border/70 bg-white/80 p-8 text-center">
-                <h2 className="font-display text-4xl">Henuz yazi yok</h2>
+                <h2 className="font-display text-4xl">Henüz yazı yok</h2>
                 <p className="mt-4 text-sm leading-7 text-muted-foreground">
-                  Ilk taslagi olusturmak icin yeni yazi ekranina gecin.
+                  İlk taslağı oluşturmak için yeni yazı ekranına geçin.
                 </p>
                 <Button className="mt-6" onClick={() => navigate("/admin/posts/new")}>
                   <Plus className="mr-2 h-4 w-4" />
-                  Yeni yazi
+                  Yeni yazı
                 </Button>
               </div>
             )}

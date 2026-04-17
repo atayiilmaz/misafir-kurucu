@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useMemo, useRef, useState } from "react";
+import { ChangeEvent, KeyboardEvent, useEffect, useMemo, useRef, useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Eye, ImagePlus, PenLine, Save, Trash2 } from "lucide-react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -31,6 +31,12 @@ const textareaClassName =
 
 type PreviewMode = "write" | "preview" | "split";
 
+type EditorSnapshot = {
+  value: string;
+  selectionStart: number;
+  selectionEnd: number;
+};
+
 export function AdminPostEditorPage() {
   const { id } = useParams();
   const isEditMode = Boolean(id);
@@ -45,6 +51,12 @@ export function AdminPostEditorPage() {
   const contentRef = useRef<HTMLTextAreaElement | null>(null);
   const coverInputRef = useRef<HTMLInputElement | null>(null);
   const inlineInputRef = useRef<HTMLInputElement | null>(null);
+  const undoStackRef = useRef<EditorSnapshot[]>([]);
+  const redoStackRef = useRef<EditorSnapshot[]>([]);
+  const selectionRef = useRef({
+    selectionStart: 0,
+    selectionEnd: 0,
+  });
 
   const postQuery = useQuery({
     queryKey: ["admin", "blog", "detail", id],
@@ -70,6 +82,12 @@ export function AdminPostEditorPage() {
         coverImageUrl: postQuery.data.coverImageUrl ?? "",
         contentMarkdown: postQuery.data.contentMarkdown,
       });
+      undoStackRef.current = [];
+      redoStackRef.current = [];
+      selectionRef.current = {
+        selectionStart: postQuery.data.contentMarkdown.length,
+        selectionEnd: postQuery.data.contentMarkdown.length,
+      };
       setSlugEdited(true);
     }
   }, [postQuery.data]);
@@ -112,7 +130,7 @@ export function AdminPostEditorPage() {
   const deleteMutation = useMutation({
     mutationFn: async () => {
       if (!values.id) {
-        throw new Error("Silinecek yazi bulunamadi.");
+        throw new Error("Silinecek yazı bulunamadı.");
       }
 
       await deleteAdminBlogPost(session?.token ?? "", values.id);
@@ -134,7 +152,7 @@ export function AdminPostEditorPage() {
   const previewContent = useMemo(() => {
     return values.contentMarkdown.trim().length > 0
       ? values.contentMarkdown
-      : "## Onizleme\n\nYazmaya basladiginizda onizleme burada gorunecek.";
+      : "## Önizleme\n\nYazmaya başladığınızda önizleme burada görünecek.";
   }, [values.contentMarkdown]);
 
   if (!session) {
@@ -148,7 +166,7 @@ export function AdminPostEditorPage() {
           <p className="section-kicker">Admin</p>
           <h1 className="font-display text-5xl">Supabase kurulumu eksik</h1>
           <p className="mt-4 text-muted-foreground">
-            Editoru kullanmak icin public Supabase env degiskenlerini tanimlayin.
+            Editörü kullanmak için public Supabase env değişkenlerini tanımlayın.
           </p>
         </div>
       </RevealSection>
@@ -172,7 +190,7 @@ export function AdminPostEditorPage() {
       <RevealSection as="section" className="section-shell py-16">
         <div className="glass-panel p-8 text-center">
           <p className="section-kicker">Admin</p>
-          <h1 className="font-display text-5xl">Yazi yuklenemedi</h1>
+          <h1 className="font-display text-5xl">Yazı yüklenemedi</h1>
           <p className="mt-4 text-muted-foreground">
             {(postQuery.error as Error).message}
           </p>
@@ -225,16 +243,18 @@ export function AdminPostEditorPage() {
         ...current,
         coverImageUrl: uploaded.publicUrl,
       }));
-      setUploadMessage("Kapak gorseli yuklendi.");
+      setUploadMessage("Kapak görseli yüklendi.");
       return;
     }
 
     const imageMarkdown = `![${file.name}](${uploaded.publicUrl})`;
-    setValues((current) => ({
-      ...current,
-      contentMarkdown: insertAtCursor(current.contentMarkdown, imageMarkdown, contentRef.current),
-    }));
-    setUploadMessage("Gorsel markdown govdesine eklendi.");
+    const nextState = insertAtCursor(
+      values.contentMarkdown,
+      imageMarkdown,
+      contentRef.current,
+    );
+    applyEditorState(nextState);
+    setUploadMessage("Görsel markdown gövdesine eklendi.");
   };
 
   const applyToolbarAction = (action: MarkdownToolbarAction) => {
@@ -251,15 +271,137 @@ export function AdminPostEditorPage() {
       action,
     );
 
+    applyEditorState(result);
+  };
+
+  const applyEditorState = (
+    nextState: EditorSnapshot,
+    options?: {
+      pushToUndo?: boolean;
+      clearRedo?: boolean;
+    },
+  ) => {
+    const { pushToUndo = true, clearRedo = true } = options ?? {};
+
+    if (pushToUndo && nextState.value !== values.contentMarkdown) {
+      undoStackRef.current.push({
+        value: values.contentMarkdown,
+        selectionStart: selectionRef.current.selectionStart,
+        selectionEnd: selectionRef.current.selectionEnd,
+      });
+    }
+
+    if (clearRedo) {
+      redoStackRef.current = [];
+    }
+
+    selectionRef.current = {
+      selectionStart: nextState.selectionStart,
+      selectionEnd: nextState.selectionEnd,
+    };
+
     setValues((current) => ({
       ...current,
-      contentMarkdown: result.value,
+      contentMarkdown: nextState.value,
     }));
 
     window.requestAnimationFrame(() => {
+      const textarea = contentRef.current;
+
+      if (!textarea) {
+        return;
+      }
+
       textarea.focus();
-      textarea.setSelectionRange(result.selectionStart, result.selectionEnd);
+      textarea.setSelectionRange(
+        nextState.selectionStart,
+        nextState.selectionEnd,
+      );
     });
+  };
+
+  const restoreSnapshot = (snapshot: EditorSnapshot) => {
+    selectionRef.current = {
+      selectionStart: snapshot.selectionStart,
+      selectionEnd: snapshot.selectionEnd,
+    };
+    setValues((current) => ({
+      ...current,
+      contentMarkdown: snapshot.value,
+    }));
+    window.requestAnimationFrame(() => {
+      const textarea = contentRef.current;
+
+      if (!textarea) {
+        return;
+      }
+
+      textarea.focus();
+      textarea.setSelectionRange(
+        snapshot.selectionStart,
+        snapshot.selectionEnd,
+      );
+    });
+  };
+
+  const handleUndo = () => {
+    const previousSnapshot = undoStackRef.current.pop();
+
+    if (!previousSnapshot) {
+      return;
+    }
+
+    redoStackRef.current.push({
+      value: values.contentMarkdown,
+      selectionStart: selectionRef.current.selectionStart,
+      selectionEnd: selectionRef.current.selectionEnd,
+    });
+    restoreSnapshot(previousSnapshot);
+  };
+
+  const handleRedo = () => {
+    const nextSnapshot = redoStackRef.current.pop();
+
+    if (!nextSnapshot) {
+      return;
+    }
+
+    undoStackRef.current.push({
+      value: values.contentMarkdown,
+      selectionStart: selectionRef.current.selectionStart,
+      selectionEnd: selectionRef.current.selectionEnd,
+    });
+    restoreSnapshot(nextSnapshot);
+  };
+
+  const handleContentKeyDown = (event: KeyboardEvent<HTMLTextAreaElement>) => {
+    const hasModifier = event.ctrlKey || event.metaKey;
+
+    if (!hasModifier) {
+      return;
+    }
+
+    const key = event.key.toLowerCase();
+    const isRedoShortcut =
+      key === "y" || (key === "z" && event.shiftKey);
+
+    if (key === "z" && !event.shiftKey) {
+      event.preventDefault();
+      handleUndo();
+      return;
+    }
+
+    if (isRedoShortcut) {
+      event.preventDefault();
+      handleRedo();
+    }
+  };
+
+  const syncSelection = (textarea: HTMLTextAreaElement) => {
+    selectionRef.current = {
+      selectionStart: textarea.selectionStart,
+      selectionEnd: textarea.selectionEnd,
+    };
   };
 
   return (
@@ -269,7 +411,7 @@ export function AdminPostEditorPage() {
           href="/admin"
           className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-primary"
         >
-          Panele don
+          Panele dön
         </AppLink>
 
         <div className="flex flex-wrap gap-2">
@@ -284,7 +426,7 @@ export function AdminPostEditorPage() {
               }`}
               onClick={() => setPreviewMode(mode)}
             >
-              {mode === "write" ? "Yaz" : mode === "preview" ? "Onizle" : "Bolunmus"}
+              {mode === "write" ? "Yaz" : mode === "preview" ? "Önizle" : "Bölünmüş"}
             </button>
           ))}
         </div>
@@ -293,9 +435,9 @@ export function AdminPostEditorPage() {
       <div className="mt-6 glass-panel p-6 md:p-8">
         <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
           <div>
-            <p className="section-kicker">{isEditMode ? "Duzenle" : "Yeni Yazi"}</p>
+            <p className="section-kicker">{isEditMode ? "Düzenle" : "Yeni Yazı"}</p>
             <h1 className="font-display text-5xl leading-[0.96]">
-              {isEditMode ? "Blog yazisini duzenle" : "Yeni blog yazisi olustur"}
+              {isEditMode ? "Blog yazısını düzenle" : "Yeni blog yazısı oluştur"}
             </h1>
           </div>
 
@@ -306,7 +448,7 @@ export function AdminPostEditorPage() {
                 disabled={isBusy}
                 onClick={() => {
                   const confirmed = window.confirm(
-                    `"${values.title || "Bu yazi"}" kalici olarak silinecek. Devam etmek istiyor musunuz?`,
+                    `"${values.title || "Bu yazı"}" kalıcı olarak silinecek. Devam etmek istiyor musunuz?`,
                   );
 
                   if (confirmed) {
@@ -331,7 +473,7 @@ export function AdminPostEditorPage() {
               onClick={() => saveMutation.mutate("published")}
             >
               <Eye className="mr-2 h-4 w-4" />
-              Yayinla
+              Yayınla
             </Button>
           </div>
         </div>
@@ -355,12 +497,12 @@ export function AdminPostEditorPage() {
         <div className="mt-8 grid gap-6">
           <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
             <label className="block text-sm font-semibold text-foreground">
-              Baslik
+              Başlık
               <input
                 value={values.title}
                 onChange={handleFieldChange("title")}
                 className={`${inputClassName} mt-2`}
-                placeholder="Yazi basligini girin"
+                placeholder="Yazı başlığını girin"
               />
             </label>
 
@@ -376,12 +518,12 @@ export function AdminPostEditorPage() {
           </div>
 
           <label className="block text-sm font-semibold text-foreground">
-            Ozet
+            Özet
             <textarea
               value={values.excerpt}
               onChange={handleFieldChange("excerpt")}
               className={`${textareaClassName} mt-2 min-h-[8rem]`}
-              placeholder="Kart ve detay sayfasinda gorunecek kisa aciklama"
+              placeholder="Kart ve detay sayfasında görünecek kısa açıklama"
             />
           </label>
 
@@ -389,9 +531,9 @@ export function AdminPostEditorPage() {
             <div className="rounded-[1.75rem] border border-border/70 bg-white/70 p-5">
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <div>
-                  <p className="text-sm font-semibold text-foreground">Kapak gorseli</p>
+                  <p className="text-sm font-semibold text-foreground">Kapak görseli</p>
                   <p className="mt-1 text-xs leading-6 text-muted-foreground">
-                    Kapak gorseli `blog-media` bucket&apos;ina yuklenir.
+                    Kapak görseli `blog-media` bucket&apos;ına yüklenir.
                   </p>
                 </div>
                 <Button
@@ -401,7 +543,7 @@ export function AdminPostEditorPage() {
                   disabled={uploadMutation.isPending}
                 >
                   <ImagePlus className="mr-2 h-4 w-4" />
-                  Gorsel yukle
+                  Görsel yükle
                 </Button>
               </div>
 
@@ -427,17 +569,17 @@ export function AdminPostEditorPage() {
                 />
               ) : (
                 <div className="mt-5 flex h-64 items-center justify-center rounded-[1.5rem] border border-dashed border-border/80 bg-background text-sm text-muted-foreground">
-                  Henuz kapak gorseli secilmedi
+                  Henüz kapak görseli seçilmedi
                 </div>
               )}
             </div>
 
             <div className="rounded-[1.75rem] border border-border/70 bg-white/70 p-5">
-              <p className="text-sm font-semibold text-foreground">Yayin notlari</p>
+              <p className="text-sm font-semibold text-foreground">Yayın notları</p>
               <ul className="mt-4 space-y-3 text-sm leading-7 text-muted-foreground">
-                <li>Slug benzersiz olmalidir; ayni slug tekrar kullanilamaz.</li>
-                <li>Taslaklar public blog sayfasinda listelenmez.</li>
-                <li>Yayinla butonu ilk yayin aninda `published_at` alanini set eder.</li>
+                <li>Slug benzersiz olmalıdır; aynı slug tekrar kullanılamaz.</li>
+                <li>Taslaklar public blog sayfasında listelenmez.</li>
+                <li>Yayınla butonu ilk yayın anında `published_at` alanını set eder.</li>
               </ul>
             </div>
           </div>
@@ -445,10 +587,10 @@ export function AdminPostEditorPage() {
           <div className="rounded-[1.75rem] border border-border/70 bg-white/70 p-5">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
-                <p className="text-sm font-semibold text-foreground">Markdown govdesi</p>
+                <p className="text-sm font-semibold text-foreground">Markdown gövdesi</p>
                 <p className="mt-1 text-xs leading-6 text-muted-foreground">
-                  Medium benzeri yazim icin markdown kullanilir. Govde ici
-                  gorseller markdown olarak otomatik eklenir.
+                  Medium benzeri yazım için markdown kullanılır. Gövde içi
+                  görseller markdown olarak otomatik eklenir.
                 </p>
               </div>
             </div>
@@ -467,7 +609,7 @@ export function AdminPostEditorPage() {
                   disabled={uploadMutation.isPending}
                 >
                   <ImagePlus className="mr-2 h-4 w-4" />
-                  Govdeye gorsel ekle
+                  Gövdeye görsel ekle
                 </Button>
                 <Button
                   type="button"
@@ -476,7 +618,7 @@ export function AdminPostEditorPage() {
                   disabled={isBusy}
                 >
                   <PenLine className="mr-2 h-4 w-4" />
-                  Baslik ekle
+                  Başlık ekle
                 </Button>
               </div>
             </div>
@@ -506,9 +648,24 @@ export function AdminPostEditorPage() {
                 <textarea
                   ref={contentRef}
                   value={values.contentMarkdown}
-                  onChange={handleFieldChange("contentMarkdown")}
+                  onChange={(event) => {
+                    applyEditorState(
+                      {
+                        value: event.target.value,
+                        selectionStart: event.target.selectionStart,
+                        selectionEnd: event.target.selectionEnd,
+                      },
+                      {
+                        pushToUndo: event.target.value !== values.contentMarkdown,
+                      },
+                    );
+                  }}
+                  onKeyDown={handleContentKeyDown}
+                  onSelect={(event) => syncSelection(event.currentTarget)}
+                  onClick={(event) => syncSelection(event.currentTarget)}
+                  onKeyUp={(event) => syncSelection(event.currentTarget)}
                   className={`${textareaClassName} min-h-[30rem] font-mono text-[13px]`}
-                  placeholder="# Yaziniz burada baslasin"
+                  placeholder="# Yazınız burada başlasın"
                 />
               )}
 
@@ -531,14 +688,22 @@ function insertAtCursor(
   textarea: HTMLTextAreaElement | null,
 ) {
   if (!textarea) {
-    return `${currentValue}\n\n${snippet}\n`;
+    return {
+      value: `${currentValue}\n\n${snippet}\n`,
+      selectionStart: currentValue.length + 2,
+      selectionEnd: currentValue.length + 2 + snippet.length,
+    };
   }
 
   const selectionStart = textarea.selectionStart;
   const selectionEnd = textarea.selectionEnd;
   const nextValue = `${currentValue.slice(0, selectionStart)}${snippet}${currentValue.slice(selectionEnd)}`;
 
-  return nextValue;
+  return {
+    value: nextValue,
+    selectionStart,
+    selectionEnd: selectionStart + snippet.length,
+  };
 }
 
 function NavigateToAdmin() {
@@ -548,13 +713,13 @@ function NavigateToAdmin() {
         <p className="section-kicker">Admin</p>
         <h1 className="font-display text-5xl">Oturum gerekli</h1>
         <p className="mt-4 text-muted-foreground">
-          Yazi editorunu acmak icin once admin panelinden giris yapin.
+          Yazı editörünü açmak için önce admin panelinden giriş yapın.
         </p>
         <AppLink
           href="/admin"
           className="mt-8 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-primary"
         >
-          Admin paneline don
+          Admin paneline dön
         </AppLink>
       </div>
     </RevealSection>

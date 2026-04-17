@@ -23,27 +23,27 @@ export function applyMarkdownToolbarAction(
 ): MarkdownTransformResult {
   switch (action) {
     case "bold":
-      return wrapSelection(value, selectionStart, selectionEnd, "**", "**", "kalin metin");
+      return wrapSelection(value, selectionStart, selectionEnd, "**", "**", "kalın metin");
     case "italic":
       return wrapSelection(value, selectionStart, selectionEnd, "*", "*", "italik metin");
     case "heading-2":
-      return prefixLines(value, selectionStart, selectionEnd, "## ", "Alt baslik");
+      return prefixLines(value, selectionStart, selectionEnd, "## ", "Alt başlık");
     case "heading-3":
-      return prefixLines(value, selectionStart, selectionEnd, "### ", "Alt baslik");
+      return prefixLines(value, selectionStart, selectionEnd, "### ", "Alt başlık");
     case "heading-4":
-      return prefixLines(value, selectionStart, selectionEnd, "#### ", "Alt baslik");
+      return prefixLines(value, selectionStart, selectionEnd, "#### ", "Alt başlık");
     case "bullet-list":
       return prefixLines(value, selectionStart, selectionEnd, "- ", "Liste maddesi");
     case "ordered-list":
       return prefixOrderedLines(value, selectionStart, selectionEnd);
     case "quote":
-      return prefixLines(value, selectionStart, selectionEnd, "> ", "Alinti");
+      return prefixLines(value, selectionStart, selectionEnd, "> ", "Alıntı");
     case "table":
       return insertBlock(
         value,
         selectionStart,
         selectionEnd,
-        "\n| Baslik | Detay |\n| --- | --- |\n| Ornek | Aciklama |\n",
+        "\n| Başlık | Detay |\n| --- | --- |\n| Örnek | Açıklama |\n",
       );
     default:
       return {
