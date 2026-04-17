@@ -78,6 +78,8 @@ export function AboutPage() {
           "Bugün, edindiğim bu deneyimle markalara danışmanlık veriyorum.",
           "Amacım; teorik bilgi aktarmak değil, markaların doğru yapı ve stratejiyle büyümesini sağlamak.",
         ]}
+        reverse
+        backgroundClassName="bg-[#eef2f6]"
       />
 
       <RevealSection
