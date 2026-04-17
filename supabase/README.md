@@ -24,6 +24,7 @@ supabase secrets set ADMIN_SESSION_SECRET="uzun-rastgele-bir-imza-anahtari"
 supabase functions deploy admin-login
 supabase functions deploy admin-blog-list
 supabase functions deploy admin-blog-upsert
+supabase functions deploy admin-blog-delete
 supabase functions deploy admin-media-upload-url
 ```
 

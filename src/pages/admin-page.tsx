@@ -1,12 +1,12 @@
 import { useEffect, useMemo, useState } from "react";
-import { useMutation, useQuery } from "@tanstack/react-query";
-import { ArrowRight, FileText, LogOut, Plus } from "lucide-react";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { ArrowRight, FileText, LogOut, Plus, Trash2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { RevealSection } from "@/components/gsap/reveal-section";
 import { AppLink } from "@/components/ui/app-link";
 import { Button } from "@/components/ui/button";
 import { useAdminSession } from "@/features/admin/admin-session";
-import { fetchAdminBlogPosts, loginAdmin } from "@/features/blog/api";
+import { deleteAdminBlogPost, fetchAdminBlogPosts, loginAdmin } from "@/features/blog/api";
 import { formatBlogDate, getStatusLabel } from "@/features/blog/utils";
 import { ApiError } from "@/lib/api-error";
 import { hasSupabaseConfig } from "@/lib/supabase";
@@ -17,6 +17,7 @@ const fieldClassName =
 export function AdminPage() {
   const isConfigured = hasSupabaseConfig();
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
   const { session, setSession, clearSession } = useAdminSession();
   const [password, setPassword] = useState("");
   const loginMutation = useMutation({
@@ -32,6 +33,16 @@ export function AdminPage() {
     queryFn: () => fetchAdminBlogPosts(session?.token ?? ""),
     enabled: Boolean(session) && isConfigured,
     staleTime: 60 * 1000,
+  });
+
+  const deleteMutation = useMutation({
+    mutationFn: async (id: string) => deleteAdminBlogPost(session?.token ?? "", id),
+    onSuccess: async () => {
+      await Promise.all([
+        queryClient.invalidateQueries({ queryKey: ["blog"] }),
+        queryClient.invalidateQueries({ queryKey: ["admin", "blog"] }),
+      ]);
+    },
   });
 
   useEffect(() => {
@@ -179,6 +190,11 @@ export function AdminPage() {
               </div>
             ) : postsQuery.data && postsQuery.data.length > 0 ? (
               <div className="space-y-4">
+                {deleteMutation.isError ? (
+                  <div className="rounded-[1.75rem] border border-red-200 bg-red-50 p-5 text-sm text-red-700">
+                    {(deleteMutation.error as Error).message}
+                  </div>
+                ) : null}
                 {postsQuery.data.map((post) => (
                   <article
                     key={post.id}
@@ -208,6 +224,22 @@ export function AdminPage() {
                     </div>
 
                     <div className="flex shrink-0 flex-wrap gap-3">
+                      <Button
+                        variant="outline"
+                        disabled={deleteMutation.isPending}
+                        onClick={() => {
+                          const confirmed = window.confirm(
+                            `"${post.title}" kalici olarak silinecek. Devam etmek istiyor musunuz?`,
+                          );
+
+                          if (confirmed) {
+                            deleteMutation.mutate(post.id);
+                          }
+                        }}
+                      >
+                        <Trash2 className="mr-2 h-4 w-4" />
+                        Sil
+                      </Button>
                       <AppLink
                         href={`/admin/posts/${post.id}`}
                         className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-white px-4 py-2 text-sm font-semibold transition hover:border-primary/30 hover:text-primary"

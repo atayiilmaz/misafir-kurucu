@@ -194,6 +194,12 @@ export async function requestMediaUpload(
   return uploadRequest;
 }
 
+export async function deleteAdminBlogPost(adminToken: string, id: string) {
+  await invokeAdminFunction<{ success: true }>("admin-blog-delete", adminToken, {
+    id,
+  });
+}
+
 async function invokeFunction<T>(
   functionName: string,
   options?: {

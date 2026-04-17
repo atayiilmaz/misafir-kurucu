@@ -1,18 +1,24 @@
 import { ChangeEvent, useEffect, useMemo, useRef, useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { Eye, ImagePlus, PenLine, Save } from "lucide-react";
+import { Eye, ImagePlus, PenLine, Save, Trash2 } from "lucide-react";
 import { useNavigate, useParams } from "react-router-dom";
 import { BlogMarkdown } from "@/components/blog/blog-markdown";
+import { MarkdownToolbar } from "@/components/blog/markdown-toolbar";
 import { RevealSection } from "@/components/gsap/reveal-section";
 import { AppLink } from "@/components/ui/app-link";
 import { Button } from "@/components/ui/button";
 import { useAdminSession } from "@/features/admin/admin-session";
 import {
+  deleteAdminBlogPost,
   EMPTY_BLOG_POST_FORM,
   fetchAdminBlogPostById,
   requestMediaUpload,
   upsertAdminBlogPost,
 } from "@/features/blog/api";
+import {
+  applyMarkdownToolbarAction,
+  type MarkdownToolbarAction,
+} from "@/features/blog/markdown-toolbar";
 import { type BlogPostFormValues, type BlogPostStatus } from "@/features/blog/types";
 import { slugify } from "@/features/blog/utils";
 import { ApiError } from "@/lib/api-error";
@@ -103,6 +109,23 @@ export function AdminPostEditorPage() {
     },
   });
 
+  const deleteMutation = useMutation({
+    mutationFn: async () => {
+      if (!values.id) {
+        throw new Error("Silinecek yazi bulunamadi.");
+      }
+
+      await deleteAdminBlogPost(session?.token ?? "", values.id);
+    },
+    onSuccess: async () => {
+      await Promise.all([
+        queryClient.invalidateQueries({ queryKey: ["blog"] }),
+        queryClient.invalidateQueries({ queryKey: ["admin", "blog"] }),
+      ]);
+      navigate("/admin", { replace: true });
+    },
+  });
+
   const canSave =
     values.title.trim().length > 0 &&
     values.slug.trim().length > 0 &&
@@ -158,7 +181,8 @@ export function AdminPostEditorPage() {
     );
   }
 
-  const isBusy = saveMutation.isPending || uploadMutation.isPending;
+  const isBusy =
+    saveMutation.isPending || uploadMutation.isPending || deleteMutation.isPending;
 
   const handleFieldChange =
     (field: keyof BlogPostFormValues) =>
@@ -213,6 +237,31 @@ export function AdminPostEditorPage() {
     setUploadMessage("Gorsel markdown govdesine eklendi.");
   };
 
+  const applyToolbarAction = (action: MarkdownToolbarAction) => {
+    const textarea = contentRef.current;
+
+    if (!textarea) {
+      return;
+    }
+
+    const result = applyMarkdownToolbarAction(
+      values.contentMarkdown,
+      textarea.selectionStart,
+      textarea.selectionEnd,
+      action,
+    );
+
+    setValues((current) => ({
+      ...current,
+      contentMarkdown: result.value,
+    }));
+
+    window.requestAnimationFrame(() => {
+      textarea.focus();
+      textarea.setSelectionRange(result.selectionStart, result.selectionEnd);
+    });
+  };
+
   return (
     <RevealSection as="section" className="section-shell py-10">
       <div className="flex flex-wrap items-center justify-between gap-3">
@@ -251,6 +300,24 @@ export function AdminPostEditorPage() {
           </div>
 
           <div className="flex flex-wrap gap-3">
+            {isEditMode ? (
+              <Button
+                variant="outline"
+                disabled={isBusy}
+                onClick={() => {
+                  const confirmed = window.confirm(
+                    `"${values.title || "Bu yazi"}" kalici olarak silinecek. Devam etmek istiyor musunuz?`,
+                  );
+
+                  if (confirmed) {
+                    deleteMutation.mutate();
+                  }
+                }}
+              >
+                <Trash2 className="mr-2 h-4 w-4" />
+                Sil
+              </Button>
+            ) : null}
             <Button
               variant="outline"
               disabled={!canSave || isBusy}
@@ -269,16 +336,18 @@ export function AdminPostEditorPage() {
           </div>
         </div>
 
-        {(saveMutation.isError || uploadMessage) && (
+        {(saveMutation.isError || deleteMutation.isError || uploadMessage) && (
           <div
             className={`mt-6 rounded-[1.5rem] border px-4 py-3 text-sm ${
-              saveMutation.isError
+              saveMutation.isError || deleteMutation.isError
                 ? "border-red-200 bg-red-50 text-red-700"
                 : "border-emerald-200 bg-emerald-50 text-emerald-700"
             }`}
           >
             {saveMutation.isError
               ? (saveMutation.error as Error).message
+              : deleteMutation.isError
+                ? (deleteMutation.error as Error).message
               : uploadMessage}
           </div>
         )}
@@ -382,6 +451,13 @@ export function AdminPostEditorPage() {
                   gorseller markdown olarak otomatik eklenir.
                 </p>
               </div>
+            </div>
+
+            <div className="mt-5 flex flex-wrap items-center justify-between gap-3 rounded-[1.5rem] border border-border/70 bg-background/60 p-3">
+              <MarkdownToolbar
+                onAction={applyToolbarAction}
+                disabled={isBusy}
+              />
 
               <div className="flex flex-wrap gap-2">
                 <Button
@@ -396,12 +472,8 @@ export function AdminPostEditorPage() {
                 <Button
                   type="button"
                   variant="outline"
-                  onClick={() => {
-                    setValues((current) => ({
-                      ...current,
-                      contentMarkdown: `${current.contentMarkdown}\n\n## Yeni baslik\n\n`,
-                    }));
-                  }}
+                  onClick={() => applyToolbarAction("heading-2")}
+                  disabled={isBusy}
                 >
                   <PenLine className="mr-2 h-4 w-4" />
                   Baslik ekle
