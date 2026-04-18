@@ -4,10 +4,10 @@ import { cn } from "@/lib/utils";
 import { AppLink } from "@/components/ui/app-link";
 
 const sectionTitleClass =
-  "font-display text-[2.05rem] leading-[0.96] text-foreground sm:text-[2.45rem] md:text-[3.1rem]";
+  "font-display text-[2.2rem] leading-[0.96] text-foreground sm:text-[2.65rem] md:text-[3.35rem]";
 
 const bodyCopyClass =
-  "text-[0.98rem] leading-7 text-muted-foreground md:text-[1.02rem] md:leading-8";
+  "text-[1.02rem] leading-8 text-muted-foreground md:text-[1.08rem] md:leading-8";
 
 const storyParagraphsLeft = [
   "Dört yıl boyunca; ürün seçimi ve görsel düzenlemeden dijital pazarlama ve finans yönetimine kadar bir işletmenin tüm operasyonel süreçlerini bizzat yönettim. Bu süreci, markayı kârlı bir noktaya getirip başarılı bir şekilde satarak tamamladım.",
@@ -60,7 +60,7 @@ export function AboutPage() {
         stagger={0.08}
         distance={28}
       >
-        <div className="about-top-grid grid items-center gap-6 md:gap-8 lg:grid-cols-[0.68fr_1.12fr] lg:gap-12 xl:grid-cols-[0.74fr_1.26fr] xl:gap-16">
+        <div className="about-top-grid grid items-center gap-6 md:gap-8 lg:grid-cols-[0.64fr_1.16fr] lg:gap-14 xl:grid-cols-[0.7fr_1.3fr] xl:gap-20">
           <div
             className="about-top-media-wrap relative w-full lg:max-w-[24rem] xl:max-w-[28rem]"
             data-gsap-item
@@ -74,14 +74,14 @@ export function AboutPage() {
           </div>
 
           <div
-            className="about-top-card flex flex-col justify-center lg:min-h-[26rem] lg:justify-self-end lg:pl-8 xl:min-h-[30rem] xl:pl-12"
+            className="about-top-card flex flex-col justify-center lg:min-h-[26rem] lg:justify-self-end lg:pl-14 xl:min-h-[30rem] xl:pl-20"
             data-gsap-item
           >
-            <div className="ml-auto flex max-w-[42rem] flex-col justify-center">
-            <h1 className="about-top-title font-display text-[2.15rem] leading-[0.92] sm:text-[2.55rem] md:text-[3rem] lg:text-[3.3rem] xl:text-[3.7rem]">
+            <div className="ml-auto flex max-w-[43rem] flex-col justify-center">
+            <h1 className="about-top-title font-display text-[2.3rem] leading-[0.92] sm:text-[2.75rem] md:text-[3.2rem] lg:text-[3.55rem] xl:text-[3.95rem]">
               Dünyanın daha fazla seri üretime değil; anlamlı, özgün ve değer yaratan bağımsız markalara ihtiyacı olduğuna inanıyorum.
             </h1>
-            <p className="about-top-copy mt-5 max-w-2xl text-[1.02rem] leading-7 text-muted-foreground md:text-[1.08rem] md:leading-8">
+            <p className="about-top-copy mt-5 max-w-2xl text-[1.06rem] leading-8 text-muted-foreground md:text-[1.12rem] md:leading-8">
               Ben de bu boşluğu dolduran markaların ortaya çıkmasına katkı sağlıyorum.
             </p>
             </div>
@@ -100,16 +100,16 @@ export function AboutPage() {
         <div className="section-shell">
           <div className="mx-auto max-w-[78rem]">
             <div className="text-center" data-gsap-item>
-              <p className="text-[0.95rem] italic text-foreground/72 md:text-[1rem]">
+              <p className="font-display text-[1.1rem] italic text-foreground/72 md:text-[1.35rem]">
                 Hakkımda
               </p>
-              <h2 className="mx-auto mt-5 max-w-4xl font-display text-[2.05rem] leading-[0.96] text-foreground sm:text-[2.45rem] md:text-[3.1rem]">
+              <h2 className="mx-auto mt-5 max-w-4xl font-display text-[2.2rem] leading-[0.96] text-foreground sm:text-[2.65rem] md:text-[3.35rem]">
                 Yolculuğum, İstanbul Kadıköy’de kadın giyim mağazası açarak başladı.
               </h2>
             </div>
 
             <div className="mt-12 grid gap-8 lg:grid-cols-2 lg:gap-14">
-              <div className="space-y-5 text-[0.98rem] leading-7 text-foreground/78 md:text-[1.02rem] md:leading-8">
+              <div className="space-y-5 text-[1.02rem] leading-8 text-foreground/78 md:text-[1.08rem] md:leading-8">
                 {storyParagraphsLeft.map((paragraph) => (
                   <p key={paragraph} data-gsap-item>
                     {paragraph}
@@ -117,7 +117,7 @@ export function AboutPage() {
                 ))}
               </div>
 
-              <div className="space-y-5 text-[0.98rem] leading-7 text-foreground/78 md:text-[1.02rem] md:leading-8">
+              <div className="space-y-5 text-[1.02rem] leading-8 text-foreground/78 md:text-[1.08rem] md:leading-8">
                 {storyParagraphsRight.map((paragraph) => (
                   <p key={paragraph} data-gsap-item>
                     {paragraph}
@@ -148,7 +148,7 @@ export function AboutPage() {
                 className="absolute inset-x-0 top-0 h-24 bg-[radial-gradient(circle_at_top_left,rgba(255,121,62,0.12),transparent_68%)] opacity-80 blur-2xl transition-[transform,opacity] duration-500 group-hover:scale-110 group-hover:opacity-100"
               />
               <div className="relative">
-              <p className="font-display text-[1.45rem] leading-[0.98] text-foreground transition-colors duration-300 group-hover:text-primary md:text-[1.7rem]">
+              <p className="font-display text-[1.55rem] leading-[0.98] text-foreground transition-colors duration-300 group-hover:text-primary md:text-[1.85rem]">
                 {item.value}
               </p>
               <div className="mt-4 h-px w-16 bg-[linear-gradient(90deg,rgba(255,121,62,0.45),rgba(255,121,62,0.12),transparent)] transition-all duration-300 group-hover:w-24" />
@@ -177,7 +177,7 @@ export function AboutPage() {
             className="group flex items-center justify-between gap-6 border-b border-primary/16 pb-2 text-foreground"
             data-gsap-item
           >
-            <span className="font-display text-[1.8rem] leading-[0.98] md:text-[2.6rem]">
+            <span className="font-display text-[1.95rem] leading-[0.98] md:text-[2.8rem]">
               Kariyerim ve saha yolculuğum hakkında daha fazla bilgiyi Instagram profilimde görebilirsiniz.
             </span>
             <span className="shrink-0 text-primary transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
