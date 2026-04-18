@@ -81,7 +81,9 @@ function PricingCard({
               {title}
             </h3>
             <div className="mt-5">
-              <p className={cn("text-sm", theme.bodyClass)}>{priceDescription}</p>
+              <p className={cn("whitespace-pre-line text-sm", theme.bodyClass)}>
+                {priceDescription}
+              </p>
             </div>
           </div>
           <motion.img
@@ -95,19 +97,22 @@ function PricingCard({
           />
         </div>
 
-        <p className={cn("mt-5 text-sm leading-6", theme.bodyClass)}>
+        <p className={cn("mt-5 whitespace-pre-line text-sm leading-6", theme.bodyClass)}>
           {description}
         </p>
 
+        <p className={cn("mt-6 text-sm font-semibold", theme.bodyClass)}>
+          Ne elde edeceksin?
+        </p>
         <ul className="mt-6 space-y-3">
           {features.map((feature) => (
-            <li key={feature} className="flex items-center gap-3 text-sm">
+            <li key={feature} className="flex items-start gap-3 text-sm">
               {index === 1 ? (
-                <Sparkles className={cn("h-4 w-4", theme.iconClass)} />
+                <Sparkles className={cn("mt-0.5 h-4 w-4 shrink-0", theme.iconClass)} />
               ) : (
-                <CheckCircle2 className={cn("h-4 w-4", theme.iconClass)} />
+                <CheckCircle2 className={cn("mt-0.5 h-4 w-4 shrink-0", theme.iconClass)} />
               )}
-              <span>{feature}</span>
+              <span className="whitespace-pre-line">{feature}</span>
             </li>
           ))}
         </ul>

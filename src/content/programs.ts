@@ -484,14 +484,16 @@ export const plans: PricingPlan[] = [
   {
     title: "Markanı Kur",
     price: "01",
-    priceDescription: "Fikrini Gerçek Bir Markaya Dönüştür: 0'dan Başarılı Bir Lansmana",
+    priceDescription: "Fikrini Gerçek Bir Markaya Dönüştür: 0'dan\nBaşarılı Bir Lansmana",
     description:
-      "Deneme-yanılma ile zaman ve para kaybetme. 16 yıllık sektör tecrübemle, markanı sağlam temeller üzerine birlikte kuralım.",
+      "Kimin için?\nSağlam temeller atmak ve acele etmeden doğru\nbir başlangıç yapmak isteyen kurucular.",
     features: [
-      "Sermayeni korursun",
-      "Kaostan kurtulursun",
-      "Zaman kazanırsın",
-      "Deneme-yanılma ile aylar kaybetmezsin.",
+      "Stratejik Marka Çerçevesi",
+      "Koleksiyon planlaması ve üretimi",
+      "Maliyetli erken hataları önlemeye yönelik\nsistemler",
+      "Markanı kurarken deneme-yanılma ile sermayeni\nkaybetme; 16 yıllık tecrübemle bu bütçeyi\nkoruyalım:",
+      "Tahmini Toplam Kazanç: ₺240.000 –\n₺400.000+",
+      "Zaman Kaybı (12 - 18 Ay): Paha Biçilemez",
     ],
     buttonText: "Programı İncele",
     href: "/programlar/program-1",
@@ -501,14 +503,14 @@ export const plans: PricingPlan[] = [
   {
     title: "Markanı Büyüt",
     price: "02",
-    priceDescription: "Satış sürecindeki karmaşayı sonlandırın.",
+    priceDescription: "Markanız var, ama henüz tam potansiyeline ulaşmadı.",
     description:
-      "Sistemleştirilmiş süreçlerle kârlılığınızı artırın, markanızı stratejik ve kontrollü şekilde ölçeklendirin.",
+      "Kim için?\nSatışlarınızı bir üst seviyeye taşımak, dijital varlığınızı güçlendirmek ya da\nmarkanızı daha profesyonel bir yapıya oturtmak isteyen kurucular için.",
     features: [
-      "Stratejik Büyüme",
-      "Maksimum Kârlılık",
-      "Sistemleşme",
-      "Operasyonel Netlik",
+      "Satışlar sistematik olarak büyütülür",
+      "Marka algısı oluşturulur",
+      "Süreçler sisteme oturtulur",
+      "Dijitalde dönüşüm odaklı bir varlık oluşturulur",
     ],
     buttonText: "Programı İncele",
     href: "/programlar/program-2",
@@ -521,7 +523,7 @@ export const plans: PricingPlan[] = [
     price: "03",
     priceDescription: "İhtiyacın Kadar, doğru noktada Danışmanlık",
     description:
-      "Her markanın farklıdır. Bu yüzden sana hazır paket değil, tam ihtiyacın olan noktada birebir stratejik destek sunulur",
+      "Spesifik bir sorunuz var, net bir cevap\nistiyorsunuz.\nBu modelde süreç tamamen sana göre\nşekillenir.\nSadece ihtiyaç duyduğun konuda\nNet ve uygulanabilir çözümler alırsın.",
     features: [
       "Marka Stratejisi & Konumlandırma",
       "Ürün & Koleksiyon Yönetimi",
