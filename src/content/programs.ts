@@ -379,7 +379,7 @@ export const programs: Record<ProgramSlug, ProgramData> = {
             "Fiziksel ortamı, operasyonu ve müşteri deneyimini yerinde gözlemlemek için tercihli olarak sunulur. Bazı sorunlar ancak yerinde görülür.",
         },
         {
-          heading: "ONLİNE",
+          heading: "ONLINE",
           title: "Zoom üzerinden birebir",
           description:
             "Haftada 2 gün, 1'er saatlik görüşme + günlük mesaj desteği. Yerinde ziyaret istemeyenler için sürecin tamamı online yürütülür.",
