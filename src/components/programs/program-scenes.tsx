@@ -5,7 +5,13 @@ import { useGSAP } from "@gsap/react";
 import { ArrowRight, MoveRight } from "lucide-react";
 import SubtleButton from "@/components/ui/subtle-button";
 import { cn } from "@/lib/utils";
-import type { ProgramData, ProgramPackageItem } from "@/content/programs";
+import type {
+  ProgramAnalysisMode,
+  ProgramBenefitCard,
+  ProgramData,
+  ProgramPackageItem,
+  ProgramProcessStep,
+} from "@/content/programs";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -13,12 +19,19 @@ type ProgramHeroSceneProps = {
   program: ProgramData;
 };
 
+type ProgramBenefitCardsSceneProps = {
+  title: string;
+  intro?: string[];
+  cards: ProgramBenefitCard[];
+  outro?: string[];
+};
+
 type ProgramListSceneProps = {
-  eyebrow: string;
   title: string;
   items: string[];
-  image: string;
-  imageAlt: string;
+  intro?: string[];
+  image?: string;
+  imageAlt?: string;
   dark?: boolean;
   imageOnRight?: boolean;
 };
@@ -26,33 +39,38 @@ type ProgramListSceneProps = {
 type ProgramPackageSceneProps = {
   title: string;
   items: ProgramPackageItem[];
-  image: string;
-  imageAlt: string;
+  image?: string;
+  imageAlt?: string;
 };
 
 type ProgramNarrativeSceneProps = {
   title: string;
   paragraphs: string[];
-  image: string;
-  imageAlt: string;
+  image?: string;
+  imageAlt?: string;
 };
 
 type ProgramSupportSceneProps = {
   title: string;
   columns: Array<{
-    heading: string;
+    heading?: string;
     items: string[];
   }>;
-  image: string;
-  imageAlt: string;
+  image?: string;
+  imageAlt?: string;
 };
 
 type ProgramProcessSceneProps = {
   title: string;
   intro: string[];
-  steps: string[];
-  image: string;
-  imageAlt: string;
+  steps: ProgramProcessStep[];
+  image?: string;
+  imageAlt?: string;
+};
+
+type ProgramAnalysisModesSceneProps = {
+  title: string;
+  columns: ProgramAnalysisMode[];
 };
 
 type ProgramFinalCtaProps = {
@@ -186,10 +204,7 @@ export function ProgramHeroScene({ program }: ProgramHeroSceneProps) {
   );
 
   return (
-    <section
-      ref={rootRef}
-      className="section-shell pt-4 md:pt-6"
-    >
+    <section ref={rootRef} className="section-shell pt-4 md:pt-6">
       <div className="overflow-hidden rounded-[2.6rem] bg-[linear-gradient(135deg,rgba(255,247,242,0.98),rgba(244,248,255,0.98))] text-foreground shadow-[0_28px_80px_-52px_rgba(77,101,255,0.18)]">
         <div className="grid gap-0 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="relative flex flex-col overflow-hidden px-6 py-6 md:px-8 md:py-7 lg:px-10 lg:py-7">
@@ -210,22 +225,19 @@ export function ProgramHeroScene({ program }: ProgramHeroSceneProps) {
                 </h1>
               </div>
               <p
-                className="mt-3 max-w-2xl text-[0.98rem] leading-7 text-foreground/78 md:text-[1rem] md:leading-8"
+                className="mt-3 max-w-2xl whitespace-pre-line text-[0.98rem] leading-7 text-foreground/78 md:text-[1rem] md:leading-8"
                 data-hero-copy
               >
                 {program.hero.subtitle}
               </p>
               <p
-                className="mt-3 max-w-xl text-sm leading-6 text-foreground/58 md:text-[0.95rem] md:leading-7"
+                className="mt-3 max-w-xl whitespace-pre-line text-sm leading-6 text-foreground/58 md:text-[0.95rem] md:leading-7"
                 data-hero-copy
               >
                 {program.hero.description}
               </p>
               <div className="mt-5" data-hero-copy>
-                <SubtleButton
-                  href="/gorusme-planlayin"
-                  size="lg"
-                >
+                <SubtleButton href="/gorusme-planlayin" size="lg">
                   {program.hero.ctaLabel}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </SubtleButton>
@@ -282,16 +294,162 @@ export function ProgramHeroScene({ program }: ProgramHeroSceneProps) {
   );
 }
 
+export function ProgramBenefitCardsScene({
+  title,
+  intro,
+  cards,
+  outro,
+}: ProgramBenefitCardsSceneProps) {
+  const rootRef = useRef<HTMLElement | null>(null);
+
+  useGSAP(
+    () => {
+      const root = rootRef.current;
+
+      if (!root) {
+        return;
+      }
+
+      const mm = gsap.matchMedia();
+
+      mm.add(
+        {
+          reduce: "(prefers-reduced-motion: reduce)",
+          motion: "(prefers-reduced-motion: no-preference)",
+        },
+        (context) => {
+          const conditions = context.conditions as
+            | { reduce?: boolean; motion?: boolean }
+            | undefined;
+
+          const cardsToAnimate = gsap.utils.toArray<HTMLElement>("[data-benefit-card]");
+
+          if (conditions?.reduce) {
+            gsap.set(["[data-benefit-copy]", cardsToAnimate], {
+              autoAlpha: 1,
+              y: 0,
+              clearProps: "all",
+            });
+            return;
+          }
+
+          const timeline = gsap.timeline({
+            scrollTrigger: {
+              trigger: root,
+              start: "top 76%",
+              once: true,
+            },
+          });
+
+          timeline
+            .from("[data-benefit-copy]", {
+              autoAlpha: 0,
+              y: 40,
+              stagger: 0.1,
+              duration: 0.84,
+              ease: "power3.out",
+            })
+            .from(
+              cardsToAnimate,
+              {
+                autoAlpha: 0,
+                y: 48,
+                stagger: 0.08,
+                duration: 0.88,
+                ease: "power3.out",
+              },
+              0.14,
+            );
+        },
+      );
+
+      return () => mm.revert();
+    },
+    { scope: rootRef },
+  );
+
+  return (
+    <section ref={rootRef} className="section-shell py-12 md:py-16">
+      <div>
+        <h2
+          className="max-w-3xl font-display text-[1.9rem] leading-[0.96] text-foreground sm:text-[2.3rem] md:text-[2.9rem]"
+          data-benefit-copy
+        >
+          {title}
+        </h2>
+
+        {intro?.length ? (
+          <div className="mt-5 grid gap-3">
+            {intro.map((paragraph) => (
+              <p
+                key={paragraph}
+                className="max-w-3xl text-base leading-8 text-foreground/76 md:text-[1.05rem]"
+                data-benefit-copy
+              >
+                {paragraph}
+              </p>
+            ))}
+          </div>
+        ) : null}
+
+        <div className="mt-8 grid gap-4 md:grid-cols-2">
+          {cards.map((card) => (
+            <article
+              key={`${card.title}-${card.description ?? "empty"}`}
+              className={cn(
+                "rounded-[1.9rem] border p-5 shadow-[0_12px_30px_-24px_rgba(62,48,38,0.22)] md:p-6",
+                card.highlight
+                  ? "border-[#aca0ff]/60 bg-[linear-gradient(180deg,rgba(240,237,255,0.98),rgba(243,240,255,0.96))]"
+                  : "border-border/60 bg-[linear-gradient(180deg,rgba(255,252,248,0.96),rgba(255,255,255,0.92))]",
+              )}
+              data-benefit-card
+            >
+              {card.eyebrow ? (
+                <p className="text-[0.74rem] font-semibold uppercase tracking-[0.18em] text-[#4f4fba]">
+                  {card.eyebrow}
+                </p>
+              ) : null}
+              <h3 className="mt-2 text-[1.45rem] font-semibold leading-tight text-foreground md:text-[1.85rem]">
+                {card.title}
+              </h3>
+              {card.description ? (
+                <p className="mt-4 whitespace-pre-line text-[1rem] leading-8 text-foreground/66 md:text-[1.08rem]">
+                  {card.description}
+                </p>
+              ) : null}
+            </article>
+          ))}
+        </div>
+
+        {outro?.length ? (
+          <div className="mt-6 grid gap-3">
+            {outro.map((paragraph) => (
+              <p
+                key={paragraph}
+                className="max-w-3xl text-base leading-8 text-foreground/76 md:text-[1.05rem]"
+                data-benefit-copy
+              >
+                {paragraph}
+              </p>
+            ))}
+          </div>
+        ) : null}
+      </div>
+    </section>
+  );
+}
+
 export function ProgramListScene({
-  eyebrow,
   title,
   items,
+  intro,
   image,
   imageAlt,
   dark = false,
   imageOnRight = false,
 }: ProgramListSceneProps) {
   const rootRef = useRef<HTMLElement | null>(null);
+  const hasImage = Boolean(image && imageAlt);
 
   useGSAP(
     () => {
@@ -351,21 +509,23 @@ export function ProgramListScene({
             });
           });
 
-          gsap.fromTo(
-            "[data-scene-media-inner]",
-            { scale: 1.18, yPercent: -5 },
-            {
-              scale: 1,
-              yPercent: 5,
-              ease: "none",
-              scrollTrigger: {
-                trigger: root,
-                start: "top bottom",
-                end: "bottom top",
-                scrub: 1,
+          if (hasImage) {
+            gsap.fromTo(
+              "[data-scene-media-inner]",
+              { scale: 1.18, yPercent: -5 },
+              {
+                scale: 1,
+                yPercent: 5,
+                ease: "none",
+                scrollTrigger: {
+                  trigger: root,
+                  start: "top bottom",
+                  end: "bottom top",
+                  scrub: 1,
+                },
               },
-            },
-          );
+            );
+          }
         },
       );
 
@@ -374,19 +534,71 @@ export function ProgramListScene({
     { scope: rootRef },
   );
 
+  if (!hasImage) {
+    return (
+      <section ref={rootRef} className="section-shell py-12 md:py-16 text-foreground">
+        <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr]">
+          <div>
+            <h2
+              className="max-w-xl font-display text-[1.82rem] leading-[0.98] sm:text-[2.2rem] md:text-[2.65rem]"
+              data-scene-copy
+            >
+              {title}
+            </h2>
+            {intro?.length ? (
+              <div className="mt-5 grid gap-3">
+                {intro.map((paragraph) => (
+                  <p
+                    key={paragraph}
+                    className="max-w-2xl text-base leading-8 text-foreground/72 md:text-[1.02rem]"
+                    data-scene-copy
+                  >
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            ) : null}
+          </div>
+
+          <div className="space-y-4 md:space-y-5">
+            {items.map((item) => (
+              <div
+                key={`${title}-${item}`}
+                className={cn(
+                  "relative border-l pl-5 pr-2 md:pl-7",
+                  dark ? "border-accent/26" : "border-primary/18",
+                )}
+                data-scene-row
+              >
+                <div className="flex gap-4 md:gap-5">
+                  <span
+                    className={cn(
+                      "mt-3 h-2.5 w-2.5 shrink-0 rounded-full",
+                      dark ? "bg-accent/90" : "bg-primary",
+                    )}
+                  />
+                  <p
+                    className={cn(
+                      "max-w-3xl text-[1.05rem] leading-8 md:text-[1.18rem] md:leading-9",
+                      dark ? "text-foreground/74" : "text-foreground/82",
+                    )}
+                  >
+                    {item}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
-    <section
-      ref={rootRef}
-      className="section-shell py-12 md:py-16 text-foreground"
-    >
+    <section ref={rootRef} className="section-shell py-12 md:py-16 text-foreground">
       <div className="grid gap-8 lg:grid-cols-[0.88fr_1.12fr]">
         <div className={cn("relative lg:pr-6", imageOnRight && "lg:order-2 lg:pr-0 lg:pl-6")}>
           <div className="lg:sticky lg:top-28">
-            <p
-              className="sr-only"
-            >
-              {eyebrow}
-            </p>
             <div className="overflow-hidden rounded-[2rem]">
               <img
                 src={image}
@@ -401,6 +613,19 @@ export function ProgramListScene({
             >
               {title}
             </h2>
+            {intro?.length ? (
+              <div className="mt-5 grid gap-3">
+                {intro.map((paragraph) => (
+                  <p
+                    key={paragraph}
+                    className="max-w-xl text-base leading-8 text-foreground/72 md:text-[1rem]"
+                    data-scene-copy
+                  >
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            ) : null}
           </div>
         </div>
 
@@ -410,9 +635,7 @@ export function ProgramListScene({
               key={`${title}-${item}`}
               className={cn(
                 "relative border-l pl-5 pr-2 md:pl-7",
-                dark
-                  ? "border-accent/26"
-                  : "border-primary/18",
+                dark ? "border-accent/26" : "border-primary/18",
               )}
               data-scene-row
             >
@@ -447,6 +670,7 @@ export function ProgramNarrativeScene({
   imageAlt,
 }: ProgramNarrativeSceneProps) {
   const rootRef = useRef<HTMLElement | null>(null);
+  const hasImage = Boolean(image && imageAlt);
 
   useGSAP(
     () => {
@@ -506,8 +730,10 @@ export function ProgramNarrativeScene({
                 ease: "power3.out",
               },
               0.14,
-            )
-            .from(
+            );
+
+          if (hasImage) {
+            timeline.from(
               "[data-narrative-media]",
               {
                 autoAlpha: 0,
@@ -519,21 +745,22 @@ export function ProgramNarrativeScene({
               0.08,
             );
 
-          gsap.fromTo(
-            "[data-narrative-media-inner]",
-            { scale: 1.12, yPercent: -6 },
-            {
-              scale: 1,
-              yPercent: 6,
-              ease: "none",
-              scrollTrigger: {
-                trigger: root,
-                start: "top bottom",
-                end: "bottom top",
-                scrub: 1,
+            gsap.fromTo(
+              "[data-narrative-media-inner]",
+              { scale: 1.12, yPercent: -6 },
+              {
+                scale: 1,
+                yPercent: 6,
+                ease: "none",
+                scrollTrigger: {
+                  trigger: root,
+                  start: "top bottom",
+                  end: "bottom top",
+                  scrub: 1,
+                },
               },
-            },
-          );
+            );
+          }
         },
       );
 
@@ -541,6 +768,34 @@ export function ProgramNarrativeScene({
     },
     { scope: rootRef },
   );
+
+  if (!hasImage) {
+    return (
+      <section ref={rootRef} className="section-shell py-12 md:py-16">
+        <div className="max-w-4xl">
+          <h2
+            className="font-display text-[1.82rem] leading-[0.98] text-foreground md:text-[2.65rem]"
+            data-narrative-copy
+          >
+            {title}
+          </h2>
+          <div className="mt-6 grid gap-4">
+            {paragraphs.map((paragraph) => (
+              <div key={paragraph}>
+                <div className="mb-4 h-px w-full bg-[linear-gradient(90deg,rgba(255,79,0,0.35),rgba(77,101,255,0.22),transparent)]" data-narrative-line />
+                <p
+                  className="max-w-3xl text-base leading-8 text-foreground/78 md:text-lg"
+                  data-narrative-copy
+                >
+                  {paragraph}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section ref={rootRef} className="section-shell py-12 md:py-16">
@@ -587,6 +842,7 @@ export function ProgramPackageScene({
   imageAlt,
 }: ProgramPackageSceneProps) {
   const rootRef = useRef<HTMLElement | null>(null);
+  const hasImage = Boolean(image && imageAlt);
 
   useGSAP(
     () => {
@@ -647,21 +903,23 @@ export function ProgramPackageScene({
             });
           });
 
-          gsap.fromTo(
-            "[data-package-media-inner]",
-            { scale: 1.14, yPercent: -4 },
-            {
-              scale: 1,
-              yPercent: 6,
-              ease: "none",
-              scrollTrigger: {
-                trigger: root,
-                start: "top bottom",
-                end: "bottom top",
-                scrub: 1,
+          if (hasImage) {
+            gsap.fromTo(
+              "[data-package-media-inner]",
+              { scale: 1.14, yPercent: -4 },
+              {
+                scale: 1,
+                yPercent: 6,
+                ease: "none",
+                scrollTrigger: {
+                  trigger: root,
+                  start: "top bottom",
+                  end: "bottom top",
+                  scrub: 1,
+                },
               },
-            },
-          );
+            );
+          }
         },
       );
 
@@ -669,6 +927,43 @@ export function ProgramPackageScene({
     },
     { scope: rootRef },
   );
+
+  if (!hasImage) {
+    return (
+      <section ref={rootRef} className="section-shell py-12 md:py-16">
+        <div>
+          <h2
+            className="max-w-xl font-display text-[1.82rem] leading-[0.98] md:text-[2.65rem]"
+            data-package-copy
+          >
+            {title}
+          </h2>
+
+          <div className="mt-8 space-y-6">
+            {items.map((item) => (
+              <article
+                key={item.title}
+                className="border-b border-border/45 pb-6 last:border-b-0 md:pb-8"
+                data-package-item
+              >
+                <div className="flex items-start gap-4 md:gap-5">
+                  <span className="mt-3 h-2.5 w-2.5 shrink-0 rounded-full bg-accent/80" />
+                  <div>
+                    <h3 className="text-[1.2rem] font-semibold leading-tight text-foreground md:text-[1.5rem]">
+                      {item.title}
+                    </h3>
+                    <p className="mt-3 max-w-3xl text-base leading-8 text-muted-foreground md:text-[1.02rem]">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section ref={rootRef} className="section-shell py-12 md:py-16">
@@ -723,6 +1018,7 @@ export function ProgramSupportScene({
   imageAlt,
 }: ProgramSupportSceneProps) {
   const rootRef = useRef<HTMLElement | null>(null);
+  const hasImage = Boolean(image && imageAlt);
 
   useGSAP(
     () => {
@@ -778,21 +1074,23 @@ export function ProgramSupportScene({
             },
           });
 
-          gsap.fromTo(
-            "[data-support-media-inner]",
-            { scale: 1.12, yPercent: -4 },
-            {
-              scale: 1,
-              yPercent: 4,
-              ease: "none",
-              scrollTrigger: {
-                trigger: root,
-                start: "top bottom",
-                end: "bottom top",
-                scrub: 1,
+          if (hasImage) {
+            gsap.fromTo(
+              "[data-support-media-inner]",
+              { scale: 1.12, yPercent: -4 },
+              {
+                scale: 1,
+                yPercent: 4,
+                ease: "none",
+                scrollTrigger: {
+                  trigger: root,
+                  start: "top bottom",
+                  end: "bottom top",
+                  scrub: 1,
+                },
               },
-            },
-          );
+            );
+          }
         },
       );
 
@@ -800,6 +1098,47 @@ export function ProgramSupportScene({
     },
     { scope: rootRef },
   );
+
+  if (!hasImage) {
+    return (
+      <section ref={rootRef} className="section-shell py-12 md:py-16">
+        <div>
+          <h2
+            className="max-w-xl font-display text-[1.82rem] leading-[0.98] text-foreground md:text-[2.65rem]"
+            data-support-copy
+          >
+            {title}
+          </h2>
+          <div className={cn("mt-8 grid gap-6", columns.length > 1 ? "lg:grid-cols-2" : "")}>
+            {columns.map((column, index) => (
+              <div
+                key={`${column.heading ?? "support"}-${index}`}
+                className="border-t border-border/35 pt-5"
+                data-support-column
+              >
+                {column.heading ? (
+                  <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-primary/88">
+                    {column.heading}
+                  </h3>
+                ) : null}
+                <ul className={cn("space-y-4", column.heading ? "mt-5" : "")}>
+                  {column.items.map((item) => (
+                    <li
+                      key={item}
+                      className="flex items-start gap-3 text-base leading-7 text-foreground/74 md:text-lg md:leading-8"
+                    >
+                      <MoveRight className="mt-1 h-4 w-4 shrink-0 text-accent" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section ref={rootRef} className="section-shell py-12 md:py-16">
@@ -812,16 +1151,18 @@ export function ProgramSupportScene({
             {title}
           </h2>
           <div className={cn("mt-8 grid gap-6", columns.length > 1 ? "lg:grid-cols-2" : "")}>
-            {columns.map((column) => (
+            {columns.map((column, index) => (
               <div
-                key={column.heading}
+                key={`${column.heading ?? "support"}-${index}`}
                 className="border-t border-border/35 pt-5"
                 data-support-column
               >
-                <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-primary/88">
-                  {column.heading}
-                </h3>
-                <ul className="mt-5 space-y-4">
+                {column.heading ? (
+                  <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-primary/88">
+                    {column.heading}
+                  </h3>
+                ) : null}
+                <ul className={cn("space-y-4", column.heading ? "mt-5" : "")}>
                   {column.items.map((item) => (
                     <li
                       key={item}
@@ -860,6 +1201,7 @@ export function ProgramProcessScene({
   imageAlt,
 }: ProgramProcessSceneProps) {
   const rootRef = useRef<HTMLElement | null>(null);
+  const hasImage = Boolean(image && imageAlt);
 
   useGSAP(
     () => {
@@ -923,6 +1265,63 @@ export function ProgramProcessScene({
     { scope: rootRef },
   );
 
+  const stepsMarkup = (
+    <div className="flex flex-col justify-center gap-5">
+      {steps.map((step) => (
+        <div
+          key={`${step.label}-${step.title}`}
+          className="border-l border-primary/18 pl-5 md:pl-7"
+          data-process-step
+        >
+          <div className="flex items-start gap-4">
+            <span className="mt-3 h-2.5 w-2.5 shrink-0 rounded-full bg-primary/80" />
+            <div>
+              <p className="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-primary/76">
+                {step.label}
+              </p>
+              <p className="mt-2 text-lg font-semibold leading-8 text-foreground md:text-[1.35rem] md:leading-9">
+                {step.title}
+              </p>
+              <p className="mt-2 max-w-2xl text-base leading-8 text-foreground/74 md:text-[1.02rem]">
+                {step.description}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+
+  if (!hasImage) {
+    return (
+      <section ref={rootRef} className="section-shell py-12 md:py-16">
+        <div className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr]">
+          <div>
+            <h2
+              className="font-display text-[1.82rem] leading-[0.98] md:text-[2.65rem]"
+              data-process-copy
+            >
+              {title}
+            </h2>
+            <div className="mt-5 space-y-4">
+              {intro.map((paragraph) => (
+                <p
+                  key={paragraph}
+                  className="max-w-2xl text-base leading-8 text-muted-foreground md:text-lg"
+                  data-process-copy
+                >
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+          </div>
+
+          {stepsMarkup}
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section ref={rootRef} className="section-shell py-12 md:py-16">
       <div className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr]">
@@ -953,20 +1352,105 @@ export function ProgramProcessScene({
           </div>
         </div>
 
-        <div className="flex flex-col justify-center gap-5">
-          {steps.map((step) => (
-            <div
-              key={step}
-              className="border-l border-primary/18 pl-5 md:pl-7"
-              data-process-step
+        {stepsMarkup}
+      </div>
+    </section>
+  );
+}
+
+export function ProgramAnalysisModesScene({
+  title,
+  columns,
+}: ProgramAnalysisModesSceneProps) {
+  const rootRef = useRef<HTMLElement | null>(null);
+
+  useGSAP(
+    () => {
+      const root = rootRef.current;
+
+      if (!root) {
+        return;
+      }
+
+      const mm = gsap.matchMedia();
+
+      mm.add(
+        {
+          reduce: "(prefers-reduced-motion: reduce)",
+          motion: "(prefers-reduced-motion: no-preference)",
+        },
+        (context) => {
+          const conditions = context.conditions as
+            | { reduce?: boolean; motion?: boolean }
+            | undefined;
+
+          if (conditions?.reduce) {
+            gsap.set(["[data-analysis-copy]", "[data-analysis-card]"], {
+              autoAlpha: 1,
+              y: 0,
+              clearProps: "all",
+            });
+            return;
+          }
+
+          gsap.from("[data-analysis-copy]", {
+            autoAlpha: 0,
+            y: 40,
+            duration: 0.84,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: root,
+              start: "top 78%",
+              once: true,
+            },
+          });
+
+          gsap.from("[data-analysis-card]", {
+            autoAlpha: 0,
+            y: 44,
+            stagger: 0.12,
+            duration: 0.88,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: root,
+              start: "top 74%",
+              once: true,
+            },
+          });
+        },
+      );
+
+      return () => mm.revert();
+    },
+    { scope: rootRef },
+  );
+
+  return (
+    <section ref={rootRef} className="section-shell py-12 md:py-16">
+      <div>
+        <h2
+          className="max-w-xl font-display text-[1.82rem] leading-[0.98] text-foreground md:text-[2.65rem]"
+          data-analysis-copy
+        >
+          {title}
+        </h2>
+        <div className="mt-8 grid gap-6 lg:grid-cols-2">
+          {columns.map((column) => (
+            <article
+              key={`${column.heading}-${column.title}`}
+              className="rounded-[2rem] border border-border/60 bg-white/82 p-6 shadow-soft"
+              data-analysis-card
             >
-              <div className="flex items-start gap-4">
-                <span className="mt-3 h-2.5 w-2.5 shrink-0 rounded-full bg-primary/80" />
-                <p className="text-lg leading-8 text-foreground/82 md:text-[1.35rem] md:leading-9">
-                  {step}
-                </p>
-              </div>
-            </div>
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary/88">
+                {column.heading}
+              </p>
+              <h3 className="mt-4 text-[1.2rem] font-semibold leading-tight text-foreground md:text-[1.45rem]">
+                {column.title}
+              </h3>
+              <p className="mt-4 text-base leading-8 text-foreground/74">
+                {column.description}
+              </p>
+            </article>
           ))}
         </div>
       </div>
@@ -991,9 +1475,11 @@ export function ProgramFinalCta({
             <h2 className="mt-4 max-w-4xl font-display text-[2.45rem] leading-[0.92] text-foreground md:text-[4rem]">
               {title}
             </h2>
-            <p className="mt-5 max-w-2xl text-base leading-8 text-muted-foreground md:text-lg">
-              {description}
-            </p>
+            {description ? (
+              <p className="mt-5 max-w-2xl text-base leading-8 text-muted-foreground md:text-lg">
+                {description}
+              </p>
+            ) : null}
           </div>
           <div className="lg:flex lg:justify-end">
             <SubtleButton href={href} size="lg" fullWidth className="lg:w-auto">

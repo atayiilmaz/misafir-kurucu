@@ -1,5 +1,8 @@
+import { type ReactNode } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import {
+  ProgramAnalysisModesScene,
+  ProgramBenefitCardsScene,
   ProgramHeroScene,
   ProgramListScene,
   ProgramNarrativeScene,
@@ -24,92 +27,134 @@ export function ProgramDetailPage() {
     return <Navigate to="/" replace />;
   }
 
-  return (
-    <>
-      <ProgramHeroScene program={program} />
+  const sections: Array<{ key: string; node: ReactNode }> = [];
 
-      {program.benefits ? (
-        <div className={sectionBands.blue}>
-          <ProgramListScene
-            eyebrow={program.name}
-            title={program.benefits.title}
-            items={program.benefits.items}
-            image={program.storyImage}
-            imageAlt={program.storyImageAlt}
-            dark
-          />
-        </div>
-      ) : null}
+  if (program.benefits) {
+    sections.push({
+      key: "benefits",
+      node: (
+        <ProgramBenefitCardsScene
+          title={program.benefits.title}
+          intro={program.benefits.intro}
+          cards={program.benefits.cards}
+          outro={program.benefits.outro}
+        />
+      ),
+    });
+  }
 
-      {program.audience ? (
-        <div className={sectionBands.orange}>
-          <ProgramListScene
-            eyebrow={program.name}
-            title={program.audience.title}
-            items={program.audience.items}
-            image={program.audienceImage}
-            imageAlt={program.audienceImageAlt}
-            imageOnRight
-          />
-        </div>
-      ) : null}
+  if (program.audience) {
+    sections.push({
+      key: "audience",
+      node: (
+        <ProgramListScene
+          title={program.audience.title}
+          intro={program.audience.intro}
+          items={program.audience.items}
+          dark
+        />
+      ),
+    });
+  }
 
-      {program.narrative ? (
-        <div className={sectionBands.blue}>
-          <ProgramNarrativeScene
-            title={program.narrative.title}
-            paragraphs={program.narrative.paragraphs}
-            image={program.storyImage}
-            imageAlt={program.storyImageAlt}
-          />
-        </div>
-      ) : null}
+  if (program.process) {
+    sections.push({
+      key: "process",
+      node: (
+        <ProgramProcessScene
+          title={program.process.title}
+          intro={program.process.intro}
+          steps={program.process.steps}
+        />
+      ),
+    });
+  } else if (program.narrative) {
+    sections.push({
+      key: "narrative-primary",
+      node: (
+        <ProgramNarrativeScene
+          title={program.narrative.title}
+          paragraphs={program.narrative.paragraphs}
+        />
+      ),
+    });
+  }
 
-      {program.process ? (
-        <div className={sectionBands.orange}>
-          <ProgramProcessScene
-            title={program.process.title}
-            intro={program.process.intro}
-            steps={program.process.steps}
-            image={program.supportImage}
-            imageAlt={program.supportImageAlt}
-          />
-        </div>
-      ) : null}
+  if (program.analysisModes) {
+    sections.push({
+      key: "analysis-modes",
+      node: (
+        <ProgramAnalysisModesScene
+          title={program.analysisModes.title}
+          columns={program.analysisModes.columns}
+        />
+      ),
+    });
+  }
 
-      {program.package ? (
-        <div className={sectionBands.blue}>
-          <ProgramPackageScene
-            title={program.package.title}
-            items={program.package.items}
-            image={program.audienceImage}
-            imageAlt={program.audienceImageAlt}
-          />
-        </div>
-      ) : null}
+  if (program.package) {
+    sections.push({
+      key: "package",
+      node: (
+        <ProgramPackageScene
+          title={program.package.title}
+          items={program.package.items}
+        />
+      ),
+    });
+  }
 
-      {program.advisoryAreas ? (
-        <div className={sectionBands.orange}>
-          <ProgramListScene
-            eyebrow={program.name}
-            title={program.advisoryAreas.title}
-            items={program.advisoryAreas.items}
-            image={program.supportImage}
-            imageAlt={program.supportImageAlt}
-            dark
-          />
-        </div>
-      ) : null}
+  if (program.advisoryAreas) {
+    sections.push({
+      key: "advisory",
+      node: (
+        <ProgramListScene
+          title={program.advisoryAreas.title}
+          intro={program.advisoryAreas.intro}
+          items={program.advisoryAreas.items}
+          dark
+        />
+      ),
+    });
+  }
 
-      {program.support ? (
+  if (program.process && program.narrative) {
+    sections.push({
+      key: "narrative-secondary",
+      node: (
+        <ProgramNarrativeScene
+          title={program.narrative.title}
+          paragraphs={program.narrative.paragraphs}
+          image={program.storyImage}
+          imageAlt={program.storyImageAlt}
+        />
+      ),
+    });
+  }
+
+  if (program.support) {
+    sections.push({
+      key: "support",
+      node: (
         <ProgramSupportScene
           title={program.support.title}
           columns={program.support.columns}
-          image={program.supportImage}
-          imageAlt={program.supportImageAlt}
         />
-      ) : null}
+      ),
+    });
+  }
 
+  return (
+    <>
+      <ProgramHeroScene program={program} />
+      {sections.map((section, index) => (
+        <div
+          key={section.key}
+          className={index % 2 === 0 ? sectionBands.blue : sectionBands.orange}
+        >
+          {section.node}
+        </div>
+      ))}
     </>
   );
 }

@@ -5,9 +5,29 @@ export type ProgramPackageItem = {
   description: string;
 };
 
+export type ProgramBenefitCard = {
+  eyebrow?: string;
+  title: string;
+  description?: string;
+  highlight?: boolean;
+};
+
 export type ProgramListBlock = {
   title: string;
+  intro?: string[];
   items: string[];
+};
+
+export type ProgramAnalysisMode = {
+  heading: string;
+  title: string;
+  description: string;
+};
+
+export type ProgramProcessStep = {
+  label: string;
+  title: string;
+  description: string;
 };
 
 export type ProgramData = {
@@ -37,7 +57,12 @@ export type ProgramData = {
     ticker: string[];
     strips: string[];
   };
-  benefits?: ProgramListBlock;
+  benefits?: {
+    title: string;
+    intro?: string[];
+    cards: ProgramBenefitCard[];
+    outro?: string[];
+  };
   audience?: ProgramListBlock;
   narrative?: {
     title: string;
@@ -50,14 +75,18 @@ export type ProgramData = {
   support?: {
     title: string;
     columns: Array<{
-      heading: string;
+      heading?: string;
       items: string[];
     }>;
   };
   process?: {
     title: string;
     intro: string[];
-    steps: string[];
+    steps: ProgramProcessStep[];
+  };
+  analysisModes?: {
+    title: string;
+    columns: ProgramAnalysisMode[];
   };
   advisoryAreas?: ProgramListBlock;
   finalCta: {
@@ -136,12 +165,12 @@ export const programs: Record<ProgramSlug, ProgramData> = {
     },
     benefits: {
       title: "Bu paket sana ne sağlar?",
-      items: [
-        "Sermayeni korursun",
-        "Kaostan kurtulursun",
-        "Süreçlerindeki dağınıklığı net bir sisteme dönüştürürsün",
-        "Zaman kazanırsın",
-        "Deneme-yanılma ile aylar kaybetmezsin.",
+      cards: [
+        { title: "Sermayeni korursun" },
+        { title: "Kaostan kurtulursun" },
+        { title: "Süreçlerindeki dağınıklığı net bir sisteme dönüştürürsün" },
+        { title: "Zaman kazanırsın" },
+        { title: "Deneme-yanılma ile aylar kaybetmezsin." },
       ],
     },
     audience: {
@@ -155,11 +184,11 @@ export const programs: Record<ProgramSlug, ProgramData> = {
       ],
     },
     narrative: {
-      title: "Neden Benimle Çalışmalısınız?",
+      title: "Neden benimle çalışmalısınız?",
       paragraphs: [sharedMentorParagraph, sharedClosingParagraph],
     },
     package: {
-      title: "Paket İçeriği",
+      title: "Paket içeriği",
       items: [
         {
           title: "Marka fikri netleştirilir",
@@ -209,12 +238,12 @@ export const programs: Record<ProgramSlug, ProgramData> = {
       ],
     },
     support: {
-      title: "NEYE YATIRIM YAPIYORSUNUZ",
+      title: "Neye yatırım yapıyorsunuz?",
       columns: [
         {
-          heading: "NEYE YATIRIM YAPIYORSUNUZ",
+          heading: "Neye yatırım yapıyorsunuz?",
           items: [
-            "haftada 2 gün 1 saat zoom üzerindenden birebir görüşme",
+            "Haftada 2 gün 1 saat Zoom üzerinden birebir görüşme",
             "Kaynaklar ve çalışma sayfaları",
             "Günlük sohbet desteği",
             "Markanın tüm kararlarını yöneten net bir marka çerçevesi",
@@ -222,7 +251,7 @@ export const programs: Record<ProgramSlug, ProgramData> = {
           ],
         },
         {
-          heading: "HANGİ KAYNAKLARA ERİŞİRSİN?",
+          heading: "Hangi kaynaklara erişirsin?",
           items: [
             "Marka kurulum ve büyütme şablonları",
             "Ürün, koleksiyon ve fiyatlandırma analiz dökümanları",
@@ -249,13 +278,13 @@ export const programs: Record<ProgramSlug, ProgramData> = {
     heroTitle: "MARKANI BÜYÜT",
     href: "/programlar/program-2",
     menuLabel: "Markanı Büyüt",
-    listingSubtitle: "Satış sürecindeki karmaşayı sonlandırın.",
+    listingSubtitle: "Markanız var, ama henüz tam potansiyeline ulaşmadı.",
     listingDescription:
-      "Sistemleştirilmiş süreçlerle kârlılığınızı artırın, markanızı stratejik ve kontrollü şekilde ölçeklendirin.",
+      "Satışlarınızı bir üst seviyeye taşımak, dijital varlığınızı güçlendirmek ya da markanızı daha profesyonel bir yapıya oturtmak isteyen kurucular için.",
     teaserPoints: [
+      "Dijital Varlık",
       "Stratejik Büyüme",
-      "Maksimum Kârlılık",
-      "Sistemleşme",
+      "Sistemleme",
     ],
     showcaseImage:
       "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1200&q=80",
@@ -273,118 +302,186 @@ export const programs: Record<ProgramSlug, ProgramData> = {
       "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1400&q=80",
     supportImageAlt: "Operasyon, koleksiyon ve kanal yönetimini temsil eden görsel",
     hero: {
-      subtitle: "Satış sürecindeki karmaşayı sonlandırın.",
+      subtitle: "Markanız var, ama henüz tam potansiyeline ulaşmadı.",
       description:
-        "Sistemleştirilmiş süreçlerle kârlılığınızı artırın, markanızı stratejik ve kontrollü şekilde ölçeklendirin.",
+        "Satışlarınızı bir üst seviyeye taşımak, dijital varlığınızı güçlendirmek ya da\nmarkanızı daha profesyonel bir yapıya oturtmak isteyen kurucular için.\n\n16 yıllık sektör deneyimiyle; markanızı bulunduğu noktadan stratejik ve kârlı bir\nbüyüme modeline taşıyoruz.",
       ctaLabel: "Görüşme Planlayın",
       ticker: [
+        "Dijital Varlık",
         "Stratejik Büyüme",
-        "Maksimum Kârlılık",
-        "Global Algı",
-        "Operasyonel Netlik",
+        "Maksimum Kârlılığı",
+        "Sistemleme",
       ],
       strips: [
+        "Global Algı",
+        "Koleksiyon Disiplini",
         "Stratejik Büyüme",
-        "Maksimum Kârlılık",
-        "Operasyonel Netlik",
+        "Maksimum Kârlılığı",
       ],
     },
     benefits: {
       title: "Bu paket sana ne sağlar?",
-      items: [
-        "Stratejik Büyüme",
-        "Maksimum Kârlılık",
-        "Sistemleşme",
-        "Global Algı",
-        "Koleksiyon Disiplini",
-        "Sermaye Koruması",
-        "Operasyonel Netlik",
+      cards: [
+        {
+          eyebrow: "Yeni Odak",
+          title: "DİJİTAL VARLIK",
+          description: "Sosyal medya ve online kanallarda dönüşüm odaklı, tutarlı bir iz",
+          highlight: true,
+        },
+        {
+          title: "STRATEJİK BÜYÜME",
+          description: "Markana özel, ölçeklenebilir sistem",
+        },
+        {
+          title: "MAKSİMUM KÂRLILIĞI",
+          description: "Düşük performanslı alanlar elenir, odak artar",
+        },
+        {
+          title: "SİSTEMLEME",
+          description: "Kişilere değil, sürece bağlı operasyon",
+        },
+        {
+          title: "GLOBAL ALGI",
+          description: "Görsel dil ve iletişim premium seviyeye",
+        },
+        {
+          title: "KOLEKSİYON DİSCİPLİNİ",
+          description: "Sepet ortalamasını artıran ürün yapısı",
+        },
       ],
     },
     audience: {
       title: "Kimler için?",
+      intro: [
+        "Markası olan, belirli bir müşteri kitlesine sahip ama büyümesi duraklamış ya da potansiyelinin altında kalan markalar için tasarlandı. Özellikle şu durumları yaşıyorsanız:",
+      ],
       items: [
-        "Halihazırda satış yapan markalar",
-        "Büyümesini hızlandırmak isteyenler",
-        "Tıkanıklık yaşayan ve yön arayan markalar",
-        "Global marka olmayı hedefleyenler",
-        "Süreçlerini sistemleştirmek isteyenler",
-        "Marka algısı zayıf olanlar",
+        "Dijitalde varlık gösteremiyor ya da dönüşüm alamıyorsunuz",
+        "Sosyal medya hesaplarınız var ama müşteriye dönüşmüyor",
+        "Satışlar bir noktadan sonra platoya girdi",
+        "Her şey sizi bekliyor, süreçler kişilere bağlı",
+        "Global marka olmayı hedefliyorsunuz",
+        "Marka algınız ürün kalitenizin gerisinde kalıyor",
       ],
     },
     narrative: {
-      title: "Neden Benimle Çalışmalısınız?",
-      paragraphs: [sharedMentorParagraph, sharedClosingParagraph],
+      title: "Neden benimle çalışmalısınız?",
+      paragraphs: [
+        "Tekstil sektörü deneme-yanılma yöntemini kaldırmayacak kadar hızlı ve maliyetlidir. Size sadece teorik bilgi vermiyorum; 16 yıllık network’ümü, üretim tecrübemi ve ticari öngörülerimi doğrudan markanıza aktarıyorum. Karşınızda kalabalık ekipler değil, her detaya bizzat hâkim olan bir yol arkadaşı bulacaksınız.",
+        "Bir ajans değil, sektörün mutfağından gelen bir uzmandan kişiselleştirilmiş danışmanlık alacaksınız. Tekstil dünyasında markanızı sağlam temeller üzerine kurmak istiyorsanız, tüm süreçte birebir yanınızdayım.",
+      ],
     },
-    package: {
-      title: "Paket İçeriği",
-      items: [
+    analysisModes: {
+      title: "Analiz yöntemi",
+      columns: [
         {
-          title: "360° Marka Analizi",
+          heading: "YERİNDE ZİYARET",
+          title: "Mağaza / üretim yeri analizi",
           description:
-            "Satış, müşteri ve pazar verileri analiz edilerek büyüme darboğazları netleştirilir",
+            "Fiziksel ortamı, operasyonu ve müşteri deneyimini yerinde gözlemlemek için tercihli olarak sunulur. Bazı sorunlar ancak yerinde görülür.",
         },
         {
-          title: "Koleksiyon Stratejisi",
+          heading: "ONLİNE",
+          title: "Zoom üzerinden birebir",
           description:
-            "Sepet ortalamasını artıran, yüksek kârlı ürün ve koleksiyon yapısı oluşturulur",
+            "Haftada 2 gün, 1'er saatlik görüşme + günlük mesaj desteği. Yerinde ziyaret istemeyenler için sürecin tamamı online yürütülür.",
+        },
+      ],
+    },
+    package: {
+      title: "Paket içeriği",
+      items: [
+        {
+          title: "360° Marka analizi",
+          description:
+            "Satış, müşteri ve pazar verileri analiz edilerek büyüme darboğazları netleştirilir.",
+        },
+        {
+          title: "Dijital varlık & sosyal medya stratejisi",
+          description:
+            "Hangi kanalda nasıl var olunacağı, içerik dili ve yayın sıklığı belirlenir. Mevcut hesaplar dönüşüm için yeniden yapılandırılır.",
+        },
+        {
+          title: "Koleksiyon stratejisi",
+          description:
+            "Sepet ortalamasını artıran, yüksek kârlı ürün ve koleksiyon yapısı oluşturulur.",
         },
         {
           title: "Sistemleşme",
           description:
-            "Marka, kişilere bağlı olmayan sürdürülebilir bir operasyon yapısına kavuşturulur",
+            "Marka, kişilere bağlı olmayan sürdürülebilir bir operasyon yapısına kavuşturulur.",
         },
         {
-          title: "Marka Konumlandırma",
+          title: "Marka konumlandırma",
           description:
-            "Görsel dil ve iletişim global & premium seviyeye taşınır",
+            "Görsel dil ve iletişim global & premium seviyeye taşınır.",
         },
         {
-          title: "Büyüme Kurgusu",
+          title: "Büyüme kurgusu",
           description:
-            "Markaya özel, ölçeklenebilir bir büyüme sistemi kurulur",
+            "Markaya özel, ölçeklenebilir bir büyüme sistemi kurulur.",
         },
         {
-          title: "Kitle & Güven",
+          title: "Kanal genişleme & optimizasyonu",
           description:
-            "Tutarlı iletişimle güçlü ve sadık bir müşteri kitlesi oluşturulur",
+            "Online, fiziksel ve yurtdışı satış kanalları netleştirilir; mevcut kanallar performansa göre yeniden yapılandırılır.",
         },
         {
-          title: "Kanal Genişleme",
+          title: "Kitle & güven inşası",
           description:
-            "Online, fiziksel ve yurtdışı satış kanalları netleştirilir",
+            "Tutarlı iletişimle güçlü ve sadık bir müşteri kitlesi oluşturulur.",
+        },
+      ],
+    },
+    process: {
+      title: "Süreç nasıl işliyor? — yaklaşık 12 hafta",
+      intro: [],
+      steps: [
+        {
+          label: "Hafta 1–2",
+          title: "Yerinde & online analiz",
+          description:
+            "Mağaza veya üretim yeri ziyareti (tercihli) + kapsamlı marka, satış ve pazar analizi. Dijital kanallar, sosyal medya ve mevcut iletişim dili incelenir. Tüm darboğazlar ortaya konur.",
         },
         {
-          title: "Kanal Optimizasyonu",
+          label: "Hafta 3–5",
+          title: "Strateji & yol haritası",
           description:
-            "Mevcut kanallar performansa göre yeniden yapılandırılır",
+            "Dijital varlık planı, koleksiyon stratejisi ve büyüme kurgusu oluşturulur. Hangi kanalda nasıl var olunacağı, içerik dili ve öncelikler belirlenir.",
         },
         {
-          title: "Verimlilik",
+          label: "Hafta 6–9",
+          title: "Uygulama & sistemleşme",
           description:
-            "Düşük performanslı alanlar elimine edilerek odak artırılır",
+            "Operasyon yapısı kurulur, kanallar optimize edilir, marka konumlandırması hayata geçirilir. Haftalık birebir görüşmelerle ilerleme takip edilir.",
+        },
+        {
+          label: "Hafta 10–12",
+          title: "Ölçüm & büyüme",
+          description:
+            "Sonuçlar ölçülür, sistem rafine edilir. Markan seni beklemez — sen markana yön verirsin.",
         },
       ],
     },
     support: {
-      title: "NEYE YATIRIM YAPIYORSUNUZ",
+      title: "Neye yatırım yapıyorsunuz?",
       columns: [
         {
-          heading: "NEYE YATIRIM YAPIYORSUNUZ",
           items: [
-            "haftada 2 gün 1 saat zoom üzerindenden birebir görüşme",
-            "Kaynaklar ve çalışma sayfaları",
-            "Günlük sohbet desteği",
+            "Haftada 2 gün, 1 saatlik birebir Zoom görüşmesi",
+            "Tercihli yerinde mağaza / üretim yeri analizi",
+            "Kaynaklar ve kişiselleştirilmiş çalışma sayfaları",
+            "Günlük sohbet & karar desteği",
             "Markanın tüm kararlarını yöneten net bir marka çerçevesi",
-            "Sürekli geri bildirim ve karar desteği",
+            "Sürekli geri bildirim — 12 hafta boyunca",
           ],
         },
       ],
     },
     finalCta: {
-      title: "Markanızı stratejik ve kontrollü şekilde ölçeklendirmek istiyorsanız, tüm süreçte birebir yanınızdayım.",
+      title: "Markanı Büyüt",
       description:
-        "Sistemleştirilmiş süreçlerle kârlılığınızı artırın ve markanızı kontrollü şekilde büyütün.",
+        "16 yıllık sektör deneyimiyle; markanızı bulunduğu noktadan stratejik ve kârlı bir büyüme modeline taşıyoruz.",
       buttonLabel: "Görüşme Planlayın",
     },
   },
@@ -397,11 +494,11 @@ export const programs: Record<ProgramSlug, ProgramData> = {
     menuLabel: "Stratejik Ortaklık",
     listingSubtitle: "İhtiyacın Kadar, doğru noktada Danışmanlık",
     listingDescription:
-      "Her markanın farklıdır. Bu yüzden sana hazır paket değil, tam ihtiyacın olan noktada birebir stratejik destek sunulur",
+      "Her markanın farklıdır. Bu yüzden sana hazır paket değil, tam ihtiyacın olan noktada birebir stratejik destek sunulur.",
     teaserPoints: [
-      "Marka Stratejisi & Konumlandırma",
-      "Ürün & Koleksiyon Yönetimi",
-      "Satış & Büyüme Stratejileri",
+      "Sadece ihtiyaç duyduğun konuda",
+      "Tam ihtiyaç duyduğun zamanda",
+      "Net ve uygulanabilir çözümler",
     ],
     showcaseImage:
       "https://images.unsplash.com/photo-1495385794356-15371f348c31?auto=format&fit=crop&w=1200&q=80",
@@ -421,12 +518,12 @@ export const programs: Record<ProgramSlug, ProgramData> = {
     hero: {
       subtitle: "İhtiyacın Kadar, doğru noktada Danışmanlık",
       description:
-        "Her markanın farklıdır. Bu yüzden sana hazır paket değil, tam ihtiyacın olan noktada birebir stratejik destek sunulur",
+        "Her markanın farklıdır. Bu yüzden sana hazır paket değil, tam ihtiyacın olan noktada birebir stratejik destek sunulur.",
       ctaLabel: "Seansını Planla",
       ticker: [
-        "Sadece ihtiyaç duyduğun konuda",
-        "Tam ihtiyaç duyduğun zamanda",
-        "Net ve uygulanabilir çözümler",
+        "Marka Stratejisi & Konumlandırma",
+        "Ürün & Koleksiyon Yönetimi",
+        "Satış & Büyüme Stratejileri",
       ],
       strips: [
         "Sadece ihtiyaç duyduğun konuda",
@@ -434,23 +531,33 @@ export const programs: Record<ProgramSlug, ProgramData> = {
         "Net ve uygulanabilir çözümler",
       ],
     },
-    narrative: {
-      title: "Nasıl Çalışır?",
-      paragraphs: [
-        "Bu modelde süreç tamamen sana göre şekillenir.",
-        "Uzun programlara girmek zorunda değilsin.",
-      ],
-    },
-    process: {
-      title: "Nasıl Çalışır?",
+    benefits: {
+      title: "90 dakikada ne elde edersiniz?",
       intro: [
         "Bu modelde süreç tamamen sana göre şekillenir.",
-        "Uzun programlara girmek zorunda değilsin.",
       ],
-      steps: [
-        "Sadece ihtiyaç duyduğun konuda,",
-        "Tam ihtiyaç duyduğun zamanda,",
-        "Net ve uygulanabilir çözümler alırsın.",
+      cards: [
+        {
+          title: "Sadece ihtiyaç duyduğun konuda",
+        },
+        {
+          title: "Tam ihtiyaç duyduğun zamanda",
+        },
+        {
+          title: "Net ve uygulanabilir çözümler alırsın.",
+        },
+      ],
+      outro: [
+        "Spesifik sorunuza uygulanabilir bir yol çizilir.",
+        "Hazır şablon değil, markanıza özel, doğrudan kullanabileceğiniz çözümler sunulur.",
+      ],
+    },
+    audience: {
+      title: "Kimler için?",
+      items: [
+        "Markası için spesifik konuda takılan kurucular",
+        "Belirli bir karar öncesi uzman görüşü almak isteyenler",
+        "Aylık danışmanlığa ihtiyaç duymayan ama tavsiyeye ihtiyaç duyanlar için",
       ],
     },
     advisoryAreas: {
@@ -469,8 +576,7 @@ export const programs: Record<ProgramSlug, ProgramData> = {
     },
     finalCta: {
       title: "Seansını Planla",
-      description:
-        "Hazır paket yerine, tam ihtiyacın olan noktada birebir stratejik destek sunulur.",
+      description: "",
       buttonLabel: "Seansını Planla",
     },
   },
