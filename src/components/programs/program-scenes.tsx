@@ -301,6 +301,38 @@ export function ProgramBenefitCardsScene({
   outro,
 }: ProgramBenefitCardsSceneProps) {
   const rootRef = useRef<HTMLElement | null>(null);
+  const hasHighlight = cards.some((card) => card.highlight);
+
+  const getCardLayoutClass = (card: ProgramBenefitCard, index: number) => {
+    const count = cards.length;
+
+    if (count === 3) {
+      return "md:col-span-4";
+    }
+
+    if (count === 5 && !hasHighlight) {
+      const pattern = ["md:col-span-7", "md:col-span-5", "md:col-span-4", "md:col-span-4", "md:col-span-4"];
+      return pattern[index] ?? "md:col-span-4";
+    }
+
+    if (count === 6 && hasHighlight) {
+      const pattern = [
+        "md:col-span-7",
+        "md:col-span-5",
+        "md:col-span-5",
+        "md:col-span-7",
+        "md:col-span-6",
+        "md:col-span-6",
+      ];
+      return pattern[index] ?? "md:col-span-6";
+    }
+
+    if (card.highlight) {
+      return "md:col-span-7";
+    }
+
+    return count % 2 === 0 ? "md:col-span-6" : index === count - 1 ? "md:col-span-12" : "md:col-span-6";
+  };
 
   useGSAP(
     () => {
@@ -325,7 +357,7 @@ export function ProgramBenefitCardsScene({
           const cardsToAnimate = gsap.utils.toArray<HTMLElement>("[data-benefit-card]");
 
           if (conditions?.reduce) {
-            gsap.set(["[data-benefit-copy]", cardsToAnimate], {
+            gsap.set(["[data-benefit-copy]", cardsToAnimate, "[data-benefit-glow]"], {
               autoAlpha: 1,
               y: 0,
               clearProps: "all",
@@ -334,6 +366,9 @@ export function ProgramBenefitCardsScene({
           }
 
           const timeline = gsap.timeline({
+            defaults: {
+              ease: "power3.out",
+            },
             scrollTrigger: {
               trigger: root,
               start: "top 76%",
@@ -347,16 +382,25 @@ export function ProgramBenefitCardsScene({
               y: 40,
               stagger: 0.1,
               duration: 0.84,
-              ease: "power3.out",
             })
+            .from(
+              "[data-benefit-glow]",
+              {
+                autoAlpha: 0,
+                scale: 0.92,
+                stagger: 0.06,
+                duration: 0.8,
+              },
+              0.08,
+            )
             .from(
               cardsToAnimate,
               {
                 autoAlpha: 0,
-                y: 48,
+                y: 56,
+                scale: 0.97,
                 stagger: 0.08,
                 duration: 0.88,
-                ease: "power3.out",
               },
               0.14,
             );
@@ -392,33 +436,55 @@ export function ProgramBenefitCardsScene({
           </div>
         ) : null}
 
-        <div className="mt-8 grid gap-4 md:grid-cols-2">
-          {cards.map((card) => (
-            <article
-              key={`${card.title}-${card.description ?? "empty"}`}
-              className={cn(
-                "rounded-[1.9rem] border p-5 shadow-[0_12px_30px_-24px_rgba(62,48,38,0.22)] md:p-6",
-                card.highlight
-                  ? "border-[#aca0ff]/60 bg-[linear-gradient(180deg,rgba(240,237,255,0.98),rgba(243,240,255,0.96))]"
-                  : "border-border/60 bg-[linear-gradient(180deg,rgba(255,252,248,0.96),rgba(255,255,255,0.92))]",
-              )}
-              data-benefit-card
-            >
-              {card.eyebrow ? (
-                <p className="text-[0.74rem] font-semibold uppercase tracking-[0.18em] text-[#4f4fba]">
-                  {card.eyebrow}
-                </p>
-              ) : null}
-              <h3 className="mt-2 text-[1.45rem] font-semibold leading-tight text-foreground md:text-[1.85rem]">
-                {card.title}
-              </h3>
-              {card.description ? (
-                <p className="mt-4 whitespace-pre-line text-[1rem] leading-8 text-foreground/66 md:text-[1.08rem]">
-                  {card.description}
-                </p>
-              ) : null}
-            </article>
-          ))}
+        <div className="mt-8 grid gap-4 md:grid-cols-12">
+          {cards.map((card, index) => {
+            const cardLayoutClass = getCardLayoutClass(card, index);
+            const compactCardClass = card.description
+              ? "min-h-[9rem] md:min-h-[9.75rem]"
+              : "min-h-[7.5rem] md:min-h-[8.25rem]";
+            const highlightCardClass = card.highlight ? "md:min-h-[11.5rem]" : "";
+
+            return (
+              <article
+                key={`${card.title}-${card.description ?? "empty"}`}
+                className={cn(
+                  "group relative overflow-hidden rounded-[1.9rem] border p-5 shadow-[0_12px_30px_-24px_rgba(62,48,38,0.22)] transition-[transform,box-shadow,border-color,background] duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_24px_44px_-28px_rgba(62,48,38,0.3)] md:p-6",
+                  cardLayoutClass,
+                  compactCardClass,
+                  highlightCardClass,
+                  card.highlight
+                    ? "border-[#aca0ff]/60 bg-[linear-gradient(180deg,rgba(240,237,255,0.98),rgba(243,240,255,0.96))] hover:border-[#9e8fff]/80 hover:bg-[linear-gradient(180deg,rgba(241,237,255,1),rgba(246,243,255,0.98))]"
+                    : "border-border/60 bg-[linear-gradient(180deg,rgba(255,252,248,0.96),rgba(255,255,255,0.92))] hover:border-primary/20 hover:bg-[linear-gradient(180deg,rgba(255,250,245,0.98),rgba(255,255,255,0.97))]",
+                )}
+                data-benefit-card
+              >
+                <div
+                  className={cn(
+                    "absolute inset-x-0 top-0 h-24 opacity-80 blur-2xl transition-[transform,opacity] duration-500 group-hover:scale-110 group-hover:opacity-100",
+                    card.highlight
+                      ? "bg-[radial-gradient(circle_at_top_left,rgba(130,118,255,0.22),transparent_68%)]"
+                      : "bg-[radial-gradient(circle_at_top_left,rgba(255,121,62,0.12),transparent_68%)]",
+                  )}
+                  data-benefit-glow
+                />
+                <div className="relative flex h-full flex-col justify-between">
+                  {card.eyebrow ? (
+                    <p className="text-[0.74rem] font-semibold uppercase tracking-[0.18em] text-[#4f4fba]">
+                      {card.eyebrow}
+                    </p>
+                  ) : null}
+                  <h3 className="mt-2 text-[1.45rem] font-semibold leading-tight text-foreground md:text-[1.85rem]">
+                    {card.title}
+                  </h3>
+                  {card.description ? (
+                    <p className="mt-4 max-w-[28rem] whitespace-pre-line text-[1rem] leading-8 text-foreground/66 md:text-[1.08rem]">
+                      {card.description}
+                    </p>
+                  ) : null}
+                </div>
+              </article>
+            );
+          })}
         </div>
 
         {outro?.length ? (
@@ -450,6 +516,7 @@ export function ProgramListScene({
 }: ProgramListSceneProps) {
   const rootRef = useRef<HTMLElement | null>(null);
   const hasImage = Boolean(image && imageAlt);
+  const shouldCenterRows = items.length <= 3;
 
   useGSAP(
     () => {
@@ -629,7 +696,13 @@ export function ProgramListScene({
           </div>
         </div>
 
-        <div className={cn("space-y-4 md:space-y-5", imageOnRight && "lg:order-1")}>
+        <div
+          className={cn(
+            "space-y-4 md:space-y-5",
+            imageOnRight && "lg:order-1",
+            shouldCenterRows && "flex flex-col justify-center lg:min-h-[18rem]",
+          )}
+        >
           {items.map((item) => (
             <div
               key={`${title}-${item}`}
