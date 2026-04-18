@@ -1,21 +1,52 @@
-import { Badge } from "@/components/ui/badge";
+import { ArrowUpRight } from "lucide-react";
 import { RevealSection } from "@/components/gsap/reveal-section";
 import SubtleButton from "@/components/ui/subtle-button";
-import FeatureSection from "@/components/ui/feature-section";
+import { cn } from "@/lib/utils";
 
-const workingMethodItems = [
+const sectionTitleClass =
+  "font-display text-[2.05rem] leading-[0.96] text-foreground sm:text-[2.45rem] md:text-[3.1rem]";
+
+const bodyCopyClass =
+  "text-[0.98rem] leading-7 text-muted-foreground md:text-[1.02rem] md:leading-8";
+
+const storyParagraphsLeft = [
+  "Dört yıl boyunca; ürün seçimi ve görsel düzenlemeden dijital pazarlama ve finans yönetimine kadar bir işletmenin tüm operasyonel süreçlerini bizzat yönettim. Bu süreci, markayı kârlı bir noktaya getirip başarılı bir şekilde satarak tamamladım.",
+  "Sonra rotamı üretime çevirdim. Atölye süreçlerinin her aşamasında yer alarak; hem kendi markam için yüksek hacimli üretimler gerçekleştirdim hem de toptan firmaları ve tasarımcı markalar için üretim yönetimi üstlendim.",
+];
+
+const storyParagraphsRight = [
+  "Bu yoğun tempo, bana sadece üretim tekniklerini değil, sürdürülebilir bir iş modelinin sınırlarını da öğretti. Operasyonel verimliliği ön plana alarak iş modelimi tamamen internet odaklı hale getirdim ve ikinci markamı da başarıyla yeni sahiplerine teslim ettim.",
+  "Girişimciliğin getirdiği o belirsizlik hissini, her kararı tek başına omuzlamanın yükünü çok iyi biliyorum. Aynı anda her şeyi yönetmeye çalışmanın, sürekli doğru kararı aramanın ve “yeterince iyi mi yapıyorum?” sorusuyla yaşamanın nasıl bir his olduğunu biliyorum. Çünkü ben de o yollardan geçtim.",
+  "Bu yüzden size sadece teorik tavsiyeler sunmuyorum; birlikte uygulanabilir bir plan oluşturuyor ve bu yolculuğun her adımında bizzat yanınızda yer alıyorum.",
+];
+
+const proofItems = [
   {
-    step: "01",
-    text: "Mevcut durumu netleştirir, problemi gerçekten nerede yaşadığını görünür hale getiririz.",
+    value: "2 Başarılı Satış",
+    description:
+      "Sıfırdan kurup kârlı bir noktaya getirdiğim 2 farklı moda markasını başarıyla sattım. Bir markanın nasıl büyütüleceğini ve ne zaman nakde dönüştürüleceğini bizzat deneyimledim.",
   },
   {
-    step: "02",
-    text: "Marka, üretim ve satış tarafını birbirinden kopuk değil tek sistem içinde ele alırız.",
+    value: "16+ Yıllık Sektör Tecrübesi",
+    description:
+      "Moda dünyasının hem vitrininde hem mutfağında geçen 16 yılı aşkın sürede, sektörün tüm değişimlerine ve zorluklarına şahitlik ettim.",
   },
   {
-    step: "03",
-    text: "Program sonunda yalnızca fikir değil, uygulanabilir bir aksiyon akışı çıkarırız.",
+    value: "4 Yıl Mağazacılık Deneyimi",
+    description:
+      "İstanbul Kadıköy’de ürün seçiminden finansal yönetime kadar bir işletmenin tüm operasyonunu bizzat yönettim.",
   },
+  {
+    value: "100.000 Adet Üretim Yönetimi",
+    description:
+      "Atölye süreçlerinin her aşamasında yer alarak, hem kendi markalarım hem de tasarımcı markalar için bugüne kadar 100 bin adetin üzerinde üretimin planlamasını ve yönetimini üstlendim.",
+  },
+];
+
+const todayItems = [
+  "Bugün, bu iki farklı marka yolculuğundan edindiğim paha biçilmez saha tecrübesiyle üçüncü markamı inşa ediyorum. Aynı zamanda, benzer yollardan geçen moda girişimcilerine; bizzat deneyimlenmiş stratejilerle rehberlik ediyorum.",
+  "Moda markasını ciddiye alan girişimcilere; teoriyi değil, gerçek sahayı öğretiyorum.",
+  "En büyük hayalim; Türkiye’den doğacak bir dünya markasında pay sahibi olmak ve şirin bir sahil kasabasında, bahçeli bir evde yaşamak.",
 ];
 
 export function AboutPage() {
@@ -23,10 +54,13 @@ export function AboutPage() {
     <>
       <RevealSection
         as="section"
-        className="about-top section-shell pb-12 pt-6 md:pt-8 lg:flex lg:min-h-[calc(100svh-5.75rem)] lg:items-center lg:pb-8 xl:pb-16"
+        className="about-top section-shell pb-10 pt-6 md:pt-8 lg:flex lg:min-h-[calc(100svh-5.75rem)] lg:items-center lg:pb-8 xl:pb-12"
         itemSelector="[data-gsap-item]"
+        start="top 88%"
+        stagger={0.08}
+        distance={28}
       >
-        <div className="about-top-grid grid items-center gap-6 md:gap-8 lg:grid-cols-[0.72fr_1.08fr] lg:gap-10 xl:grid-cols-[0.78fr_1.22fr] xl:gap-14">
+        <div className="about-top-grid grid items-center gap-6 md:gap-8 lg:grid-cols-[0.68fr_1.12fr] lg:gap-12 xl:grid-cols-[0.74fr_1.26fr] xl:gap-16">
           <div
             className="about-top-media-wrap relative w-full lg:max-w-[24rem] xl:max-w-[28rem]"
             data-gsap-item
@@ -40,90 +74,155 @@ export function AboutPage() {
           </div>
 
           <div
-            className="about-top-card rounded-[2rem] border border-border/60 bg-white/45 p-6 backdrop-blur-sm md:p-8 lg:p-8 xl:p-12"
+            className="about-top-card flex flex-col justify-center lg:min-h-[26rem] lg:justify-self-end lg:pl-8 xl:min-h-[30rem] xl:pl-12"
             data-gsap-item
           >
-            <h1 className="about-top-title mt-4 font-display text-[2.45rem] leading-[0.96] sm:text-[2.8rem] md:text-[3.4rem] lg:text-[3.8rem] xl:text-[4.4rem]">
-              Sevinç ile tekstilde fikirden üretime uzanan gerçek saha bilgisi
+            <div className="ml-auto flex max-w-[42rem] flex-col justify-center">
+            <h1 className="about-top-title font-display text-[2.15rem] leading-[0.92] sm:text-[2.55rem] md:text-[3rem] lg:text-[3.3rem] xl:text-[3.7rem]">
+              Dünyanın daha fazla seri üretime değil; anlamlı, özgün ve değer yaratan bağımsız markalara ihtiyacı olduğuna inanıyorum.
             </h1>
-            <p className="about-top-copy mt-5 max-w-2xl text-base leading-7 text-muted-foreground md:mt-6 md:text-[1.05rem] md:leading-8">
-              Yıllar içinde üretim, koleksiyon, tedarik, satış ve görünürlük
-              tarafında sahada öğrendiğim konuları; kendi markasını kurmak
-              isteyenler için daha net, uygulanabilir ve takip edilebilir hale
-              getiriyorum.
+            <p className="about-top-copy mt-5 max-w-2xl text-[1.02rem] leading-7 text-muted-foreground md:text-[1.08rem] md:leading-8">
+              Ben de bu boşluğu dolduran markaların ortaya çıkmasına katkı sağlıyorum.
             </p>
-            <p className="about-top-copy mt-4 max-w-2xl text-[0.98rem] leading-7 text-muted-foreground md:text-base md:leading-8">
-              Amacım ilham verip geri çekilmek değil. Ne yapılacağını, hangi
-              sırayla yapılacağını ve nerede hata verme riskinin arttığını açık
-              biçimde göstermek.
-            </p>
-
-            <SubtleButton
-              href="/gorusme-planlayin"
-              size="lg"
-              className="about-top-action mt-8"
-            >
-              Görüşme Planlayın
-            </SubtleButton>
+            </div>
           </div>
         </div>
       </RevealSection>
 
-      <FeatureSection
-        title=""
-        headline="16 yılı aşkın süredir tekstil sektörünün içindeyim."
-        paragraphs={[
-          "Kendi mağazamı kurarak başladım; üretim, tedarik, e-ticaret ve marka kurma süreçlerinin tamamını sahada deneyimledim. Bu süreçte hem büyüttüm hem yeniden başlamak zorunda kaldım.",
-          "Üretim ve e-ticaret alanında kendi iş modellerimi kurarak markalar geliştirdim ve devrettim.",
-          "Bugün, edindiğim bu deneyimle markalara danışmanlık veriyorum.",
-          "Amacım; teorik bilgi aktarmak değil, markaların doğru yapı ve stratejiyle büyümesini sağlamak.",
-        ]}
-        reverse
-        backgroundClassName="bg-[#eef2f6]"
-      />
+      <RevealSection
+        as="section"
+        className="bg-[#eef2f6] py-14 md:py-20"
+        itemSelector="[data-gsap-item]"
+        start="top 84%"
+        stagger={0.08}
+        distance={26}
+      >
+        <div className="section-shell">
+          <div className="mx-auto max-w-[78rem]">
+            <div className="text-center" data-gsap-item>
+              <p className="text-[0.95rem] italic text-foreground/72 md:text-[1rem]">
+                Hakkımda
+              </p>
+              <h2 className="mx-auto mt-5 max-w-4xl font-display text-[2.05rem] leading-[0.96] text-foreground sm:text-[2.45rem] md:text-[3.1rem]">
+                Yolculuğum, İstanbul Kadıköy’de kadın giyim mağazası açarak başladı.
+              </h2>
+            </div>
+
+            <div className="mt-12 grid gap-8 lg:grid-cols-2 lg:gap-14">
+              <div className="space-y-5 text-[0.98rem] leading-7 text-foreground/78 md:text-[1.02rem] md:leading-8">
+                {storyParagraphsLeft.map((paragraph) => (
+                  <p key={paragraph} data-gsap-item>
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+
+              <div className="space-y-5 text-[0.98rem] leading-7 text-foreground/78 md:text-[1.02rem] md:leading-8">
+                {storyParagraphsRight.map((paragraph) => (
+                  <p key={paragraph} data-gsap-item>
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </RevealSection>
 
       <RevealSection
         as="section"
         className="section-shell py-14 md:py-20"
         itemSelector="[data-gsap-item]"
+        start="top 84%"
+        stagger={0.08}
+        distance={26}
       >
-        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-          <div
-            className="rounded-[2rem] border border-border/60 bg-white/70 p-6 shadow-soft md:p-10"
-            data-gsap-item
-          >
-            <Badge>Yaklaşımım</Badge>
-            <h2 className="mt-4 font-display text-[2.3rem] leading-[0.95] sm:text-[2.7rem] md:text-5xl">
-              İlham değil, uygulanabilir netlik
-            </h2>
-            <p className="mt-5 text-[0.98rem] leading-7 text-muted-foreground md:text-base md:leading-8">
-              İçerik üretirken motivasyon vermek tek başına yeterli değil.
-              Girişimcinin neyi ne sırayla yapacağını, hangi kararın neden
-              öncelikli olduğunu ve sahada nerede hata verebileceğini açıkça
-              görmek gerekiyor.
-            </p>
-            <p className="mt-4 text-[0.98rem] leading-7 text-muted-foreground md:text-base md:leading-8">
-              Sevinç olarak çalışma biçimim; sahadaki karmaşayı sadeleştirmek,
-              doğru öncelikleri belirlemek ve girişimciyi uygulanabilir bir yol
-              haritasıyla bırakmak üzerine kurulu.
-            </p>
-          </div>
-
-          <div className="space-y-5">
-            {workingMethodItems.map((item) => (
+        <div className="grid gap-5 md:grid-cols-2">
+          {proofItems.map((item) => (
+            <article
+              key={item.value}
+              className="group relative overflow-hidden rounded-[1.9rem] border border-border/60 bg-[linear-gradient(180deg,rgba(255,252,248,0.96),rgba(255,255,255,0.92))] p-6 shadow-[0_12px_30px_-24px_rgba(62,48,38,0.22)] transition-[transform,box-shadow,border-color,background] duration-300 ease-out hover:-translate-y-1 hover:border-primary/20 hover:bg-[linear-gradient(180deg,rgba(255,250,245,0.98),rgba(255,255,255,0.97))] hover:shadow-[0_24px_44px_-28px_rgba(62,48,38,0.3)] md:p-7"
+              data-gsap-item
+            >
               <div
-                key={item.step}
-                className="rounded-[1.75rem] border border-border/60 bg-gradient-to-br from-primary/10 via-white/90 to-accent/10 p-5 shadow-soft md:p-7"
-                data-gsap-item
-              >
-                <p className="font-display text-[2.1rem] leading-none md:text-[2.4rem]">
-                  {item.step}
-                </p>
-                <p className="mt-3 text-[0.98rem] leading-7 text-muted-foreground md:mt-4 md:text-base md:leading-8">
-                  {item.text}
-                </p>
+                className="absolute inset-x-0 top-0 h-24 bg-[radial-gradient(circle_at_top_left,rgba(255,121,62,0.12),transparent_68%)] opacity-80 blur-2xl transition-[transform,opacity] duration-500 group-hover:scale-110 group-hover:opacity-100"
+              />
+              <div className="relative">
+              <p className="font-display text-[1.45rem] leading-[0.98] text-foreground transition-colors duration-300 group-hover:text-primary md:text-[1.7rem]">
+                {item.value}
+              </p>
+              <div className="mt-4 h-px w-16 bg-[linear-gradient(90deg,rgba(255,121,62,0.45),rgba(255,121,62,0.12),transparent)] transition-all duration-300 group-hover:w-24" />
+              <p className={["mt-4", bodyCopyClass].join(" ")}>
+                {item.description}
+              </p>
               </div>
-            ))}
+            </article>
+          ))}
+        </div>
+      </RevealSection>
+
+      <RevealSection
+        as="section"
+        className="section-shell py-14 md:py-20"
+        itemSelector="[data-gsap-item]"
+        start="top 84%"
+        stagger={0.08}
+        distance={26}
+      >
+        <div className="rounded-[2.1rem] border border-[#e6ddd5] bg-[linear-gradient(180deg,rgba(255,249,243,0.98),rgba(255,255,255,0.94))] p-6 shadow-[0_24px_54px_-38px_rgba(61,45,33,0.2)] md:p-10 lg:p-12">
+          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12">
+            <div data-gsap-item>
+              <p className="text-[0.82rem] font-semibold uppercase tracking-[0.22em] text-primary/78">
+                Instagram
+              </p>
+              <h3 className="mt-4 font-display text-[1.95rem] leading-[0.96] text-foreground md:text-[2.7rem]">
+                Kariyerim ve saha yolculuğum hakkında daha fazla bilgiyi Instagram profilimde görebilirsiniz.
+              </h3>
+            </div>
+
+            <div data-gsap-item>
+              <p className={bodyCopyClass}>
+                Güncel paylaşımlarımı, üretimden sahaya uzanan notlarımı ve profesyonel yolculuğuma dair daha fazla içeriği Instagram profilimde bulabilirsiniz.
+              </p>
+
+              <SubtleButton
+                href="https://www.instagram.com/misafirkurucu/"
+                target="_blank"
+                rel="noreferrer"
+                className="mt-6"
+              >
+                Instagram Profilini Gör
+                <ArrowUpRight className="h-4 w-4" />
+              </SubtleButton>
+            </div>
+          </div>
+        </div>
+      </RevealSection>
+
+      <RevealSection
+        as="section"
+        className="section-shell py-14 md:py-20"
+        itemSelector="[data-gsap-item]"
+        start="top 84%"
+        stagger={0.08}
+        distance={26}
+      >
+        <div className="rounded-[2.25rem] border border-[#e7ddd6] bg-[linear-gradient(180deg,rgba(255,251,247,0.98),rgba(245,248,255,0.92))] p-6 shadow-[0_28px_60px_-42px_rgba(61,45,33,0.24)] md:p-10 lg:p-12">
+          <div data-gsap-item>
+              <h2 className={sectionTitleClass}>
+                Bugün Neredeyim?
+              </h2>
+
+              <div className="mt-6 space-y-4">
+                {todayItems.map((item) => (
+                  <p
+                    key={item}
+                    className={bodyCopyClass}
+                  >
+                    {item}
+                  </p>
+                ))}
+              </div>
           </div>
         </div>
       </RevealSection>
