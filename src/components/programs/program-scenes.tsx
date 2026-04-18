@@ -211,8 +211,8 @@ export function ProgramHeroScene({ program }: ProgramHeroSceneProps) {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,79,0,0.18),transparent_34%),radial-gradient(circle_at_78%_16%,rgba(77,101,255,0.16),transparent_28%),linear-gradient(180deg,rgba(255,249,245,0.96),rgba(245,248,255,0.98))]" />
 
             <div className="relative z-10">
-              <div className="max-w-4xl overflow-hidden">
-                <h1 className="font-display text-[1.95rem] leading-[0.92] sm:text-[2.5rem] md:text-[3rem] lg:text-[3.7rem]">
+              <div className="max-w-4xl overflow-hidden pt-4">
+                <h1 className="font-display text-[1.85rem] leading-[1.08] sm:text-[2.35rem] md:text-[2.8rem] lg:text-[3.45rem]">
                   {program.heroTitle.split(" ").map((word) => (
                     <span
                       key={`${program.slug}-${word}`}
@@ -244,11 +244,11 @@ export function ProgramHeroScene({ program }: ProgramHeroSceneProps) {
               </div>
             </div>
 
-            <div className="relative z-10 mt-5 grid gap-1.5 md:mt-6 md:pt-0">
+            <div className="relative z-10 mt-5 flex flex-wrap gap-2 md:mt-6 md:gap-3">
               {program.hero.strips.map((strip) => (
                 <div
                   key={strip}
-                  className="border-t border-foreground/10 py-2 text-[0.68rem] uppercase tracking-[0.12em] text-foreground/62 md:text-[0.74rem]"
+                  className="rounded-full border border-foreground/10 bg-white/56 px-3 py-2 text-[0.66rem] uppercase tracking-[0.12em] text-foreground/62 md:px-4 md:text-[0.72rem]"
                   data-hero-strip
                 >
                   {strip}
@@ -599,16 +599,16 @@ export function ProgramListScene({
       <div className="grid gap-8 lg:grid-cols-[0.88fr_1.12fr]">
         <div className={cn("relative lg:pr-6", imageOnRight && "lg:order-2 lg:pr-0 lg:pl-6")}>
           <div className="lg:sticky lg:top-28">
-            <div className="overflow-hidden rounded-[2rem]">
+            <div className="overflow-hidden rounded-[1.5rem] border border-white/70 shadow-soft">
               <img
                 src={image}
                 alt={imageAlt}
-                className="h-[20rem] w-full rounded-[2rem] object-cover md:h-[27rem]"
+                className="h-[14rem] w-full object-cover md:h-[18rem]"
                 data-scene-media-inner
               />
             </div>
             <h2
-              className="mt-6 max-w-xl font-display text-[1.82rem] leading-[0.98] sm:text-[2.2rem] md:text-[2.65rem]"
+              className="mt-5 max-w-xl font-display text-[1.82rem] leading-[0.98] sm:text-[2.2rem] md:text-[2.65rem]"
               data-scene-copy
             >
               {title}
@@ -804,7 +804,7 @@ export function ProgramNarrativeScene({
           <img
             src={image}
             alt={imageAlt}
-            className="h-[20rem] w-full object-cover md:h-[30rem]"
+            className="h-[15rem] w-full object-cover md:h-[20rem]"
             data-narrative-media-inner
           />
         </div>
@@ -1183,7 +1183,7 @@ export function ProgramSupportScene({
             <img
               src={image}
               alt={imageAlt}
-              className="h-[20rem] w-full object-cover md:h-[28rem]"
+              className="h-[14rem] w-full object-cover md:h-[18rem]"
               data-support-media-inner
             />
           </div>
@@ -1330,7 +1330,7 @@ export function ProgramProcessScene({
             <img
               src={image}
               alt={imageAlt}
-              className="h-[18rem] w-full object-cover md:h-[24rem]"
+              className="h-[14rem] w-full object-cover md:h-[18rem]"
             />
           </div>
           <h2
@@ -1438,7 +1438,7 @@ export function ProgramAnalysisModesScene({
           {columns.map((column) => (
             <article
               key={`${column.heading}-${column.title}`}
-              className="rounded-[2rem] border border-border/60 bg-white/82 p-6 shadow-soft"
+              className="rounded-[1.7rem] border border-border/60 bg-white/82 p-5 shadow-[0_12px_28px_-24px_rgba(48,39,33,0.24)]"
               data-analysis-card
             >
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary/88">

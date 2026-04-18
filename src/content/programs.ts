@@ -134,9 +134,8 @@ export const programs: Record<ProgramSlug, ProgramData> = {
     showcaseImage:
       "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=80",
     showcaseImageAlt: "Moda markası kurulumuna eşlik eden editoryal moda görseli",
-    heroImage:
-      "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1400&q=80",
-    heroImageAlt: "Moda markası kurulum sürecini çağrıştıran editoryal görsel",
+    heroImage: "/images/markanikur.png",
+    heroImageAlt: "Markanı Kur programı hero görseli",
     storyImage:
       "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1400&q=80",
     storyImageAlt: "Moda markası kurma sürecine odaklanan stüdyo çekimi",
@@ -289,9 +288,8 @@ export const programs: Record<ProgramSlug, ProgramData> = {
     showcaseImage:
       "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1200&q=80",
     showcaseImageAlt: "Marka büyümesini çağrıştıran moda görseli",
-    heroImage:
-      "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1400&q=80",
-    heroImageAlt: "Marka büyütme stratejisini temsil eden editoryal moda görseli",
+    heroImage: "/images/markanibuyut.png",
+    heroImageAlt: "Markanı Büyüt programı hero görseli",
     storyImage:
       "https://images.unsplash.com/photo-1503342394128-c104d54dba01?auto=format&fit=crop&w=1400&q=80",
     storyImageAlt: "Satış ve büyüme sistemini çağrıştıran moda çekimi",
@@ -503,9 +501,8 @@ export const programs: Record<ProgramSlug, ProgramData> = {
     showcaseImage:
       "https://images.unsplash.com/photo-1495385794356-15371f348c31?auto=format&fit=crop&w=1200&q=80",
     showcaseImageAlt: "Stratejik ortaklık ve birebir danışmanlık sürecini temsil eden görsel",
-    heroImage:
-      "https://images.unsplash.com/photo-1495385794356-15371f348c31?auto=format&fit=crop&w=1400&q=80",
-    heroImageAlt: "Birebir danışmanlık sürecini çağrıştıran moda görseli",
+    heroImage: "/images/stratejik.png",
+    heroImageAlt: "Stratejik Ortaklık programı hero görseli",
     storyImage:
       "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1400&q=80",
     storyImageAlt: "Stratejik ortaklık modelini anlatan stüdyo görseli",

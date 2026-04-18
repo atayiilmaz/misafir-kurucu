@@ -51,6 +51,8 @@ export function ProgramDetailPage() {
           title={program.audience.title}
           intro={program.audience.intro}
           items={program.audience.items}
+          image={program.audienceImage}
+          imageAlt={program.audienceImageAlt}
           dark
         />
       ),
@@ -65,6 +67,8 @@ export function ProgramDetailPage() {
           title={program.process.title}
           intro={program.process.intro}
           steps={program.process.steps}
+          image={program.supportImage}
+          imageAlt={program.supportImageAlt}
         />
       ),
     });
@@ -139,6 +143,8 @@ export function ProgramDetailPage() {
         <ProgramSupportScene
           title={program.support.title}
           columns={program.support.columns}
+          image={program.supportImage}
+          imageAlt={program.supportImageAlt}
         />
       ),
     });
