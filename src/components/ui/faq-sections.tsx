@@ -13,7 +13,7 @@ const App = () => {
           onClick={() => setOpenIndex(openIndex === index ? null : index)}
         >
           <div className="flex items-center justify-between gap-4">
-            <h3 className="text-lg font-semibold text-foreground">
+            <h3 className="text-[1.12rem] font-semibold text-foreground md:text-[1.22rem]">
               {faq.question}
             </h3>
             <svg
@@ -36,7 +36,7 @@ const App = () => {
             </svg>
           </div>
           <p
-            className={`max-w-xl text-sm leading-7 text-muted-foreground transition-all duration-500 ease-in-out ${
+            className={`max-w-xl text-[0.98rem] leading-8 text-muted-foreground transition-all duration-500 ease-in-out md:text-[1.02rem] ${
               openIndex === index
                 ? "max-h-[300px] translate-y-0 pt-4 opacity-100"
                 : "max-h-0 -translate-y-2 overflow-hidden opacity-0"
