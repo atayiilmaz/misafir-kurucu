@@ -1438,7 +1438,7 @@ export function ProgramAnalysisModesScene({
           {columns.map((column) => (
             <article
               key={`${column.heading}-${column.title}`}
-              className="rounded-[1.7rem] border border-border/60 bg-white/82 p-5 shadow-[0_12px_28px_-24px_rgba(48,39,33,0.24)]"
+              className="rounded-[1.7rem] border border-border/70 bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(248,244,239,0.94))] p-5 shadow-[0_18px_40px_-28px_rgba(48,39,33,0.28)] backdrop-blur-sm"
               data-analysis-card
             >
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary/88">
