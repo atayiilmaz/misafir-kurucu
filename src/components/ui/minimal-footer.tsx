@@ -6,8 +6,6 @@ import {
   Send,
   Youtube,
 } from "lucide-react";
-import { useLocation } from "react-router-dom";
-import { RevealSection } from "@/components/gsap/reveal-section";
 import { AppLink } from "@/components/ui/app-link";
 
 const company = [
@@ -55,25 +53,15 @@ const socialLinks = [
 ];
 
 export function MinimalFooter() {
-  const location = useLocation();
   const year = new Date().getFullYear();
 
   return (
-    <RevealSection
-      key={location.pathname}
-      as="footer"
-      className="relative px-3 pb-10 pt-20 md:px-4"
-      itemSelector="[data-gsap-item]"
-      start="top 92%"
-    >
+    <footer className="relative px-3 pb-10 pt-20 md:px-4">
       <div className="mx-auto w-full max-w-[90rem]">
         <div className="relative w-full overflow-hidden rounded-t-[2.25rem] border border-b-0 border-border/70 md:rounded-t-[2.75rem]">
           <div className="bg-[radial-gradient(35%_80%_at_30%_0%,rgba(97,70,45,0.08),transparent)]">
             <div className="grid grid-cols-6 gap-8 p-5 md:p-8">
-              <div
-                className="col-span-6 flex flex-col gap-5 md:col-span-4"
-                data-gsap-item
-              >
+              <div className="col-span-6 flex flex-col gap-5 md:col-span-4">
                 <div className="flex items-center gap-4">
                   <div className="flex items-center gap-3">
                     <span className="flex h-11 w-11 items-center justify-center rounded-full bg-primary text-primary-foreground">
@@ -104,7 +92,7 @@ export function MinimalFooter() {
                 </div>
               </div>
 
-              <div className="col-span-3 w-full md:col-span-1" data-gsap-item>
+              <div className="col-span-3 w-full md:col-span-1">
                 <span className="mb-1 text-xs tracking-[0.24em] text-muted-foreground">
                   Sayfalar
                 </span>
@@ -121,7 +109,7 @@ export function MinimalFooter() {
                 </div>
               </div>
 
-              <div className="col-span-3 w-full md:col-span-1" data-gsap-item>
+              <div className="col-span-3 w-full md:col-span-1">
                 <span className="mb-1 text-xs tracking-[0.24em] text-muted-foreground">
                   İletişim
                 </span>
@@ -142,15 +130,12 @@ export function MinimalFooter() {
 
           <div className="absolute inset-x-0 bottom-14 h-px bg-border/80" />
           <div className="flex flex-col justify-between gap-2 px-5 pb-5 pt-3 md:px-8">
-            <p
-              className="text-center text-sm font-light text-muted-foreground"
-              data-gsap-item
-            >
+            <p className="text-center text-sm font-light text-muted-foreground">
               © {year} Misafir Kurucu. Tüm hakları saklıdır.
             </p>
           </div>
         </div>
       </div>
-    </RevealSection>
+    </footer>
   );
 }
