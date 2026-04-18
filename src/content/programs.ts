@@ -136,15 +136,14 @@ export const programs: Record<ProgramSlug, ProgramData> = {
     showcaseImageAlt: "Moda markası kurulumuna eşlik eden editoryal moda görseli",
     heroImage: "/images/markanikur.png",
     heroImageAlt: "Markanı Kur programı hero görseli",
-    storyImage:
-      "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1400&q=80",
-    storyImageAlt: "Moda markası kurma sürecine odaklanan stüdyo çekimi",
+    storyImage: "/images/sitecontent.png",
+    storyImageAlt: "Marka planlaması ve koleksiyon hazırlığını gösteren masaüstü düzeni",
     audienceImage:
-      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1400&q=80",
-    audienceImageAlt: "Hedef kitle ve başlangıç kararlarını çağrıştıran görsel",
+      "https://images.unsplash.com/photo-1753162657464-7f829c766d54?auto=format&fit=crop&w=1600&q=80",
+    audienceImageAlt: "Moda markası kurulum sürecinde çalışan tasarımcı",
     supportImage:
-      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1400&q=80",
-    supportImageAlt: "Çalışma sistemi ve kaynakları temsil eden moda görseli",
+      "https://images.unsplash.com/photo-1764740109279-c7a8abd78821?auto=format&fit=crop&w=1600&q=80",
+    supportImageAlt: "Teknik çizim ve üretim planlamasını temsil eden yaratıcı çalışma masası",
     hero: {
       subtitle: "Fikrini Gerçek Bir Markaya Dönüştür: 0'dan Başarılı Bir Lansmana",
       description:
@@ -290,15 +289,14 @@ export const programs: Record<ProgramSlug, ProgramData> = {
     showcaseImageAlt: "Marka büyümesini çağrıştıran moda görseli",
     heroImage: "/images/markanibuyut.png",
     heroImageAlt: "Markanı Büyüt programı hero görseli",
-    storyImage:
-      "https://images.unsplash.com/photo-1503342394128-c104d54dba01?auto=format&fit=crop&w=1400&q=80",
-    storyImageAlt: "Satış ve büyüme sistemini çağrıştıran moda çekimi",
+    storyImage: "/images/sitecontent.png",
+    storyImageAlt: "İçerik, koleksiyon ve marka düzenini gösteren çalışma alanı",
     audienceImage:
-      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1400&q=80",
-    audienceImageAlt: "Mevcut markalar ve operasyonel büyümeyi temsil eden görsel",
+      "https://images.unsplash.com/photo-1759752393718-7b57f6da3caa?auto=format&fit=crop&w=1600&q=80",
+    audienceImageAlt: "Büyüme potansiyeli taşıyan butik mağaza ve koleksiyon düzeni",
     supportImage:
-      "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1400&q=80",
-    supportImageAlt: "Operasyon, koleksiyon ve kanal yönetimini temsil eden görsel",
+      "https://images.unsplash.com/photo-1683921070230-9f046e462e46?auto=format&fit=crop&w=1600&q=80",
+    supportImageAlt: "Planlama, not alma ve karar süreçlerini temsil eden masaüstü çalışma alanı",
     hero: {
       subtitle: "Markanız var, ama henüz tam potansiyeline ulaşmadı.",
       description:
@@ -504,14 +502,13 @@ export const programs: Record<ProgramSlug, ProgramData> = {
     heroImage: "/images/stratejik.png",
     heroImageAlt: "Stratejik Ortaklık programı hero görseli",
     storyImage:
-      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1400&q=80",
-    storyImageAlt: "Stratejik ortaklık modelini anlatan stüdyo görseli",
-    audienceImage:
-      "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1400&q=80",
-    audienceImageAlt: "Stratejik destek ve karar anlarını temsil eden görsel",
+      "https://images.unsplash.com/photo-1683921070230-9f046e462e46?auto=format&fit=crop&w=1600&q=80",
+    storyImageAlt: "Stratejik karar alma ve planlamayı çağrıştıran masaüstü düzeni",
+    audienceImage: "/images/sitecontent.png",
+    audienceImageAlt: "Stratejik danışmanlık ve koleksiyon planlamasını çağrıştıran flatlay",
     supportImage:
-      "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1400&q=80",
-    supportImageAlt: "Marka stratejisi ve büyüme kararlarını temsil eden görsel",
+      "https://images.unsplash.com/photo-1764740109279-c7a8abd78821?auto=format&fit=crop&w=1600&q=80",
+    supportImageAlt: "Marka stratejisi ve uygulama planlarını temsil eden teknik çalışma masası",
     hero: {
       subtitle: "İhtiyacın Kadar, doğru noktada Danışmanlık",
       description:
