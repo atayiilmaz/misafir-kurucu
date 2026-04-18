@@ -1,7 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { RevealSection } from "@/components/gsap/reveal-section";
-import SubtleButton from "@/components/ui/subtle-button";
 import { cn } from "@/lib/utils";
+import { AppLink } from "@/components/ui/app-link";
 
 const sectionTitleClass =
   "font-display text-[2.05rem] leading-[0.96] text-foreground sm:text-[2.45rem] md:text-[3.1rem]";
@@ -163,40 +163,28 @@ export function AboutPage() {
 
       <RevealSection
         as="section"
-        className="section-shell py-14 md:py-20"
+        className="bg-[linear-gradient(180deg,rgba(239,244,255,0.88),rgba(245,248,255,0.72))] py-14 md:py-20"
         itemSelector="[data-gsap-item]"
         start="top 84%"
         stagger={0.08}
         distance={26}
       >
-        <div className="rounded-[2.1rem] border border-[#e6ddd5] bg-[linear-gradient(180deg,rgba(255,249,243,0.98),rgba(255,255,255,0.94))] p-6 shadow-[0_24px_54px_-38px_rgba(61,45,33,0.2)] md:p-10 lg:p-12">
-          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12">
-            <div data-gsap-item>
-              <p className="text-[0.82rem] font-semibold uppercase tracking-[0.22em] text-primary/78">
-                Instagram
-              </p>
-              <h3 className="mt-4 font-display text-[1.95rem] leading-[0.96] text-foreground md:text-[2.7rem]">
-                Kariyerim ve saha yolculuğum hakkında daha fazla bilgiyi Instagram profilimde görebilirsiniz.
-              </h3>
-            </div>
-
-            <div data-gsap-item>
-              <p className={bodyCopyClass}>
-                Güncel paylaşımlarımı, üretimden sahaya uzanan notlarımı ve profesyonel yolculuğuma dair daha fazla içeriği Instagram profilimde bulabilirsiniz.
-              </p>
-
-              <SubtleButton
-                href="https://www.instagram.com/misafirkurucu/"
-                target="_blank"
-                rel="noreferrer"
-                className="mt-6"
-              >
-                Instagram Profilini Gör
-                <ArrowUpRight className="h-4 w-4" />
-              </SubtleButton>
-            </div>
+        <div className="section-shell">
+          <AppLink
+            href="https://www.instagram.com/misafirkurucu/"
+            target="_blank"
+            rel="noreferrer"
+            className="group flex items-center justify-between gap-6 border-b border-primary/16 pb-2 text-foreground"
+            data-gsap-item
+          >
+            <span className="font-display text-[1.8rem] leading-[0.98] md:text-[2.6rem]">
+              Kariyerim ve saha yolculuğum hakkında daha fazla bilgiyi Instagram profilimde görebilirsiniz.
+            </span>
+            <span className="shrink-0 text-primary transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
+              <ArrowUpRight className="h-6 w-6" />
+            </span>
+          </AppLink>
           </div>
-        </div>
       </RevealSection>
 
       <RevealSection
@@ -207,22 +195,20 @@ export function AboutPage() {
         stagger={0.08}
         distance={26}
       >
-        <div className="rounded-[2.25rem] border border-[#e7ddd6] bg-[linear-gradient(180deg,rgba(255,251,247,0.98),rgba(245,248,255,0.92))] p-6 shadow-[0_28px_60px_-42px_rgba(61,45,33,0.24)] md:p-10 lg:p-12">
-          <div data-gsap-item>
-              <h2 className={sectionTitleClass}>
-                Bugün Neredeyim?
-              </h2>
+        <div className="max-w-[64rem]" data-gsap-item>
+          <h2 className={sectionTitleClass}>
+            Bugün Neredeyim?
+          </h2>
 
-              <div className="mt-6 space-y-4">
-                {todayItems.map((item) => (
-                  <p
-                    key={item}
-                    className={bodyCopyClass}
-                  >
-                    {item}
-                  </p>
-                ))}
-              </div>
+          <div className="mt-6 space-y-4">
+            {todayItems.map((item) => (
+              <p
+                key={item}
+                className={bodyCopyClass}
+              >
+                {item}
+              </p>
+            ))}
           </div>
         </div>
       </RevealSection>
