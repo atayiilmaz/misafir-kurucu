@@ -79,6 +79,9 @@ export function ProgramDetailPage() {
         <ProgramNarrativeScene
           title={program.narrative.title}
           paragraphs={program.narrative.paragraphs}
+          image={program.storyImage}
+          imageAlt={program.storyImageAlt}
+          imageOnRight={program.slug === "program-1"}
         />
       ),
     });

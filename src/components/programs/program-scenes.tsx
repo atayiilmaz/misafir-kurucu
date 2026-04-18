@@ -48,6 +48,7 @@ type ProgramNarrativeSceneProps = {
   paragraphs: string[];
   image?: string;
   imageAlt?: string;
+  imageOnRight?: boolean;
 };
 
 type ProgramSupportSceneProps = {
@@ -741,6 +742,7 @@ export function ProgramNarrativeScene({
   paragraphs,
   image,
   imageAlt,
+  imageOnRight = false,
 }: ProgramNarrativeSceneProps) {
   const rootRef = useRef<HTMLElement | null>(null);
   const hasImage = Boolean(image && imageAlt);
@@ -873,7 +875,10 @@ export function ProgramNarrativeScene({
   return (
     <section ref={rootRef} className="section-shell py-12 md:py-16">
       <div className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr]">
-        <div className="overflow-hidden rounded-[2rem]" data-narrative-media>
+        <div
+          className={cn("overflow-hidden rounded-[2rem]", imageOnRight && "lg:order-2")}
+          data-narrative-media
+        >
           <img
             src={image}
             alt={imageAlt}
@@ -882,7 +887,7 @@ export function ProgramNarrativeScene({
           />
         </div>
 
-        <div className="flex flex-col justify-center">
+        <div className={cn("flex flex-col justify-center", imageOnRight && "lg:order-1")}>
           <h2
             className="font-display text-[1.82rem] leading-[0.98] text-foreground md:text-[2.65rem]"
             data-narrative-copy
