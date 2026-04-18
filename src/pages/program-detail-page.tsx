@@ -143,8 +143,6 @@ export function ProgramDetailPage() {
         <ProgramSupportScene
           title={program.support.title}
           columns={program.support.columns}
-          image={program.supportImage}
-          imageAlt={program.supportImageAlt}
         />
       ),
     });

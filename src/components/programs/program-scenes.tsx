@@ -867,20 +867,23 @@ export function ProgramPackageScene({
           const itemsToAnimate = gsap.utils.toArray<HTMLElement>("[data-package-item]");
 
           if (conditions?.reduce) {
-            gsap.set(["[data-package-copy]", itemsToAnimate, "[data-package-media]"], {
-              autoAlpha: 1,
-              y: 0,
-              clearProps: "all",
-            });
+            gsap.set(
+              [
+                "[data-package-copy]",
+                itemsToAnimate,
+                "[data-package-media]",
+                "[data-package-line]",
+              ],
+              { autoAlpha: 1, y: 0, clearProps: "all" },
+            );
             return;
           }
 
-          gsap.from("[data-package-copy]", {
-            autoAlpha: 0,
-            y: 44,
-            stagger: 0.1,
-            duration: 0.88,
-            ease: "power3.out",
+          const timeline = gsap.timeline({
+            defaults: {
+              duration: 0.88,
+              ease: "power3.out",
+            },
             scrollTrigger: {
               trigger: root,
               start: "top 78%",
@@ -888,20 +891,32 @@ export function ProgramPackageScene({
             },
           });
 
-          itemsToAnimate.forEach((item, index) => {
-            gsap.from(item, {
+          timeline
+            .from("[data-package-copy]", {
               autoAlpha: 0,
-              y: 56,
-              duration: 0.92,
-              ease: "power3.out",
-              delay: index * 0.02,
-              scrollTrigger: {
-                trigger: item,
-                start: "top 84%",
-                once: true,
+              y: 44,
+              stagger: 0.1,
+            })
+            .from(
+              "[data-package-line]",
+              {
+                scaleX: 0,
+                transformOrigin: "left center",
+                stagger: 0.07,
+                duration: 0.72,
               },
-            });
-          });
+              "<0.08",
+            )
+            .from(
+              itemsToAnimate,
+              {
+                autoAlpha: 0,
+                y: 54,
+                stagger: 0.08,
+                duration: 0.9,
+              },
+              0.14,
+            );
 
           if (hasImage) {
             gsap.fromTo(
@@ -939,24 +954,28 @@ export function ProgramPackageScene({
             {title}
           </h2>
 
-          <div className="mt-8 space-y-6">
-            {items.map((item) => (
+          <div className="mt-8 border-t border-border/45">
+            {items.map((item, index) => (
               <article
                 key={item.title}
-                className="border-b border-border/45 pb-6 last:border-b-0 md:pb-8"
+                className="grid gap-4 border-b border-border/45 py-5 transition-colors duration-300 hover:bg-white/30 md:grid-cols-[4rem_minmax(0,0.9fr)_minmax(0,1.15fr)] md:gap-7 md:py-6"
                 data-package-item
               >
-                <div className="flex items-start gap-4 md:gap-5">
-                  <span className="mt-3 h-2.5 w-2.5 shrink-0 rounded-full bg-accent/80" />
-                  <div>
-                    <h3 className="text-[1.2rem] font-semibold leading-tight text-foreground md:text-[1.5rem]">
-                      {item.title}
-                    </h3>
-                    <p className="mt-3 max-w-3xl text-base leading-8 text-muted-foreground md:text-[1.02rem]">
-                      {item.description}
-                    </p>
-                  </div>
+                <div className="text-[0.82rem] font-semibold tracking-[0.24em] text-primary/72 md:pt-1">
+                  {String(index + 1).padStart(2, "0")}
                 </div>
+                <div>
+                  <h3 className="max-w-sm text-[1.08rem] font-semibold leading-snug text-foreground md:pt-0.5 md:text-[1.2rem]">
+                    {item.title}
+                  </h3>
+                  <div
+                    className="mt-3 h-px w-16 bg-[linear-gradient(90deg,rgba(255,79,0,0.45),rgba(77,101,255,0.18),transparent)]"
+                    data-package-line
+                  />
+                </div>
+                <p className="max-w-3xl text-[0.98rem] leading-7 text-muted-foreground md:text-[1rem]">
+                  {item.description}
+                </p>
               </article>
             ))}
           </div>
@@ -985,24 +1004,28 @@ export function ProgramPackageScene({
           </h2>
         </div>
 
-        <div className="space-y-6">
-          {items.map((item) => (
+        <div className="border-t border-border/45">
+          {items.map((item, index) => (
             <article
               key={item.title}
-              className="border-b border-border/45 pb-6 last:border-b-0 md:pb-8"
+              className="grid gap-4 border-b border-border/45 py-5 transition-colors duration-300 hover:bg-white/30 md:grid-cols-[4rem_minmax(0,0.9fr)_minmax(0,1.15fr)] md:gap-7 md:py-6"
               data-package-item
             >
-              <div className="flex items-start gap-4 md:gap-5">
-                <span className="mt-3 h-2.5 w-2.5 shrink-0 rounded-full bg-accent/80" />
-                <div>
-                  <h3 className="text-[1.2rem] font-semibold leading-tight text-foreground md:text-[1.5rem]">
-                    {item.title}
-                  </h3>
-                  <p className="mt-3 max-w-3xl text-base leading-8 text-muted-foreground md:text-[1.02rem]">
-                    {item.description}
-                  </p>
-                </div>
+              <div className="text-[0.82rem] font-semibold tracking-[0.24em] text-primary/72 md:pt-1">
+                {String(index + 1).padStart(2, "0")}
               </div>
+              <div>
+                <h3 className="max-w-sm text-[1.08rem] font-semibold leading-snug text-foreground md:pt-0.5 md:text-[1.2rem]">
+                  {item.title}
+                </h3>
+                <div
+                  className="mt-3 h-px w-16 bg-[linear-gradient(90deg,rgba(255,79,0,0.45),rgba(77,101,255,0.18),transparent)]"
+                  data-package-line
+                />
+              </div>
+              <p className="max-w-3xl text-[0.98rem] leading-7 text-muted-foreground md:text-[1rem]">
+                {item.description}
+              </p>
             </article>
           ))}
         </div>
@@ -1224,20 +1247,18 @@ export function ProgramProcessScene({
             | undefined;
 
           if (conditions?.reduce) {
-            gsap.set(["[data-process-copy]", "[data-process-step]"], {
-              autoAlpha: 1,
-              y: 0,
-              clearProps: "all",
-            });
+            gsap.set(
+              ["[data-process-copy]", "[data-process-step]", "[data-process-media]"],
+              { autoAlpha: 1, y: 0, clearProps: "all" },
+            );
             return;
           }
 
-          gsap.from("[data-process-copy]", {
-            autoAlpha: 0,
-            y: 42,
-            stagger: 0.12,
-            duration: 0.84,
-            ease: "power3.out",
+          const timeline = gsap.timeline({
+            defaults: {
+              duration: 0.84,
+              ease: "power3.out",
+            },
             scrollTrigger: {
               trigger: root,
               start: "top 78%",
@@ -1245,18 +1266,53 @@ export function ProgramProcessScene({
             },
           });
 
-          gsap.from("[data-process-step]", {
-            autoAlpha: 0,
-            x: 54,
-            stagger: 0.14,
-            duration: 0.9,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: root,
-              start: "top 72%",
-              once: true,
-            },
-          });
+          if (hasImage) {
+            timeline.from("[data-process-media]", {
+              autoAlpha: 0,
+              scale: 0.96,
+              clipPath: "inset(12% 10% 14% 10% round 2rem)",
+              duration: 1.02,
+            });
+          }
+
+          timeline
+            .from(
+              "[data-process-copy]",
+              {
+                autoAlpha: 0,
+                y: 42,
+                stagger: 0.12,
+              },
+              hasImage ? 0.08 : 0,
+            )
+            .from(
+              "[data-process-step]",
+              {
+                autoAlpha: 0,
+                x: 54,
+                stagger: 0.14,
+                duration: 0.9,
+              },
+              hasImage ? 0.18 : 0.08,
+            );
+
+          if (hasImage) {
+            gsap.fromTo(
+              "[data-process-media-inner]",
+              { scale: 1.08, yPercent: -4 },
+              {
+                scale: 1,
+                yPercent: 4,
+                ease: "none",
+                scrollTrigger: {
+                  trigger: root,
+                  start: "top bottom",
+                  end: "bottom top",
+                  scrub: 1,
+                },
+              },
+            );
+          }
         },
       );
 
@@ -1324,31 +1380,40 @@ export function ProgramProcessScene({
 
   return (
     <section ref={rootRef} className="section-shell py-12 md:py-16">
-      <div className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr]">
+      <div className="grid gap-8 lg:grid-cols-[0.96fr_1.04fr]">
         <div>
-          <div className="overflow-hidden rounded-[2rem]">
+          <div
+            className="relative overflow-hidden rounded-[2.2rem] min-h-[24rem] md:min-h-[31rem] lg:min-h-[36rem]"
+            data-process-media
+          >
             <img
               src={image}
               alt={imageAlt}
-              className="h-[14rem] w-full object-cover md:h-[18rem]"
+              className="absolute inset-0 h-full w-full object-cover"
+              data-process-media-inner
             />
-          </div>
-          <h2
-            className="mt-6 font-display text-[1.82rem] leading-[0.98] md:text-[2.65rem]"
-            data-process-copy
-          >
-            {title}
-          </h2>
-          <div className="mt-5 space-y-4">
-            {intro.map((paragraph) => (
-              <p
-                key={paragraph}
-                className="max-w-2xl text-base leading-8 text-muted-foreground md:text-lg"
-                data-process-copy
-              >
-                {paragraph}
-              </p>
-            ))}
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(17,11,8,0.06)_0%,rgba(17,11,8,0.18)_42%,rgba(17,11,8,0.72)_100%)]" />
+            <div className="relative flex h-full flex-col justify-end p-6 md:p-8 lg:p-10">
+              <div className="max-w-xl">
+                <h2
+                  className="font-display text-[1.95rem] leading-[0.98] text-white md:text-[2.9rem]"
+                  data-process-copy
+                >
+                  {title}
+                </h2>
+                <div className="mt-4 space-y-3">
+                  {intro.map((paragraph) => (
+                    <p
+                      key={paragraph}
+                      className="max-w-lg text-sm leading-7 text-white/78 md:text-[1rem]"
+                      data-process-copy
+                    >
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 

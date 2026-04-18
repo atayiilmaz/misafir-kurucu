@@ -597,8 +597,8 @@ export const plans: PricingPlan[] = [
     ],
     buttonText: "Programı İncele",
     href: "/programlar/program-1",
-    imageSrc: programs["program-1"].showcaseImage,
-    imageAlt: programs["program-1"].showcaseImageAlt,
+    imageSrc: programs["program-1"].heroImage,
+    imageAlt: programs["program-1"].heroImageAlt,
   },
   {
     title: "Markanı Büyüt",
@@ -614,8 +614,8 @@ export const plans: PricingPlan[] = [
     ],
     buttonText: "Programı İncele",
     href: "/programlar/program-2",
-    imageSrc: programs["program-2"].showcaseImage,
-    imageAlt: programs["program-2"].showcaseImageAlt,
+    imageSrc: programs["program-2"].heroImage,
+    imageAlt: programs["program-2"].heroImageAlt,
     highlight: true,
   },
   {
@@ -632,8 +632,8 @@ export const plans: PricingPlan[] = [
     ],
     buttonText: "Programı İncele",
     href: "/programlar/program-3",
-    imageSrc: programs["program-3"].showcaseImage,
-    imageAlt: programs["program-3"].showcaseImageAlt,
+    imageSrc: programs["program-3"].heroImage,
+    imageAlt: programs["program-3"].heroImageAlt,
   },
 ];
 
