@@ -4,6 +4,7 @@ import {
   Heading3,
   Heading4,
   Italic,
+  Link2,
   List,
   ListOrdered,
   Quote,
@@ -24,6 +25,7 @@ const toolbarItems: Array<{
 }> = [
   { action: "bold", label: "Kalın", icon: Bold },
   { action: "italic", label: "İtalik", icon: Italic },
+  { action: "link", label: "Link", icon: Link2 },
   { action: "heading-2", label: "H2", icon: Heading2 },
   { action: "heading-3", label: "H3", icon: Heading3 },
   { action: "heading-4", label: "H4", icon: Heading4 },

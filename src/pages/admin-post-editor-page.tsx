@@ -264,6 +264,25 @@ export function AdminPostEditorPage() {
       return;
     }
 
+    if (action === "link") {
+      const linkUrl = window.prompt("Eklemek istediğiniz link URL'sini girin", "https://");
+
+      if (!linkUrl) {
+        return;
+      }
+
+      const result = applyMarkdownToolbarAction(
+        values.contentMarkdown,
+        textarea.selectionStart,
+        textarea.selectionEnd,
+        action,
+        { linkUrl },
+      );
+
+      applyEditorState(result);
+      return;
+    }
+
     const result = applyMarkdownToolbarAction(
       values.contentMarkdown,
       textarea.selectionStart,
@@ -595,7 +614,7 @@ export function AdminPostEditorPage() {
               </div>
             </div>
 
-            <div className="mt-5 flex flex-wrap items-center justify-between gap-3 rounded-[1.5rem] border border-border/70 bg-background/60 p-3">
+            <div className="sticky top-[5.6rem] z-20 mt-5 flex flex-wrap items-center justify-between gap-3 rounded-[1.5rem] border border-border/70 bg-background/90 p-3 shadow-[0_18px_36px_-30px_rgba(58,44,31,0.28)] backdrop-blur">
               <MarkdownToolbar
                 onAction={applyToolbarAction}
                 disabled={isBusy}

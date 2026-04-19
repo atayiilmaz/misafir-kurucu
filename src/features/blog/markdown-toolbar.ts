@@ -1,6 +1,7 @@
 export type MarkdownToolbarAction =
   | "bold"
   | "italic"
+  | "link"
   | "heading-2"
   | "heading-3"
   | "heading-4"
@@ -20,12 +21,22 @@ export function applyMarkdownToolbarAction(
   selectionStart: number,
   selectionEnd: number,
   action: MarkdownToolbarAction,
+  options?: {
+    linkUrl?: string;
+  },
 ): MarkdownTransformResult {
   switch (action) {
     case "bold":
       return wrapSelection(value, selectionStart, selectionEnd, "**", "**", "kalın metin");
     case "italic":
       return wrapSelection(value, selectionStart, selectionEnd, "*", "*", "italik metin");
+    case "link":
+      return insertLink(
+        value,
+        selectionStart,
+        selectionEnd,
+        options?.linkUrl?.trim() || "https://",
+      );
     case "heading-2":
       return prefixLines(value, selectionStart, selectionEnd, "## ", "Alt başlık");
     case "heading-3":
@@ -52,6 +63,26 @@ export function applyMarkdownToolbarAction(
         selectionEnd,
       };
   }
+}
+
+function insertLink(
+  value: string,
+  selectionStart: number,
+  selectionEnd: number,
+  linkUrl: string,
+): MarkdownTransformResult {
+  const selectedText = value.slice(selectionStart, selectionEnd) || "link metni";
+  const insertion = `[${selectedText}](${linkUrl})`;
+  const nextValue =
+    value.slice(0, selectionStart) + insertion + value.slice(selectionEnd);
+  const start = selectionStart + 1;
+  const end = start + selectedText.length;
+
+  return {
+    value: nextValue,
+    selectionStart: start,
+    selectionEnd: end,
+  };
 }
 
 function wrapSelection(
