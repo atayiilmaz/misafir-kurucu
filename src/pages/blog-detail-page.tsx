@@ -4,7 +4,11 @@ import { Navigate, useParams } from "react-router-dom";
 import { BlogMarkdown } from "@/components/blog/blog-markdown";
 import { RevealSection } from "@/components/gsap/reveal-section";
 import { AppLink } from "@/components/ui/app-link";
-import { fetchPublishedBlogPostBySlug } from "@/features/blog/api";
+import {
+  BLOG_DETAIL_CACHE_TTL,
+  BLOG_QUERY_GC_TIME,
+  fetchPublishedBlogPostBySlug,
+} from "@/features/blog/api";
 import { formatBlogDate } from "@/features/blog/utils";
 import { hasSupabaseConfig } from "@/lib/supabase";
 
@@ -14,7 +18,8 @@ export function BlogDetailPage() {
   const detailQuery = useQuery({
     queryKey: ["blog", "detail", slug],
     queryFn: () => fetchPublishedBlogPostBySlug(slug ?? ""),
-    staleTime: 10 * 60 * 1000,
+    staleTime: BLOG_DETAIL_CACHE_TTL,
+    gcTime: BLOG_QUERY_GC_TIME,
     enabled: Boolean(slug) && isConfigured,
   });
 
@@ -93,11 +98,10 @@ export function BlogDetailPage() {
           />
         ) : null}
 
-        <div className="p-8 md:p-10">
-          <div className="section-kicker">Makale</div>
-          <h1 className="font-display text-5xl leading-[0.96] md:text-6xl">
-            {post.title}
-          </h1>
+          <div className="p-8 md:p-10">
+            <h1 className="font-display text-[2.85rem] leading-[0.98] md:text-[4.35rem]">
+              {post.title}
+            </h1>
           <p className="mt-5 max-w-3xl text-base leading-8 text-muted-foreground md:text-lg">
             {post.excerpt}
           </p>

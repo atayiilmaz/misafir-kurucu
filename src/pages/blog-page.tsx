@@ -6,7 +6,13 @@ import { AppLink } from "@/components/ui/app-link";
 import { RevealSection } from "@/components/gsap/reveal-section";
 import { BlogCard } from "@/components/blog/blog-card";
 import { BlogPagination } from "@/components/blog/blog-pagination";
-import { BLOG_PAGE_SIZE, fetchPublishedBlogPosts, getNormalizedPageParam } from "@/features/blog/api";
+import {
+  BLOG_LIST_CACHE_TTL,
+  BLOG_PAGE_SIZE,
+  BLOG_QUERY_GC_TIME,
+  fetchPublishedBlogPosts,
+  getNormalizedPageParam,
+} from "@/features/blog/api";
 import { hasSupabaseConfig } from "@/lib/supabase";
 import { useSearchParams } from "react-router-dom";
 
@@ -17,7 +23,8 @@ export function BlogPage() {
   const blogQuery = useQuery({
     queryKey: ["blog", "list", currentPage],
     queryFn: () => fetchPublishedBlogPosts(currentPage),
-    staleTime: 5 * 60 * 1000,
+    staleTime: BLOG_LIST_CACHE_TTL,
+    gcTime: BLOG_QUERY_GC_TIME,
     enabled: isConfigured,
   });
 

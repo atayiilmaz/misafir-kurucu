@@ -18,6 +18,18 @@ import { estimateReadingTime, slugify } from "@/features/blog/utils";
 
 const BLOG_MEDIA_BUCKET = "blog-media";
 export const BLOG_PAGE_SIZE = 6;
+export const BLOG_LIST_CACHE_TTL = 5 * 60 * 1000;
+export const BLOG_DETAIL_CACHE_TTL = 10 * 60 * 1000;
+export const BLOG_QUERY_GC_TIME = 30 * 60 * 1000;
+
+const publicBlogListCache = new Map<
+  number,
+  { data: PaginatedBlogResponse; expiresAt: number }
+>();
+const publicBlogDetailCache = new Map<
+  string,
+  { data: BlogPostDetail | null; expiresAt: number }
+>();
 
 type BlogPostRow = {
   id: string;
@@ -56,6 +68,12 @@ export async function fetchPublishedBlogPosts(
   assertSupabaseConfig();
 
   const normalizedPage = Math.max(1, page);
+  const cachedList = publicBlogListCache.get(normalizedPage);
+
+  if (cachedList && cachedList.expiresAt > Date.now()) {
+    return cachedList.data;
+  }
+
   const from = (normalizedPage - 1) * BLOG_PAGE_SIZE;
   const to = from + BLOG_PAGE_SIZE - 1;
   const { data, error, count } = await supabase
@@ -75,26 +93,39 @@ export async function fetchPublishedBlogPosts(
   const total = count ?? 0;
   const totalPages = total > 0 ? Math.ceil(total / BLOG_PAGE_SIZE) : 1;
 
-  return {
+  const response = {
     items: (data ?? []).map(mapListItem),
     page: normalizedPage,
     pageSize: BLOG_PAGE_SIZE,
     total,
     totalPages,
   };
+
+  publicBlogListCache.set(normalizedPage, {
+    data: response,
+    expiresAt: Date.now() + BLOG_LIST_CACHE_TTL,
+  });
+
+  return response;
 }
 
 export async function fetchPublishedBlogPostBySlug(
   slug: string,
 ): Promise<BlogPostDetail | null> {
   assertSupabaseConfig();
+  const normalizedSlug = slug.trim();
+  const cachedDetail = publicBlogDetailCache.get(normalizedSlug);
+
+  if (cachedDetail && cachedDetail.expiresAt > Date.now()) {
+    return cachedDetail.data;
+  }
 
   const { data, error } = await supabase
     .from("blog_posts")
     .select(
       "id, title, slug, excerpt, cover_image_url, content_markdown, published_at, created_at, updated_at",
     )
-    .eq("slug", slug)
+    .eq("slug", normalizedSlug)
     .eq("status", "published")
     .maybeSingle();
 
@@ -102,7 +133,14 @@ export async function fetchPublishedBlogPostBySlug(
     throw new ApiError(error.message);
   }
 
-  return data ? mapDetailItem(data as BlogPostRow) : null;
+  const response = data ? mapDetailItem(data as BlogPostRow) : null;
+
+  publicBlogDetailCache.set(normalizedSlug, {
+    data: response,
+    expiresAt: Date.now() + BLOG_DETAIL_CACHE_TTL,
+  });
+
+  return response;
 }
 
 export async function loginAdmin(password: string): Promise<AdminSession> {
@@ -162,6 +200,8 @@ export async function upsertAdminBlogPost(
     },
   );
 
+  clearPublicBlogCache();
+
   return {
     ...mapDetailItem(response.item),
     status: response.item.status,
@@ -198,6 +238,13 @@ export async function deleteAdminBlogPost(adminToken: string, id: string) {
   await invokeAdminFunction<{ success: true }>("admin-blog-delete", adminToken, {
     id,
   });
+
+  clearPublicBlogCache();
+}
+
+export function clearPublicBlogCache() {
+  publicBlogListCache.clear();
+  publicBlogDetailCache.clear();
 }
 
 async function invokeFunction<T>(

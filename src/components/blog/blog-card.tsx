@@ -38,7 +38,7 @@ export function BlogCard({ post }: BlogCardProps) {
           href={`/blog/${post.slug}`}
           className="mt-6 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-primary"
         >
-          Yaziyi oku
+          YAZIYI OKU
           <ChevronRight className="h-4 w-4" />
         </AppLink>
       </div>
