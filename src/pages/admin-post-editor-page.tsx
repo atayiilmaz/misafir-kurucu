@@ -37,6 +37,19 @@ type EditorSnapshot = {
   selectionEnd: number;
 };
 
+function focusEditorWithoutScroll(
+  textarea: HTMLTextAreaElement,
+  selectionStart: number,
+  selectionEnd: number,
+) {
+  const scrollX = window.scrollX;
+  const scrollY = window.scrollY;
+
+  textarea.focus({ preventScroll: true });
+  textarea.setSelectionRange(selectionStart, selectionEnd);
+  window.scrollTo(scrollX, scrollY);
+}
+
 export function AdminPostEditorPage() {
   const { id } = useParams();
   const isEditMode = Boolean(id);
@@ -331,8 +344,8 @@ export function AdminPostEditorPage() {
         return;
       }
 
-      textarea.focus();
-      textarea.setSelectionRange(
+      focusEditorWithoutScroll(
+        textarea,
         nextState.selectionStart,
         nextState.selectionEnd,
       );
@@ -355,8 +368,8 @@ export function AdminPostEditorPage() {
         return;
       }
 
-      textarea.focus();
-      textarea.setSelectionRange(
+      focusEditorWithoutScroll(
+        textarea,
         snapshot.selectionStart,
         snapshot.selectionEnd,
       );
