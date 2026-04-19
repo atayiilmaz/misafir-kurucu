@@ -3,6 +3,7 @@ import FeatureSection from "@/components/ui/feature-section";
 import { HeroSection } from "@/components/ui/hero-section-2";
 import { PricingSection } from "@/components/ui/pricing-section";
 import { plans } from "@/content/programs";
+import { SITE_AUTHOR, SITE_NAME, SITE_URL, absoluteUrl, useSeo } from "@/lib/seo";
 
 const investmentItems = [
   "Özel birebir Zoom strateji görüşmeleri",
@@ -34,6 +35,54 @@ const resourceItems = [
 ];
 
 export function HomePage() {
+  useSeo({
+    title: "Moda markası kurmak ve büyütmek için birebir danışmanlık",
+    description:
+      "Misafir Kurucu ile moda markanı kurmak, büyütmek veya kritik kararlarını netleştirmek için birebir çalış. Programlar, danışmanlık yapısı ve saha deneyimi aynı çatı altında.",
+    path: "/",
+    image: "/images/herosection.jpeg",
+    keywords: [
+      "moda markası danışmanlığı",
+      "tekstil danışmanlığı",
+      "marka kurma danışmanlığı",
+      "e-ticaret danışmanlığı",
+      "misafir kurucu",
+    ],
+    structuredData: [
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        name: SITE_NAME,
+        url: SITE_URL,
+        image: absoluteUrl("/images/herosection.jpeg"),
+        email: "mailto:misafirkurucu@gmail.com",
+        sameAs: [
+          "https://www.instagram.com/misafirkurucu/",
+          "https://www.linkedin.com/in/sevincgurguzel/",
+          "https://www.youtube.com/@misafirkurucu",
+        ],
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: SITE_AUTHOR,
+        jobTitle: "Moda markası danışmanı",
+        url: `${SITE_URL}/hakkimda`,
+        sameAs: [
+          "https://www.instagram.com/misafirkurucu/",
+          "https://www.linkedin.com/in/sevincgurguzel/",
+        ],
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: SITE_NAME,
+        url: SITE_URL,
+        inLanguage: "tr-TR",
+      },
+    ],
+  });
+
   return (
     <>
       <HeroSection

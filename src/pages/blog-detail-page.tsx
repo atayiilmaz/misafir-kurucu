@@ -10,6 +10,7 @@ import {
   fetchPublishedBlogPostBySlug,
 } from "@/features/blog/api";
 import { formatBlogDate } from "@/features/blog/utils";
+import { SITE_AUTHOR, SITE_NAME, SITE_URL, absoluteUrl, useSeo } from "@/lib/seo";
 import { hasSupabaseConfig } from "@/lib/supabase";
 
 export function BlogDetailPage() {
@@ -21,6 +22,45 @@ export function BlogDetailPage() {
     staleTime: BLOG_DETAIL_CACHE_TTL,
     gcTime: BLOG_QUERY_GC_TIME,
     enabled: Boolean(slug) && isConfigured,
+  });
+  const post = detailQuery.data;
+
+  useSeo({
+    title: post?.title ?? "Blog yazısı",
+    description:
+      post?.excerpt ??
+      "Misafir Kurucu blogundaki moda markası stratejileri ve saha deneyimi odaklı yazıları inceleyin.",
+    path: slug ? `/blog/${slug}` : "/blog",
+    image: post?.coverImageUrl ?? "/images/herosection.jpeg",
+    type: post ? "article" : "website",
+    noindex: !slug || (!detailQuery.isLoading && !post),
+    publishedTime: post?.publishedAt ?? undefined,
+    modifiedTime: post?.updatedAt ?? undefined,
+    keywords: post ? [post.title, "moda markası blog", "misafir kurucu"] : undefined,
+    structuredData: post
+      ? {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          headline: post.title,
+          description: post.excerpt,
+          image: post.coverImageUrl
+            ? [absoluteUrl(post.coverImageUrl)]
+            : [absoluteUrl("/images/herosection.jpeg")],
+          datePublished: post.publishedAt ?? post.updatedAt,
+          dateModified: post.updatedAt,
+          mainEntityOfPage: absoluteUrl(`/blog/${post.slug}`),
+          author: {
+            "@type": "Person",
+            name: SITE_AUTHOR,
+          },
+          publisher: {
+            "@type": "Organization",
+            name: SITE_NAME,
+            url: SITE_URL,
+          },
+          inLanguage: "tr-TR",
+        }
+      : undefined,
   });
 
   if (!slug) {
@@ -76,7 +116,7 @@ export function BlogDetailPage() {
     );
   }
 
-  const post = detailQuery.data;
+  const resolvedPost = detailQuery.data;
 
   return (
     <RevealSection as="section" className="section-shell py-10" itemSelector="[data-gsap-item]">
@@ -90,35 +130,35 @@ export function BlogDetailPage() {
       </AppLink>
 
       <div className="mt-6 glass-panel overflow-hidden" data-gsap-item>
-        {post.coverImageUrl ? (
+        {resolvedPost.coverImageUrl ? (
           <img
-            src={post.coverImageUrl}
-            alt={post.title}
+            src={resolvedPost.coverImageUrl}
+            alt={resolvedPost.title}
             className="h-[22rem] w-full object-cover md:h-[30rem]"
           />
         ) : null}
 
           <div className="p-8 md:p-10">
             <h1 className="font-display text-[2.85rem] leading-[0.98] md:text-[4.35rem]">
-              {post.title}
+              {resolvedPost.title}
             </h1>
           <p className="mt-5 max-w-3xl text-base leading-8 text-muted-foreground md:text-lg">
-            {post.excerpt}
+            {resolvedPost.excerpt}
           </p>
 
           <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-            <span>{formatBlogDate(post.publishedAt ?? post.updatedAt)}</span>
+            <span>{formatBlogDate(resolvedPost.publishedAt ?? resolvedPost.updatedAt)}</span>
             <span className="h-1 w-1 rounded-full bg-muted-foreground/40" />
             <span className="inline-flex items-center gap-2">
               <Clock3 className="h-4 w-4" />
-              {post.readingTimeMinutes} dk okuma
+              {resolvedPost.readingTimeMinutes} dk okuma
             </span>
           </div>
         </div>
       </div>
 
       <div className="mx-auto mt-10 max-w-4xl" data-gsap-item>
-        <BlogMarkdown content={post.contentMarkdown} />
+        <BlogMarkdown content={resolvedPost.contentMarkdown} />
       </div>
     </RevealSection>
   );

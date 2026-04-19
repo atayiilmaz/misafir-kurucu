@@ -2,8 +2,39 @@ import { RevealSection } from "@/components/gsap/reveal-section";
 import { ProgramShowcaseSection } from "@/components/programs/program-showcase-section";
 import SubtleButton from "@/components/ui/subtle-button";
 import { programList } from "@/content/programs";
+import { SITE_NAME, SITE_URL, absoluteUrl, useSeo } from "@/lib/seo";
 
 export function ProgramsPage() {
+  useSeo({
+    title: "Programlar",
+    description:
+      "Markanı Kur, Markanı Büyüt ve Stratejik Ortaklık programlarını inceleyin. İhtiyacınıza göre kurulum, büyüme veya ihtiyaç anında stratejik destek için birebir çalışma modelleri.",
+    path: "/programlar",
+    image: "/images/markanibuyut.png",
+    keywords: [
+      "markanı kur",
+      "markanı büyüt",
+      "stratejik ortaklık",
+      "moda markası programları",
+    ],
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: `Programlar | ${SITE_NAME}`,
+      url: `${SITE_URL}/programlar`,
+      inLanguage: "tr-TR",
+      mainEntity: {
+        "@type": "ItemList",
+        itemListElement: programList.map((program, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: program.name,
+          url: absoluteUrl(program.href),
+        })),
+      },
+    },
+  });
+
   return (
     <>
       <RevealSection

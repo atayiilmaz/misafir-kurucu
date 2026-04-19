@@ -1,8 +1,32 @@
 import { RevealSection } from "@/components/gsap/reveal-section";
 import { PageIntro } from "@/components/page-intro";
 import FaqSections from "@/components/ui/faq-sections";
+import { faqs } from "@/content/site";
+import { SITE_NAME, SITE_URL, useSeo } from "@/lib/seo";
 
 export function FaqPage() {
+  useSeo({
+    title: "Sıkça Sorulan Sorular",
+    description:
+      "Misafir Kurucu danışmanlığı, çalışma modeli, program yapısı ve başlangıç süreciyle ilgili en sık sorulan soruları inceleyin.",
+    path: "/sikca-sorulan-sorular",
+    keywords: ["sıkça sorulan sorular", "danışmanlık süreci", "misafir kurucu faq"],
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      name: `Sıkça Sorulan Sorular | ${SITE_NAME}`,
+      url: `${SITE_URL}/sikca-sorulan-sorular`,
+      mainEntity: faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.answer,
+        },
+      })),
+    },
+  });
+
   return (
     <>
       <PageIntro

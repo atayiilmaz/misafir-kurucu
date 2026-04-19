@@ -1,8 +1,24 @@
 import { useEffect } from "react";
 import { RevealSection } from "@/components/gsap/reveal-section";
 import { PageIntro } from "@/components/page-intro";
+import { SITE_NAME, SITE_URL, useSeo } from "@/lib/seo";
 
 export function ConsultationPage() {
+  useSeo({
+    title: "Görüşme Planlayın",
+    description:
+      "Ücretsiz ön görüşmede markanızın mevcut durumunu, hedefini ve size en uygun çalışma modelini birlikte değerlendirelim.",
+    path: "/gorusme-planlayin",
+    keywords: ["görüşme planlayın", "ücretsiz ön görüşme", "calendly moda danışmanlığı"],
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      name: `Görüşme Planlayın | ${SITE_NAME}`,
+      url: `${SITE_URL}/gorusme-planlayin`,
+      inLanguage: "tr-TR",
+    },
+  });
+
   useEffect(() => {
     const existingScript = document.querySelector(
       'script[src="https://assets.calendly.com/assets/external/widget.js"]',

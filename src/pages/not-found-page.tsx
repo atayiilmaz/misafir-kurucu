@@ -1,7 +1,15 @@
 import { RevealSection } from "@/components/gsap/reveal-section";
 import SubtleButton from "@/components/ui/subtle-button";
+import { useSeo } from "@/lib/seo";
 
 export function NotFoundPage() {
+  useSeo({
+    title: "Sayfa bulunamadı",
+    description: "Aradığınız sayfa kaldırılmış olabilir veya bağlantı hatalı olabilir.",
+    path: "/404",
+    noindex: true,
+  });
+
   return (
     <RevealSection
       as="section"

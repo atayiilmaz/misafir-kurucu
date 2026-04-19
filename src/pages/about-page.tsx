@@ -2,6 +2,7 @@ import { ArrowUpRight } from "lucide-react";
 import { RevealSection } from "@/components/gsap/reveal-section";
 import { cn } from "@/lib/utils";
 import { AppLink } from "@/components/ui/app-link";
+import { SITE_AUTHOR, SITE_NAME, SITE_URL, absoluteUrl, useSeo } from "@/lib/seo";
 
 const sectionTitleClass =
   "font-display text-[2.2rem] leading-[0.96] text-foreground sm:text-[2.65rem] md:text-[3.35rem]";
@@ -50,6 +51,36 @@ const todayItems = [
 ];
 
 export function AboutPage() {
+  useSeo({
+    title: "Hakkımda",
+    description:
+      "Sevinç Gürgüzel'in mağazacılık, üretim ve marka kurma deneyiminden beslenen saha hikâyesini ve Misafir Kurucu yaklaşımını keşfedin.",
+    path: "/hakkimda",
+    image: "/images/aboutme.jpeg",
+    keywords: [
+      "sevinç gürgüzel",
+      "misafir kurucu hakkında",
+      "moda markası danışmanı",
+      "tekstil üretim deneyimi",
+    ],
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      name: `Hakkımda | ${SITE_NAME}`,
+      url: `${SITE_URL}/hakkimda`,
+      inLanguage: "tr-TR",
+      about: {
+        "@type": "Person",
+        name: SITE_AUTHOR,
+        image: absoluteUrl("/images/aboutme.jpeg"),
+        sameAs: [
+          "https://www.instagram.com/misafirkurucu/",
+          "https://www.linkedin.com/in/sevincgurguzel/",
+        ],
+      },
+    },
+  });
+
   return (
     <>
       <RevealSection

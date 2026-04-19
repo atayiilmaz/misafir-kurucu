@@ -11,6 +11,7 @@ import {
   ProgramSupportScene,
 } from "@/components/programs/program-scenes";
 import { programs, type ProgramSlug } from "@/content/programs";
+import { SITE_NAME, SITE_URL, absoluteUrl, useSeo } from "@/lib/seo";
 
 const sectionBands = {
   blue:
@@ -22,6 +23,36 @@ const sectionBands = {
 export function ProgramDetailPage() {
   const { slug } = useParams();
   const program = slug ? programs[slug as ProgramSlug] : null;
+
+  useSeo({
+    title: program ? program.name : "Program bulunamadı",
+    description: program
+      ? program.listingDescription
+      : "Aradığınız program bulunamadı.",
+    path: program?.href ?? "/programlar",
+    image: program?.heroImage ?? "/images/herosection.jpeg",
+    noindex: !program,
+    keywords: program
+      ? [program.name, program.listingSubtitle, "moda markası danışmanlığı"]
+      : undefined,
+    structuredData: program
+      ? {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: program.name,
+          description: program.listingDescription,
+          provider: {
+            "@type": "Organization",
+            name: SITE_NAME,
+            url: SITE_URL,
+          },
+          url: absoluteUrl(program.href),
+          image: absoluteUrl(program.heroImage),
+          areaServed: "TR",
+          serviceType: "Moda markası danışmanlığı",
+        }
+      : undefined,
+  });
 
   if (!program) {
     return <Navigate to="/" replace />;

@@ -13,6 +13,7 @@ import {
   fetchPublishedBlogPosts,
   getNormalizedPageParam,
 } from "@/features/blog/api";
+import { SITE_NAME, SITE_URL, absoluteUrl, useSeo } from "@/lib/seo";
 import { hasSupabaseConfig } from "@/lib/supabase";
 import { useSearchParams } from "react-router-dom";
 
@@ -20,6 +21,27 @@ export function BlogPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const currentPage = getNormalizedPageParam(searchParams.get("page"));
   const isConfigured = hasSupabaseConfig();
+  useSeo({
+    title: "Blog",
+    description:
+      "Moda markası kurma, büyütme, konumlandırma, üretim ve satış stratejileri üzerine derinleştirilmiş içerikleri Misafir Kurucu blogunda keşfedin.",
+    path: currentPage > 1 ? `/blog?page=${currentPage}` : "/blog",
+    image: "/images/herosection.jpeg",
+    keywords: [
+      "moda markası blog",
+      "tekstil blog",
+      "satış stratejisi",
+      "marka konumlandırma",
+    ],
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      name: `${SITE_NAME} Blog`,
+      url: `${SITE_URL}/blog`,
+      inLanguage: "tr-TR",
+      image: absoluteUrl("/images/herosection.jpeg"),
+    },
+  });
   const blogQuery = useQuery({
     queryKey: ["blog", "list", currentPage],
     queryFn: () => fetchPublishedBlogPosts(currentPage),

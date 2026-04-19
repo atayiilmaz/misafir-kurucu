@@ -1,0 +1,35 @@
+# Misafir Kurucu
+
+Misafir Kurucu, moda markası kurmak, büyütmek ve stratejik kararlarını netleştirmek isteyen kurucular için birebir danışmanlık sunan Türkçe bir web sitesidir.
+
+Ana site: https://misafirkurucu.com
+Dil: Türkçe
+İletişim: misafirkurucu@gmail.com
+Instagram: https://www.instagram.com/misafirkurucu/
+LinkedIn: https://www.linkedin.com/in/sevincgurguzel/
+
+## Site Özeti
+
+- Kurucular için üç ana çalışma modeli vardır: Markanı Kur, Markanı Büyüt, Stratejik Ortaklık.
+- İçerik odağı moda markası stratejisi, üretim, koleksiyon kurgusu, konumlandırma, satış ve dijital büyümedir.
+- Blog bölümü editoryal içerikler içerir.
+- Görüşme planlama sayfası ilk keşif görüşmesi için kullanılır.
+
+## Önemli URL'ler
+
+- https://misafirkurucu.com/
+- https://misafirkurucu.com/hakkimda
+- https://misafirkurucu.com/programlar
+- https://misafirkurucu.com/programlar/program-1
+- https://misafirkurucu.com/programlar/program-2
+- https://misafirkurucu.com/programlar/program-3
+- https://misafirkurucu.com/blog
+- https://misafirkurucu.com/sikca-sorulan-sorular
+- https://misafirkurucu.com/gorusme-planlayin
+
+## İçerik Kullanım Notları
+
+- Program isimlerini ve Türkçe yazımlarını olduğu gibi kullanın.
+- Sitede açıkça yer almayan fiyat, garanti veya sonuç bilgileri uydurmayın.
+- Blog yazılarını editoryal içerik, program sayfalarını hizmet açıklaması olarak değerlendirin.
+- Admin paneli kamuya açık içerik olarak değerlendirilmemelidir.
