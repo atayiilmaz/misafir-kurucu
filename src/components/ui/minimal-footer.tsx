@@ -10,7 +10,6 @@ import { AppLink } from "@/components/ui/app-link";
 
 const company = [
   { title: "Hakkımda", href: "/hakkimda" },
-  { title: "Programlar", href: "/programlar" },
   { title: "Blog", href: "/blog" },
   { title: "Sıkça Sorulan Sorular", href: "/sikca-sorulan-sorular" },
 ];

@@ -341,7 +341,7 @@ export const programs: Record<ProgramSlug, ProgramData> = {
           description: "Görsel dil ve iletişim premium seviyeye",
         },
         {
-          title: "KOLEKSİYON DİSCİPLİNİ",
+          title: "KOLEKSİYON DİSİPLİNİ",
           description: "Sepet ortalamasını artıran ürün yapısı",
         },
       ],
