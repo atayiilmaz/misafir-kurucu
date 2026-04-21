@@ -116,7 +116,7 @@ export function BlogDetailPage() {
             className="mt-8 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-primary"
           >
             <ArrowLeft className="h-4 w-4" />
-            Bloga geri don
+            BLOGA GERİ DÖN
           </AppLink>
         </div>
       </RevealSection>
@@ -134,7 +134,7 @@ export function BlogDetailPage() {
         data-gsap-item
       >
         <ArrowLeft className="h-4 w-4" />
-        Bloga geri don
+        BLOGA GERİ DÖN
       </AppLink>
 
       <header className="mx-auto mt-8 max-w-[48rem] pb-4 md:pb-6" data-gsap-item>
