@@ -85,11 +85,18 @@ export function BlogDetailPage() {
   if (detailQuery.isLoading) {
     return (
       <RevealSection as="section" className="section-shell py-16">
-        <div className="glass-panel animate-pulse p-8">
-          <div className="h-8 w-32 rounded-full bg-muted" />
-          <div className="mt-6 h-16 rounded-3xl bg-muted" />
-          <div className="mt-4 h-5 w-2/3 rounded-full bg-muted" />
-          <div className="mt-8 h-[28rem] rounded-[2rem] bg-muted" />
+        <div className="mx-auto max-w-5xl animate-pulse">
+          <div className="h-5 w-36 rounded-full bg-muted" />
+          <div className="mt-8 h-16 max-w-4xl rounded-[1.75rem] bg-muted md:h-24" />
+          <div className="mt-4 h-6 max-w-3xl rounded-full bg-muted" />
+          <div className="mt-10 flex gap-3">
+            <div className="h-12 w-12 rounded-full bg-muted" />
+            <div className="flex-1 space-y-3">
+              <div className="h-4 w-44 rounded-full bg-muted" />
+              <div className="h-4 w-56 rounded-full bg-muted" />
+            </div>
+          </div>
+          <div className="mt-10 h-[22rem] rounded-[2.25rem] bg-muted md:h-[30rem]" />
         </div>
       </RevealSection>
     );
@@ -117,6 +124,7 @@ export function BlogDetailPage() {
   }
 
   const resolvedPost = detailQuery.data;
+  const publishedLabel = formatBlogDate(resolvedPost.publishedAt ?? resolvedPost.updatedAt);
 
   return (
     <RevealSection as="section" className="section-shell py-10" itemSelector="[data-gsap-item]">
@@ -129,35 +137,33 @@ export function BlogDetailPage() {
         Bloga geri don
       </AppLink>
 
-      <div className="mt-6 glass-panel overflow-hidden" data-gsap-item>
-        {resolvedPost.coverImageUrl ? (
+      <header className="mx-auto mt-8 max-w-[48rem] pb-4 md:pb-6" data-gsap-item>
+        <h1 className="max-w-[15ch] font-display text-[3.1rem] leading-[0.92] tracking-[-0.05em] md:text-[5.4rem]">
+          {resolvedPost.title}
+        </h1>
+
+        <div className="mt-6 flex flex-wrap items-center gap-3 text-sm text-muted-foreground md:text-[0.95rem]">
+          <span>{publishedLabel}</span>
+          <span className="h-1 w-1 rounded-full bg-muted-foreground/40" />
+          <span className="inline-flex items-center gap-2">
+            <Clock3 className="h-4 w-4" />
+            {resolvedPost.readingTimeMinutes} dk okuma
+          </span>
+        </div>
+      </header>
+
+      {resolvedPost.coverImageUrl ? (
+        <div className="mx-auto mt-10 max-w-6xl" data-gsap-item>
           <img
             src={resolvedPost.coverImageUrl}
             alt={resolvedPost.title}
-            className="h-[22rem] w-full object-cover md:h-[30rem]"
+            className="h-[22rem] w-full rounded-[2.25rem] border border-white/70 object-cover shadow-[0_30px_80px_-52px_rgba(46,31,19,0.42)] md:h-[30rem]"
           />
-        ) : null}
-
-          <div className="p-8 md:p-10">
-            <h1 className="font-display text-[2.85rem] leading-[0.98] md:text-[4.35rem]">
-              {resolvedPost.title}
-            </h1>
-          <p className="mt-5 max-w-3xl text-base leading-8 text-muted-foreground md:text-lg">
-            {resolvedPost.excerpt}
-          </p>
-
-          <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-            <span>{formatBlogDate(resolvedPost.publishedAt ?? resolvedPost.updatedAt)}</span>
-            <span className="h-1 w-1 rounded-full bg-muted-foreground/40" />
-            <span className="inline-flex items-center gap-2">
-              <Clock3 className="h-4 w-4" />
-              {resolvedPost.readingTimeMinutes} dk okuma
-            </span>
-          </div>
         </div>
-      </div>
+      ) : null}
 
-      <div className="mx-auto mt-10 max-w-4xl" data-gsap-item>
+      <div className="mx-auto mt-14 max-w-[48rem]" data-gsap-item>
+        <div className="mb-10 h-px w-full bg-gradient-to-r from-transparent via-border/80 to-transparent" />
         <BlogMarkdown content={resolvedPost.contentMarkdown} />
       </div>
     </RevealSection>
