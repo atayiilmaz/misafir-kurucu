@@ -596,7 +596,6 @@ export const plans: PricingPlan[] = [
       "Stratejik Marka Çerçevesi",
       "Koleksiyon planlaması ve üretimi",
       "Maliyetli erken hataları önlemeye yönelik\nsistemler",
-      "Markanı kurarken deneme-yanılma ile sermayeni\nkaybetme; 16 yıllık tecrübemle bu bütçeyi\nkoruyalım:",
       "Tahmini Toplam Tasarruf: ₺240.000 –\n₺400.000+",
       "Zaman Kaybı (12 - 18 Ay): Paha Biçilemez",
     ],

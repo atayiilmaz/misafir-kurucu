@@ -22,7 +22,7 @@ export default {
       },
       fontFamily: {
         display: ['"Neue Kabel"', "sans-serif"],
-        sans: ['"Manrope"', '"Segoe UI"', "Arial", "sans-serif"],
+        sans: [ '"Segoe UI"', "Arial", "sans-serif"],
       },
       backgroundImage: {
         "hero-glow":

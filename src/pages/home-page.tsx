@@ -18,11 +18,11 @@ const investmentItems = [
 ];
 
 const outcomeItems = [
-  "Tek başına karar almak zorunda kalmazsın",
-  "Deneme-yanılma yerine sistemle ilerlersin",
-  "Kararsız kalmazsın, kritik kararları hızlı ve net alırsın",
-  "Üretim ve tedarikte doğru insanlara ulaşırsın",
-  "Süreç boyunca yalnız ilerlemezsin, sürekli geri bildirim ve yönlendirme alırsın",
+  "Karar Mekanizması Gücü: Tüm kritik süreçlerde 16 yıllık deneyime dayanan, rasyonel ve hızlı karar alma desteği.",
+  "Sistem Odaklı İlerleme: Deneme-yanılma yönteminin getirdiği maliyet ve zaman kaybı yerine, test edilmiş ve çalışan sistemlerle ilerleme.",
+  "Stratejik Kaynak Planlaması: Kumaş, aksesuar ve dikim aşamalarında markanızın kimliğiyle örtüşen doğru iş ortaklarının seçimi.",
+  "Stratejik Mentorluk: Yalnızlık hissi yerine, her adımda objektif geri bildirim ve profesyonel yönlendirme ile kesintisiz ilerleme.",
+  "Risk Yönetimi: Potansiyel krizleri önceden öngören ve süreci profesyonel bir süzgeçten geçiren stratejik ortaklık.",
 ];
 
 const resourceItems = [

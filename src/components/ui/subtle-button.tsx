@@ -6,14 +6,14 @@ import { AppLink } from "@/components/ui/app-link";
 import { cn } from "@/lib/utils";
 
 const subtleButtonVariants = cva(
-  "group relative inline-flex items-center justify-center gap-3 whitespace-nowrap overflow-hidden rounded-full border-2 backdrop-blur-sm transition-all duration-500 ease-out hover:scale-[1.03] active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/35 before:absolute before:inset-0 before:translate-x-[-100%] before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent before:transition-transform before:duration-700 hover:before:translate-x-[100%]",
+  "group relative inline-flex items-center justify-center gap-3 whitespace-nowrap overflow-hidden rounded-full backdrop-blur-sm transition-all duration-500 ease-out hover:scale-[1.03] active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/35 before:absolute before:inset-0 before:translate-x-[-100%] before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent before:transition-transform before:duration-700 hover:before:translate-x-[100%]",
   {
     variants: {
       theme: {
         light:
-          "border-primary/22 bg-primary text-white shadow-[0_16px_34px_-24px_rgba(255,129,5,0.55)] hover:border-primary/32 hover:bg-primary/92 hover:shadow-[0_22px_38px_-26px_rgba(255,129,5,0.65)]",
+          "surface-primary-gradient text-white shadow-[0_16px_34px_-24px_rgba(255,129,5,0.55)] hover:shadow-[0_22px_38px_-26px_rgba(255,129,5,0.65)]",
         dark:
-          "border-primary/28 bg-primary text-white shadow-[0_18px_36px_-24px_rgba(255,129,5,0.45)] hover:border-primary/40 hover:bg-primary/92 hover:shadow-[0_22px_44px_-26px_rgba(255,129,5,0.52)]",
+          "surface-primary-gradient text-white shadow-[0_18px_36px_-24px_rgba(255,129,5,0.45)] hover:shadow-[0_22px_44px_-26px_rgba(255,129,5,0.52)]",
       },
       size: {
         sm: "h-10 px-4 text-xs",
@@ -80,12 +80,6 @@ function InnerContent({
         {children}
       </span>
 
-      <div
-        className={cn(
-          "absolute inset-0 rounded-full border-2 transition-all duration-500 animate-pulse opacity-0 group-hover:opacity-100",
-          theme === "dark" ? "border-white/20" : "border-primary/25",
-        )}
-      />
     </>
   );
 }

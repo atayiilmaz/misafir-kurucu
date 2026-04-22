@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -20,7 +18,11 @@
   --card-foreground: 18 24% 11%;
   --muted: 220 100% 97%;
   --muted-foreground: 220 14% 34%;
-  --primary: 28.8 100% 51%;
+  --primary: 24 96% 53%;
+  --primary-start: 20 100% 56%;
+  --primary-end: 10 88% 60%;
+  --primary-start-hover: 18 100% 52%;
+  --primary-end-hover: 8 82% 56%;
   --primary-foreground: 0 0% 100%;
   --border: 220 36% 84%;
   --accent: 231 100% 65%;
@@ -37,7 +39,7 @@ body {
   min-width: 320px;
   font-size: 16px;
   line-height: 1.6;
-  font-family: "Manrope", "Segoe UI", Arial, sans-serif;
+  font-family: "Segoe UI", Arial, sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   background-image:
@@ -72,6 +74,23 @@ img {
   @apply mb-3 inline-flex rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold tracking-[0.24em] text-primary;
 }
 
+.surface-primary-gradient {
+  background-color: hsl(var(--primary));
+  background-image: linear-gradient(
+    135deg,
+    hsl(var(--primary-start)),
+    hsl(var(--primary-end))
+  );
+}
+
+.surface-primary-gradient:hover {
+  background-image: linear-gradient(
+    135deg,
+    hsl(var(--primary-start-hover)),
+    hsl(var(--primary-end-hover))
+  );
+}
+
 .about-story-kicker {
   color: #000;
   font-family: "IvyprestoDisplay", "IvyPresto Display", Georgia, "Times New Roman", serif;
@@ -96,7 +115,7 @@ textarea,
 label,
 li,
 small {
-  font-family: "Manrope", "Segoe UI", Arial, sans-serif;
+  font-family: "Segoe UI", Arial, sans-serif;
 }
 
 .font-display {
