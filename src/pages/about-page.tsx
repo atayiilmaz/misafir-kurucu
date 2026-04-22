@@ -51,6 +51,22 @@ const todayItems = [
   "En büyük hayalim; Türkiye’den doğacak bir dünya markasında pay sahibi olmak ve şirin bir sahil kasabasında, bahçeli bir evde yaşamak.",
 ];
 
+function splitProofTitle(title: string, index: number) {
+  const words = title.trim().split(/\s+/);
+
+  if (index === 0) {
+    return {
+      topLine: words.slice(0, -1).join(" "),
+      bottomLine: words[words.length - 1] ?? "",
+    };
+  }
+
+  return {
+    topLine: words.slice(0, -2).join(" "),
+    bottomLine: words.slice(-2).join(" "),
+  };
+}
+
 export function AboutPage() {
   useSeo({
     title: "Hakkımda",
@@ -170,7 +186,10 @@ export function AboutPage() {
         distance={26}
       >
         <div className="grid gap-5 md:grid-cols-2">
-          {proofItems.map((item) => (
+          {proofItems.map((item, index) => {
+            const { topLine, bottomLine } = splitProofTitle(item.value, index);
+
+            return (
             <article
               key={item.value}
               className="group relative overflow-hidden rounded-[1.9rem] border border-border/60 bg-[linear-gradient(180deg,rgba(255,252,248,0.96),rgba(255,255,255,0.92))] p-6 shadow-[0_12px_30px_-24px_rgba(62,48,38,0.22)] transition-[transform,box-shadow,border-color,background] duration-300 ease-out hover:-translate-y-1 hover:border-primary/20 hover:bg-[linear-gradient(180deg,rgba(255,250,245,0.98),rgba(255,255,255,0.97))] hover:shadow-[0_24px_44px_-28px_rgba(62,48,38,0.3)] md:p-7"
@@ -180,16 +199,20 @@ export function AboutPage() {
                 className="absolute inset-x-0 top-0 h-24 bg-[radial-gradient(circle_at_top_left,rgba(255,121,62,0.12),transparent_68%)] opacity-80 blur-2xl transition-[transform,opacity] duration-500 group-hover:scale-110 group-hover:opacity-100"
               />
               <div className="relative">
-              <p className="font-display text-[1.55rem] leading-[1.04] text-foreground transition-colors duration-300 group-hover:text-primary md:text-[1.85rem]">
-                {item.value}
-              </p>
-              <div className="mt-4 h-px w-16 bg-[linear-gradient(90deg,rgba(255,121,62,0.45),rgba(255,121,62,0.12),transparent)] transition-all duration-300 group-hover:w-24" />
-              <p className={["mt-4", bodyCopyClass].join(" ")}>
-                {item.description}
-              </p>
+                <p className="font-display text-[1.55rem] leading-[1.04] text-foreground transition-colors duration-300 group-hover:text-primary md:text-[1.85rem]">
+                  <span className="block">{topLine}</span>
+                  <span className="mt-1 block text-[0.9em] font-normal tracking-[-0.02em] opacity-75">
+                    {bottomLine}
+                  </span>
+                </p>
+                <div className="mt-4 h-px w-16 bg-[linear-gradient(90deg,rgba(255,121,62,0.45),rgba(255,121,62,0.12),transparent)] transition-all duration-300 group-hover:w-24" />
+                <p className={["mt-4", bodyCopyClass].join(" ")}>
+                  {item.description}
+                </p>
               </div>
             </article>
-          ))}
+            );
+          })}
         </div>
       </RevealSection>
 
