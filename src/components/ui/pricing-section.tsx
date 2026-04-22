@@ -63,6 +63,11 @@ function PricingCard({
     },
   ] as const;
   const theme = themes[index] ?? themes[themes.length - 1];
+  const [descriptionHeading, ...descriptionBodyParts] = description.split("\n");
+  const hasDescriptionHeading = descriptionHeading.trim().endsWith("?");
+  const descriptionBody = hasDescriptionHeading
+    ? descriptionBodyParts.join("\n").trim()
+    : description;
 
   return (
     <motion.article
@@ -97,9 +102,14 @@ function PricingCard({
           />
         </div>
 
-        <p className={cn("mt-5 whitespace-pre-line text-sm leading-6", theme.bodyClass)}>
-          {description}
-        </p>
+        <div className="mt-5 space-y-4">
+          {hasDescriptionHeading ? (
+            <p className={cn("text-sm font-semibold", theme.bodyClass)}>{descriptionHeading}</p>
+          ) : null}
+          <p className={cn("whitespace-pre-line text-sm leading-6", theme.bodyClass)}>
+            {descriptionBody}
+          </p>
+        </div>
 
         <p className={cn("mt-6 text-sm font-semibold", theme.bodyClass)}>
           Ne elde edeceksin?
