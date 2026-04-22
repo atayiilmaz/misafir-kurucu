@@ -664,73 +664,76 @@ export function ProgramListScene({
 
   return (
     <section ref={rootRef} className="section-shell section-space text-foreground">
-      <div className="grid gap-8 lg:grid-cols-[0.88fr_1.12fr]">
-        <div className={cn("relative lg:pr-6", imageOnRight && "lg:order-2 lg:pr-0 lg:pl-6")}>
-          <div className="lg:sticky lg:top-28">
-            <div className="overflow-hidden rounded-[1.5rem] border border-white/70 shadow-soft">
+      <div className="mx-auto max-w-[82rem]">
+        <div className={cn("max-w-[40rem]", imageOnRight && "lg:ml-auto")}>
+          <h2
+            className="font-display text-[1.82rem] leading-[1.04] sm:text-[2.2rem] md:text-[3rem]"
+            data-scene-copy
+          >
+            {title}
+          </h2>
+          {intro?.length ? (
+            <div className="mt-5 grid gap-3">
+              {intro.map((paragraph) => (
+                <p
+                  key={paragraph}
+                  className="max-w-2xl text-base leading-8 text-foreground/72 md:text-[1rem]"
+                  data-scene-copy
+                >
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+          ) : null}
+        </div>
+
+        <div className={cn("mt-8 grid gap-8 lg:grid-cols-[0.88fr_1.12fr]", imageOnRight && "lg:grid-cols-[1.12fr_0.88fr]")}>
+          <div className={cn("relative", imageOnRight && "lg:order-2")}>
+            <div className="overflow-hidden rounded-[2rem] border border-white/70 shadow-soft">
               <img
                 src={image}
                 alt={imageAlt}
-                className="h-[14rem] w-full object-cover md:h-[18rem]"
+                className="h-[18rem] w-full object-cover md:h-[22rem] lg:h-[28rem] xl:h-[32rem]"
                 data-scene-media-inner
               />
             </div>
-            <h2
-              className="mt-5 max-w-xl font-display text-[1.82rem] leading-[1.04] sm:text-[2.2rem] md:text-[3rem]"
-              data-scene-copy
-            >
-              {title}
-            </h2>
-            {intro?.length ? (
-              <div className="mt-5 grid gap-3">
-                {intro.map((paragraph) => (
-                  <p
-                    key={paragraph}
-                    className="max-w-xl text-base leading-8 text-foreground/72 md:text-[1rem]"
-                    data-scene-copy
-                  >
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
-            ) : null}
           </div>
-        </div>
 
-        <div
-          className={cn(
-            "space-y-4 md:space-y-5",
-            imageOnRight && "lg:order-1",
-            shouldCenterRows && "flex flex-col justify-center lg:min-h-[18rem]",
-          )}
-        >
-          {items.map((item) => (
-            <div
-              key={`${title}-${item}`}
-              className={cn(
-                "relative border-l pl-5 pr-2 md:pl-7",
-                dark ? "border-accent/26" : "border-primary/18",
-              )}
-              data-scene-row
-            >
-              <div className="flex gap-4 md:gap-5">
-                <span
-                  className={cn(
-                    "mt-3 h-2.5 w-2.5 shrink-0 rounded-full",
-                    dark ? "bg-accent/90" : "bg-primary",
-                  )}
-                />
-                <p
-                  className={cn(
-                    "max-w-3xl text-[1.05rem] leading-8 md:text-[1.22rem] md:leading-9",
-                    dark ? "text-foreground/74" : "text-foreground/82",
-                  )}
-                >
-                  {item}
-                </p>
+          <div
+            className={cn(
+              "flex flex-col justify-center space-y-4 md:space-y-5 lg:min-h-[28rem]",
+              imageOnRight && "lg:order-1",
+              shouldCenterRows && "lg:min-h-[22rem]",
+            )}
+          >
+            {items.map((item) => (
+              <div
+                key={`${title}-${item}`}
+                className={cn(
+                  "relative border-l pl-5 pr-2 md:pl-7",
+                  dark ? "border-accent/26" : "border-primary/18",
+                )}
+                data-scene-row
+              >
+                <div className="flex gap-4 md:gap-5">
+                  <span
+                    className={cn(
+                      "mt-3 h-2.5 w-2.5 shrink-0 rounded-full",
+                      dark ? "bg-accent/90" : "bg-primary",
+                    )}
+                  />
+                  <p
+                    className={cn(
+                      "max-w-3xl text-[1.05rem] leading-8 md:text-[1.22rem] md:leading-9",
+                      dark ? "text-foreground/74" : "text-foreground/82",
+                    )}
+                  >
+                    {item}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -847,24 +850,22 @@ export function ProgramNarrativeScene({
   if (!hasImage) {
     return (
       <section ref={rootRef} className="section-shell section-space">
-        <div className="max-w-4xl">
+        <div className="max-w-[40rem]">
           <h2
             className="font-display text-[1.82rem] leading-[1.04] text-foreground md:text-[3rem]"
             data-narrative-copy
           >
             {title}
           </h2>
-          <div className="mt-6 grid gap-4">
+          <div className="mt-6 space-y-4">
             {paragraphs.map((paragraph) => (
-              <div key={paragraph}>
-                <div className="mb-4 h-px w-full bg-[linear-gradient(90deg,rgba(255,79,0,0.35),rgba(77,101,255,0.22),transparent)]" data-narrative-line />
-                <p
-                  className="max-w-3xl text-base leading-8 text-foreground/78 md:text-lg"
-                  data-narrative-copy
-                >
-                  {paragraph}
-                </p>
-              </div>
+              <p
+                key={paragraph}
+                className="max-w-2xl text-base leading-8 text-foreground/78 md:text-lg"
+                data-narrative-copy
+              >
+                {paragraph}
+              </p>
             ))}
           </div>
         </div>
@@ -874,37 +875,40 @@ export function ProgramNarrativeScene({
 
   return (
     <section ref={rootRef} className="section-shell section-space">
-      <div className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr]">
+      <div className="mx-auto grid max-w-[82rem] items-center gap-8 md:gap-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] xl:gap-12">
         <div
-          className={cn("overflow-hidden rounded-[2rem]", imageOnRight && "lg:order-2")}
+          className={cn("relative w-full lg:justify-self-start", imageOnRight ? "lg:order-2 lg:justify-self-end max-w-[31rem] xl:max-w-[33rem]" : "max-w-[31rem] xl:max-w-[33rem]")}
           data-narrative-media
         >
           <img
             src={image}
             alt={imageAlt}
-            className="h-[15rem] w-full object-cover md:h-[20rem]"
+            className="h-[22rem] w-full rounded-[2rem] object-cover shadow-soft sm:h-[25rem] lg:h-[28rem] xl:h-[32rem]"
             data-narrative-media-inner
           />
         </div>
 
-        <div className={cn("flex flex-col justify-center", imageOnRight && "lg:order-1")}>
+        <div
+          className={cn(
+            "w-full max-w-[40rem] space-y-6 lg:justify-self-end",
+            imageOnRight && "lg:order-1 lg:justify-self-start",
+          )}
+        >
           <h2
             className="font-display text-[1.82rem] leading-[1.04] text-foreground md:text-[3rem]"
             data-narrative-copy
           >
             {title}
           </h2>
-          <div className="mt-6 grid gap-4">
+          <div className="space-y-4">
             {paragraphs.map((paragraph) => (
-              <div key={paragraph}>
-                <div className="mb-4 h-px w-full bg-[linear-gradient(90deg,rgba(255,79,0,0.35),rgba(77,101,255,0.22),transparent)]" data-narrative-line />
-                <p
-                  className="max-w-3xl text-base leading-8 text-foreground/78 md:text-lg"
-                  data-narrative-copy
-                >
-                  {paragraph}
-                </p>
-              </div>
+              <p
+                key={paragraph}
+                className="max-w-2xl text-base leading-8 text-foreground/78 md:text-lg"
+                data-narrative-copy
+              >
+                {paragraph}
+              </p>
             ))}
           </div>
         </div>
@@ -1036,14 +1040,14 @@ export function ProgramPackageScene({
             {items.map((item, index) => (
               <article
                 key={item.title}
-                className="grid gap-4 border-b border-border/45 py-5 transition-colors duration-300 hover:bg-white/30 md:grid-cols-[4rem_minmax(0,0.9fr)_minmax(0,1.15fr)] md:gap-7 md:py-6"
+                className="group grid gap-4 border-b border-border/45 py-5 transition-colors duration-300 hover:bg-white/30 md:grid-cols-[4rem_minmax(0,0.9fr)_minmax(0,1.15fr)] md:gap-7 md:py-6"
                 data-package-item
               >
                 <div className="text-[0.82rem] font-semibold tracking-[0.24em] text-primary/72 md:pt-1">
                   {String(index + 1).padStart(2, "0")}
                 </div>
                 <div>
-                  <h3 className="max-w-sm text-[1.08rem] font-semibold leading-snug text-foreground md:pt-0.5 md:text-[1.2rem]">
+                  <h3 className="max-w-sm text-[1.08rem] font-semibold leading-snug text-foreground transition-colors duration-300 group-hover:text-primary md:pt-0.5 md:text-[1.2rem]">
                     {item.title}
                   </h3>
                   <div
@@ -1086,14 +1090,14 @@ export function ProgramPackageScene({
           {items.map((item, index) => (
             <article
               key={item.title}
-              className="grid gap-4 border-b border-border/45 py-5 transition-colors duration-300 hover:bg-white/30 md:grid-cols-[4rem_minmax(0,0.9fr)_minmax(0,1.15fr)] md:gap-7 md:py-6"
+              className="group grid gap-4 border-b border-border/45 py-5 transition-colors duration-300 hover:bg-white/30 md:grid-cols-[4rem_minmax(0,0.9fr)_minmax(0,1.15fr)] md:gap-7 md:py-6"
               data-package-item
             >
               <div className="text-[0.82rem] font-semibold tracking-[0.24em] text-primary/72 md:pt-1">
                 {String(index + 1).padStart(2, "0")}
               </div>
               <div>
-                <h3 className="max-w-sm text-[1.08rem] font-semibold leading-snug text-foreground md:pt-0.5 md:text-[1.2rem]">
+                <h3 className="max-w-sm text-[1.08rem] font-semibold leading-snug text-foreground transition-colors duration-300 group-hover:text-primary md:pt-0.5 md:text-[1.2rem]">
                   {item.title}
                 </h3>
                 <div
@@ -1400,15 +1404,15 @@ export function ProgramProcessScene({
   );
 
   const stepsMarkup = (
-    <div className="flex flex-col justify-center gap-5">
+    <div className="flex flex-col justify-center gap-5 lg:min-h-[36rem]">
       {steps.map((step) => (
         <div
           key={`${step.label}-${step.title}`}
-          className="border-l border-primary/18 pl-5 md:pl-7"
+          className="relative pl-6 md:pl-8"
           data-process-step
         >
-          <div className="flex items-start gap-4">
-            <span className="mt-3 h-2.5 w-2.5 shrink-0 rounded-full bg-primary/80" />
+          <span className="absolute left-0 top-[0.38rem] h-2.5 w-2.5 rounded-full bg-primary/80" />
+          <div className="border-l border-primary/18 pl-5 md:pl-6">
             <div>
               <p className="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-primary/76">
                 {step.label}
@@ -1471,7 +1475,7 @@ export function ProgramProcessScene({
               data-process-media-inner
             />
             <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(17,11,8,0.06)_0%,rgba(17,11,8,0.18)_42%,rgba(17,11,8,0.72)_100%)]" />
-            <div className="relative flex h-full flex-col justify-end p-6 md:p-8 lg:p-10">
+            <div className="absolute inset-x-0 bottom-0 z-10 p-6 md:p-8 lg:p-10">
               <div className="max-w-xl">
                 <h2
                   className="font-display text-[1.95rem] leading-[1.04] text-white md:text-[3rem]"
