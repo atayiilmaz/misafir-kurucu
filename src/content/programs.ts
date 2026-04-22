@@ -660,5 +660,5 @@ export const navItems = [
     })),
   },
   { label: "Blog", href: "/blog" },
-  { label: "Sıkça Sorulan Sorular", href: "/sikca-sorulan-sorular" },
+  { label: "SSS", href: "/sikca-sorulan-sorular" },
 ] as const;
