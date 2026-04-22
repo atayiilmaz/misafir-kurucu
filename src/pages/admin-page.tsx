@@ -62,7 +62,7 @@ export function AdminPage() {
 
   if (!isConfigured) {
     return (
-      <RevealSection as="section" className="section-shell py-16">
+      <RevealSection as="section" className="section-shell section-space">
         <div className="glass-panel p-8 text-center">
           <p className="section-kicker">Admin</p>
           <h1 className="font-display text-5xl">Supabase kurulumu eksik</h1>
@@ -76,7 +76,7 @@ export function AdminPage() {
   }
 
   return (
-    <RevealSection as="section" className="section-shell py-10">
+    <RevealSection as="section" className="section-shell section-space">
       {!session ? (
         <div className="mx-auto max-w-xl glass-panel p-8 md:p-10">
           <p className="section-kicker">Admin Girişi</p>

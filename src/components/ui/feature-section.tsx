@@ -37,7 +37,7 @@ export default function FeatureSection({
   return (
     <RevealSection
       as="section"
-      className={cn("py-14 md:py-20", backgroundClassName)}
+      className={cn("section-space-lg", backgroundClassName)}
       id={id}
       itemSelector="[data-gsap-item]"
       start="top 84%"

@@ -354,7 +354,7 @@ export function FeatureCarousel({
   };
 
   return (
-    <section className="section-shell py-8 md:py-12">
+    <section className="section-shell section-space">
       <div className="mb-8 max-w-3xl">
         <p className="section-kicker">{eyebrow}</p>
         <h2 className="mt-4 font-display text-[2.5rem] leading-[1.01] text-foreground md:text-[4rem]">

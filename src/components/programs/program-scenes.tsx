@@ -205,7 +205,7 @@ export function ProgramHeroScene({ program }: ProgramHeroSceneProps) {
   );
 
   return (
-    <section ref={rootRef} className="section-shell pt-4 md:pt-6">
+    <section ref={rootRef} className="section-shell section-space">
       <div className="overflow-hidden rounded-[2.6rem] bg-[linear-gradient(135deg,rgba(255,247,242,0.98),rgba(244,248,255,0.98))] text-foreground shadow-[0_28px_80px_-52px_rgba(77,101,255,0.18)]">
         <div className="grid gap-0 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="relative flex flex-col overflow-hidden px-6 py-6 md:px-8 md:py-7 lg:px-10 lg:py-7">
@@ -414,7 +414,7 @@ export function ProgramBenefitCardsScene({
   );
 
   return (
-    <section ref={rootRef} className="section-shell py-12 md:py-16">
+    <section ref={rootRef} className="section-shell section-space">
       <div>
         <h2
           className="max-w-3xl font-display text-[1.9rem] leading-[1.02] text-foreground sm:text-[2.3rem] md:text-[2.9rem]"
@@ -604,7 +604,7 @@ export function ProgramListScene({
 
   if (!hasImage) {
     return (
-      <section ref={rootRef} className="section-shell py-12 md:py-16 text-foreground">
+      <section ref={rootRef} className="section-shell section-space text-foreground">
         <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr]">
           <div>
             <h2
@@ -663,7 +663,7 @@ export function ProgramListScene({
   }
 
   return (
-    <section ref={rootRef} className="section-shell py-12 md:py-16 text-foreground">
+    <section ref={rootRef} className="section-shell section-space text-foreground">
       <div className="grid gap-8 lg:grid-cols-[0.88fr_1.12fr]">
         <div className={cn("relative lg:pr-6", imageOnRight && "lg:order-2 lg:pr-0 lg:pl-6")}>
           <div className="lg:sticky lg:top-28">
@@ -846,7 +846,7 @@ export function ProgramNarrativeScene({
 
   if (!hasImage) {
     return (
-      <section ref={rootRef} className="section-shell py-12 md:py-16">
+      <section ref={rootRef} className="section-shell section-space">
         <div className="max-w-4xl">
           <h2
             className="font-display text-[1.82rem] leading-[1.04] text-foreground md:text-[2.65rem]"
@@ -873,7 +873,7 @@ export function ProgramNarrativeScene({
   }
 
   return (
-    <section ref={rootRef} className="section-shell py-12 md:py-16">
+    <section ref={rootRef} className="section-shell section-space">
       <div className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr]">
         <div
           className={cn("overflow-hidden rounded-[2rem]", imageOnRight && "lg:order-2")}
@@ -1023,7 +1023,7 @@ export function ProgramPackageScene({
 
   if (!hasImage) {
     return (
-      <section ref={rootRef} className="section-shell py-12 md:py-16">
+      <section ref={rootRef} className="section-shell section-space">
         <div>
           <h2
             className="max-w-xl font-display text-[1.82rem] leading-[1.04] md:text-[2.65rem]"
@@ -1063,7 +1063,7 @@ export function ProgramPackageScene({
   }
 
   return (
-    <section ref={rootRef} className="section-shell py-12 md:py-16">
+    <section ref={rootRef} className="section-shell section-space">
       <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr]">
         <div className="lg:sticky lg:top-28 lg:h-fit">
           <div className="overflow-hidden rounded-[2.2rem]" data-package-media>
@@ -1202,7 +1202,7 @@ export function ProgramSupportScene({
 
   if (!hasImage) {
     return (
-      <section ref={rootRef} className="section-shell py-12 md:py-16">
+      <section ref={rootRef} className="section-shell section-space">
         <div>
           <h2
             className="max-w-xl font-display text-[1.82rem] leading-[1.04] text-foreground md:text-[2.65rem]"
@@ -1242,7 +1242,7 @@ export function ProgramSupportScene({
   }
 
   return (
-    <section ref={rootRef} className="section-shell py-12 md:py-16">
+    <section ref={rootRef} className="section-shell section-space">
       <div className="grid gap-8 lg:grid-cols-[1.12fr_0.88fr]">
         <div>
           <h2
@@ -1428,7 +1428,7 @@ export function ProgramProcessScene({
 
   if (!hasImage) {
     return (
-      <section ref={rootRef} className="section-shell py-12 md:py-16">
+      <section ref={rootRef} className="section-shell section-space">
         <div className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr]">
           <div>
             <h2
@@ -1457,7 +1457,7 @@ export function ProgramProcessScene({
   }
 
   return (
-    <section ref={rootRef} className="section-shell py-12 md:py-16">
+    <section ref={rootRef} className="section-shell section-space">
       <div className="grid gap-8 lg:grid-cols-[0.96fr_1.04fr]">
         <div>
           <div
@@ -1569,7 +1569,7 @@ export function ProgramAnalysisModesScene({
   );
 
   return (
-    <section ref={rootRef} className="section-shell py-12 md:py-16">
+    <section ref={rootRef} className="section-shell section-space">
       <div>
         <h2
           className="max-w-xl font-display text-[1.82rem] leading-[1.04] text-foreground md:text-[2.65rem]"
@@ -1608,7 +1608,7 @@ export function ProgramFinalCta({
   href,
 }: ProgramFinalCtaProps) {
   return (
-    <section className="section-shell pb-12 pt-10 md:pb-16 md:pt-14">
+    <section className="section-shell section-space">
       <div className="overflow-hidden rounded-[2.6rem] border border-primary/20 bg-[linear-gradient(135deg,rgba(255,231,214,0.94),rgba(255,248,243,0.98))] px-5 py-7 shadow-soft md:px-8 md:py-10 lg:px-12">
         <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
           <div>

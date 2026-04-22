@@ -9,7 +9,7 @@ export function PageIntro({ title, description }: PageIntroProps) {
   return (
     <RevealSection
       as="section"
-      className="section-shell pb-4 pt-10 md:pb-6 md:pt-14"
+      className="section-shell section-space"
       itemSelector="[data-gsap-item]"
     >
       <div className="mx-auto max-w-3xl text-center">

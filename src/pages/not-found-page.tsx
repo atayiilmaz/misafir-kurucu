@@ -13,7 +13,7 @@ export function NotFoundPage() {
   return (
     <RevealSection
       as="section"
-      className="section-shell py-24"
+      className="section-shell section-space"
       itemSelector="[data-gsap-item]"
     >
       <div className="glass-panel p-10 text-center">

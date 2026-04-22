@@ -70,6 +70,14 @@ img {
   @apply font-display text-[2.35rem] leading-[1.01] text-foreground sm:text-[2.55rem] md:text-[4rem];
 }
 
+.section-space {
+  @apply py-20 md:py-28;
+}
+
+.section-space-lg {
+  @apply py-24 md:py-32;
+}
+
 .section-kicker {
   @apply mb-3 inline-flex rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold tracking-[0.24em] text-primary;
 }

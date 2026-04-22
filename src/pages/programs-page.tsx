@@ -39,7 +39,7 @@ export function ProgramsPage() {
     <>
       <RevealSection
         as="section"
-        className="section-shell pb-8 pt-4 md:pb-10 md:pt-6"
+        className="section-shell section-space"
         itemSelector="[data-gsap-item]"
       >
         <div className="overflow-hidden rounded-[2.6rem] border border-foreground/10 bg-[#1a0f0d] text-white shadow-[0_26px_70px_-44px_rgba(26,15,13,0.9)]">

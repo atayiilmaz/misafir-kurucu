@@ -102,7 +102,7 @@ Bu süreçte ben misafirim, siz kurucusunuz.`}
       />
 
       <ParallaxImageSection
-        className="py-12 md:py-16"
+        className="section-space"
         contentClassName="section-shell"
         imageSrc="/images/herosection.jpeg"
         imageClassName="object-[center_64%]"

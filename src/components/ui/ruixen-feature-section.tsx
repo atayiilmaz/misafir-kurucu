@@ -136,7 +136,7 @@ export function RuixenFeatureSection({
   imageAlt,
 }: RuixenFeatureSectionProps) {
   return (
-    <section className="section-shell py-8 md:py-12">
+    <section className="section-shell section-space">
       <div className="overflow-hidden rounded-[2.5rem] border border-border/70 bg-white/88 shadow-soft">
         <div className="grid lg:grid-cols-2">
           <div className="border-b border-border/60 p-6 sm:p-8 lg:border-b-0 lg:border-r lg:p-10">

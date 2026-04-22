@@ -63,7 +63,7 @@ export function Features({ features, eyebrow, title }: FeaturesProps) {
   }, [currentFeature]);
 
   return (
-    <section className="section-shell py-20">
+    <section className="section-shell section-space-lg">
       <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <div
           ref={containerRef}

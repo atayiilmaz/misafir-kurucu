@@ -31,7 +31,7 @@ export function LandingAccordionItem({
   return (
     <RevealSection
       as="section"
-      className="section-shell py-20"
+      className="section-shell section-space-lg"
       id="programlar"
       itemSelector="[data-gsap-item]"
     >

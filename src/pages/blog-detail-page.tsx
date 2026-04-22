@@ -69,7 +69,7 @@ export function BlogDetailPage() {
 
   if (!isConfigured) {
     return (
-      <RevealSection as="section" className="section-shell py-16">
+      <RevealSection as="section" className="section-shell section-space">
         <div className="glass-panel p-8 text-center">
           <p className="section-kicker">Blog</p>
           <h1 className="font-display text-5xl">Supabase bilgileri eksik</h1>
@@ -84,7 +84,7 @@ export function BlogDetailPage() {
 
   if (detailQuery.isLoading) {
     return (
-      <RevealSection as="section" className="section-shell py-16">
+      <RevealSection as="section" className="section-shell section-space">
         <div className="mx-auto max-w-5xl animate-pulse">
           <div className="h-5 w-36 rounded-full bg-muted" />
           <div className="mt-8 h-16 max-w-4xl rounded-[1.75rem] bg-muted md:h-24" />
@@ -104,7 +104,7 @@ export function BlogDetailPage() {
 
   if (detailQuery.isError || !detailQuery.data) {
     return (
-      <RevealSection as="section" className="section-shell py-16">
+      <RevealSection as="section" className="section-shell section-space">
         <div className="glass-panel p-8 text-center">
           <p className="section-kicker">Blog</p>
           <h1 className="font-display text-5xl">Yazi bulunamadi</h1>
@@ -127,7 +127,7 @@ export function BlogDetailPage() {
   const publishedLabel = formatBlogDate(resolvedPost.publishedAt ?? resolvedPost.updatedAt);
 
   return (
-    <RevealSection as="section" className="section-shell py-10" itemSelector="[data-gsap-item]">
+    <RevealSection as="section" className="section-shell section-space" itemSelector="[data-gsap-item]">
       <AppLink
         href="/blog"
         className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-primary"

@@ -102,7 +102,7 @@ export function AboutPage() {
     <>
       <RevealSection
         as="section"
-        className="about-top section-shell pb-10 pt-6 md:pt-8 lg:flex lg:min-h-[calc(100svh-5.75rem)] lg:items-center lg:pb-8 xl:pb-12"
+        className="about-top section-shell section-space lg:flex lg:min-h-[calc(100svh-5.75rem)] lg:items-center"
         itemSelector="[data-gsap-item]"
         start="top 88%"
         stagger={0.08}
@@ -139,7 +139,7 @@ export function AboutPage() {
 
       <RevealSection
         as="section"
-        className="bg-[#eef2f6] py-14 md:py-20"
+        className="bg-[#eef2f6] section-space-lg"
         itemSelector="[data-gsap-item]"
         start="top 84%"
         stagger={0.08}
@@ -179,7 +179,7 @@ export function AboutPage() {
 
       <RevealSection
         as="section"
-        className="section-shell py-14 md:py-20"
+        className="section-shell section-space-lg"
         itemSelector="[data-gsap-item]"
         start="top 84%"
         stagger={0.08}
@@ -217,7 +217,7 @@ export function AboutPage() {
       </RevealSection>
 
       <ParallaxImageSection
-        className="py-10 md:py-14"
+        className="section-space"
         contentClassName="section-shell"
         imageSrc="/images/aboutme.jpeg"
         imageClassName="object-[center_32%]"
@@ -252,7 +252,7 @@ export function AboutPage() {
 
       <RevealSection
         as="section"
-        className="section-shell py-14 md:py-20"
+        className="section-shell section-space-lg"
         itemSelector="[data-gsap-item]"
         start="top 84%"
         stagger={0.08}

@@ -22,7 +22,7 @@ export function ProgramShowcaseSection({
   return (
     <RevealSection
       as="section"
-      className={cn("section-shell py-16 md:py-20", compact && "py-12 md:py-14")}
+      className={cn("section-shell section-space-lg", compact && "section-space")}
       id="programlar"
       itemSelector="[data-gsap-item]"
       distance={42}

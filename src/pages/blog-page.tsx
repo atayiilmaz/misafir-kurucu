@@ -76,7 +76,7 @@ export function BlogPage() {
 
       <RevealSection
         as="section"
-        className="section-shell py-10"
+        className="section-shell section-space"
         itemSelector="[data-gsap-item]"
       >
         {!isConfigured ? (

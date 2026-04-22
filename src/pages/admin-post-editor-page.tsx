@@ -174,7 +174,7 @@ export function AdminPostEditorPage() {
 
   if (!isConfigured) {
     return (
-      <RevealSection as="section" className="section-shell py-16">
+      <RevealSection as="section" className="section-shell section-space">
         <div className="glass-panel p-8 text-center">
           <p className="section-kicker">Admin</p>
           <h1 className="font-display text-5xl">Supabase kurulumu eksik</h1>
@@ -188,7 +188,7 @@ export function AdminPostEditorPage() {
 
   if (isEditMode && postQuery.isLoading) {
     return (
-      <RevealSection as="section" className="section-shell py-16">
+      <RevealSection as="section" className="section-shell section-space">
         <div className="glass-panel animate-pulse p-8">
           <div className="h-10 w-40 rounded-full bg-muted" />
           <div className="mt-6 h-14 rounded-3xl bg-muted" />
@@ -200,7 +200,7 @@ export function AdminPostEditorPage() {
 
   if (isEditMode && postQuery.isError) {
     return (
-      <RevealSection as="section" className="section-shell py-16">
+      <RevealSection as="section" className="section-shell section-space">
         <div className="glass-panel p-8 text-center">
           <p className="section-kicker">Admin</p>
           <h1 className="font-display text-5xl">Yazı yüklenemedi</h1>
@@ -437,7 +437,7 @@ export function AdminPostEditorPage() {
   };
 
   return (
-    <RevealSection as="section" className="section-shell py-10">
+    <RevealSection as="section" className="section-shell section-space">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <AppLink
           href="/admin"
@@ -740,7 +740,7 @@ function insertAtCursor(
 
 function NavigateToAdmin() {
   return (
-    <RevealSection as="section" className="section-shell py-16">
+    <RevealSection as="section" className="section-shell section-space">
       <div className="glass-panel p-8 text-center">
         <p className="section-kicker">Admin</p>
         <h1 className="font-display text-5xl">Oturum gerekli</h1>
