@@ -185,80 +185,7 @@ export function AboutPage() {
         stagger={0.08}
         distance={26}
       >
-        <div className="grid gap-5 md:grid-cols-2">
-          {proofItems.map((item, index) => {
-            const { topLine, bottomLine } = splitProofTitle(item.value, index);
-
-            return (
-            <article
-              key={item.value}
-              className="group relative overflow-hidden rounded-[1.9rem] border border-border/60 bg-[linear-gradient(180deg,rgba(255,252,248,0.96),rgba(255,255,255,0.92))] p-6 shadow-[0_12px_30px_-24px_rgba(62,48,38,0.22)] transition-[transform,box-shadow,border-color,background] duration-300 ease-out hover:-translate-y-1 hover:border-primary/20 hover:bg-[linear-gradient(180deg,rgba(255,250,245,0.98),rgba(255,255,255,0.97))] hover:shadow-[0_24px_44px_-28px_rgba(62,48,38,0.3)] md:p-7"
-              data-gsap-item
-            >
-              <div
-                className="absolute inset-x-0 top-0 h-24 bg-[radial-gradient(circle_at_top_left,rgba(255,121,62,0.12),transparent_68%)] opacity-80 blur-2xl transition-[transform,opacity] duration-500 group-hover:scale-110 group-hover:opacity-100"
-              />
-              <div className="relative">
-                <p className="font-display text-[1.55rem] leading-[1.04] text-foreground transition-colors duration-300 group-hover:text-primary md:text-[1.85rem]">
-                  <span className="block">{topLine}</span>
-                  <span className="mt-1 block text-[0.9em] font-normal tracking-[-0.02em] opacity-75">
-                    {bottomLine}
-                  </span>
-                </p>
-                <div className="mt-4 h-px w-16 bg-[linear-gradient(90deg,rgba(255,121,62,0.45),rgba(255,121,62,0.12),transparent)] transition-all duration-300 group-hover:w-24" />
-                <p className={["mt-4", bodyCopyClass].join(" ")}>
-                  {item.description}
-                </p>
-              </div>
-            </article>
-            );
-          })}
-        </div>
-      </RevealSection>
-
-      <ParallaxImageSection
-        className="section-space"
-        contentClassName="section-shell"
-        imageSrc="/images/aboutme.jpeg"
-        imageClassName="object-[center_32%]"
-        overlayClassName="bg-[linear-gradient(180deg,rgba(240,245,254,0.82),rgba(246,248,253,0.9))]"
-        fromYPercent={-7}
-        toYPercent={8}
-      >
-        <RevealSection
-          as="div"
-          className="py-2 md:py-4"
-          itemSelector="[data-gsap-item]"
-          start="top 84%"
-          stagger={0.08}
-          distance={26}
-        >
-          <AppLink
-            href="https://www.instagram.com/misafirkurucu/"
-            target="_blank"
-            rel="noreferrer"
-            className="group flex min-h-[13rem] items-center justify-between gap-6 border-b border-primary/16 pb-2 text-foreground md:min-h-[15rem]"
-            data-gsap-item
-          >
-            <span className="origin-left font-display text-[1.95rem] leading-[1.04] transition-transform duration-300 will-change-transform group-hover:scale-[1.03] md:text-[2.8rem]">
-              Kariyerim ve saha yolculuğum hakkında daha fazla bilgiyi Instagram profilimde görebilirsiniz.
-            </span>
-            <span className="shrink-0 text-primary transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
-              <ArrowUpRight className="h-6 w-6" />
-            </span>
-          </AppLink>
-        </RevealSection>
-      </ParallaxImageSection>
-
-      <RevealSection
-        as="section"
-        className="section-shell section-space-lg"
-        itemSelector="[data-gsap-item]"
-        start="top 84%"
-        stagger={0.08}
-        distance={26}
-      >
-        <div className="max-w-[64rem]" data-gsap-item>
+        <div className="mx-auto max-w-[64rem] text-center" data-gsap-item>
           <h2 className={sectionTitleClass}>
             Bugün Neredeyim?
           </h2>
@@ -274,7 +201,70 @@ export function AboutPage() {
             ))}
           </div>
         </div>
+
+        <div className="mt-16 grid gap-x-10 gap-y-12 md:grid-cols-2">
+          {proofItems.map((item, index) => {
+            const { topLine, bottomLine } = splitProofTitle(item.value, index);
+
+            return (
+            <article
+              key={item.value}
+              className="group relative"
+              data-gsap-item
+            >
+              <div className="relative">
+                <p className="font-display text-[1.55rem] leading-[1.04] text-foreground transition-colors duration-300 group-hover:text-primary md:text-[1.85rem]">
+                  <span className="block">{topLine}</span>
+                  <span className="mt-1 block text-[0.9em] font-normal tracking-[-0.02em] opacity-75">
+                    {bottomLine}
+                  </span>
+                </p>
+                <div className="mt-5 h-[2px] w-40 bg-[linear-gradient(90deg,rgba(255,121,62,0.72),rgba(255,121,62,0.32),rgba(255,121,62,0.08),transparent)] transition-all duration-300 group-hover:w-56" />
+                <p className={["mt-4", bodyCopyClass].join(" ")}>
+                  {item.description}
+                </p>
+              </div>
+            </article>
+            );
+          })}
+        </div>
       </RevealSection>
+
+      <RevealSection
+        as="section"
+        className="section-shell section-space"
+        itemSelector="[data-gsap-item]"
+        start="top 84%"
+        stagger={0.08}
+        distance={26}
+      >
+        <ParallaxImageSection
+        as="div"
+        className="w-full rounded-[2.4rem] border border-primary/16 shadow-[0_24px_54px_-34px_rgba(84,48,28,0.34)]"
+        contentClassName="px-5 py-6 md:px-8 md:py-8 lg:px-10 lg:py-10"
+        imageSrc="/images/aboutme.jpeg"
+        imageClassName="object-[center_32%]"
+        overlayClassName="bg-[linear-gradient(180deg,rgba(255,220,198,0.8),rgba(255,238,225,0.88))]"
+        fromYPercent={-7}
+        toYPercent={8}
+      >
+          <AppLink
+            href="https://www.instagram.com/misafirkurucu/"
+            target="_blank"
+            rel="noreferrer"
+            className="group flex min-h-[13rem] items-center justify-between gap-6 px-5 py-6 text-foreground md:min-h-[15rem] md:px-7 md:py-7"
+            data-gsap-item
+          >
+            <span className="origin-left font-display text-[1.95rem] leading-[1.04] transition-transform duration-300 will-change-transform group-hover:scale-[1.03] md:text-[2.8rem]">
+              Kariyerim ve saha yolculuğum hakkında daha fazla bilgiyi Instagram profilimde görebilirsiniz.
+            </span>
+            <span className="shrink-0 text-primary transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
+              <ArrowUpRight className="h-10 w-10 md:h-12 md:w-12" />
+            </span>
+          </AppLink>
+        </ParallaxImageSection>
+      </RevealSection>
+
     </>
   );
 }
