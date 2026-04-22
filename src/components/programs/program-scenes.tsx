@@ -199,7 +199,7 @@ export function ProgramHeroScene({ program }: ProgramHeroSceneProps) {
       <div className="grid gap-8 lg:grid-cols-[0.86fr_1.14fr] lg:items-start">
         <div className="relative z-10 max-w-[33rem] py-4 md:py-6 lg:pb-14">
           <div className="max-w-4xl overflow-hidden">
-            <h1 className="font-display text-[1.85rem] leading-[1.08] sm:text-[2.35rem] md:text-[3rem] lg:text-[3rem]">
+            <h1 className="font-display text-[1.85rem] leading-[1.08] sm:text-[2.35rem] md:text-[3.5rem] lg:text-[3.5rem]">
               {program.heroTitle.split(" ").map((word) => (
                 <span
                   key={`${program.slug}-${word}`}

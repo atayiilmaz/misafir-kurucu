@@ -90,7 +90,7 @@ export function AboutPage() {
         name: SITE_AUTHOR,
         image: absoluteUrl("/images/aboutme.jpeg"),
         sameAs: [
-          "https://www.instagram.com/misafirkurucu/",
+          "https://www.instagram.com/p/DTQhlJ5DUdV/?igsh=NDFwNGE2ZTZuY3o%3D",
           "https://www.linkedin.com/in/sevincgurguzel/",
         ],
       },
@@ -248,7 +248,7 @@ export function AboutPage() {
         toYPercent={8}
       >
           <AppLink
-            href="https://www.instagram.com/misafirkurucu/"
+            href="https://www.instagram.com/p/DTQhlJ5DUdV/?igsh=NDFwNGE2ZTZuY3o%3D"
             target="_blank"
             rel="noreferrer"
             className="group flex min-h-[13rem] items-center justify-between gap-6 px-5 py-6 text-foreground md:min-h-[15rem] md:px-7 md:py-7"
