@@ -96,7 +96,7 @@ export const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
                 ) : null}
 
                 <motion.h1
-                  className="home-hero-title max-w-[12ch] font-display text-[2.65rem] leading-[0.99] sm:text-[3rem] md:text-[4.1rem] lg:text-[4.45rem] xl:max-w-[11ch] xl:text-[5.35rem]"
+                  className="home-hero-title max-w-[12ch] font-display text-[2.65rem] leading-[0.99] sm:text-[3rem] md:text-[4.5rem] lg:text-[4.5rem] xl:max-w-[11ch] xl:text-[4.5rem]"
                   variants={itemVariants}
                 >
                   {title}

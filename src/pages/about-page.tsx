@@ -6,7 +6,7 @@ import { AppLink } from "@/components/ui/app-link";
 import { SITE_AUTHOR, SITE_NAME, SITE_URL, absoluteUrl, useSeo } from "@/lib/seo";
 
 const sectionTitleClass =
-  "font-display text-[2.2rem] leading-[1.02] text-foreground sm:text-[2.65rem] md:text-[3.35rem]";
+  "font-display text-[2.2rem] leading-[1.02] text-foreground sm:text-[2.65rem] md:text-[3rem]";
 
 const bodyCopyClass =
   "text-[1.02rem] leading-8 text-muted-foreground md:text-[1.08rem] md:leading-8";
@@ -126,7 +126,7 @@ export function AboutPage() {
             data-gsap-item
           >
             <div className="ml-auto flex max-w-[43rem] flex-col justify-center">
-              <h1 className="about-top-title font-display text-[2.3rem] leading-[0.99] sm:text-[2.75rem] md:text-[3.2rem] lg:text-[3.55rem] xl:text-[3.95rem]">
+              <h1 className="about-top-title font-display text-[2.3rem] leading-[0.99] sm:text-[2.75rem] md:text-[4.5rem] lg:text-[4.5rem] xl:text-[4.5rem]">
                 Dünyanın daha fazla seri üretime değil; anlamlı, özgün ve değer yaratan bağımsız markalara ihtiyacı olduğuna inanıyorum.
               </h1>
               <p className="about-top-copy mt-5 max-w-2xl text-[1.06rem] leading-8 text-muted-foreground md:text-[1.12rem] md:leading-8">
@@ -151,7 +151,7 @@ export function AboutPage() {
               <p className="font-display text-[1.1rem] italic text-primary md:text-[1.35rem]">
                 HAKKIMDA
               </p>
-              <h2 className="mx-auto mt-5 max-w-4xl font-display text-[2.2rem] leading-[1.02] text-foreground sm:text-[2.65rem] md:text-[3.35rem]">
+              <h2 className="mx-auto mt-5 max-w-4xl font-display text-[2.2rem] leading-[1.02] text-foreground sm:text-[2.65rem] md:text-[3rem]">
                 Yolculuğum, İstanbul Kadıköy’de kadın giyim mağazası açarak başladı.
               </h2>
             </div>

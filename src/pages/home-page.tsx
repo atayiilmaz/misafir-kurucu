@@ -115,7 +115,7 @@ Bu süreçte ben misafirim, siz kurucusunuz.`}
           className="flex min-h-[22rem] items-center justify-center py-8 md:min-h-[28rem] md:py-10"
         >
           <p
-            className="mx-auto max-w-6xl text-center font-display text-[2.2rem] leading-[1.02] text-foreground md:text-[3.45rem]"
+            className="mx-auto max-w-6xl text-center font-display text-[2.2rem] leading-[1.02] text-foreground md:text-[3rem]"
             data-gsap-item
           >
             Her marka farklıdır ve aynı yöntemlerle büyümez. Bu yüzden hazır

@@ -213,7 +213,7 @@ export function ProgramHeroScene({ program }: ProgramHeroSceneProps) {
 
             <div className="relative z-10">
               <div className="max-w-4xl overflow-hidden pt-4">
-                <h1 className="font-display text-[1.85rem] leading-[1.08] sm:text-[2.35rem] md:text-[2.8rem] lg:text-[3.45rem]">
+                <h1 className="font-display text-[1.85rem] leading-[1.08] sm:text-[2.35rem] md:text-[3rem] lg:text-[3rem]">
                   {program.heroTitle.split(" ").map((word) => (
                     <span
                       key={`${program.slug}-${word}`}
@@ -417,7 +417,7 @@ export function ProgramBenefitCardsScene({
     <section ref={rootRef} className="section-shell section-space">
       <div>
         <h2
-          className="max-w-3xl font-display text-[1.9rem] leading-[1.02] text-foreground sm:text-[2.3rem] md:text-[2.9rem]"
+          className="max-w-3xl font-display text-[1.9rem] leading-[1.02] text-foreground sm:text-[2.3rem] md:text-[3rem]"
           data-benefit-copy
         >
           {title}
@@ -608,7 +608,7 @@ export function ProgramListScene({
         <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr]">
           <div>
             <h2
-              className="max-w-xl font-display text-[1.82rem] leading-[1.04] sm:text-[2.2rem] md:text-[2.65rem]"
+              className="max-w-xl font-display text-[1.82rem] leading-[1.04] sm:text-[2.2rem] md:text-[3rem]"
               data-scene-copy
             >
               {title}
@@ -676,7 +676,7 @@ export function ProgramListScene({
               />
             </div>
             <h2
-              className="mt-5 max-w-xl font-display text-[1.82rem] leading-[1.04] sm:text-[2.2rem] md:text-[2.65rem]"
+              className="mt-5 max-w-xl font-display text-[1.82rem] leading-[1.04] sm:text-[2.2rem] md:text-[3rem]"
               data-scene-copy
             >
               {title}
@@ -849,7 +849,7 @@ export function ProgramNarrativeScene({
       <section ref={rootRef} className="section-shell section-space">
         <div className="max-w-4xl">
           <h2
-            className="font-display text-[1.82rem] leading-[1.04] text-foreground md:text-[2.65rem]"
+            className="font-display text-[1.82rem] leading-[1.04] text-foreground md:text-[3rem]"
             data-narrative-copy
           >
             {title}
@@ -889,7 +889,7 @@ export function ProgramNarrativeScene({
 
         <div className={cn("flex flex-col justify-center", imageOnRight && "lg:order-1")}>
           <h2
-            className="font-display text-[1.82rem] leading-[1.04] text-foreground md:text-[2.65rem]"
+            className="font-display text-[1.82rem] leading-[1.04] text-foreground md:text-[3rem]"
             data-narrative-copy
           >
             {title}
@@ -1026,7 +1026,7 @@ export function ProgramPackageScene({
       <section ref={rootRef} className="section-shell section-space">
         <div>
           <h2
-            className="max-w-xl font-display text-[1.82rem] leading-[1.04] md:text-[2.65rem]"
+            className="max-w-xl font-display text-[1.82rem] leading-[1.04] md:text-[3rem]"
             data-package-copy
           >
             {title}
@@ -1075,7 +1075,7 @@ export function ProgramPackageScene({
             />
           </div>
           <h2
-            className="mt-6 max-w-xl font-display text-[1.82rem] leading-[1.04] md:text-[2.65rem]"
+            className="mt-6 max-w-xl font-display text-[1.82rem] leading-[1.04] md:text-[3rem]"
             data-package-copy
           >
             {title}
@@ -1205,7 +1205,7 @@ export function ProgramSupportScene({
       <section ref={rootRef} className="section-shell section-space">
         <div>
           <h2
-            className="max-w-xl font-display text-[1.82rem] leading-[1.04] text-foreground md:text-[2.65rem]"
+            className="max-w-xl font-display text-[1.82rem] leading-[1.04] text-foreground md:text-[3rem]"
             data-support-copy
           >
             {title}
@@ -1246,7 +1246,7 @@ export function ProgramSupportScene({
       <div className="grid gap-8 lg:grid-cols-[1.12fr_0.88fr]">
         <div>
           <h2
-            className="max-w-xl font-display text-[1.82rem] leading-[1.04] text-foreground md:text-[2.65rem]"
+            className="max-w-xl font-display text-[1.82rem] leading-[1.04] text-foreground md:text-[3rem]"
             data-support-copy
           >
             {title}
@@ -1432,7 +1432,7 @@ export function ProgramProcessScene({
         <div className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr]">
           <div>
             <h2
-              className="font-display text-[1.82rem] leading-[1.04] md:text-[2.65rem]"
+              className="font-display text-[1.82rem] leading-[1.04] md:text-[3rem]"
               data-process-copy
             >
               {title}
@@ -1474,7 +1474,7 @@ export function ProgramProcessScene({
             <div className="relative flex h-full flex-col justify-end p-6 md:p-8 lg:p-10">
               <div className="max-w-xl">
                 <h2
-                  className="font-display text-[1.95rem] leading-[1.04] text-white md:text-[2.9rem]"
+                  className="font-display text-[1.95rem] leading-[1.04] text-white md:text-[3rem]"
                   data-process-copy
                 >
                   {title}
@@ -1572,7 +1572,7 @@ export function ProgramAnalysisModesScene({
     <section ref={rootRef} className="section-shell section-space">
       <div>
         <h2
-          className="max-w-xl font-display text-[1.82rem] leading-[1.04] text-foreground md:text-[2.65rem]"
+          className="max-w-xl font-display text-[1.82rem] leading-[1.04] text-foreground md:text-[3rem]"
           data-analysis-copy
         >
           {title}
@@ -1615,7 +1615,7 @@ export function ProgramFinalCta({
             <p className="text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-primary/72">
               Son Adım
             </p>
-            <h2 className="mt-4 max-w-4xl font-display text-[2.45rem] leading-[0.99] text-foreground md:text-[4rem]">
+            <h2 className="mt-4 max-w-4xl font-display text-[2.45rem] leading-[0.99] text-foreground md:text-[3rem]">
               {title}
             </h2>
             {description ? (
