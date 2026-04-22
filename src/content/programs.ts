@@ -625,16 +625,19 @@ export const plans: PricingPlan[] = [
     highlight: true,
   },
   {
-    title: "Stratejik Ortaklık",
+    title: "Stratejik Çözümler",
     price: "03",
-    priceDescription: "İhtiyacın Kadar, Doğru Noktada Danışmanlık",
+    priceDescription: "Slogan: İhtiyacın Kadar, Doğru Noktada Danışmanlık",
     description:
-      "Spesifik bir sorunuz var, net bir cevap\nistiyorsunuz.\nBu modelde süreç tamamen sana göre\nşekillenir.\nSadece ihtiyaç duyduğun konuda\nNet ve uygulanabilir çözümler alırsın.",
+      "Kim için?\nSpesifik bir sorunu olan, net bir cevap arayan veya süreci tamamen kendi ihtiyaçlarına göre şekillendirmek isteyen profesyoneller için.",
     features: [
-      "Marka Stratejisi & Konumlandırma",
-      "Ürün & Koleksiyon Yönetimi",
-      "Satış & Büyüme Stratejileri",
-      "Net ve uygulanabilir çözümler",
+"Birebir Sorun Analizi ve Teknik Çözümler",
+
+"Ürün & Koleksiyon Yönetimi Özel Danışmanlığı",
+
+"Hızlı Aksiyon Planı ve Uygulanabilir Çözüm Seti",
+
+"Kritik Karar Anlarında Uzman Mentorluğu",
     ],
     buttonText: "Programı İncele",
     href: "/programlar/program-3",
