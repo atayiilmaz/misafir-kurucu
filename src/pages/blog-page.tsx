@@ -76,7 +76,7 @@ export function BlogPage() {
 
       <RevealSection
         as="section"
-        className="section-shell section-space"
+        className="section-shell pb-20 pt-6 md:pb-28 md:pt-8"
         itemSelector="[data-gsap-item]"
       >
         {!isConfigured ? (
