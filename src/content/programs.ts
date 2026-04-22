@@ -627,7 +627,7 @@ export const plans: PricingPlan[] = [
   {
     title: "Stratejik Çözümler",
     price: "03",
-    priceDescription: "Slogan: İhtiyacın Kadar, Doğru Noktada Danışmanlık",
+    priceDescription: "İhtiyacın Kadar, Doğru Noktada Danışmanlık",
     description:
       "Kim için?\nSpesifik bir sorunu olan, net bir cevap arayan veya süreci tamamen kendi ihtiyaçlarına göre şekillendirmek isteyen profesyoneller için.",
     features: [

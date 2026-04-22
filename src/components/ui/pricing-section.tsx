@@ -63,6 +63,11 @@ function PricingCard({
     },
   ] as const;
   const theme = themes[index] ?? themes[themes.length - 1];
+  const imageTreatments = [
+    "scale-[1.75] object-[58%_48%]",
+    "scale-[1.2] object-center",
+    "scale-[1.2] object-center",
+  ] as const;
   const [descriptionHeading, ...descriptionBodyParts] = description.split("\n");
   const hasDescriptionHeading = descriptionHeading.trim().endsWith("?");
   const descriptionBody = hasDescriptionHeading
@@ -91,15 +96,22 @@ function PricingCard({
               </p>
             </div>
           </div>
-          <motion.img
-            src={imageSrc}
-            alt={imageAlt}
+          <motion.div
             className={cn(
-              "h-20 w-20 rounded-[1.5rem] object-cover",
+              "h-20 w-20 overflow-hidden rounded-[1.5rem] md:h-24 md:w-24",
               theme.imageClass,
             )}
             whileHover={{ rotate: -4, scale: 1.04 }}
-          />
+          >
+            <img
+              src={imageSrc}
+              alt={imageAlt}
+              className={cn(
+                "h-full w-full object-cover transition-transform duration-300",
+                imageTreatments[index] ?? imageTreatments[imageTreatments.length - 1],
+              )}
+            />
+          </motion.div>
         </div>
 
         <div className="mt-5 space-y-4">
