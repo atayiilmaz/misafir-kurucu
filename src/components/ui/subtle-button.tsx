@@ -15,7 +15,7 @@ const subtleButtonVariants = cva(
         dark:
           "surface-primary-gradient text-white shadow-[0_18px_36px_-24px_rgba(255,129,5,0.45)] hover:shadow-[0_22px_44px_-26px_rgba(255,129,5,0.52)]",
         secondary:
-          "border border-foreground/12 bg-[linear-gradient(180deg,rgba(255,248,242,0.98),rgba(255,239,228,0.98))] text-foreground shadow-[0_14px_28px_-22px_rgba(84,48,28,0.2)] hover:shadow-[0_20px_34px_-24px_rgba(84,48,28,0.28)]",
+          "border border-[#d9b79f] bg-[linear-gradient(180deg,rgba(255,237,221,0.98),rgba(255,223,198,0.98))] text-foreground shadow-[0_16px_32px_-22px_rgba(84,48,28,0.24)] hover:border-[#cf9d78] hover:bg-[linear-gradient(180deg,rgba(255,232,212,1),rgba(255,214,183,1))] hover:shadow-[0_22px_38px_-24px_rgba(84,48,28,0.3)]",
       },
       size: {
         sm: "h-10 px-4 text-xs",
@@ -70,7 +70,7 @@ function InnerContent({
           theme === "dark"
             ? "from-white/0 via-white/10 to-white/0"
             : theme === "secondary"
-              ? "from-white/0 via-white/45 to-white/0"
+              ? "from-white/0 via-white/35 to-white/0"
               : "from-primary/0 via-primary/10 to-primary/0",
         )}
       />
