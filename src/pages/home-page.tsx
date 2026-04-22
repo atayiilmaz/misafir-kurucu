@@ -155,7 +155,7 @@ Bu süreçte ben misafirim, siz kurucusunuz.`}
       />
       <FeatureSection
         reverse
-        title="NEYE YATIRIM YAPIYORSUNUZ?"
+        title="Neye Yatırım Yapıyorsunuz?"
         items={investmentItems}
         imageSrc="/images/featuresection1.jpeg"
         imageAlt="Birebir çalışma modelini anlatan görsel"
@@ -163,7 +163,7 @@ Bu süreçte ben misafirim, siz kurucusunuz.`}
         compactGap
       />
       <FeatureSection
-        title="NE ELDE EDERSİN?"
+        title="Ne Elde Edersin?"
         items={outcomeItems}
         imageSrc="/images/featuresection2.jpeg"
         imageAlt="Program kazanımlarını anlatan görsel"
@@ -171,7 +171,7 @@ Bu süreçte ben misafirim, siz kurucusunuz.`}
       />
       <FeatureSection
         reverse
-        title="HANGİ KAYNAKLARA ERİŞİRSİN?"
+        title="Hangi Kaynaklara Erişirsin?"
         items={resourceItems}
         imageSrc="/images/featuresection3.jpeg"
         imageAlt="Kaynaklara erişimi anlatan görsel"
