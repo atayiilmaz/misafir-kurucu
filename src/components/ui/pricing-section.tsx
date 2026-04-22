@@ -63,10 +63,11 @@ function PricingCard({
     },
   ] as const;
   const theme = themes[index] ?? themes[themes.length - 1];
-  const imageTreatments = [
-    "scale-[1.75] object-[58%_48%]",
-    "scale-[1.2] object-center",
-    "scale-[1.2] object-center",
+  const imageZoomClass = "scale-[1.35]";
+  const imagePositions = [
+    "object-[58%_48%]",
+    "object-center",
+    "object-center",
   ] as const;
   const [descriptionHeading, ...descriptionBodyParts] = description.split("\n");
   const hasDescriptionHeading = descriptionHeading.trim().endsWith("?");
@@ -98,7 +99,7 @@ function PricingCard({
           </div>
           <motion.div
             className={cn(
-              "h-20 w-20 overflow-hidden rounded-[1.5rem] md:h-24 md:w-24",
+              "h-20 w-20 overflow-hidden rounded-[1.5rem]",
               theme.imageClass,
             )}
             whileHover={{ rotate: -4, scale: 1.04 }}
@@ -108,7 +109,8 @@ function PricingCard({
               alt={imageAlt}
               className={cn(
                 "h-full w-full object-cover transition-transform duration-300",
-                imageTreatments[index] ?? imageTreatments[imageTreatments.length - 1],
+                imageZoomClass,
+                imagePositions[index] ?? imagePositions[imagePositions.length - 1],
               )}
             />
           </motion.div>
@@ -167,7 +169,7 @@ export function PricingSection({ plans }: PricingSectionProps) {
 
       <div className="mt-12 grid gap-8 lg:grid-cols-3">
         {plans.map((plan, index) => (
-          <div key={plan.title} data-gsap-item>
+          <div key={plan.title} className="h-full" data-gsap-item>
             <PricingCard {...plan} index={index} />
           </div>
         ))}

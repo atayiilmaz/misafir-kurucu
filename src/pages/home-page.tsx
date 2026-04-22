@@ -147,10 +147,9 @@ Bu süreçte ben misafirim, siz kurucusunuz.`}
         title=""
         headline="16 yılı aşkın süredir tekstil sektörünün içindeyim."
         paragraphs={[
-          "Kendi mağazamı kurarak başladım; üretim, tedarik, e-ticaret ve marka kurma süreçlerinin tamamını sahada deneyimledim. Bu süreçte hem büyüttüm hem yeniden başlamak zorunda kaldım.",
-          "Üretim ve e-ticaret alanında kendi iş modellerimi kurarak markalar geliştirdim ve devrettim.",
-          "Bugün, edindiğim bu deneyimle markalara danışmanlık veriyorum.",
-          "Amacım; teorik bilgi aktarmak değil, markaların doğru yapı ve stratejiyle büyümesini sağlamak.",
+"Tekstil dünyasına kendi mağazamı kurarak adım attım; üretimden tedariğe, e-ticaretten marka inşasına kadar tüm süreçleri bizzat sahada yönettim. Bu yolculukta sadece başarılı modeller kurmakla kalmadım, aynı zamanda kriz yönetimini ve yeniden yapılanmayı deneyimleyerek esneklik kazandım.",
+  "Üretim ve e-ticaret odağında geliştirdiğim iş modellerini başarıyla devrettikten sonra, bugün bu birikimi markalara aktarıyorum. Benim yaklaşımım teorinin ötesinde; markanızın doğru yapı, optimize edilmiş süreçler ve sürdürülebilir stratejilerle büyümesini sağlamaktır. Sektördeki 16 yılımı, markanızın en güvenli yolu bulması için kullanıyorum."
+
         ]}
         backgroundClassName="bg-[#eef2f6]"
       />
