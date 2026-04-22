@@ -12,14 +12,14 @@ const bodyCopyClass =
   "text-[1.02rem] leading-8 text-muted-foreground md:text-[1.08rem] md:leading-8";
 
 const storyParagraphsLeft = [
-  "Dört yıl boyunca; ürün seçimi ve görsel düzenlemeden dijital pazarlama ve finans yönetimine kadar bir işletmenin tüm operasyonel süreçlerini bizzat yönettim. Bu süreci, markayı kârlı bir noktaya getirip başarılı bir şekilde satarak tamamladım.",
   "Sonra rotamı üretime çevirdim. Atölye süreçlerinin her aşamasında yer alarak; hem kendi markam için yüksek hacimli üretimler gerçekleştirdim hem de toptan firmaları ve tasarımcı markalar için üretim yönetimi üstlendim.",
+  "Girişimciliğin getirdiği o belirsizlik hissini, her kararı tek başına omuzlamanın yükünü çok iyi biliyorum. Aynı anda her şeyi yönetmeye çalışmanın, sürekli doğru kararı aramanın ve “yeterince iyi mi yapıyorum?” sorusuyla yaşamanın nasıl bir his olduğunu biliyorum. Çünkü ben de o yollardan geçtim.",
+  "Bu yüzden size sadece teorik tavsiyeler sunmuyorum; birlikte uygulanabilir bir plan oluşturuyor ve bu yolculuğun her adımında bizzat yanınızda yer alıyorum.",
 ];
 
 const storyParagraphsRight = [
+  "Dört yıl boyunca; ürün seçimi ve görsel düzenlemeden dijital pazarlama ve finans yönetimine kadar bir işletmenin tüm operasyonel süreçlerini bizzat yönettim. Bu süreci, markayı kârlı bir noktaya getirip başarılı bir şekilde satarak tamamladım.",
   "Bu yoğun tempo, bana sadece üretim tekniklerini değil, sürdürülebilir bir iş modelinin sınırlarını da öğretti. Operasyonel verimliliği ön plana alarak iş modelimi tamamen internet odaklı hale getirdim ve ikinci markamı da başarıyla yeni sahiplerine teslim ettim.",
-  "Girişimciliğin getirdiği o belirsizlik hissini, her kararı tek başına omuzlamanın yükünü çok iyi biliyorum. Aynı anda her şeyi yönetmeye çalışmanın, sürekli doğru kararı aramanın ve “yeterince iyi mi yapıyorum?” sorusuyla yaşamanın nasıl bir his olduğunu biliyorum. Çünkü ben de o yollardan geçtim.",
-  "Bu yüzden size sadece teorik tavsiyeler sunmuyorum; birlikte uygulanabilir bir plan oluşturuyor ve bu yolculuğun her adımında bizzat yanınızda yer alıyorum.",
 ];
 
 const proofItems = [
