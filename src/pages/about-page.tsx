@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import { RevealSection } from "@/components/gsap/reveal-section";
+import { ParallaxImageSection } from "@/components/gsap/parallax-image-section";
 import { cn } from "@/lib/utils";
 import { AppLink } from "@/components/ui/app-link";
 import { SITE_AUTHOR, SITE_NAME, SITE_URL, absoluteUrl, useSeo } from "@/lib/seo";
@@ -192,31 +193,39 @@ export function AboutPage() {
         </div>
       </RevealSection>
 
-      <RevealSection
-        as="section"
-        className="bg-[linear-gradient(180deg,rgba(239,244,255,0.88),rgba(245,248,255,0.72))] py-14 md:py-20"
-        itemSelector="[data-gsap-item]"
-        start="top 84%"
-        stagger={0.08}
-        distance={26}
+      <ParallaxImageSection
+        className="py-10 md:py-14"
+        contentClassName="section-shell"
+        imageSrc="/images/aboutme.jpeg"
+        imageClassName="object-[center_32%]"
+        overlayClassName="bg-[linear-gradient(180deg,rgba(240,245,254,0.82),rgba(246,248,253,0.9))]"
+        fromYPercent={-7}
+        toYPercent={8}
       >
-        <div className="section-shell">
+        <RevealSection
+          as="div"
+          className="py-2 md:py-4"
+          itemSelector="[data-gsap-item]"
+          start="top 84%"
+          stagger={0.08}
+          distance={26}
+        >
           <AppLink
             href="https://www.instagram.com/misafirkurucu/"
             target="_blank"
             rel="noreferrer"
-            className="group flex items-center justify-between gap-6 border-b border-primary/16 pb-2 text-foreground"
+            className="group flex min-h-[13rem] items-center justify-between gap-6 border-b border-primary/16 pb-2 text-foreground md:min-h-[15rem]"
             data-gsap-item
           >
-            <span className="font-display text-[1.95rem] leading-[0.98] md:text-[2.8rem]">
+            <span className="origin-left font-display text-[1.95rem] leading-[0.98] transition-transform duration-300 will-change-transform group-hover:scale-[1.03] md:text-[2.8rem]">
               Kariyerim ve saha yolculuğum hakkında daha fazla bilgiyi Instagram profilimde görebilirsiniz.
             </span>
             <span className="shrink-0 text-primary transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
               <ArrowUpRight className="h-6 w-6" />
             </span>
           </AppLink>
-          </div>
-      </RevealSection>
+        </RevealSection>
+      </ParallaxImageSection>
 
       <RevealSection
         as="section"

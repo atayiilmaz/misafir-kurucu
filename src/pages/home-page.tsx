@@ -1,4 +1,5 @@
 import { RevealSection } from "@/components/gsap/reveal-section";
+import { ParallaxImageSection } from "@/components/gsap/parallax-image-section";
 import FeatureSection from "@/components/ui/feature-section";
 import { HeroSection } from "@/components/ui/hero-section-2";
 import { PricingSection } from "@/components/ui/pricing-section";
@@ -100,18 +101,29 @@ Bu süreçte ben misafirim, siz kurucusunuz.`}
         backgroundImage="/images/herosection.jpeg"
       />
 
-      <RevealSection as="section" className="bg-[#eef2f6] py-12 md:py-16">
-        <div className="section-shell">
+      <ParallaxImageSection
+        className="py-12 md:py-16"
+        contentClassName="section-shell"
+        imageSrc="/images/herosection.jpeg"
+        imageClassName="object-[center_64%]"
+        overlayClassName="bg-[linear-gradient(180deg,rgba(244,248,252,0.82),rgba(244,248,252,0.9))]"
+        fromYPercent={-8}
+        toYPercent={9}
+      >
+        <RevealSection
+          as="div"
+          className="flex min-h-[22rem] items-center justify-center py-8 md:min-h-[28rem] md:py-10"
+        >
           <p
             className="mx-auto max-w-6xl text-center font-display text-[2.2rem] leading-[1.02] text-foreground md:text-[3.45rem]"
             data-gsap-item
           >
-            Her marka farklıdır ve aynı yöntemlerle büyümez.
-            Bu yüzden hazır bir eğitim programı sunmak yerine, markanıza
-            özel ve birebir çalışarak birlikte ilerliyoruz.
+            Her marka farklıdır ve aynı yöntemlerle büyümez. Bu yüzden hazır
+            bir eğitim programı sunmak yerine, markanıza özel ve birebir
+            çalışarak birlikte ilerliyoruz.
           </p>
-        </div>
-      </RevealSection>
+        </RevealSection>
+      </ParallaxImageSection>
 
       {/*
       <Features
