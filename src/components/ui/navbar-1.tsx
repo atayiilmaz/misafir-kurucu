@@ -29,8 +29,8 @@ export function Navbar1({ items }: Navbar1Props) {
   }, [isMobileOpen]);
 
   return (
-    <header className="sticky top-0 z-50 px-3 pt-3 md:px-4">
-      <div className="mx-auto flex w-full max-w-[90rem] items-center rounded-full border border-foreground/18 bg-white px-4 py-3 shadow-[0_20px_50px_-24px_rgba(43,31,22,0.38),0_8px_18px_-12px_rgba(43,31,22,0.18)] md:px-5">
+    <header className="sticky top-0 z-50 border-b-[1.5px] border-foreground/18 bg-[radial-gradient(circle_at_top_left,rgba(235,138,76,0.19),transparent_28%),radial-gradient(circle_at_88%_12%,rgba(247,182,132,0.24),transparent_24%),linear-gradient(180deg,rgba(255,254,251,0.92),rgba(255,247,240,0.98))] shadow-[0_16px_34px_-26px_rgba(43,31,22,0.34)] backdrop-blur-sm">
+      <div className="mx-auto flex w-full max-w-[90rem] items-center px-3 py-3 md:px-4 lg:px-5">
         <AppLink href="/" className="flex items-center gap-3">
           <motion.div
             className="flex h-11 w-11 items-center justify-center rounded-full border border-foreground/15 bg-white text-primary"

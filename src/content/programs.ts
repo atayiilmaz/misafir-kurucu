@@ -120,7 +120,7 @@ export const programs: Record<ProgramSlug, ProgramData> = {
     slug: "program-1",
     order: "01",
     name: "Markanı Kur",
-    heroTitle: "MARKANI KUR",
+    heroTitle: "Markanı Kur",
     href: "/programlar/program-1",
     menuLabel: "Markanı Kur",
     listingSubtitle:
@@ -275,7 +275,7 @@ export const programs: Record<ProgramSlug, ProgramData> = {
     slug: "program-2",
     order: "02",
     name: "Markanı Büyüt",
-    heroTitle: "MARKANI BÜYÜT",
+    heroTitle: "Markanı Büyüt",
     href: "/programlar/program-2",
     menuLabel: "Markanı Büyüt",
     listingSubtitle: "Markanız Var, Ama Henüz Tam Potansiyeline Ulaşmadı.",
@@ -432,7 +432,7 @@ export const programs: Record<ProgramSlug, ProgramData> = {
       ],
     },
     process: {
-      title: "Süreç nasıl işliyor? — yaklaşık 12 hafta",
+      title: "Süreç nasıl işliyor?",
       intro: [],
       steps: [
         {
@@ -486,10 +486,10 @@ export const programs: Record<ProgramSlug, ProgramData> = {
   "program-3": {
     slug: "program-3",
     order: "03",
-    name: "Stratejik Ortaklık",
-    heroTitle: "STRATEJİK ORTAKLIK",
+    name: "Stratejik Çözümler",
+    heroTitle: "Stratejik Çözümler",
     href: "/programlar/program-3",
-    menuLabel: "Stratejik Ortaklık",
+    menuLabel: "Stratejik Çözümler",
     listingSubtitle: "İhtiyacın Kadar, Doğru Noktada Danışmanlık",
     listingDescription:
       "Her markanın farklıdır. Bu yüzden sana hazır paket değil, tam ihtiyacın olan noktada birebir stratejik destek sunulur.",
