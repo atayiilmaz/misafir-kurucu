@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { AppLink } from "@/components/ui/app-link";
 import { cn } from "@/lib/utils";
 import SubtleButton from "@/components/ui/subtle-button";
+import SecondaryButton from "@/components/ui/secondary-button";
 
 interface HeroSectionProps {
   className?: string;
@@ -121,14 +122,14 @@ export const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
                   >
                     {callToAction.text}
                   </SubtleButton>
-                  <SubtleButton
-                    href="/blog"
+                  <SecondaryButton
+                    href="/gorusme-planlayin"
                     size="lg"
                     fullWidth
                     className="home-hero-action h-11 px-6 text-[0.95rem] sm:h-12 sm:w-auto sm:min-w-[13rem] sm:px-8 sm:text-base"
                   >
-                    Son içeriklere göz atın
-                  </SubtleButton>
+                    Görüşme Planlayın
+                  </SecondaryButton>
                 </motion.div>
               </motion.div>
             </div>

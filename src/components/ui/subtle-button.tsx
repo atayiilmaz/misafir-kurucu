@@ -14,6 +14,8 @@ const subtleButtonVariants = cva(
           "surface-primary-gradient text-white shadow-[0_16px_34px_-24px_rgba(255,129,5,0.55)] hover:shadow-[0_22px_38px_-26px_rgba(255,129,5,0.65)]",
         dark:
           "surface-primary-gradient text-white shadow-[0_18px_36px_-24px_rgba(255,129,5,0.45)] hover:shadow-[0_22px_44px_-26px_rgba(255,129,5,0.52)]",
+        secondary:
+          "border border-foreground/12 bg-[linear-gradient(180deg,rgba(255,248,242,0.98),rgba(255,239,228,0.98))] text-foreground shadow-[0_14px_28px_-22px_rgba(84,48,28,0.2)] hover:shadow-[0_20px_34px_-24px_rgba(84,48,28,0.28)]",
       },
       size: {
         sm: "h-10 px-4 text-xs",
@@ -56,8 +58,8 @@ function InnerContent({
   isPressed: boolean;
 }) {
   const textTone =
-    theme === "dark"
-      ? "text-white group-hover:text-white"
+    theme === "secondary"
+      ? "text-foreground group-hover:text-foreground"
       : "text-white group-hover:text-white";
 
   return (
@@ -67,7 +69,9 @@ function InnerContent({
           "absolute inset-0 rounded-full bg-gradient-to-r opacity-0 transition-opacity duration-500 group-hover:opacity-100",
           theme === "dark"
             ? "from-white/0 via-white/10 to-white/0"
-            : "from-primary/0 via-primary/10 to-primary/0",
+            : theme === "secondary"
+              ? "from-white/0 via-white/45 to-white/0"
+              : "from-primary/0 via-primary/10 to-primary/0",
         )}
       />
 
