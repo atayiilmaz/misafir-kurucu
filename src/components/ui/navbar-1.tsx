@@ -92,7 +92,7 @@ export function Navbar1({ items }: Navbar1Props) {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 12 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute left-1/2 top-full mt-4 w-64 -translate-x-1/2 rounded-3xl border border-border/70 bg-white/95 p-3 shadow-soft"
+                        className="absolute left-1/2 top-full mt-4 w-64 -translate-x-1/2 rounded-3xl border border-foreground/12 bg-[#fef3e9] p-3 shadow-[0_20px_45px_-30px_rgba(43,31,22,0.28)]"
                       >
                         {item.children.map((child) => (
                           <NavLink
@@ -100,8 +100,10 @@ export function Navbar1({ items }: Navbar1Props) {
                             to={child.href}
                             className={({ isActive }) =>
                               cn(
-                                "block rounded-2xl px-4 py-3 text-sm font-medium transition-colors hover:bg-muted",
-                                isActive ? "bg-muted text-primary" : "text-foreground",
+                                "block rounded-2xl px-4 py-3 text-sm font-medium transition-colors hover:bg-primary/8 hover:text-primary",
+                                isActive
+                                  ? "bg-primary/10 text-primary"
+                                  : "text-foreground/88",
                               )
                             }
                           >
@@ -172,7 +174,7 @@ export function Navbar1({ items }: Navbar1Props) {
                   return (
                     <div
                       key={item.label}
-                      className="rounded-[1.75rem] border border-border/70 bg-white/75 p-2"
+                      className="rounded-[1.75rem] border border-foreground/12 bg-[#fff8f1] p-2 shadow-[0_16px_34px_-28px_rgba(43,31,22,0.24)]"
                     >
                       <button
                         className="flex w-full items-center justify-between px-3 py-3 text-left text-base font-semibold sm:text-lg"
@@ -201,7 +203,7 @@ export function Navbar1({ items }: Navbar1Props) {
                                 <NavLink
                                   key={child.label}
                                   to={child.href}
-                                  className="block rounded-2xl bg-muted px-4 py-3 text-xs font-medium sm:text-sm"
+                                  className="block rounded-2xl bg-primary/6 px-4 py-3 text-xs font-medium text-foreground/88 transition-colors hover:bg-primary/10 hover:text-primary sm:text-sm"
                                   onClick={() => setIsMobileOpen(false)}
                                 >
                                   {child.label}
