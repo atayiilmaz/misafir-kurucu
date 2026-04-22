@@ -468,7 +468,7 @@ export function AdminPostEditorPage() {
         <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
           <div>
             <p className="section-kicker">{isEditMode ? "Düzenle" : "Yeni Yazı"}</p>
-            <h1 className="font-display text-5xl leading-[0.96]">
+            <h1 className="font-display text-5xl leading-[1.02]">
               {isEditMode ? "Blog yazısını düzenle" : "Yeni blog yazısı oluştur"}
             </h1>
           </div>

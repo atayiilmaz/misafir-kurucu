@@ -80,7 +80,7 @@ export function AdminPage() {
       {!session ? (
         <div className="mx-auto max-w-xl glass-panel p-8 md:p-10">
           <p className="section-kicker">Admin Girişi</p>
-          <h1 className="font-display text-5xl leading-[0.96]">Blog paneline giriş yapın</h1>
+          <h1 className="font-display text-5xl leading-[1.02]">Blog paneline giriş yapın</h1>
           <p className="mt-4 text-sm leading-7 text-muted-foreground">
             Bu panel yalnızca blog yazısı yönetimi için kullanılır.
           </p>
@@ -125,7 +125,7 @@ export function AdminPage() {
             <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
               <div>
                 <p className="section-kicker">Admin</p>
-                <h1 className="font-display text-5xl leading-[0.96]">Blog içerik yönetimi</h1>
+                <h1 className="font-display text-5xl leading-[1.02]">Blog içerik yönetimi</h1>
                 <p className="mt-4 max-w-2xl text-sm leading-7 text-muted-foreground">
                   Taslak oluşturabilir, yayınlanmış yazıları güncelleyebilir ve
                   kapak ya da gövde içi görsel yükleyebilirsiniz.

@@ -6,7 +6,7 @@ import { AppLink } from "@/components/ui/app-link";
 import { SITE_AUTHOR, SITE_NAME, SITE_URL, absoluteUrl, useSeo } from "@/lib/seo";
 
 const sectionTitleClass =
-  "font-display text-[2.2rem] leading-[0.96] text-foreground sm:text-[2.65rem] md:text-[3.35rem]";
+  "font-display text-[2.2rem] leading-[1.02] text-foreground sm:text-[2.65rem] md:text-[3.35rem]";
 
 const bodyCopyClass =
   "text-[1.02rem] leading-8 text-muted-foreground md:text-[1.08rem] md:leading-8";
@@ -110,12 +110,12 @@ export function AboutPage() {
             data-gsap-item
           >
             <div className="ml-auto flex max-w-[43rem] flex-col justify-center">
-            <h1 className="about-top-title font-display text-[2.3rem] leading-[0.92] sm:text-[2.75rem] md:text-[3.2rem] lg:text-[3.55rem] xl:text-[3.95rem]">
-              Dünyanın daha fazla seri üretime değil; anlamlı, özgün ve değer yaratan bağımsız markalara ihtiyacı olduğuna inanıyorum.
-            </h1>
-            <p className="about-top-copy mt-5 max-w-2xl text-[1.06rem] leading-8 text-muted-foreground md:text-[1.12rem] md:leading-8">
-              Ben de bu boşluğu dolduran markaların ortaya çıkmasına katkı sağlıyorum.
-            </p>
+              <h1 className="about-top-title font-display text-[2.3rem] leading-[0.99] sm:text-[2.75rem] md:text-[3.2rem] lg:text-[3.55rem] xl:text-[3.95rem]">
+                Dünyanın daha fazla seri üretime değil; anlamlı, özgün ve değer yaratan bağımsız markalara ihtiyacı olduğuna inanıyorum.
+              </h1>
+              <p className="about-top-copy mt-5 max-w-2xl text-[1.06rem] leading-8 text-muted-foreground md:text-[1.12rem] md:leading-8">
+                Ben de bu boşluğu dolduran markaların ortaya çıkmasına katkı sağlıyorum.
+              </p>
             </div>
           </div>
         </div>
@@ -135,7 +135,7 @@ export function AboutPage() {
               <p className="font-display text-[1.1rem] italic text-foreground/72 md:text-[1.35rem]">
                 Hakkımda
               </p>
-              <h2 className="mx-auto mt-5 max-w-4xl font-display text-[2.2rem] leading-[0.96] text-foreground sm:text-[2.65rem] md:text-[3.35rem]">
+              <h2 className="mx-auto mt-5 max-w-4xl font-display text-[2.2rem] leading-[1.02] text-foreground sm:text-[2.65rem] md:text-[3.35rem]">
                 Yolculuğum, İstanbul Kadıköy’de kadın giyim mağazası açarak başladı.
               </h2>
             </div>
@@ -180,7 +180,7 @@ export function AboutPage() {
                 className="absolute inset-x-0 top-0 h-24 bg-[radial-gradient(circle_at_top_left,rgba(255,121,62,0.12),transparent_68%)] opacity-80 blur-2xl transition-[transform,opacity] duration-500 group-hover:scale-110 group-hover:opacity-100"
               />
               <div className="relative">
-              <p className="font-display text-[1.55rem] leading-[0.98] text-foreground transition-colors duration-300 group-hover:text-primary md:text-[1.85rem]">
+              <p className="font-display text-[1.55rem] leading-[1.04] text-foreground transition-colors duration-300 group-hover:text-primary md:text-[1.85rem]">
                 {item.value}
               </p>
               <div className="mt-4 h-px w-16 bg-[linear-gradient(90deg,rgba(255,121,62,0.45),rgba(255,121,62,0.12),transparent)] transition-all duration-300 group-hover:w-24" />
@@ -217,7 +217,7 @@ export function AboutPage() {
             className="group flex min-h-[13rem] items-center justify-between gap-6 border-b border-primary/16 pb-2 text-foreground md:min-h-[15rem]"
             data-gsap-item
           >
-            <span className="origin-left font-display text-[1.95rem] leading-[0.98] transition-transform duration-300 will-change-transform group-hover:scale-[1.03] md:text-[2.8rem]">
+            <span className="origin-left font-display text-[1.95rem] leading-[1.04] transition-transform duration-300 will-change-transform group-hover:scale-[1.03] md:text-[2.8rem]">
               Kariyerim ve saha yolculuğum hakkında daha fazla bilgiyi Instagram profilimde görebilirsiniz.
             </span>
             <span className="shrink-0 text-primary transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">

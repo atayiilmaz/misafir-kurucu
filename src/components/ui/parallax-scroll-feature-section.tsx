@@ -51,7 +51,7 @@ function StoryBlock({ section }: { section: StorySection }) {
         <div className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-primary/20 bg-primary/10 text-sm font-semibold text-primary">
           0{section.id}
         </div>
-        <h3 className="font-display text-[2.2rem] leading-[0.95] text-foreground md:text-[3.4rem]">
+        <h3 className="font-display text-[2.2rem] leading-[1.01] text-foreground md:text-[3.4rem]">
           {section.title}
         </h3>
         <p className="max-w-xl text-lg leading-8 text-muted-foreground">
@@ -97,7 +97,7 @@ export function ParallaxScrollFeatureSection({
       <div className="section-shell">
         <div className="flex min-h-[44vh] flex-col items-center justify-center rounded-[2.5rem] border border-border/60 bg-white/80 px-6 py-12 text-center shadow-soft md:px-10">
           <p className="section-kicker">{eyebrow}</p>
-          <h2 className="mt-4 max-w-4xl font-display text-[2.6rem] leading-[0.95] text-foreground md:text-[4.4rem]">
+          <h2 className="mt-4 max-w-4xl font-display text-[2.6rem] leading-[1.01] text-foreground md:text-[4.4rem]">
             {title}
           </h2>
           <p className="mt-5 max-w-2xl text-lg leading-8 text-muted-foreground">

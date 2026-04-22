@@ -52,7 +52,7 @@ export function ProgramsPage() {
                 Programlar
               </p>
               <h1
-                className="mt-4 max-w-4xl font-display text-[2.8rem] leading-[0.9] sm:text-[3.6rem] md:text-[5rem]"
+                className="mt-4 max-w-4xl font-display text-[2.8rem] leading-[0.98] sm:text-[3.6rem] md:text-[5rem]"
                 data-gsap-item
               >
                 Fikrini Gerçek Bir Markaya Dönüştür: 0'dan Başarılı Bir Lansmana

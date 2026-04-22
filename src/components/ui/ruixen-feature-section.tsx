@@ -145,7 +145,7 @@ export function RuixenFeatureSection({
               <div className="absolute inset-x-0 bottom-0 z-10 h-16 bg-gradient-to-t from-white to-transparent" />
               <CardStack items={cards} />
             </div>
-            <h1 className="font-display text-[2.9rem] leading-[0.92] text-foreground md:text-[4.6rem]">
+            <h1 className="font-display text-[2.9rem] leading-[0.99] text-foreground md:text-[4.6rem]">
               {title}
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-8 text-muted-foreground">

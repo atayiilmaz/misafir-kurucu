@@ -81,7 +81,7 @@ export default function FeatureSection({
           >
             {title ? (
               <h2
-                className="font-display text-[2.25rem] leading-[0.95] sm:text-[2.55rem] md:text-5xl"
+                className="font-display text-[2.25rem] leading-[1.01] sm:text-[2.55rem] md:text-5xl"
                 data-gsap-item
               >
                 {title}
@@ -89,7 +89,7 @@ export default function FeatureSection({
             ) : null}
             {headline ? (
               <h3
-                className="font-display text-[1.9rem] leading-[1] text-foreground sm:text-[2.1rem] md:text-[3.1rem]"
+                className="font-display text-[1.9rem] leading-[1.06] text-foreground sm:text-[2.1rem] md:text-[3.1rem]"
                 data-gsap-item
               >
                 {headline}

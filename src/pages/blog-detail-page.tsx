@@ -138,7 +138,7 @@ export function BlogDetailPage() {
       </AppLink>
 
       <header className="mx-auto mt-8 max-w-[48rem] pb-4 md:pb-6" data-gsap-item>
-        <h1 className="max-w-[15ch] font-display text-[3.1rem] leading-[0.92] tracking-[-0.05em] md:text-[5.4rem]">
+        <h1 className="max-w-[15ch] font-display text-[3.1rem] leading-[0.99] tracking-[-0.05em] md:text-[5.4rem]">
           {resolvedPost.title}
         </h1>
 

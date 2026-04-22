@@ -58,7 +58,7 @@ export function ProgramShowcaseSection({
                   <p className="text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-primary/72">
                     {program.order}
                   </p>
-                  <h3 className="mt-4 font-display text-[2.2rem] leading-[0.92] text-foreground md:text-[3.4rem]">
+                  <h3 className="mt-4 font-display text-[2.2rem] leading-[0.99] text-foreground md:text-[3.4rem]">
                     {program.name}
                   </h3>
                   <p className="mt-4 max-w-2xl text-lg leading-8 text-foreground/78">

@@ -206,7 +206,7 @@ function FeatureCard({
                 </span>
                 {steps[step].name}
               </div>
-              <h3 className="font-display text-[2.35rem] leading-[0.94] text-foreground md:text-[3.55rem]">
+              <h3 className="font-display text-[2.35rem] leading-[1.02] text-foreground md:text-[3.55rem]">
                 {steps[step].title}
               </h3>
               <p className="max-w-xl text-base leading-8 text-muted-foreground md:text-lg">
@@ -357,7 +357,7 @@ export function FeatureCarousel({
     <section className="section-shell py-8 md:py-12">
       <div className="mb-8 max-w-3xl">
         <p className="section-kicker">{eyebrow}</p>
-        <h2 className="mt-4 font-display text-[2.5rem] leading-[0.95] text-foreground md:text-[4rem]">
+        <h2 className="mt-4 font-display text-[2.5rem] leading-[1.01] text-foreground md:text-[4rem]">
           {title}
         </h2>
         <p className="mt-5 text-lg leading-8 text-muted-foreground">{description}</p>
