@@ -132,7 +132,7 @@ export function AboutPage() {
         <div className="section-shell">
           <div className="mx-auto max-w-[78rem]">
             <div className="text-center" data-gsap-item>
-              <p className="font-display text-[1.1rem] italic text-foreground/72 md:text-[1.35rem]">
+              <p className="about-story-kicker">
                 Hakkımda
               </p>
               <h2 className="mx-auto mt-5 max-w-4xl font-display text-[2.2rem] leading-[1.02] text-foreground sm:text-[2.65rem] md:text-[3.35rem]">

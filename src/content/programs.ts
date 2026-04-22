@@ -123,7 +123,8 @@ export const programs: Record<ProgramSlug, ProgramData> = {
     heroTitle: "MARKANI KUR",
     href: "/programlar/program-1",
     menuLabel: "Markanı Kur",
-    listingSubtitle: "Fikrini Gerçek Bir Markaya Dönüştür: 0'dan Başarılı Bir Lansmana",
+    listingSubtitle:
+      "Fikrini Gerçek Bir Markaya Dönüştür: 0'dan Başarılı Bir Lansmana",
     listingDescription:
       "Deneme-yanılma ile zaman ve para kaybetme. 16 yıllık sektör tecrübemle, markanı sağlam temeller üzerine birlikte kuralım.",
     teaserPoints: [
@@ -133,19 +134,23 @@ export const programs: Record<ProgramSlug, ProgramData> = {
     ],
     showcaseImage:
       "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=80",
-    showcaseImageAlt: "Moda markası kurulumuna eşlik eden editoryal moda görseli",
+    showcaseImageAlt:
+      "Moda markası kurulumuna eşlik eden editoryal moda görseli",
     heroImage: "/images/markanikur.png",
     heroImageAlt: "Markanı Kur programı hero görseli",
     storyImage: "/images/sitecontent.png",
-    storyImageAlt: "Marka planlaması ve koleksiyon hazırlığını gösteren masaüstü düzeni",
+    storyImageAlt:
+      "Marka planlaması ve koleksiyon hazırlığını gösteren masaüstü düzeni",
     audienceImage:
       "https://images.unsplash.com/photo-1753162657464-7f829c766d54?auto=format&fit=crop&w=1600&q=80",
     audienceImageAlt: "Moda markası kurulum sürecinde çalışan tasarımcı",
     supportImage:
       "https://images.unsplash.com/photo-1764740109279-c7a8abd78821?auto=format&fit=crop&w=1600&q=80",
-    supportImageAlt: "Teknik çizim ve üretim planlamasını temsil eden yaratıcı çalışma masası",
+    supportImageAlt:
+      "Teknik çizim ve üretim planlamasını temsil eden yaratıcı çalışma masası",
     hero: {
-      subtitle: "Fikrini Gerçek Bir Markaya Dönüştür: 0'dan Başarılı Bir Lansmana",
+      subtitle:
+        "Fikrini Gerçek Bir Markaya Dönüştür: 0'dan Başarılı Bir Lansmana",
       description:
         "Deneme-yanılma ile zaman ve para kaybetme. 16 yıllık sektör tecrübemle, markanı sağlam temeller üzerine birlikte kuralım.",
       ctaLabel: "Görüşme Planlayın",
@@ -155,11 +160,7 @@ export const programs: Record<ProgramSlug, ProgramData> = {
         "ticari öngörüler",
         "kişiselleştirilmiş danışmanlık",
       ],
-      strips: [
-        "Sermayeni korursun",
-        "Kaostan kurtulursun",
-        "Zaman kazanırsın",
-      ],
+      strips: ["Sermayeni korursun", "Kaostan kurtulursun", "Zaman kazanırsın"],
     },
     benefits: {
       title: "Bu paket sana ne sağlar?",
@@ -263,7 +264,8 @@ export const programs: Record<ProgramSlug, ProgramData> = {
       ],
     },
     finalCta: {
-      title: "Markanı sağlam temeller üzerine kurmak istiyorsanız, tüm süreçte birebir yanınızdayım.",
+      title:
+        "Markanı sağlam temeller üzerine kurmak istiyorsanız, tüm süreçte birebir yanınızdayım.",
       description:
         "Bir ajanstan değil, sektörün mutfağından gelen bir uzmandan kişiselleştirilmiş danışmanlık alacaksınız.",
       buttonLabel: "Görüşme Planlayın",
@@ -276,29 +278,28 @@ export const programs: Record<ProgramSlug, ProgramData> = {
     heroTitle: "MARKANI BÜYÜT",
     href: "/programlar/program-2",
     menuLabel: "Markanı Büyüt",
-    listingSubtitle: "Markanız var, ama henüz tam potansiyeline ulaşmadı.",
+    listingSubtitle: "Markanız Var, Ama Henüz Tam Potansiyeline Ulaşmadı.",
     listingDescription:
       "Satışlarınızı bir üst seviyeye taşımak, dijital varlığınızı güçlendirmek ya da markanızı daha profesyonel bir yapıya oturtmak isteyen kurucular için.",
-    teaserPoints: [
-      "Dijital Varlık",
-      "Stratejik Büyüme",
-      "Sistemleme",
-    ],
+    teaserPoints: ["Dijital Varlık", "Stratejik Büyüme", "Sistemleme"],
     showcaseImage:
       "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1200&q=80",
     showcaseImageAlt: "Marka büyümesini çağrıştıran moda görseli",
     heroImage: "/images/markanibuyut.png",
     heroImageAlt: "Markanı Büyüt programı hero görseli",
     storyImage: "/images/sitecontent.png",
-    storyImageAlt: "İçerik, koleksiyon ve marka düzenini gösteren çalışma alanı",
+    storyImageAlt:
+      "İçerik, koleksiyon ve marka düzenini gösteren çalışma alanı",
     audienceImage:
       "https://images.unsplash.com/photo-1759752393718-7b57f6da3caa?auto=format&fit=crop&w=1600&q=80",
-    audienceImageAlt: "Büyüme potansiyeli taşıyan butik mağaza ve koleksiyon düzeni",
+    audienceImageAlt:
+      "Büyüme potansiyeli taşıyan butik mağaza ve koleksiyon düzeni",
     supportImage:
       "https://images.unsplash.com/photo-1683921070230-9f046e462e46?auto=format&fit=crop&w=1600&q=80",
-    supportImageAlt: "Planlama, not alma ve karar süreçlerini temsil eden masaüstü çalışma alanı",
+    supportImageAlt:
+      "Planlama, not alma ve karar süreçlerini temsil eden masaüstü çalışma alanı",
     hero: {
-      subtitle: "Markanız var, ama henüz tam potansiyeline ulaşmadı.",
+      subtitle: "Markanız Var, Ama Henüz Tam Potansiyeline Ulaşmadı.",
       description:
         "Satışlarınızı bir üst seviyeye taşımak, dijital varlığınızı güçlendirmek ya da\nmarkanızı daha profesyonel bir yapıya oturtmak isteyen kurucular için.\n\n16 yıllık sektör deneyimiyle; markanızı bulunduğu noktadan stratejik ve kârlı bir\nbüyüme modeline taşıyoruz.",
       ctaLabel: "Görüşme Planlayın",
@@ -321,7 +322,8 @@ export const programs: Record<ProgramSlug, ProgramData> = {
         {
           eyebrow: "Yeni Odak",
           title: "DİJİTAL VARLIK",
-          description: "Sosyal medya ve online kanallarda dönüşüm odaklı, tutarlı bir iz",
+          description:
+            "Sosyal medya ve online kanallarda dönüşüm odaklı, tutarlı bir iz",
           highlight: true,
         },
         {
@@ -488,7 +490,7 @@ export const programs: Record<ProgramSlug, ProgramData> = {
     heroTitle: "STRATEJİK ORTAKLIK",
     href: "/programlar/program-3",
     menuLabel: "Stratejik Ortaklık",
-    listingSubtitle: "İhtiyacın Kadar, doğru noktada Danışmanlık",
+    listingSubtitle: "İhtiyacın Kadar, Doğru Noktada Danışmanlık",
     listingDescription:
       "Her markanın farklıdır. Bu yüzden sana hazır paket değil, tam ihtiyacın olan noktada birebir stratejik destek sunulur.",
     teaserPoints: [
@@ -498,19 +500,23 @@ export const programs: Record<ProgramSlug, ProgramData> = {
     ],
     showcaseImage:
       "https://images.unsplash.com/photo-1495385794356-15371f348c31?auto=format&fit=crop&w=1200&q=80",
-    showcaseImageAlt: "Stratejik ortaklık ve birebir danışmanlık sürecini temsil eden görsel",
+    showcaseImageAlt:
+      "Stratejik ortaklık ve birebir danışmanlık sürecini temsil eden görsel",
     heroImage: "/images/stratejik.png",
     heroImageAlt: "Stratejik Ortaklık programı hero görseli",
     storyImage:
       "https://images.unsplash.com/photo-1683921070230-9f046e462e46?auto=format&fit=crop&w=1600&q=80",
-    storyImageAlt: "Stratejik karar alma ve planlamayı çağrıştıran masaüstü düzeni",
+    storyImageAlt:
+      "Stratejik karar alma ve planlamayı çağrıştıran masaüstü düzeni",
     audienceImage: "/images/sitecontent.png",
-    audienceImageAlt: "Stratejik danışmanlık ve koleksiyon planlamasını çağrıştıran flatlay",
+    audienceImageAlt:
+      "Stratejik danışmanlık ve koleksiyon planlamasını çağrıştıran flatlay",
     supportImage:
       "https://images.unsplash.com/photo-1764740109279-c7a8abd78821?auto=format&fit=crop&w=1600&q=80",
-    supportImageAlt: "Marka stratejisi ve uygulama planlarını temsil eden teknik çalışma masası",
+    supportImageAlt:
+      "Marka stratejisi ve uygulama planlarını temsil eden teknik çalışma masası",
     hero: {
-      subtitle: "İhtiyacın Kadar, doğru noktada Danışmanlık",
+      subtitle: "İhtiyacın Kadar, Doğru Noktada Danışmanlık",
       description:
         "Her markanın farklıdır. Bu yüzden sana hazır paket değil, tam ihtiyacın olan noktada birebir stratejik destek sunulur.",
       ctaLabel: "Seansını Planla",
@@ -527,9 +533,7 @@ export const programs: Record<ProgramSlug, ProgramData> = {
     },
     benefits: {
       title: "90 dakikada ne elde edersiniz?",
-      intro: [
-        "Bu modelde süreç tamamen sana göre şekillenir.",
-      ],
+      intro: ["Bu modelde süreç tamamen sana göre şekillenir."],
       cards: [
         {
           title: "Sadece ihtiyaç duyduğun konuda",
@@ -576,15 +580,16 @@ export const programs: Record<ProgramSlug, ProgramData> = {
   },
 };
 
-export const programList = (Object.values(programs) as ProgramData[]).sort((a, b) =>
-  a.order.localeCompare(b.order),
+export const programList = (Object.values(programs) as ProgramData[]).sort(
+  (a, b) => a.order.localeCompare(b.order),
 );
 
 export const plans: PricingPlan[] = [
   {
     title: "Markanı Kur",
     price: "01",
-    priceDescription: "Fikrini Gerçek Bir Markaya Dönüştür: 0'dan\nBaşarılı Bir Lansmana",
+    priceDescription:
+      "Fikrini Gerçek Bir Markaya Dönüştür: 0'dan\nBaşarılı Bir Lansmana",
     description:
       "Kimin için?\nSağlam temeller atmak ve acele etmeden doğru\nbir başlangıç yapmak isteyen kurucular.",
     features: [
@@ -592,7 +597,7 @@ export const plans: PricingPlan[] = [
       "Koleksiyon planlaması ve üretimi",
       "Maliyetli erken hataları önlemeye yönelik\nsistemler",
       "Markanı kurarken deneme-yanılma ile sermayeni\nkaybetme; 16 yıllık tecrübemle bu bütçeyi\nkoruyalım:",
-      "Tahmini Toplam Kazanç: ₺240.000 –\n₺400.000+",
+      "Tahmini Toplam Tasarruf: ₺240.000 –\n₺400.000+",
       "Zaman Kaybı (12 - 18 Ay): Paha Biçilemez",
     ],
     buttonText: "Programı İncele",
@@ -603,14 +608,15 @@ export const plans: PricingPlan[] = [
   {
     title: "Markanı Büyüt",
     price: "02",
-    priceDescription: "Markanız var, ama henüz tam potansiyeline ulaşmadı.",
+    priceDescription: "Markanız Var, Ama Henüz Tam Potansiyeline Ulaşmadı.",
     description:
       "Kim için?\nSatışlarınızı bir üst seviyeye taşımak, dijital varlığınızı güçlendirmek ya da\nmarkanızı daha profesyonel bir yapıya oturtmak isteyen kurucular için.",
     features: [
-      "Satışlar sistematik olarak büyütülür",
-      "Marka algısı oluşturulur",
-      "Süreçler sisteme oturtulur",
-      "Dijitalde dönüşüm odaklı bir varlık oluşturulur",
+      "Satış Kanalları ve Büyüme Stratejileri",
+      "Marka Algısı ve Görsel Kimlik Revizyonu",
+      "Operasyonel Süreçlerin Sistematize Edilmesi",
+      "Veri Odaklı Dijital Dönüşüm ve Pazarlama Planı",
+      "Tahmini Verimlilik Artışı: %40 - %60"
     ],
     buttonText: "Programı İncele",
     href: "/programlar/program-2",
@@ -621,7 +627,7 @@ export const plans: PricingPlan[] = [
   {
     title: "Stratejik Ortaklık",
     price: "03",
-    priceDescription: "İhtiyacın Kadar, doğru noktada Danışmanlık",
+    priceDescription: "İhtiyacın Kadar, Doğru Noktada Danışmanlık",
     description:
       "Spesifik bir sorunuz var, net bir cevap\nistiyorsunuz.\nBu modelde süreç tamamen sana göre\nşekillenir.\nSadece ihtiyaç duyduğun konuda\nNet ve uygulanabilir çözümler alırsın.",
     features: [

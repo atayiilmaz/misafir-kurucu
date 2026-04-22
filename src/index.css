@@ -72,6 +72,16 @@ img {
   @apply mb-3 inline-flex rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold tracking-[0.24em] text-primary;
 }
 
+.about-story-kicker {
+  color: #000;
+  font-family: "IvyprestoDisplay", "IvyPresto Display", Georgia, "Times New Roman", serif;
+  font-size: 35.7px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
 .glass-panel {
   @apply rounded-[2rem] border border-white/70 bg-white/70 shadow-soft backdrop-blur;
 }
