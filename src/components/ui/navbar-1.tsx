@@ -29,7 +29,7 @@ export function Navbar1({ items }: Navbar1Props) {
   }, [isMobileOpen]);
 
   return (
-    <header className="sticky top-0 z-50 border-b-[1.5px] border-foreground/18 bg-background shadow-[0_16px_34px_-26px_rgba(43,31,22,0.34)]">
+    <header className="sticky top-0 z-50 border-b-[1.5px] border-foreground/20 bg-[#fef3e9] shadow-[0_10px_22px_-22px_rgba(43,31,22,0.2)]">
       <div className="mx-auto flex w-full max-w-[90rem] items-center px-3 py-3 md:px-4 lg:px-5">
         <AppLink href="/" className="flex items-center gap-3">
           <motion.div
