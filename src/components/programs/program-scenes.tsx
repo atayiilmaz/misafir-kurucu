@@ -115,7 +115,6 @@ export function ProgramHeroScene({ program }: ProgramHeroSceneProps) {
               [
                 "[data-hero-word]",
                 "[data-hero-copy]",
-                "[data-hero-strip]",
                 "[data-hero-media]",
                 "[data-hero-marquee]",
               ],
@@ -142,15 +141,6 @@ export function ProgramHeroScene({ program }: ProgramHeroSceneProps) {
                 stagger: 0.12,
               },
               0.18,
-            )
-            .from(
-              "[data-hero-strip]",
-              {
-                autoAlpha: 0,
-                y: 40,
-                stagger: 0.1,
-              },
-              0.32,
             )
             .from(
               "[data-hero-media]",
@@ -206,89 +196,69 @@ export function ProgramHeroScene({ program }: ProgramHeroSceneProps) {
 
   return (
     <section ref={rootRef} className="section-shell section-space">
-      <div className="overflow-hidden rounded-[2.6rem] bg-[linear-gradient(135deg,rgba(255,247,242,0.98),rgba(244,248,255,0.98))] text-foreground shadow-[0_28px_80px_-52px_rgba(77,101,255,0.18)]">
-        <div className="grid gap-0 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="relative flex flex-col overflow-hidden px-6 py-6 md:px-8 md:py-7 lg:px-10 lg:py-7">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,79,0,0.18),transparent_34%),radial-gradient(circle_at_78%_16%,rgba(77,101,255,0.16),transparent_28%),linear-gradient(180deg,rgba(255,249,245,0.96),rgba(245,248,255,0.98))]" />
-
-            <div className="relative z-10">
-              <div className="max-w-4xl overflow-hidden pt-4">
-                <h1 className="font-display text-[1.85rem] leading-[1.08] sm:text-[2.35rem] md:text-[3rem] lg:text-[3rem]">
-                  {program.heroTitle.split(" ").map((word) => (
-                    <span
-                      key={`${program.slug}-${word}`}
-                      className="mr-[0.18em] inline-block"
-                      data-hero-word
-                    >
-                      {word}
-                    </span>
-                  ))}
-                </h1>
-              </div>
-              <p
-                className="mt-3 max-w-2xl whitespace-pre-line text-[0.98rem] leading-7 text-foreground/78 md:text-[1rem] md:leading-8"
-                data-hero-copy
-              >
-                {program.hero.subtitle}
-              </p>
-              <p
-                className="mt-3 max-w-xl whitespace-pre-line text-sm leading-6 text-foreground/58 md:text-[0.95rem] md:leading-7"
-                data-hero-copy
-              >
-                {program.hero.description}
-              </p>
-              <div className="mt-5" data-hero-copy>
-                <SubtleButton href="/gorusme-planlayin" size="lg">
-                  {program.hero.ctaLabel}
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </SubtleButton>
-              </div>
-            </div>
-
-            <div className="relative z-10 mt-5 flex flex-wrap gap-2 md:mt-6 md:gap-3">
-              {program.hero.strips.map((strip) => (
-                <div
-                  key={strip}
-                  className="rounded-full border border-foreground/10 bg-white/56 px-3 py-2 text-[0.66rem] uppercase tracking-[0.12em] text-foreground/62 md:px-4 md:text-[0.72rem]"
-                  data-hero-strip
+      <div className="grid gap-8 lg:grid-cols-[0.86fr_1.14fr] lg:items-start">
+        <div className="relative z-10 max-w-[33rem] py-4 md:py-6 lg:pb-14">
+          <div className="max-w-4xl overflow-hidden">
+            <h1 className="font-display text-[1.85rem] leading-[1.08] sm:text-[2.35rem] md:text-[3rem] lg:text-[3rem]">
+              {program.heroTitle.split(" ").map((word) => (
+                <span
+                  key={`${program.slug}-${word}`}
+                  className="mr-[0.18em] inline-block"
+                  data-hero-word
                 >
-                  {strip}
-                </div>
+                  {word}
+                </span>
               ))}
-            </div>
+            </h1>
           </div>
+          <p
+            className="mt-3 max-w-2xl whitespace-pre-line text-[0.98rem] leading-7 text-foreground/78 md:text-[1rem] md:leading-8"
+            data-hero-copy
+          >
+            {program.hero.subtitle}
+          </p>
+          <p
+            className="mt-3 max-w-xl whitespace-pre-line text-sm leading-6 text-foreground/58 md:text-[0.95rem] md:leading-7"
+            data-hero-copy
+          >
+            {program.hero.description}
+          </p>
+          <div className="mt-5" data-hero-copy>
+            <SubtleButton href="/gorusme-planlayin" size="lg">
+              {program.hero.ctaLabel}
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </SubtleButton>
+          </div>
+        </div>
 
-          <div className="relative h-[20rem] overflow-hidden md:h-[24rem] lg:h-[27rem]">
-            <div
-              className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.02),rgba(33,46,117,0.14))]"
-              data-hero-media
-            />
+        <div className="relative z-10 lg:pb-14">
+          <div className="relative h-[20rem] overflow-hidden rounded-t-[2.4rem] md:h-[24rem] lg:h-[27rem]" data-hero-media>
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.02),rgba(33,46,117,0.14))]" />
             <img
               src={program.heroImage}
               alt={program.heroImageAlt}
               className="h-full w-full object-cover"
               data-hero-media-inner
-              data-hero-media
             />
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.3),transparent_26%),linear-gradient(180deg,rgba(77,101,255,0.04),rgba(255,79,0,0.12))]" />
           </div>
         </div>
+      </div>
 
-        <div
-          className="overflow-hidden border-t border-foreground/8 bg-[linear-gradient(90deg,rgba(255,79,0,0.08),rgba(77,101,255,0.08))] py-4"
-          data-hero-marquee
-        >
-          <div ref={tickerRef} className="flex min-w-max items-center gap-8 px-4">
-            {tickerItems.map((item, index) => (
-              <div
-                key={`${program.slug}-ticker-${item}-${index}`}
-                className="flex items-center gap-8 whitespace-nowrap text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-foreground/56 md:text-sm"
-              >
-                <span>{item}</span>
-                <span className="h-1.5 w-1.5 rounded-full bg-accent/80" />
-              </div>
-            ))}
-          </div>
+      <div
+        className="relative mt-[-1.5rem] overflow-hidden rounded-[2.2rem] bg-[linear-gradient(90deg,rgba(255,243,235,0.92),rgba(248,243,238,0.96))] py-4 shadow-[0_24px_60px_-44px_rgba(84,48,28,0.24)] md:mt-[-2rem] lg:mt-[-2.5rem]"
+        data-hero-marquee
+      >
+        <div ref={tickerRef} className="flex min-w-max items-center gap-8 px-4">
+          {tickerItems.map((item, index) => (
+            <div
+              key={`${program.slug}-ticker-${item}-${index}`}
+              className="flex items-center gap-8 whitespace-nowrap text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-foreground/56 md:text-sm"
+            >
+              <span>{item}</span>
+              <span className="h-1.5 w-1.5 rounded-full bg-accent/80" />
+            </div>
+          ))}
         </div>
       </div>
     </section>
