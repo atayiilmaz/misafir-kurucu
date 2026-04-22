@@ -46,9 +46,8 @@ const proofItems = [
 ];
 
 const todayItems = [
-  "Bugün, bu iki farklı marka yolculuğundan edindiğim paha biçilmez saha tecrübesiyle üçüncü markamı inşa ediyorum. Aynı zamanda, benzer yollardan geçen moda girişimcilerine; bizzat deneyimlenmiş stratejilerle rehberlik ediyorum.",
-  "Moda markasını ciddiye alan girişimcilere; teoriyi değil, gerçek sahayı öğretiyorum.",
-  "En büyük hayalim; Türkiye’den doğacak bir dünya markasında pay sahibi olmak ve şirin bir sahil kasabasında, bahçeli bir evde yaşamak.",
+  "Bugün, bizzat deneyimlediğim saha stratejileriyle 3. markamı inşa ederken vizyoner girişimcilere stratejik yol arkadaşlığı yapıyorum.",
+  "En büyük hayalim; Türkiye’den doğacak bir dünya markasına katkıda bulunmak ve şirin bir sahil kasabasında, bahçeli bir evde yaşamak.",
 ];
 
 function splitProofTitle(title: string, index: number) {
@@ -190,7 +189,7 @@ export function AboutPage() {
             Bugün Neredeyim?
           </h2>
 
-          <div className="mt-6 space-y-4">
+          <div className="mx-auto mt-6 max-w-4xl space-y-4 text-left">
             {todayItems.map((item) => (
               <p
                 key={item}

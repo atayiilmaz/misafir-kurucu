@@ -227,7 +227,7 @@ export const programs: Record<ProgramSlug, ProgramData> = {
         {
           title: "Lansman ve satış süreci planlanır",
           description:
-            "Web sitesi dahil olmak üzere tüm satış kanalları ve lansman adımları baştan sona kurgulanır.",
+            "Websitesi dahil olmak üzere tüm satış kanalları ve lansman adımları baştan sona kurgulanır.",
         },
         {
           title: "Sosyal medya satışa dönüştürülür",
