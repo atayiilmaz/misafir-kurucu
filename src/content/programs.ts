@@ -638,6 +638,10 @@ export const plans: PricingPlan[] = [
 "Hızlı Aksiyon Planı ve Uygulanabilir Çözüm Seti",
 
 "Kritik Karar Anlarında Uzman Mentorluğu",
+
+"Hızlı Çözüm: Kısa Süre İçinde Aksiyon Planı",
+
+"Odak Noktası: %100 İhtiyaca Özel Kurgu"
     ],
     buttonText: "Programı İncele",
     href: "/programlar/program-3",
