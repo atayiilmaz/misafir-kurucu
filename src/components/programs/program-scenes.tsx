@@ -268,7 +268,7 @@ export function ProgramHeroScene({ program }: ProgramHeroSceneProps) {
       </div>
 
       <div
-        className="w-full overflow-hidden border-b border-foreground/8 border-t border-foreground/8 bg-[linear-gradient(90deg,rgba(255,243,235,0.92),rgba(248,243,238,0.96))] py-5 md:py-6"
+        className="w-full overflow-hidden border-b border-foreground/8 border-t border-foreground/8 bg-[linear-gradient(90deg,rgba(249,232,216,0.96),rgba(241,226,208,0.98))] py-5 md:py-6"
         data-hero-marquee
       >
         <div ref={tickerRef} className="flex min-w-max items-center gap-8 px-5 md:px-8 lg:px-10">
