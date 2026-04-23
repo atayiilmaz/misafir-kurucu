@@ -37,53 +37,45 @@ function PricingCard({
   const themes = [
     {
       cardClass:
-        "border-[#efbe9d] bg-[linear-gradient(180deg,#ffc9a8_0%,#ffe0cc_58%,#fff4eb_100%)] text-foreground",
-      bodyClass: "text-foreground/72",
-      iconClass: "text-[#d47b47]",
-      featureIconClass: "text-[#d47b47]",
-      heroIconWrapClass: "bg-[#f4be96]/55 border border-white/72",
+        "border-[#e9cdbb] bg-[linear-gradient(180deg,rgba(255,244,234,0.98)_0%,rgba(255,235,220,0.96)_60%,rgba(255,251,247,0.98)_100%)] text-[#2f201b] shadow-[0_26px_56px_-44px_rgba(103,67,45,0.24)]",
+      bodyClass: "text-[#6c5448]",
+      iconClass: "text-[#c2774f]",
+      featureIconClass: "text-[#cb7a4d]",
       buttonClass:
-        "text-white shadow-[0_16px_30px_-22px_hsl(var(--primary)/0.6)]",
+        "!border-[#e1b89d] !bg-[linear-gradient(180deg,rgba(255,249,244,0.98),rgba(251,231,216,0.98))] !text-[#8a5339] shadow-[0_16px_30px_-24px_rgba(120,73,48,0.24)] hover:!border-[#d49d79] hover:!bg-[linear-gradient(180deg,#fff8f2,#f6dfcf)] hover:shadow-[0_20px_34px_-24px_rgba(120,73,48,0.3)]",
     },
     {
       cardClass:
-        "border-[#d59a84] bg-[linear-gradient(180deg,#e09a79_0%,#efc0ae_54%,#fbebe3_100%)] text-foreground",
-      bodyClass: "text-foreground/78",
-      iconClass: "text-[#a45a43]",
-      featureIconClass: "text-[#a45a43]",
-      heroIconWrapClass: "bg-[#cc9c84]/38 border border-white/58",
+        "border-[#dcc5c0] bg-[linear-gradient(180deg,rgba(251,239,236,0.98)_0%,rgba(243,227,222,0.97)_58%,rgba(255,249,247,0.99)_100%)] text-[#2f201d] shadow-[0_26px_56px_-44px_rgba(100,68,55,0.22)]",
+      bodyClass: "text-[#6b554a]",
+      iconClass: "text-[#ad685b]",
+      featureIconClass: "text-[#ba7162]",
       buttonClass:
-        "text-white shadow-[0_16px_30px_-22px_hsl(var(--primary)/0.6)]",
+        "!border-[#d6b7af] !bg-[linear-gradient(180deg,rgba(255,250,248,0.98),rgba(243,228,224,0.98))] !text-[#825443] shadow-[0_16px_30px_-24px_rgba(116,77,61,0.22)] hover:!border-[#c69184] hover:!bg-[linear-gradient(180deg,#fff9f7,#ecddd8)] hover:shadow-[0_20px_34px_-24px_rgba(116,77,61,0.28)]",
     },
     {
       cardClass:
-        "border-[#5d3731] bg-[linear-gradient(180deg,#2f1412_0%,#6b433d_40%,#9a675b_72%,#d8b0a2_100%)] text-white",
-      bodyClass: "text-white/76",
-      iconClass: "text-[#ffbf95]",
-      featureIconClass: "text-[#ffbf95]",
-      heroIconWrapClass: "bg-[#8f6a5f]/24 border border-white/16",
+        "border-[#d1c4bf] bg-[linear-gradient(180deg,rgba(242,235,231,0.98)_0%,rgba(231,221,216,0.97)_56%,rgba(251,247,244,0.98)_100%)] text-[#2a211e] shadow-[0_26px_56px_-44px_rgba(80,58,49,0.22)]",
+      bodyClass: "text-[#645651]",
+      iconClass: "text-[#87665c]",
+      featureIconClass: "text-[#946f64]",
       buttonClass:
-        "text-white shadow-[0_16px_30px_-22px_hsl(var(--primary)/0.65)]",
+        "!border-[#cab7b0] !bg-[linear-gradient(180deg,rgba(255,253,252,0.98),rgba(234,226,222,0.98))] !text-[#70544b] shadow-[0_16px_30px_-24px_rgba(89,67,58,0.2)] hover:!border-[#b09388] hover:!bg-[linear-gradient(180deg,#fffdfc,#e5dad5)] hover:shadow-[0_20px_34px_-24px_rgba(89,67,58,0.26)]",
     },
   ] as const;
   const theme = themes[index] ?? themes[themes.length - 1];
-  const titleLines =
-    index < 2 && title.includes(" ") ? [title.split(" ")[0], title.split(" ").slice(1).join(" ")] : [title];
-  const imageZoomClass = "scale-[1.35]";
-  const imagePositions = [
-    "object-[58%_48%]",
-    "object-center",
-    "object-center",
-  ] as const;
+  const titleLines = title.includes(" ")
+    ? [title.split(" ")[0], title.split(" ").slice(1).join(" ")]
+    : [title];
   const [descriptionHeading, ...descriptionBodyParts] = description.split("\n");
   const hasDescriptionHeading = descriptionHeading.trim().endsWith("?");
   const descriptionBody = hasDescriptionHeading
     ? descriptionBodyParts.join("\n").trim()
     : description;
   const heroIcons = [
-    <AArrowUpIcon key="hero-icon-up" size={30} className={theme.iconClass} />,
-    <TrendingUpIcon key="hero-icon-trending" size={30} className={theme.iconClass} />,
-    <ChartLineIcon key="hero-icon-chart" size={30} className={theme.iconClass} />,
+    <AArrowUpIcon key="hero-icon-up" size={34} className={theme.iconClass} />,
+    <TrendingUpIcon key="hero-icon-trending" size={34} className={theme.iconClass} />,
+    <ChartLineIcon key="hero-icon-chart" size={34} className={theme.iconClass} />,
   ] as const;
   const heroIcon = heroIcons[index] ?? heroIcons[heroIcons.length - 1];
 
@@ -93,7 +85,7 @@ function PricingCard({
       initial="initial"
       whileHover="hover"
       className={cn(
-        "flex h-full flex-col justify-between rounded-[2.6rem] border p-6 shadow-soft md:p-7",
+        "flex h-full flex-col justify-between rounded-[2.6rem] border p-7 shadow-soft md:p-8",
         theme.cardClass,
       )}
     >
@@ -108,17 +100,14 @@ function PricingCard({
               ))}
             </h3>
             <div className="mt-5">
-              <p className={cn("whitespace-pre-line ", theme.bodyClass)}>
+              <p className={cn("whitespace-pre-line text-base leading-7", theme.bodyClass)}>
                 {priceDescription}
               </p>
             </div>
           </div>
           <motion.div
-            className={cn(
-              "flex h-20 w-20 min-h-20 min-w-20 shrink-0 items-center justify-center rounded-[1.5rem] shadow-[0_12px_24px_-18px_rgba(84,48,28,0.34)]",
-              theme.heroIconWrapClass,
-            )}
-            whileHover={{ rotate: -4, scale: 1.04 }}
+            className="flex shrink-0 items-center justify-center pt-1"
+            whileHover={{ rotate: -6, scale: 1.08 }}
           >
             {heroIcon}
           </motion.div>
@@ -126,20 +115,20 @@ function PricingCard({
 
         <div className="mt-5 space-y-4">
           {hasDescriptionHeading ? (
-            <p className={cn("text-sm font-semibold", theme.bodyClass)}>{descriptionHeading}</p>
+            <p className={cn("text-base font-semibold leading-7", theme.bodyClass)}>{descriptionHeading}</p>
           ) : null}
-          <p className={cn("whitespace-pre-line text-sm leading-6", theme.bodyClass)}>
+          <p className={cn("whitespace-pre-line text-base leading-7", theme.bodyClass)}>
             {descriptionBody}
           </p>
         </div>
 
-        <p className={cn("mt-6 text-sm font-semibold", theme.bodyClass)}>
+        <p className={cn("mt-6 text-base font-semibold leading-7", theme.bodyClass)}>
           Ne elde edeceksin?
         </p>
-        <ul className="mt-6 space-y-3">
+        <ul className="mt-6 space-y-3.5">
           {features.map((feature) => (
-            <li key={feature} className="flex items-start gap-3 text-sm">
-              <CheckCircle2 className={cn("mt-0.5 h-4 w-4 shrink-0", theme.featureIconClass)} />
+            <li key={feature} className="flex items-start gap-3 text-base leading-7">
+              <CheckCircle2 className={cn("mt-1 h-4 w-4 shrink-0", theme.featureIconClass)} />
               <span className="whitespace-pre-line">{feature}</span>
             </li>
           ))}
@@ -149,8 +138,8 @@ function PricingCard({
       <SubtleButton
         href={href ?? "/gorusme-planlayin"}
         fullWidth
-        theme={index === 2 ? "dark" : "light"}
-        className={cn("mt-8", theme.buttonClass)}
+        theme="secondary"
+        className={cn("mt-8 h-12 text-[0.95rem] font-semibold tracking-[0.01em]", theme.buttonClass)}
       >
         {buttonText}
       </SubtleButton>
