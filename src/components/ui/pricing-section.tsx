@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { CheckCircle2, Sparkles } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { AArrowUpIcon } from "@/components/ui/a-arrow-up";
 import { ChartLineIcon } from "@/components/ui/chart-line";
 import { TrendingUpIcon } from "@/components/ui/trending-up";
@@ -41,7 +41,7 @@ function PricingCard({
       bodyClass: "text-foreground/72",
       iconClass: "text-[#d47b47]",
       featureIconClass: "text-[#d47b47]",
-      heroIconWrapClass: "bg-white/58 border border-white/70",
+      heroIconWrapClass: "bg-[#f4be96]/55 border border-white/72",
       buttonClass:
         "text-white shadow-[0_16px_30px_-22px_hsl(var(--primary)/0.6)]",
     },
@@ -51,7 +51,7 @@ function PricingCard({
       bodyClass: "text-foreground/78",
       iconClass: "text-[#a45a43]",
       featureIconClass: "text-[#a45a43]",
-      heroIconWrapClass: "bg-white/42 border border-white/55",
+      heroIconWrapClass: "bg-[#cc9c84]/38 border border-white/58",
       buttonClass:
         "text-white shadow-[0_16px_30px_-22px_hsl(var(--primary)/0.6)]",
     },
@@ -61,7 +61,7 @@ function PricingCard({
       bodyClass: "text-white/76",
       iconClass: "text-[#ffbf95]",
       featureIconClass: "text-[#ffbf95]",
-      heroIconWrapClass: "bg-white/8 border border-white/12",
+      heroIconWrapClass: "bg-[#8f6a5f]/24 border border-white/16",
       buttonClass:
         "text-white shadow-[0_16px_30px_-22px_hsl(var(--primary)/0.65)]",
     },
@@ -139,11 +139,7 @@ function PricingCard({
         <ul className="mt-6 space-y-3">
           {features.map((feature) => (
             <li key={feature} className="flex items-start gap-3 text-sm">
-              {index === 1 ? (
-                <Sparkles className={cn("mt-0.5 h-4 w-4 shrink-0", theme.featureIconClass)} />
-              ) : (
-                <CheckCircle2 className={cn("mt-0.5 h-4 w-4 shrink-0", theme.featureIconClass)} />
-              )}
+              <CheckCircle2 className={cn("mt-0.5 h-4 w-4 shrink-0", theme.featureIconClass)} />
               <span className="whitespace-pre-line">{feature}</span>
             </li>
           ))}

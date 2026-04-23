@@ -588,7 +588,7 @@ export const plans: PricingPlan[] = [
     title: "Markanı Kur",
     price: "01",
     priceDescription:
-      "Fikrini Gerçek Bir Markaya Dönüştür: 0'dan\nBaşarılı Bir Lansmana",
+      "Fikrini Gerçek Bir Markaya Dönüştür: 0'dan Başarılı Bir Lansmana",
     description:
       "Kim için?\nSağlam temeller atmak ve acele etmeden doğru\nbir başlangıç yapmak isteyen kurucular.",
     features: [
