@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { ChevronDown, Menu, Scissors, X } from "lucide-react";
 import { AppLink } from "@/components/ui/app-link";
 import SubtleButton from "@/components/ui/subtle-button";
@@ -17,9 +17,12 @@ interface Navbar1Props {
 }
 
 export function Navbar1({ items }: Navbar1Props) {
+  const location = useLocation();
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [desktopProgramsOpen, setDesktopProgramsOpen] = useState(false);
   const [mobileProgramsOpen, setMobileProgramsOpen] = useState(false);
+  const desktopProgramsButtonRef = useRef<HTMLButtonElement | null>(null);
+  const desktopProgramsCloseTimeoutRef = useRef<number | null>(null);
 
   useEffect(() => {
     document.body.style.overflow = isMobileOpen ? "hidden" : "";
@@ -27,6 +30,38 @@ export function Navbar1({ items }: Navbar1Props) {
       document.body.style.overflow = "";
     };
   }, [isMobileOpen]);
+
+  useEffect(() => {
+    return () => {
+      if (desktopProgramsCloseTimeoutRef.current !== null) {
+        window.clearTimeout(desktopProgramsCloseTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  const clearDesktopProgramsCloseTimeout = () => {
+    if (desktopProgramsCloseTimeoutRef.current !== null) {
+      window.clearTimeout(desktopProgramsCloseTimeoutRef.current);
+      desktopProgramsCloseTimeoutRef.current = null;
+    }
+  };
+
+  const openDesktopPrograms = () => {
+    clearDesktopProgramsCloseTimeout();
+    setDesktopProgramsOpen(true);
+  };
+
+  const closeDesktopPrograms = () => {
+    clearDesktopProgramsCloseTimeout();
+    setDesktopProgramsOpen(false);
+  };
+
+  const scheduleDesktopProgramsClose = () => {
+    clearDesktopProgramsCloseTimeout();
+    desktopProgramsCloseTimeoutRef.current = window.setTimeout(() => {
+      setDesktopProgramsOpen(false);
+    }, 160);
+  };
 
   return (
     <header className="sticky top-0 z-50 border-b-[1.5px] border-foreground/20 bg-[#fef3e9] shadow-[0_10px_22px_-22px_rgba(43,31,22,0.2)]">
@@ -64,16 +99,49 @@ export function Navbar1({ items }: Navbar1Props) {
                 );
               }
 
+              const dropdownRootPath = `/${item.children[0]?.href.split("/").filter(Boolean)[0] ?? ""}`;
+              const isDropdownActive =
+                location.pathname === dropdownRootPath ||
+                item.children.some(
+                  (child) =>
+                    location.pathname === child.href ||
+                    location.pathname.startsWith(`${child.href}/`),
+                );
+
               return (
                 <div
                   key={item.label}
                   className="relative"
-                  onMouseEnter={() => setDesktopProgramsOpen(true)}
-                  onMouseLeave={() => setDesktopProgramsOpen(false)}
+                  onBlur={(event) => {
+                    const nextFocused = event.relatedTarget;
+
+                    if (!event.currentTarget.contains(nextFocused)) {
+                      scheduleDesktopProgramsClose();
+                    }
+                  }}
+                  onFocusCapture={openDesktopPrograms}
+                  onKeyDown={(event) => {
+                    if (event.key === "Escape") {
+                      closeDesktopPrograms();
+                      desktopProgramsButtonRef.current?.focus();
+                    }
+                  }}
+                  onMouseEnter={openDesktopPrograms}
+                  onMouseLeave={scheduleDesktopProgramsClose}
                 >
                   <button
-                    className="flex items-center gap-1 text-sm font-semibold text-foreground/82 transition-colors hover:text-primary"
-                    onClick={() => setDesktopProgramsOpen((value) => !value)}
+                    ref={desktopProgramsButtonRef}
+                    aria-expanded={desktopProgramsOpen}
+                    aria-haspopup="menu"
+                    className={cn(
+                      "flex items-center gap-1 rounded-full px-3 py-2 text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30",
+                      desktopProgramsOpen || isDropdownActive
+                        ? "bg-white text-primary shadow-[0_8px_24px_-20px_rgba(43,31,22,0.45)]"
+                        : "text-foreground/82 hover:bg-white/80 hover:text-primary",
+                    )}
+                    onClick={() =>
+                      desktopProgramsOpen ? closeDesktopPrograms() : openDesktopPrograms()
+                    }
                     type="button"
                   >
                     {item.label}
@@ -87,30 +155,35 @@ export function Navbar1({ items }: Navbar1Props) {
 
                   <AnimatePresence>
                     {desktopProgramsOpen && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 12 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 12 }}
-                        transition={{ duration: 0.2 }}
-                        className="absolute left-1/2 top-full mt-4 w-64 -translate-x-1/2 rounded-3xl border border-foreground/12 bg-[#fef3e9] p-3 shadow-[0_20px_45px_-30px_rgba(43,31,22,0.28)]"
-                      >
-                        {item.children.map((child) => (
-                          <NavLink
-                            key={child.label}
-                            to={child.href}
-                            className={({ isActive }) =>
-                              cn(
-                                "block rounded-2xl px-4 py-3 text-sm font-medium transition-colors hover:bg-primary/8 hover:text-primary",
-                                isActive
-                                  ? "bg-primary/10 text-primary"
-                                  : "text-foreground/88",
-                              )
-                            }
-                          >
-                            {child.label}
-                          </NavLink>
-                        ))}
-                      </motion.div>
+                      <div className="absolute left-1/2 top-full z-20 w-[22rem] -translate-x-1/2 pt-3">
+                        <motion.div
+                          initial={{ opacity: 0, y: 12, scale: 0.98 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: 10, scale: 0.98 }}
+                          transition={{ duration: 0.18, ease: "easeOut" }}
+                          className="overflow-hidden rounded-[2rem] border border-white/80 bg-[linear-gradient(180deg,rgba(255,251,247,0.98),rgba(252,240,228,0.98))] p-3 shadow-[0_22px_55px_-30px_rgba(43,31,22,0.34)] backdrop-blur"
+                        >
+                          <div className="space-y-1">
+                            {item.children.map((child) => (
+                              <NavLink
+                                key={child.label}
+                                to={child.href}
+                                onClick={closeDesktopPrograms}
+                                className={({ isActive }) =>
+                                  cn(
+                                    "block rounded-[1.4rem] border border-transparent px-4 py-3 text-sm font-semibold transition-all duration-200",
+                                    isActive
+                                      ? "border-primary/12 bg-primary/10 text-primary"
+                                      : "text-foreground/88 hover:border-primary/10 hover:bg-white/85 hover:text-primary",
+                                  )
+                                }
+                              >
+                                {child.label}
+                              </NavLink>
+                            ))}
+                          </div>
+                        </motion.div>
+                      </div>
                     )}
                   </AnimatePresence>
                 </div>
