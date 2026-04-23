@@ -115,7 +115,7 @@ function PricingCard({
           </div>
           <motion.div
             className={cn(
-              "flex h-20 w-20 items-center justify-center rounded-[1.5rem] shadow-[0_12px_24px_-18px_rgba(84,48,28,0.34)]",
+              "flex h-20 w-20 min-h-20 min-w-20 shrink-0 items-center justify-center rounded-[1.5rem] shadow-[0_12px_24px_-18px_rgba(84,48,28,0.34)]",
               theme.heroIconWrapClass,
             )}
             whileHover={{ rotate: -4, scale: 1.04 }}
