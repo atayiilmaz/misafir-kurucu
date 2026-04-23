@@ -188,7 +188,10 @@ export function ProgramDetailPage() {
       {sections.map((section, index) => (
         <div
           key={section.key}
-          className={index % 2 === 0 ? sectionBands.blue : sectionBands.orange}
+          className={[
+            index % 2 === 0 ? sectionBands.blue : sectionBands.orange,
+            index === 0 ? "[&>section]:py-20 [&>section]:md:py-28" : "",
+          ].join(" ")}
         >
           {section.node}
         </div>

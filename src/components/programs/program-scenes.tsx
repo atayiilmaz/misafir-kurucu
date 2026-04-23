@@ -148,7 +148,7 @@ export function ProgramHeroScene({ program }: ProgramHeroSceneProps) {
                 autoAlpha: 0,
                 scale: 1.08,
                 rotate: -2,
-                clipPath: "inset(14% 10% 16% 10% round 2.8rem)",
+                clipPath: "inset(14% 10% 16% 10%)",
                 duration: 1.3,
               },
               0.08,
@@ -195,65 +195,66 @@ export function ProgramHeroScene({ program }: ProgramHeroSceneProps) {
   );
 
   return (
-    <section ref={rootRef} className="section-shell section-space">
-      <div className="grid gap-8 lg:grid-cols-[0.86fr_1.14fr] lg:items-start">
-        <div className="relative z-10 max-w-[33rem] py-4 md:py-6 lg:pb-14">
-          <div className="max-w-4xl overflow-hidden">
-            <h1 className="font-display text-[1.85rem] leading-[1.08] sm:text-[2.35rem] md:text-[3.5rem] lg:text-[3.5rem]">
-              {program.heroTitle.split(" ").map((word) => (
-                <span
-                  key={`${program.slug}-${word}`}
-                  className="mr-[0.18em] inline-block"
-                  data-hero-word
-                >
-                  {word}
-                </span>
-              ))}
-            </h1>
+    <section ref={rootRef} className="pb-0 pt-4 text-foreground md:pt-5">
+      <div className="section-shell">
+        <div className="grid min-h-[30rem] lg:grid-cols-[0.92fr_1.08fr]">
+          <div>
+            <div className="ml-auto flex h-full w-full max-w-[41rem] flex-col justify-center px-0 py-10 md:py-14 lg:px-10 lg:py-16 xl:px-12">
+              <div className="max-w-4xl overflow-hidden">
+                <h1 className="font-display text-[1.85rem] leading-[1.08] sm:text-[2.35rem] md:text-[3.5rem] lg:text-[3.5rem]">
+                  {program.heroTitle.split(" ").map((word) => (
+                    <span
+                      key={`${program.slug}-${word}`}
+                      className="mr-[0.18em] inline-block"
+                      data-hero-word
+                    >
+                      {word}
+                    </span>
+                  ))}
+                </h1>
+              </div>
+              <p
+                className="mt-5 max-w-2xl whitespace-pre-line text-[1rem] leading-8 text-foreground/78 md:text-[1.02rem]"
+                data-hero-copy
+              >
+                {program.hero.subtitle}
+              </p>
+              <p
+                className="mt-4 max-w-[33rem] whitespace-pre-line text-sm leading-7 text-foreground/60 md:text-[0.98rem] md:leading-8"
+                data-hero-copy
+              >
+                {program.hero.description}
+              </p>
+              <div className="mt-7" data-hero-copy>
+                <SubtleButton href="/gorusme-planlayin" size="lg">
+                  {program.hero.ctaLabel}
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </SubtleButton>
+              </div>
+            </div>
           </div>
-          <p
-            className="mt-3 max-w-2xl whitespace-pre-line text-[0.98rem] leading-7 text-foreground/78 md:text-[1rem] md:leading-8"
-            data-hero-copy
-          >
-            {program.hero.subtitle}
-          </p>
-          <p
-            className="mt-3 max-w-xl whitespace-pre-line text-sm leading-6 text-foreground/58 md:text-[0.95rem] md:leading-7"
-            data-hero-copy
-          >
-            {program.hero.description}
-          </p>
-          <div className="mt-5" data-hero-copy>
-            <SubtleButton href="/gorusme-planlayin" size="lg">
-              {program.hero.ctaLabel}
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </SubtleButton>
-          </div>
-        </div>
 
-        <div className="relative z-10 lg:pb-14">
-          <div className="relative h-[20rem] overflow-hidden rounded-t-[2.4rem] md:h-[24rem] lg:h-[27rem]" data-hero-media>
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.02),rgba(33,46,117,0.14))]" />
+          <div className="relative min-h-[22rem] overflow-hidden" data-hero-media>
             <img
               src={program.heroImage}
               alt={program.heroImageAlt}
-              className="h-full w-full object-cover"
+              className="absolute inset-0 h-full w-full object-cover"
               data-hero-media-inner
             />
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.3),transparent_26%),linear-gradient(180deg,rgba(77,101,255,0.04),rgba(255,79,0,0.12))]" />
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(24,18,15,0.06),rgba(24,18,15,0.18))]" />
           </div>
         </div>
       </div>
 
       <div
-        className="relative mt-[-1.5rem] overflow-hidden rounded-[2.2rem] bg-[linear-gradient(90deg,rgba(255,243,235,0.92),rgba(248,243,238,0.96))] py-4 shadow-[0_24px_60px_-44px_rgba(84,48,28,0.24)] md:mt-[-2rem] lg:mt-[-2.5rem]"
+        className="w-full overflow-hidden border-b border-foreground/8 border-t border-foreground/8 bg-[linear-gradient(90deg,rgba(255,243,235,0.92),rgba(248,243,238,0.96))] py-4"
         data-hero-marquee
       >
-        <div ref={tickerRef} className="flex min-w-max items-center gap-8 px-4">
+        <div ref={tickerRef} className="flex min-w-max items-center gap-8 px-5 md:px-8 lg:px-10">
           {tickerItems.map((item, index) => (
             <div
               key={`${program.slug}-ticker-${item}-${index}`}
-              className="flex items-center gap-8 whitespace-nowrap text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-foreground/56 md:text-sm"
+              className="flex items-center gap-8 whitespace-nowrap text-[0.7rem] font-medium uppercase tracking-[0.24em] text-foreground/56 md:text-sm"
             >
               <span>{item}</span>
               <span className="h-1.5 w-1.5 rounded-full bg-accent/80" />
