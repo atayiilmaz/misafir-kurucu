@@ -688,48 +688,52 @@ export function ProgramListScene({
 
   return (
     <section ref={rootRef} className="section-shell section-space text-foreground">
-      <div className="mx-auto max-w-[82rem]">
-        <div className={cn("max-w-[40rem]", imageOnRight && "lg:ml-auto")}>
-          <h2
-            className="font-display text-[1.82rem] leading-[1.04] sm:text-[2.2rem] md:text-[3rem]"
-            data-scene-copy
-          >
-            {title}
-          </h2>
-          {intro?.length ? (
-            <div className="mt-5 grid gap-3">
-              {intro.map((paragraph) => (
-                <p
-                  key={paragraph}
-                  className="max-w-2xl text-base leading-8 text-foreground/72 md:text-[1rem]"
-                  data-scene-copy
-                >
-                  {paragraph}
-                </p>
-              ))}
-            </div>
-          ) : null}
+      <div
+        className={cn(
+          "mx-auto grid max-w-[82rem] items-start gap-8 lg:grid-cols-[0.88fr_1.12fr]",
+          imageOnRight && "lg:grid-cols-[1.12fr_0.88fr]",
+        )}
+      >
+        <div className={cn("relative", imageOnRight && "lg:order-2")}>
+          <div className="overflow-hidden rounded-[2rem] border border-white/70 shadow-soft">
+            <img
+              src={image}
+              alt={imageAlt}
+              className="h-[18rem] w-full object-cover md:h-[22rem] lg:h-[28rem] xl:h-[32rem]"
+              data-scene-media-inner
+            />
+          </div>
         </div>
 
-        <div className={cn("mt-8 grid gap-8 lg:grid-cols-[0.88fr_1.12fr]", imageOnRight && "lg:grid-cols-[1.12fr_0.88fr]")}>
-          <div className={cn("relative", imageOnRight && "lg:order-2")}>
-            <div className="overflow-hidden rounded-[2rem] border border-white/70 shadow-soft">
-              <img
-                src={image}
-                alt={imageAlt}
-                className="h-[18rem] w-full object-cover md:h-[22rem] lg:h-[28rem] xl:h-[32rem]"
-                data-scene-media-inner
-              />
-            </div>
+        <div
+          className={cn(
+            "flex flex-col",
+            imageOnRight && "lg:order-1",
+          )}
+        >
+          <div className="max-w-[40rem]">
+            <h2
+              className="font-display text-[1.82rem] leading-[1.04] sm:text-[2.2rem] md:text-[3rem]"
+              data-scene-copy
+            >
+              {title}
+            </h2>
+            {intro?.length ? (
+              <div className="mt-5 grid gap-3">
+                {intro.map((paragraph) => (
+                  <p
+                    key={paragraph}
+                    className="max-w-2xl text-base leading-8 text-foreground/72 md:text-[1rem]"
+                    data-scene-copy
+                  >
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            ) : null}
           </div>
 
-          <div
-            className={cn(
-              "flex flex-col justify-center space-y-4 md:space-y-5 lg:min-h-[28rem]",
-              imageOnRight && "lg:order-1",
-              shouldCenterRows && "lg:min-h-[22rem]",
-            )}
-          >
+          <div className={cn("mt-8 space-y-4 md:space-y-5", shouldCenterRows && "lg:min-h-[22rem]")}>
             {items.map((item) => (
               <div
                 key={`${title}-${item}`}
@@ -1609,16 +1613,16 @@ export function ProgramAnalysisModesScene({
           {columns.map((column) => (
             <article
               key={`${column.heading}-${column.title}`}
-              className="rounded-[1.7rem] border border-border/70 bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(248,244,239,0.94))] p-5 shadow-[0_18px_40px_-28px_rgba(48,39,33,0.28)] backdrop-blur-sm"
+              className="rounded-[2rem] border border-border/55 bg-[linear-gradient(180deg,rgba(255,255,255,0.94),rgba(250,246,242,0.9))] p-6 shadow-[0_18px_40px_-32px_rgba(48,39,33,0.16)] md:p-8"
               data-analysis-card
             >
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary/88">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
                 {column.heading}
               </p>
-              <h3 className="mt-4 text-[1.2rem] font-semibold leading-tight text-foreground md:text-[1.45rem]">
+              <h3 className="mt-5 text-[1.2rem] font-semibold leading-tight text-primary md:text-[1.45rem]">
                 {column.title}
               </h3>
-              <p className="mt-4 text-base leading-8 text-foreground/74">
+              <p className="mt-5 text-base leading-8 text-foreground/74">
                 {column.description}
               </p>
             </article>
