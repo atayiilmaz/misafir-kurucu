@@ -205,14 +205,17 @@ export function ProgramHeroScene({ program }: ProgramHeroSceneProps) {
   );
 
   return (
-    <section ref={rootRef} className="pb-0 pt-4 text-foreground md:pt-5">
+    <section ref={rootRef} className="pb-0 pt-0 text-foreground">
       <div className="section-shell">
         <div className="grid min-h-[30rem] lg:grid-cols-[0.92fr_1.08fr]">
           <div>
-            <div className="ml-auto flex h-full w-full max-w-[41rem] flex-col justify-start px-0 py-10 md:py-14 lg:px-10 lg:py-16 xl:px-12">
+            <div className="ml-auto flex h-full w-full max-w-[41rem] flex-col justify-start px-0 py-10 md:py-14 lg:px-10 lg:py-14 xl:px-12">
               <div className="max-w-4xl overflow-hidden">
                 <h1 className="max-w-[11.5ch] text-[2.35rem] leading-[0.98] text-foreground sm:text-[3.2rem] md:text-[4.5rem] md:leading-[0.95] lg:text-[4.5rem]">
-                  <span className="font-display" data-hero-word>
+                  <span
+                    className={cn("font-display", program.slug === "program-3" && "tracking-[-0.015em]")}
+                    data-hero-word
+                  >
                     {subtitleLead}
                   </span>
                   {accentWord ? (
@@ -265,7 +268,7 @@ export function ProgramHeroScene({ program }: ProgramHeroSceneProps) {
       </div>
 
       <div
-        className="w-full overflow-hidden border-b border-foreground/8 border-t border-foreground/8 bg-[linear-gradient(90deg,rgba(255,243,235,0.92),rgba(248,243,238,0.96))] py-4"
+        className="w-full overflow-hidden border-b border-foreground/8 border-t border-foreground/8 bg-[linear-gradient(90deg,rgba(255,243,235,0.92),rgba(248,243,238,0.96))] py-5 md:py-6"
         data-hero-marquee
       >
         <div ref={tickerRef} className="flex min-w-max items-center gap-8 px-5 md:px-8 lg:px-10">
