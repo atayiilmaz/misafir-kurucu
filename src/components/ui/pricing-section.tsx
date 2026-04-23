@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
 import { CheckCircle2, Sparkles } from "lucide-react";
+import { AArrowUpIcon } from "@/components/ui/a-arrow-up";
+import { ChartLineIcon } from "@/components/ui/chart-line";
+import { TrendingUpIcon } from "@/components/ui/trending-up";
 import { RevealSection } from "@/components/gsap/reveal-section";
 import SubtleButton from "@/components/ui/subtle-button";
 import { cn } from "@/lib/utils";
@@ -29,8 +32,6 @@ function PricingCard({
   features,
   buttonText,
   href,
-  imageSrc,
-  imageAlt,
   index,
 }: PricingCardProps) {
   const themes = [
@@ -39,7 +40,8 @@ function PricingCard({
         "border-[#efbe9d] bg-[linear-gradient(180deg,#ffc9a8_0%,#ffe0cc_58%,#fff4eb_100%)] text-foreground",
       bodyClass: "text-foreground/72",
       iconClass: "text-[#d47b47]",
-      imageClass: "border border-white/70 shadow-[0_12px_24px_-18px_rgba(170,96,44,0.55)]",
+      featureIconClass: "text-[#d47b47]",
+      heroIconWrapClass: "bg-white/58 border border-white/70",
       buttonClass:
         "text-white shadow-[0_16px_30px_-22px_hsl(var(--primary)/0.6)]",
     },
@@ -48,7 +50,8 @@ function PricingCard({
         "border-[#d59a84] bg-[linear-gradient(180deg,#e09a79_0%,#efc0ae_54%,#fbebe3_100%)] text-foreground",
       bodyClass: "text-foreground/78",
       iconClass: "text-[#a45a43]",
-      imageClass: "border border-white/55 shadow-[0_12px_24px_-18px_rgba(124,71,54,0.55)]",
+      featureIconClass: "text-[#a45a43]",
+      heroIconWrapClass: "bg-white/42 border border-white/55",
       buttonClass:
         "text-white shadow-[0_16px_30px_-22px_hsl(var(--primary)/0.6)]",
     },
@@ -57,7 +60,8 @@ function PricingCard({
         "border-[#5d3731] bg-[linear-gradient(180deg,#2f1412_0%,#6b433d_40%,#9a675b_72%,#d8b0a2_100%)] text-white",
       bodyClass: "text-white/76",
       iconClass: "text-[#ffbf95]",
-      imageClass: "border border-white/12 shadow-[0_12px_24px_-18px_rgba(0,0,0,0.8)]",
+      featureIconClass: "text-[#ffbf95]",
+      heroIconWrapClass: "bg-white/8 border border-white/12",
       buttonClass:
         "text-white shadow-[0_16px_30px_-22px_hsl(var(--primary)/0.65)]",
     },
@@ -76,6 +80,12 @@ function PricingCard({
   const descriptionBody = hasDescriptionHeading
     ? descriptionBodyParts.join("\n").trim()
     : description;
+  const heroIcons = [
+    <AArrowUpIcon key="hero-icon-up" size={30} className={theme.iconClass} />,
+    <TrendingUpIcon key="hero-icon-trending" size={30} className={theme.iconClass} />,
+    <ChartLineIcon key="hero-icon-chart" size={30} className={theme.iconClass} />,
+  ] as const;
+  const heroIcon = heroIcons[index] ?? heroIcons[heroIcons.length - 1];
 
   return (
     <motion.article
@@ -105,20 +115,12 @@ function PricingCard({
           </div>
           <motion.div
             className={cn(
-              "h-20 w-20 overflow-hidden rounded-[1.5rem]",
-              theme.imageClass,
+              "flex h-20 w-20 items-center justify-center rounded-[1.5rem] shadow-[0_12px_24px_-18px_rgba(84,48,28,0.34)]",
+              theme.heroIconWrapClass,
             )}
             whileHover={{ rotate: -4, scale: 1.04 }}
           >
-            <img
-              src={imageSrc}
-              alt={imageAlt}
-              className={cn(
-                "h-full w-full object-cover transition-transform duration-300",
-                imageZoomClass,
-                imagePositions[index] ?? imagePositions[imagePositions.length - 1],
-              )}
-            />
+            {heroIcon}
           </motion.div>
         </div>
 
@@ -138,9 +140,9 @@ function PricingCard({
           {features.map((feature) => (
             <li key={feature} className="flex items-start gap-3 text-sm">
               {index === 1 ? (
-                <Sparkles className={cn("mt-0.5 h-4 w-4 shrink-0", theme.iconClass)} />
+                <Sparkles className={cn("mt-0.5 h-4 w-4 shrink-0", theme.featureIconClass)} />
               ) : (
-                <CheckCircle2 className={cn("mt-0.5 h-4 w-4 shrink-0", theme.iconClass)} />
+                <CheckCircle2 className={cn("mt-0.5 h-4 w-4 shrink-0", theme.featureIconClass)} />
               )}
               <span className="whitespace-pre-line">{feature}</span>
             </li>
