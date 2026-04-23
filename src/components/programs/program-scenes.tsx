@@ -242,10 +242,42 @@ export function ProgramHeroScene({ program }: ProgramHeroSceneProps) {
                   </p>
                 ))}
               </div>
-              <div
-                className="mt-10 h-px w-full max-w-[37rem] bg-foreground/12"
-                data-hero-copy
-              />
+              {program.slug === "program-3" ? (
+                <div className="mt-12 max-w-[37rem]" data-hero-copy>
+                  <div className="h-px w-full bg-[linear-gradient(90deg,rgba(43,31,22,0.2),rgba(43,31,22,0.12))]" />
+                  <div className="grid gap-7 pt-6 sm:grid-cols-3 sm:gap-6">
+                    <div>
+                      <p className="font-display text-[2.05rem] leading-none text-foreground">
+                        16
+                      </p>
+                      <p className="mt-4 text-[0.68rem] uppercase tracking-[0.22em] text-foreground/42 md:text-[0.72rem]">
+                        Yıl sektör deneyimi
+                      </p>
+                    </div>
+                    <div>
+                      <p className="font-display text-[2.05rem] leading-none text-foreground">
+                        90'
+                      </p>
+                      <p className="mt-4 text-[0.68rem] uppercase tracking-[0.22em] text-foreground/42 md:text-[0.72rem]">
+                        Odaklı seans
+                      </p>
+                    </div>
+                    <div>
+                      <p className="font-display text-[2.05rem] leading-none text-foreground">
+                        Esnek
+                      </p>
+                      <p className="mt-4 text-[0.68rem] uppercase tracking-[0.22em] text-foreground/42 md:text-[0.72rem]">
+                        İhtiyaca göre süreç
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div
+                  className="mt-10 h-px w-full max-w-[37rem] bg-foreground/12"
+                  data-hero-copy
+                />
+              )}
               <div className="mt-10" data-hero-copy>
                 <SubtleButton href="/gorusme-planlayin" size="lg">
                   {program.hero.ctaLabel}
