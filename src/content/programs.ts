@@ -320,7 +320,6 @@ export const programs: Record<ProgramSlug, ProgramData> = {
       title: "Bu paket sana ne sağlar?",
       cards: [
         {
-          eyebrow: "Yeni Odak",
           title: "DİJİTAL VARLIK",
           description:
             "Sosyal medya ve online kanallarda dönüşüm odaklı, tutarlı bir iz",
@@ -331,7 +330,7 @@ export const programs: Record<ProgramSlug, ProgramData> = {
           description: "Markana özel, ölçeklenebilir sistem",
         },
         {
-          title: "MAKSİMUM KÂRLILIĞI",
+          title: "MAKSİMUM KÂRLILIK",
           description: "Düşük performanslı alanlar elenir, odak artar",
         },
         {

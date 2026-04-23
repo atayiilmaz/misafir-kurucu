@@ -88,6 +88,16 @@ export function ProgramHeroScene({ program }: ProgramHeroSceneProps) {
     () => [...program.hero.ticker, ...program.hero.ticker],
     [program.hero.ticker],
   );
+  const subtitleWords = program.hero.subtitle.split(" ");
+  const accentWord =
+    program.slug === "program-3" ? subtitleWords[subtitleWords.length - 1] : null;
+  const subtitleLead = accentWord
+    ? subtitleWords.slice(0, -1).join(" ")
+    : program.hero.subtitle;
+  const descriptionParagraphs = program.hero.description
+    .split(/\n\s*\n/)
+    .map((paragraph) => paragraph.replace(/\s*\n\s*/g, " ").trim())
+    .filter(Boolean);
 
   useGSAP(
     () => {
@@ -199,33 +209,41 @@ export function ProgramHeroScene({ program }: ProgramHeroSceneProps) {
       <div className="section-shell">
         <div className="grid min-h-[30rem] lg:grid-cols-[0.92fr_1.08fr]">
           <div>
-            <div className="ml-auto flex h-full w-full max-w-[41rem] flex-col justify-center px-0 py-10 md:py-14 lg:px-10 lg:py-16 xl:px-12">
+            <div className="ml-auto flex h-full w-full max-w-[41rem] flex-col justify-start px-0 py-10 md:py-14 lg:px-10 lg:py-16 xl:px-12">
               <div className="max-w-4xl overflow-hidden">
-                <h1 className="font-display text-[1.85rem] leading-[1.08] sm:text-[2.35rem] md:text-[3.5rem] lg:text-[3.5rem]">
-                  {program.heroTitle.split(" ").map((word) => (
-                    <span
-                      key={`${program.slug}-${word}`}
-                      className="mr-[0.18em] inline-block"
-                      data-hero-word
-                    >
-                      {word}
-                    </span>
-                  ))}
+                <h1 className="max-w-[11.5ch] text-[2.35rem] leading-[0.98] text-foreground sm:text-[3.2rem] md:text-[4.5rem] md:leading-[0.95] lg:text-[4.5rem]">
+                  <span className="font-display" data-hero-word>
+                    {subtitleLead}
+                  </span>
+                  {accentWord ? (
+                    <>
+                      <br />
+                      <span
+                        className="font-display text-primary"
+                        data-hero-word
+                      >
+                        {accentWord}
+                      </span>
+                    </>
+                  ) : null}
                 </h1>
               </div>
-              <p
-                className="mt-5 max-w-2xl whitespace-pre-line text-[1rem] leading-8 text-foreground/78 md:text-[1.02rem]"
+              <div className="mt-10 max-w-[37rem] space-y-5">
+                {descriptionParagraphs.map((paragraph) => (
+                  <p
+                    key={paragraph}
+                    className="text-[1rem] leading-8 text-foreground/72 md:text-[1.02rem]"
+                    data-hero-copy
+                  >
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+              <div
+                className="mt-10 h-px w-full max-w-[37rem] bg-foreground/12"
                 data-hero-copy
-              >
-                {program.hero.subtitle}
-              </p>
-              <p
-                className="mt-4 max-w-[33rem] whitespace-pre-line text-sm leading-7 text-foreground/60 md:text-[0.98rem] md:leading-8"
-                data-hero-copy
-              >
-                {program.hero.description}
-              </p>
-              <div className="mt-7" data-hero-copy>
+              />
+              <div className="mt-10" data-hero-copy>
                 <SubtleButton href="/gorusme-planlayin" size="lg">
                   {program.hero.ctaLabel}
                   <ArrowRight className="ml-2 h-4 w-4" />
