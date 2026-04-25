@@ -700,6 +700,33 @@ export const programs: Record<ProgramSlug, ProgramData> = {
         "Karşınızda kalabalık ekipler değil, her detaya bizzat hâkim olan bir yol arkadaşı bulacaksınız. Taahhüt olmadan, tam ihtiyacınız olduğu anda yanınızdayım.",
       ],
     },
+    support: {
+      title: "Neye yatırım yapıyorsunuz?",
+      columns: [
+        {
+          heading: "Neye yatırım yapıyorsunuz?",
+          items: [
+            "90 dakikalık birebir Zoom görüşmesi",
+            "Seans öncesi kısa değerlendirme formu",
+            "Seans sonrası yazılı özet & eylem planı",
+            "Konuya özel kaynaklar ve dökümanlar",
+            "48 saatlik mesaj takip desteği",
+            "Aylık taahhüt yok — ihtiyaç duyduğunda kullan",
+          ],
+        },
+        {
+          heading: "Hangi kaynaklara erişirsin?",
+          items: [
+            "Konuya özel strateji şablonları",
+            "Fiyatlandırma ve kârlılık analiz araçları",
+            "Koleksiyon planlama dökümanları",
+            "Üretim ve tedarikçi değerlendirme kılavuzları",
+            "Marka konumlandırma çerçeveleri",
+            "Güvenilir üretici ve tedarikçi bağlantıları",
+          ],
+        },
+      ],
+    },
     finalCta: {
       title: "Seansını Planla",
       description: "",

@@ -190,7 +190,7 @@ export function ProgramDetailPage() {
     });
   }
 
-  if (program.support) {
+  if (program.support && program.slug !== "program-3") {
     sections.push({
       key: "support",
       node: (
@@ -237,6 +237,18 @@ export function ProgramDetailPage() {
           quote={program.whyMe.quote}
           accent={program.whyMe.accent}
           paragraphs={program.whyMe.paragraphs}
+        />
+      ),
+    });
+  }
+
+  if (program.support && program.slug === "program-3") {
+    sections.push({
+      key: "support",
+      node: (
+        <ProgramSupportScene
+          title={program.support.title}
+          columns={program.support.columns}
         />
       ),
     });
