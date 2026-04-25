@@ -11,7 +11,7 @@ import { AppLink } from "@/components/ui/app-link";
 const company = [
   { title: "Hakkımda", href: "/hakkimda" },
   { title: "Blog", href: "/blog" },
-  { title: "Sıkça Sorulan Sorular", href: "/sikca-sorulan-sorular" },
+  { title: "SSS", href: "/sikca-sorulan-sorular" },
 ];
 
 const resources = [
@@ -71,7 +71,7 @@ export function MinimalFooter() {
                     </p>
                   </div>
                 </div>
-                <p className="max-w-sm text-sm leading-7 text-muted-foreground">
+                <p className="max-w-sm text-base leading-7 text-muted-foreground">
                   Sevinç tarafından verilen, tekstil sektöründe girişimcilik
                   hedefleyenler için üretim, marka ve satış tarafını bir araya
                   getiren uygulanabilir danışmanlık.
@@ -92,14 +92,14 @@ export function MinimalFooter() {
               </div>
 
               <div className="col-span-3 w-full md:col-span-1">
-                <span className="mb-1 text-xs tracking-[0.24em] text-muted-foreground">
+                <span className="mb-1 text-sm tracking-[0.24em] text-muted-foreground">
                   Sayfalar
                 </span>
                 <div className="mt-4 flex flex-col gap-1">
                   {company.map(({ href, title }) => (
                     <AppLink
                       key={title}
-                      className="w-max py-1 text-sm duration-200 hover:underline"
+                      className="w-max py-1 text-base duration-200 hover:underline"
                       href={href}
                     >
                       {title}
@@ -109,14 +109,14 @@ export function MinimalFooter() {
               </div>
 
               <div className="col-span-3 w-full md:col-span-1">
-                <span className="mb-1 text-xs tracking-[0.24em] text-muted-foreground">
+                <span className="mb-1 text-sm tracking-[0.24em] text-muted-foreground">
                   İletişim
                 </span>
                 <div className="mt-4 flex flex-col gap-1">
                   {resources.map(({ href, title }) => (
                     <AppLink
                       key={title}
-                      className="w-max py-1 text-sm duration-200 hover:underline"
+                      className="w-max py-1 text-base duration-200 hover:underline"
                       href={href}
                     >
                       {title}
@@ -129,7 +129,7 @@ export function MinimalFooter() {
 
           <div className="absolute inset-x-0 bottom-14 h-px bg-border/80" />
           <div className="flex flex-col justify-between gap-2 px-5 pb-5 pt-3 md:px-8">
-            <p className="text-center text-sm font-light text-muted-foreground">
+            <p className="text-center text-base font-light text-muted-foreground">
               © {year} Misafir Kurucu. Tüm hakları saklıdır.
             </p>
           </div>

@@ -325,9 +325,14 @@ export function ProgramBenefitCardsScene({
   cards,
 }: ProgramBenefitCardsSceneProps) {
   const rootRef = useRef<HTMLElement | null>(null);
+  const usesBentoLayout = cards.length > 3 && cards.length % 2 === 1;
 
   const gridColumnClass =
-    cards.length === 3 ? "md:grid-cols-3" : "md:grid-cols-2 lg:grid-cols-3";
+    cards.length === 3
+      ? "md:grid-cols-3"
+      : usesBentoLayout
+        ? "gap-4 border-0 bg-transparent md:grid-cols-2 lg:auto-rows-fr lg:grid-cols-3"
+        : "md:grid-cols-2 lg:grid-cols-3";
 
   useGSAP(
     () => {
@@ -420,18 +425,23 @@ export function ProgramBenefitCardsScene({
         <div
           className={cn(
             "mt-14 grid overflow-hidden border border-foreground/12 bg-white/35",
+            usesBentoLayout && "overflow-visible border-0 bg-transparent",
             gridColumnClass,
           )}
         >
           {cards.map((card, index) => {
             const isLast = index === cards.length - 1;
+            const isBentoFeature = usesBentoLayout && index === 0;
 
             return (
               <article
                 key={`${card.title}-${card.description ?? "empty"}`}
                 className={cn(
-                  "group relative border-b border-foreground/12 p-7 transition-colors duration-300 hover:bg-white/50 md:border-b-0 md:border-r md:px-8 md:py-10",
-                  isLast && "border-b-0 md:border-r-0",
+                  usesBentoLayout
+                    ? "group relative rounded-[1.5rem] border border-foreground/12 bg-white/35 p-7 transition-colors duration-300 hover:bg-white/55 md:px-8 md:py-10"
+                    : "group relative border-b border-foreground/12 p-7 transition-colors duration-300 hover:bg-white/50 md:border-b-0 md:border-r md:px-8 md:py-10",
+                  !usesBentoLayout && isLast && "border-b-0 md:border-r-0",
+                  isBentoFeature && "lg:row-span-2 lg:min-h-[24rem]",
                 )}
                 data-benefit-card
               >

@@ -278,7 +278,7 @@ main section :is(h1, h2, h3, h4, h5, h6) :is(span, em, strong) {
   main section .parallax-image-section .font-display,
   main section.parallax-image-section .font-display :is(span, em, strong),
   main section .parallax-image-section .font-display :is(span, em, strong) {
-    font-size: 32px !important;
+    font-size: 36px !important;
   }
 
   main section.parallax-scroll-feature-section [class*="text-lg"],

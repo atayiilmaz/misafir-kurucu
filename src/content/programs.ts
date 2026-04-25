@@ -165,11 +165,31 @@ export const programs: Record<ProgramSlug, ProgramData> = {
     benefits: {
       title: "Bu paket sana ne sağlar?",
       cards: [
-        { title: "Sermayeni korursun" },
-        { title: "Kaostan kurtulursun" },
-        { title: "Süreçlerindeki dağınıklığı net bir sisteme dönüştürürsün" },
-        { title: "Zaman kazanırsın" },
-        { title: "Deneme-yanılma ile aylar kaybetmezsin." },
+        {
+          title: "Sermayeni korursun",
+          description:
+            "Başlangıçta yapılan pahalı hataların önüne geçer, bütçeni doğru önceliklere yönlendirirsin.",
+        },
+        {
+          title: "Kaostan kurtulursun",
+          description:
+            "Nereden başlayacağını, hangi sırayla ilerleyeceğini ve hangi kararları ertelemen gerektiğini netleştirirsin.",
+        },
+        {
+          title: "Süreçlerindeki dağınıklığı net bir sisteme dönüştürürsün",
+          description:
+            "Fikir, üretim, fiyatlandırma, satış ve lansman adımlarını birbirine bağlı çalışan bir plana çevirirsin.",
+        },
+        {
+          title: "Zaman kazanırsın",
+          description:
+            "Aylar sürecek araştırma ve kararsızlık yerine, uygulanabilir bir yol haritasıyla daha hızlı aksiyon alırsın.",
+        },
+        {
+          title: "Deneme-yanılma ile aylar kaybetmezsin.",
+          description:
+            "Daha önce test edilmiş saha deneyimiyle ilerler, markanı kurarken hangi risklerden uzak durman gerektiğini bilirsin.",
+        },
       ],
     },
     audience: {
