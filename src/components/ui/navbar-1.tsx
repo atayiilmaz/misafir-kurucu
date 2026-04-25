@@ -155,15 +155,15 @@ export function Navbar1({ items }: Navbar1Props) {
 
                   <AnimatePresence>
                     {desktopProgramsOpen && (
-                      <div className="absolute left-1/2 top-full z-20 w-[22rem] -translate-x-1/2 pt-3">
+                      <div className="absolute left-1/2 top-full z-20 w-[18.5rem] -translate-x-1/2 pt-2">
                         <motion.div
                           initial={{ opacity: 0, y: 12, scale: 0.98 }}
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, y: 10, scale: 0.98 }}
                           transition={{ duration: 0.18, ease: "easeOut" }}
-                          className="overflow-hidden rounded-[2rem] border border-white/80 bg-[linear-gradient(180deg,rgba(255,251,247,0.98),rgba(252,240,228,0.98))] p-3 shadow-[0_22px_55px_-30px_rgba(43,31,22,0.34)] backdrop-blur"
+                          className="overflow-hidden rounded-[1.35rem] border border-white/80 bg-[linear-gradient(180deg,rgba(255,251,247,0.98),rgba(252,240,228,0.98))] p-2 shadow-[0_18px_42px_-28px_rgba(43,31,22,0.34)] backdrop-blur"
                         >
-                          <div className="space-y-1">
+                          <div className="space-y-0.5">
                             {item.children.map((child) => (
                               <NavLink
                                 key={child.label}
@@ -171,7 +171,7 @@ export function Navbar1({ items }: Navbar1Props) {
                                 onClick={closeDesktopPrograms}
                                 className={({ isActive }) =>
                                   cn(
-                                    "block rounded-[1.4rem] border border-transparent px-4 py-3 text-sm font-semibold transition-all duration-200",
+                                    "block rounded-[0.95rem] border border-transparent px-3.5 py-2.5 text-sm font-semibold transition-all duration-200",
                                     isActive
                                       ? "border-primary/12 bg-primary/10 text-primary"
                                       : "text-foreground/88 hover:border-primary/10 hover:bg-white/85 hover:text-primary",
