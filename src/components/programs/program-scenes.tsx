@@ -94,6 +94,13 @@ type ProgramSessionContentSceneProps = {
   cards: ProgramBenefitCard[];
 };
 
+type ProgramWhyMeSceneProps = {
+  title: string;
+  quote: string;
+  accent: string;
+  paragraphs: string[];
+};
+
 type ProgramFinalCtaProps = {
   title: string;
   description: string;
@@ -1964,6 +1971,104 @@ export function ProgramSessionContentScene({
               </article>
             );
           })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function ProgramWhyMeScene({
+  title,
+  quote,
+  accent,
+  paragraphs,
+}: ProgramWhyMeSceneProps) {
+  const rootRef = useRef<HTMLElement | null>(null);
+  const quoteParts = quote.split(accent);
+
+  useGSAP(
+    () => {
+      const root = rootRef.current;
+
+      if (!root) {
+        return;
+      }
+
+      const mm = gsap.matchMedia();
+
+      mm.add(
+        {
+          reduce: "(prefers-reduced-motion: reduce)",
+          motion: "(prefers-reduced-motion: no-preference)",
+        },
+        (context) => {
+          const conditions = context.conditions as
+            | { reduce?: boolean; motion?: boolean }
+            | undefined;
+
+          if (conditions?.reduce) {
+            gsap.set(["[data-why-copy]"], {
+              autoAlpha: 1,
+              y: 0,
+              clearProps: "all",
+            });
+            return;
+          }
+
+          gsap.from("[data-why-copy]", {
+            autoAlpha: 0,
+            y: 40,
+            stagger: 0.12,
+            duration: 0.84,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: root,
+              start: "top 76%",
+              once: true,
+            },
+          });
+        },
+      );
+
+      return () => mm.revert();
+    },
+    { scope: rootRef },
+  );
+
+  return (
+    <section ref={rootRef} className="section-shell section-space border-b border-foreground/10">
+      <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+        <div>
+          <h2
+            className="font-display text-[2rem] leading-[1.02] text-foreground sm:text-[2.45rem] md:text-[3rem]"
+            data-why-copy
+          >
+            {title}
+          </h2>
+          <p
+            className="mt-10 max-w-3xl font-display !text-[24px] italic leading-snug text-foreground"
+            data-why-copy
+          >
+            {quoteParts[0]}
+            {quoteParts.length > 1 ? (
+              <>
+                <span className="!text-[24px] text-primary/55">{accent}</span>
+                {quoteParts.slice(1).join(accent)}
+              </>
+            ) : null}
+          </p>
+        </div>
+
+        <div className="space-y-7 pt-1 lg:pt-2">
+          {paragraphs.map((paragraph) => (
+            <p
+              key={paragraph}
+              className="max-w-4xl text-base leading-8 text-foreground/72 md:text-[1.02rem]"
+              data-why-copy
+            >
+              {paragraph}
+            </p>
+          ))}
         </div>
       </div>
     </section>

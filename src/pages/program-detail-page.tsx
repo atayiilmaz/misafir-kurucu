@@ -12,6 +12,7 @@ import {
   ProgramSessionContentScene,
   ProgramSplitListScene,
   ProgramSupportScene,
+  ProgramWhyMeScene,
 } from "@/components/programs/program-scenes";
 import { programs, type ProgramSlug } from "@/content/programs";
 import { SITE_NAME, SITE_URL, absoluteUrl, useSeo } from "@/lib/seo";
@@ -227,6 +228,20 @@ export function ProgramDetailPage() {
     });
   }
 
+  if (program.whyMe) {
+    sections.push({
+      key: "why-me",
+      node: (
+        <ProgramWhyMeScene
+          title={program.whyMe.title}
+          quote={program.whyMe.quote}
+          accent={program.whyMe.accent}
+          paragraphs={program.whyMe.paragraphs}
+        />
+      ),
+    });
+  }
+
   return (
     <>
       <ProgramHeroScene program={program} />
@@ -238,6 +253,8 @@ export function ProgramDetailPage() {
               ? sectionBands.orange
               : section.key === "session-content"
                 ? sectionBands.blue
+                : section.key === "why-me"
+                  ? sectionBands.orange
               : index % 2 === 0
                 ? sectionBands.blue
                 : sectionBands.orange,

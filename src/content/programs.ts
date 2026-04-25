@@ -100,6 +100,12 @@ export type ProgramData = {
     title: string;
     cards: ProgramBenefitCard[];
   };
+  whyMe?: {
+    title: string;
+    quote: string;
+    accent: string;
+    paragraphs: string[];
+  };
   analysisModes?: {
     title: string;
     columns: ProgramAnalysisMode[];
@@ -683,6 +689,15 @@ export const programs: Record<ProgramSlug, ProgramData> = {
           description:
             "İhtiyaç duyduğunuzda yeni seans eklenebilir. Taahhüt yok, esneklik var.",
         },
+      ],
+    },
+    whyMe: {
+      title: "Neden benimle?",
+      quote: '"Bir ajans değil, sektörün mutfağından gelen bir uzman."',
+      accent: "mutfağından",
+      paragraphs: [
+        "Tekstil sektörü deneme-yanılma yöntemini kaldırmayacak kadar hızlı ve maliyetlidir. Size sadece teorik bilgi vermiyorum; 16 yıllık network'ümü, üretim tecrübemi ve ticari öngörülerimi doğrudan markanıza aktarıyorum.",
+        "Karşınızda kalabalık ekipler değil, her detaya bizzat hâkim olan bir yol arkadaşı bulacaksınız. Taahhüt olmadan, tam ihtiyacınız olduğu anda yanınızdayım.",
       ],
     },
     finalCta: {
