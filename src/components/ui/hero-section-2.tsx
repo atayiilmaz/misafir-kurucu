@@ -114,22 +114,22 @@ export const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
                   className="home-hero-actions mt-7 flex flex-wrap items-center gap-3 md:mt-8 md:gap-4"
                   variants={itemVariants}
                 >
-                  <SubtleButton
+                  <SecondaryButton
                     href={callToAction.href}
                     size="lg"
                     fullWidth
                     className="home-hero-action h-11 px-6 text-[0.95rem] sm:h-12 sm:w-auto sm:min-w-[13rem] sm:px-8 sm:text-base"
                   >
                     {callToAction.text}
-                  </SubtleButton>
-                  <SecondaryButton
+                  </SecondaryButton>
+                  <SubtleButton
                     href="/gorusme-planlayin"
                     size="lg"
                     fullWidth
                     className="home-hero-action h-11 px-6 text-[0.95rem] sm:h-12 sm:w-auto sm:min-w-[13rem] sm:px-8 sm:text-base"
                   >
                     Görüşme Planlayın
-                  </SecondaryButton>
+                  </SubtleButton>
                 </motion.div>
               </motion.div>
             </div>
