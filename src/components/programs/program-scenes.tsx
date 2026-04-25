@@ -36,6 +36,13 @@ type ProgramListSceneProps = {
   imageOnRight?: boolean;
 };
 
+type ProgramSplitListSceneProps = {
+  leftTitle: string;
+  leftItems: string[];
+  rightTitle: string;
+  rightItems: string[];
+};
+
 type ProgramPackageSceneProps = {
   title: string;
   items: ProgramPackageItem[];
@@ -701,6 +708,134 @@ export function ProgramListScene({
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function ProgramSplitListScene({
+  leftTitle,
+  leftItems,
+  rightTitle,
+  rightItems,
+}: ProgramSplitListSceneProps) {
+  const rootRef = useRef<HTMLElement | null>(null);
+
+  useGSAP(
+    () => {
+      const root = rootRef.current;
+
+      if (!root) {
+        return;
+      }
+
+      const mm = gsap.matchMedia();
+
+      mm.add(
+        {
+          reduce: "(prefers-reduced-motion: reduce)",
+          motion: "(prefers-reduced-motion: no-preference)",
+        },
+        (context) => {
+          const conditions = context.conditions as
+            | { reduce?: boolean; motion?: boolean }
+            | undefined;
+
+          const rows = gsap.utils.toArray<HTMLElement>("[data-split-row]");
+
+          if (conditions?.reduce) {
+            gsap.set(["[data-split-copy]", rows], {
+              autoAlpha: 1,
+              y: 0,
+              clearProps: "all",
+            });
+            return;
+          }
+
+          const timeline = gsap.timeline({
+            defaults: { duration: 0.8, ease: "power3.out" },
+            scrollTrigger: {
+              trigger: root,
+              start: "top 76%",
+              once: true,
+            },
+          });
+
+          timeline
+            .from("[data-split-copy]", {
+              autoAlpha: 0,
+              y: 34,
+              stagger: 0.08,
+            })
+            .from(
+              rows,
+              {
+                autoAlpha: 0,
+                y: 24,
+                stagger: 0.045,
+              },
+              0.12,
+            );
+        },
+      );
+
+      return () => mm.revert();
+    },
+    { scope: rootRef },
+  );
+
+  return (
+    <section ref={rootRef} className="w-full border-b border-foreground/10 text-foreground">
+      <div className="grid min-h-[42rem] lg:grid-cols-2">
+        <div className="flex bg-[linear-gradient(180deg,rgba(239,244,255,0.88),rgba(245,248,255,0.72))] text-foreground">
+          <div className="mx-auto flex w-full max-w-[45rem] flex-col justify-start px-5 py-16 sm:px-8 md:px-12 md:py-20 lg:ml-auto lg:px-16 xl:px-20">
+            <div data-split-copy>
+              <h2 className="font-display text-[2rem] leading-[1.02] text-foreground sm:text-[2.45rem] md:text-[3rem]">
+                {leftTitle}
+              </h2>
+            </div>
+
+            <div className="mt-12">
+              {leftItems.map((item) => (
+                <div
+                  key={`${leftTitle}-${item}`}
+                  className="flex gap-5 border-b border-foreground/12 py-5 last:border-b-0"
+                  data-split-row
+                >
+                  <span className="mt-3 h-px w-5 shrink-0 bg-primary/75" />
+                  <p className="max-w-2xl text-base leading-8 text-foreground/74 md:text-[1.05rem]">
+                    {item}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="flex bg-[rgba(255,247,240,0.94)]">
+          <div className="mx-auto flex w-full max-w-[45rem] flex-col justify-start px-5 py-16 sm:px-8 md:px-12 md:py-20 lg:mr-auto lg:px-16 xl:px-20">
+            <div data-split-copy>
+              <h2 className="font-display text-[2rem] leading-[1.02] text-foreground sm:text-[2.45rem] md:text-[3rem]">
+                {rightTitle}
+              </h2>
+            </div>
+
+            <div className="mt-12">
+              {rightItems.map((item) => (
+                <div
+                  key={`${rightTitle}-${item}`}
+                  className="flex gap-5 border-b border-foreground/12 py-4 last:border-b-0 md:py-5"
+                  data-split-row
+                >
+                  <MoveRight className="mt-1.5 h-4 w-4 shrink-0 text-primary/75" />
+                  <p className="max-w-2xl text-base leading-8 text-foreground/74 md:text-[1.05rem]">
+                    {item}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

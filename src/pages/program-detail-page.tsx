@@ -8,6 +8,7 @@ import {
   ProgramNarrativeScene,
   ProgramPackageScene,
   ProgramProcessScene,
+  ProgramSplitListScene,
   ProgramSupportScene,
 } from "@/components/programs/program-scenes";
 import { programs, type ProgramSlug } from "@/content/programs";
@@ -59,6 +60,10 @@ export function ProgramDetailPage() {
   }
 
   const sections: Array<{ key: string; node: ReactNode }> = [];
+  const strategicSplitBlocks =
+    program.slug === "program-3" && program.audience && program.advisoryAreas
+      ? { audience: program.audience, advisoryAreas: program.advisoryAreas }
+      : null;
 
   if (program.benefits) {
     sections.push({
@@ -74,7 +79,19 @@ export function ProgramDetailPage() {
     });
   }
 
-  if (program.audience) {
+  if (strategicSplitBlocks) {
+    sections.push({
+      key: "strategic-audience-advisory",
+      node: (
+        <ProgramSplitListScene
+          leftTitle={strategicSplitBlocks.audience.title}
+          leftItems={strategicSplitBlocks.audience.items}
+          rightTitle={strategicSplitBlocks.advisoryAreas.title}
+          rightItems={strategicSplitBlocks.advisoryAreas.items}
+        />
+      ),
+    });
+  } else if (program.audience) {
     sections.push({
       key: "audience",
       node: (
@@ -142,7 +159,7 @@ export function ProgramDetailPage() {
     });
   }
 
-  if (program.advisoryAreas) {
+  if (program.advisoryAreas && !strategicSplitBlocks) {
     sections.push({
       key: "advisory",
       node: (

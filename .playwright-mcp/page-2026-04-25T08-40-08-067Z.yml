@@ -1,0 +1,98 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - link "Misafir Kurucu" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - img [ref=e8]
+        - paragraph [ref=e14]: Misafir Kurucu
+      - generic [ref=e15]:
+        - navigation [ref=e16]:
+          - link "Anasayfa" [ref=e17] [cursor=pointer]:
+            - /url: /
+          - link "Hakkımda" [ref=e18] [cursor=pointer]:
+            - /url: /hakkimda
+          - button "Programlar" [ref=e20] [cursor=pointer]:
+            - text: Programlar
+            - img [ref=e21]
+          - link "Blog" [ref=e23] [cursor=pointer]:
+            - /url: /blog
+          - link "SSS" [ref=e24] [cursor=pointer]:
+            - /url: /sikca-sorulan-sorular
+        - link "Görüşme Planlayın" [ref=e25] [cursor=pointer]:
+          - /url: /gorusme-planlayin
+          - generic [ref=e27]: Görüşme Planlayın
+  - main [ref=e28]:
+    - generic [ref=e29]:
+      - generic [ref=e33]:
+        - heading "İhtiyacın Kadar, Doğru Noktada Danışmanlık" [level=1] [ref=e35]:
+          - text: İhtiyacın Kadar, Doğru Noktada
+          - text: Danışmanlık
+        - link "Seansını Planla" [ref=e37] [cursor=pointer]:
+          - /url: /gorusme-planlayin
+          - generic [ref=e39]:
+            - text: Seansını Planla
+            - img [ref=e40]
+      - generic [ref=e61]:
+        - generic [ref=e62]:
+          - heading "Neden benimle?" [level=2] [ref=e63]
+          - blockquote [ref=e64]: Bir ajans değil, sektörün mutfağından gelen bir uzman.
+        - generic [ref=e65]:
+          - paragraph [ref=e66]: Tekstil sektörü deneme-yanılma yöntemini kaldırmayacak kadar hızlı ve maliyetlidir. Size sadece teorik bilgi vermiyorum; 16 yıllık network'ümü, üretim tecrübemi ve ticari öngörülerimi doğrudan markanıza aktarıyorum.
+          - paragraph [ref=e67]: Karşınızda kalabalık ekipler değil, her detaya bizzat hâkim olan bir yol arkadaşı bulacaksınız. Taahhüt olmadan, tam ihtiyacınız olduğu anda yanınızdayım.
+      - generic [ref=e75]:
+        - generic [ref=e76]:
+          - paragraph [ref=e77]: Son Adım
+          - heading "Takıldığın noktada doğru soruyu birlikte soralım." [level=2] [ref=e78]
+          - paragraph [ref=e79]: İhtiyacın olan konuya odaklanan 90 dakikalık seansı birlikte planlayalım.
+        - link "Seansını Planla" [ref=e81] [cursor=pointer]:
+          - /url: /gorusme-planlayin
+          - generic [ref=e83]:
+            - text: Seansını Planla
+            - img [ref=e84]
+  - contentinfo [ref=e86]:
+    - generic [ref=e88]:
+      - generic [ref=e90]:
+        - generic [ref=e91]:
+          - generic [ref=e93]:
+            - img [ref=e95]
+            - paragraph [ref=e101]: Misafir Kurucu
+          - paragraph [ref=e102]: Sevinç tarafından verilen, tekstil sektöründe girişimcilik hedefleyenler için üretim, marka ve satış tarafını bir araya getiren uygulanabilir danışmanlık.
+          - generic [ref=e103]:
+            - link [ref=e104] [cursor=pointer]:
+              - /url: https://www.instagram.com/misafirkurucu/
+              - img [ref=e105]
+            - link [ref=e108] [cursor=pointer]:
+              - /url: https://www.linkedin.com/in/sevincgurguzel/
+              - img [ref=e109]
+            - link [ref=e113] [cursor=pointer]:
+              - /url: https://www.youtube.com/@misafirkurucu
+              - img [ref=e114]
+            - link [ref=e117] [cursor=pointer]:
+              - /url: https://www.instagram.com/misafirkurucu/
+              - img [ref=e118]
+            - link [ref=e121] [cursor=pointer]:
+              - /url: mailto:misafirkurucu@gmail.com
+              - img [ref=e122]
+        - generic [ref=e125]:
+          - text: Sayfalar
+          - generic [ref=e126]:
+            - link "Hakkımda" [ref=e127] [cursor=pointer]:
+              - /url: /hakkimda
+            - link "Blog" [ref=e128] [cursor=pointer]:
+              - /url: /blog
+            - link "SSS" [ref=e129] [cursor=pointer]:
+              - /url: /sikca-sorulan-sorular
+        - generic [ref=e130]:
+          - text: İletişim
+          - generic [ref=e131]:
+            - link "Ücretsiz İçerikler" [ref=e132] [cursor=pointer]:
+              - /url: /blog
+            - link "Görüşme Planlayın" [ref=e133] [cursor=pointer]:
+              - /url: /gorusme-planlayin
+            - link "Instagram" [ref=e134] [cursor=pointer]:
+              - /url: https://www.instagram.com/misafirkurucu/
+            - link "LinkedIn" [ref=e135] [cursor=pointer]:
+              - /url: https://www.linkedin.com/in/sevincgurguzel/
+            - link "E-posta" [ref=e136] [cursor=pointer]:
+              - /url: mailto:misafirkurucu@gmail.com
+      - paragraph [ref=e139]: © 2026 Misafir Kurucu. Tüm hakları saklıdır.
