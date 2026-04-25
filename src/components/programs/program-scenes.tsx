@@ -1714,7 +1714,7 @@ export function ProgramAnalysisModesScene({
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
                 {column.heading}
               </p>
-              <h3 className="mt-5 text-[1.2rem] font-semibold leading-tight text-primary md:text-[1.45rem]">
+              <h3 className="mt-5 text-[1.2rem] font-semibold leading-tight text-foreground md:text-[1.45rem]">
                 {column.title}
               </h3>
               <p className="mt-5 text-base leading-8 text-foreground/74">
