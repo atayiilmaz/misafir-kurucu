@@ -320,29 +320,29 @@ export const programs: Record<ProgramSlug, ProgramData> = {
       title: "Bu paket sana ne sağlar?",
       cards: [
         {
-          title: "DİJİTAL VARLIK",
+          title: "Dijital Varlık",
           description:
             "Sosyal medya ve online kanallarda dönüşüm odaklı, tutarlı bir iz",
           highlight: true,
         },
         {
-          title: "STRATEJİK BÜYÜME",
+          title: "Stratejik Büyüme",
           description: "Markana özel, ölçeklenebilir sistem",
         },
         {
-          title: "MAKSİMUM KÂRLILIK",
+          title: "Maksimum Kârlılık",
           description: "Düşük performanslı alanlar elenir, odak artar",
         },
         {
-          title: "SİSTEMLEME",
+          title: "Sistemleme",
           description: "Kişilere değil, sürece bağlı operasyon",
         },
         {
-          title: "GLOBAL ALGI",
+          title: "Global Algı",
           description: "Görsel dil ve iletişim premium seviyeye",
         },
         {
-          title: "KOLEKSİYON DİSİPLİNİ",
+          title: "Koleksiyon Disiplini",
           description: "Sepet ortalamasını artıran ürün yapısı",
         },
       ],
@@ -532,21 +532,22 @@ export const programs: Record<ProgramSlug, ProgramData> = {
     },
     benefits: {
       title: "90 dakikada ne elde edersiniz?",
-      intro: ["Bu modelde süreç tamamen sana göre şekillenir."],
       cards: [
         {
           title: "Sadece ihtiyaç duyduğun konuda",
+          description:
+            "Tüm süreci baştan almak yerine, tam sıkıştığın noktadan devreye girerek hızla ilerliyoruz.",
         },
         {
           title: "Tam ihtiyaç duyduğun zamanda",
+          description:
+            "Aylık danışmanlık taahhüdü olmadan, kritik kararlar öncesinde uzman görüşü alırsın.",
         },
         {
-          title: "Net ve uygulanabilir çözümler alırsın.",
+          title: "Net ve uygulanabilir çözümler",
+          description:
+            "Hazır şablon değil, markanıza özel ve doğrudan kullanabileceğiniz stratejik çıktılar.",
         },
-      ],
-      outro: [
-        "Spesifik sorunuza uygulanabilir bir yol çizilir.",
-        "Hazır şablon değil, markanıza özel, doğrudan kullanabileceğiniz çözümler sunulur.",
       ],
     },
     audience: {
