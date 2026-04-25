@@ -4,6 +4,7 @@ import {
   ProgramAnalysisModesScene,
   ProgramBenefitCardsScene,
   ProgramHeroScene,
+  ProgramHowItWorksScene,
   ProgramListScene,
   ProgramNarrativeScene,
   ProgramPackageScene,
@@ -199,6 +200,20 @@ export function ProgramDetailPage() {
     });
   }
 
+  if (program.howItWorks) {
+    sections.push({
+      key: "how-it-works",
+      node: (
+        <ProgramHowItWorksScene
+          order={program.howItWorks.order}
+          title={program.howItWorks.title}
+          intro={program.howItWorks.intro}
+          steps={program.howItWorks.steps}
+        />
+      ),
+    });
+  }
+
   return (
     <>
       <ProgramHeroScene program={program} />
@@ -206,7 +221,11 @@ export function ProgramDetailPage() {
         <div
           key={section.key}
           className={[
-            index % 2 === 0 ? sectionBands.blue : sectionBands.orange,
+            section.key === "how-it-works"
+              ? sectionBands.orange
+              : index % 2 === 0
+                ? sectionBands.blue
+                : sectionBands.orange,
             index === 0 ? "[&>section]:py-20 [&>section]:md:py-28" : "",
           ].join(" ")}
         >

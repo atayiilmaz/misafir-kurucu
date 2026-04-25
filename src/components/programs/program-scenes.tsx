@@ -9,6 +9,7 @@ import type {
   ProgramAnalysisMode,
   ProgramBenefitCard,
   ProgramData,
+  ProgramHowItWorksStep,
   ProgramPackageItem,
   ProgramProcessStep,
 } from "@/content/programs";
@@ -79,6 +80,13 @@ type ProgramProcessSceneProps = {
 type ProgramAnalysisModesSceneProps = {
   title: string;
   columns: ProgramAnalysisMode[];
+};
+
+type ProgramHowItWorksSceneProps = {
+  order: string;
+  title: string;
+  intro: string[];
+  steps: ProgramHowItWorksStep[];
 };
 
 type ProgramFinalCtaProps = {
@@ -1702,6 +1710,134 @@ export function ProgramAnalysisModesScene({
               </p>
             </article>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function ProgramHowItWorksScene({
+  title,
+  intro,
+  steps,
+}: ProgramHowItWorksSceneProps) {
+  const rootRef = useRef<HTMLElement | null>(null);
+
+  useGSAP(
+    () => {
+      const root = rootRef.current;
+
+      if (!root) {
+        return;
+      }
+
+      const mm = gsap.matchMedia();
+
+      mm.add(
+        {
+          reduce: "(prefers-reduced-motion: reduce)",
+          motion: "(prefers-reduced-motion: no-preference)",
+        },
+        (context) => {
+          const conditions = context.conditions as
+            | { reduce?: boolean; motion?: boolean }
+            | undefined;
+
+          if (conditions?.reduce) {
+            gsap.set(["[data-how-copy]", "[data-how-step]"], {
+              autoAlpha: 1,
+              y: 0,
+              clearProps: "all",
+            });
+            return;
+          }
+
+          const timeline = gsap.timeline({
+            defaults: {
+              duration: 0.84,
+              ease: "power3.out",
+            },
+            scrollTrigger: {
+              trigger: root,
+              start: "top 76%",
+              once: true,
+            },
+          });
+
+          timeline
+            .from("[data-how-copy]", {
+              autoAlpha: 0,
+              y: 38,
+              stagger: 0.1,
+            })
+            .from(
+              "[data-how-step]",
+              {
+                autoAlpha: 0,
+                y: 34,
+                stagger: 0.12,
+              },
+              0.14,
+            );
+        },
+      );
+
+      return () => mm.revert();
+    },
+    { scope: rootRef },
+  );
+
+  return (
+    <section
+      ref={rootRef}
+      className="w-full border-b border-t border-foreground/10 text-foreground"
+    >
+      <div className="grid min-h-[40rem] lg:grid-cols-2">
+        <div className="flex border-b border-foreground/10 lg:border-b-0 lg:border-r">
+          <div className="mx-auto flex w-full max-w-[45rem] flex-col justify-center px-5 py-16 sm:px-8 md:px-12 md:py-20 lg:ml-auto lg:px-16 xl:px-20">
+            <div data-how-copy>
+              <h2 className="font-display text-[2rem] leading-[1.02] text-foreground sm:text-[2.45rem] md:text-[3rem]">
+                {title}
+              </h2>
+            </div>
+
+            <div className="mt-16 max-w-[45rem] space-y-7" data-how-copy>
+              {intro.map((paragraph) => (
+                <p
+                  key={paragraph}
+                  className="text-base leading-8 text-foreground/72 md:text-[1.05rem]"
+                >
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="flex">
+          <div className="mx-auto flex w-full max-w-[45rem] flex-col justify-center px-5 py-14 sm:px-8 md:px-12 md:py-20 lg:mr-auto lg:px-16 xl:px-20">
+            <div className="divide-y divide-foreground/10">
+              {steps.map((step) => (
+                <article
+                  key={`${step.label}-${step.title}`}
+                  className="grid gap-4 py-7 first:pt-0 last:pb-0 md:grid-cols-[6.25rem_1fr] md:gap-7 md:py-8"
+                  data-how-step
+                >
+                  <div className="text-sm font-semibold uppercase tracking-[0.22em] text-primary/68">
+                    {step.label}
+                  </div>
+                  <div>
+                    <h3 className="text-[1.22rem] font-semibold leading-tight text-foreground md:text-[1.42rem]">
+                      {step.title}
+                    </h3>
+                    <p className="mt-3 text-base leading-7 text-foreground/56 md:text-[1rem]">
+                      {step.description}
+                    </p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

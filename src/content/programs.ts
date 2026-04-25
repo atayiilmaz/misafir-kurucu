@@ -30,6 +30,12 @@ export type ProgramProcessStep = {
   description: string;
 };
 
+export type ProgramHowItWorksStep = {
+  label: string;
+  title: string;
+  description: string;
+};
+
 export type ProgramData = {
   slug: ProgramSlug;
   order: string;
@@ -83,6 +89,12 @@ export type ProgramData = {
     title: string;
     intro: string[];
     steps: ProgramProcessStep[];
+  };
+  howItWorks?: {
+    order: string;
+    title: string;
+    intro: string[];
+    steps: ProgramHowItWorksStep[];
   };
   analysisModes?: {
     title: string;
@@ -592,6 +604,40 @@ export const programs: Record<ProgramSlug, ProgramData> = {
         "Global Pazar Stratejileri",
         "Fiziksel mağaza / showroom stratejileri",
         "Markana özel konular",
+      ],
+    },
+    howItWorks: {
+      order: "04",
+      title: "Nasıl çalışır?",
+      intro: [
+        "Bu modelde süreç tamamen sana göre şekillenir. Bir seansta istediğin konuya odaklanır, net bir eylem planıyla çıkarsın.",
+        "Spesifik sorunuza uygulanabilir bir yol çizilir. Hazır şablon değil, markanıza özel çözümler sunulur.",
+      ],
+      steps: [
+        {
+          label: "ADIM 1",
+          title: "Konu & İhtiyaç Belirlenir",
+          description:
+            "Hangi konuda takıldığını, nerede destek aradığını kısaca paylaşırsın.",
+        },
+        {
+          label: "ADIM 2",
+          title: "Seans Planlanır",
+          description:
+            "Zoom üzerinden 90 dakikalık birebir görüşme takvime eklenir.",
+        },
+        {
+          label: "ADIM 3",
+          title: "Odaklı Çalışma",
+          description:
+            "Seans boyunca yalnızca o konuya odaklanılır, somut stratejiler ve eylem adımları belirlenir.",
+        },
+        {
+          label: "ADIM 4",
+          title: "Özet & Takip",
+          description:
+            "Görüşme sonrası seans özeti ve uygulanabilir notlar iletilir.",
+        },
       ],
     },
     finalCta: {
