@@ -1795,11 +1795,11 @@ export function ProgramHowItWorksScene({
   return (
     <section
       ref={rootRef}
-      className="w-full border-b border-t border-foreground/10 text-foreground"
+      className="section-shell section-space border-b border-t border-foreground/10 text-foreground"
     >
-      <div className="grid min-h-[40rem] lg:grid-cols-2">
-        <div className="flex border-b border-foreground/10 lg:border-b-0 lg:border-r">
-          <div className="mx-auto flex w-full max-w-[45rem] flex-col justify-center px-5 py-16 sm:px-8 md:px-12 md:py-20 lg:ml-auto lg:px-16 xl:px-20">
+      <div className="grid gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16">
+        <div className="flex">
+          <div className="flex w-full flex-col justify-center">
             <div data-how-copy>
               <h2 className="font-display text-[2rem] leading-[1.02] text-foreground sm:text-[2.45rem] md:text-[3rem]">
                 {title}
@@ -1820,7 +1820,7 @@ export function ProgramHowItWorksScene({
         </div>
 
         <div className="flex">
-          <div className="mx-auto flex w-full max-w-[45rem] flex-col justify-center px-5 py-14 sm:px-8 md:px-12 md:py-20 lg:mr-auto lg:px-16 xl:px-20">
+          <div className="flex w-full flex-col justify-center">
             <div className="divide-y divide-foreground/10">
               {steps.map((step) => (
                 <article
@@ -1951,11 +1951,7 @@ export function ProgramSessionContentScene({
                 data-session-card
               >
                 <div className="relative flex h-full flex-col">
-                  {card.eyebrow ? (
-                    <p className="mb-6 text-[0.74rem] font-semibold uppercase tracking-[0.18em] text-primary/70">
-                      {card.eyebrow}
-                    </p>
-                  ) : null}
+                  <div className="mb-6 h-0.5 w-8 bg-primary/70" />
                   <h3 className="text-[1.25rem] font-semibold leading-tight text-foreground md:text-[1.42rem]">
                     {card.title}
                   </h3>
