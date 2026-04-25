@@ -138,7 +138,7 @@ export function AboutPage() {
 
       <RevealSection
         as="section"
-        className="bg-[#eef2f6] section-space-lg"
+        className="bg-[#edf1f5] section-space-lg"
         itemSelector="[data-gsap-item]"
         start="top 84%"
         stagger={0.08}
@@ -243,7 +243,7 @@ export function AboutPage() {
         contentClassName="px-5 py-6 md:px-8 md:py-8 lg:px-10 lg:py-10"
         imageSrc="/images/aboutme.jpeg"
         imageClassName="object-[center_32%]"
-        overlayClassName="bg-[linear-gradient(180deg,rgba(255,220,198,0.8),rgba(255,238,225,0.88))]"
+        overlayClassName="bg-[#fef0e4]/88"
         fromYPercent={-7}
         toYPercent={8}
       >

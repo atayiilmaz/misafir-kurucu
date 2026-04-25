@@ -17,7 +17,7 @@ export function BlogCard({ post }: BlogCardProps) {
           className="h-80 w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
         />
       ) : (
-        <div className="flex h-80 items-center justify-center bg-[#eef2f6] text-sm text-muted-foreground transition-colors duration-300 group-hover:bg-[#e9eef5]">
+        <div className="flex h-80 items-center justify-center bg-[#edf1f5] text-sm text-muted-foreground transition-colors duration-300 group-hover:bg-[#e3e8ed]">
           Kapak gorseli yok
         </div>
       )}

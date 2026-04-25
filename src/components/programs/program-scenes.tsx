@@ -214,7 +214,7 @@ export function ProgramHeroScene({ program }: ProgramHeroSceneProps) {
   return (
     <section
       ref={rootRef}
-      className="border-b border-foreground/10 bg-[rgba(255,247,240,0.94)] pb-0 pt-0 text-foreground"
+      className="border-b border-foreground/10 bg-[#fef5ed] pb-0 pt-0 text-foreground"
     >
       <div className="grid w-full lg:min-h-[calc(100svh-4.35rem)] lg:grid-cols-2">
         <div className="flex">
@@ -308,7 +308,7 @@ export function ProgramHeroScene({ program }: ProgramHeroSceneProps) {
       </div>
 
       <div
-        className="w-full overflow-hidden border-b border-foreground/8 border-t border-foreground/8 bg-[linear-gradient(90deg,rgba(249,232,216,0.96),rgba(241,226,208,0.98))] py-5 md:py-6"
+        className="w-full overflow-hidden border-b border-foreground/8 border-t border-foreground/8 bg-[#f5e6d8] py-5 md:py-6"
         data-hero-marquee
       >
         <div ref={tickerRef} className="flex min-w-max items-center gap-8 px-5 md:px-8 lg:px-10">
@@ -789,7 +789,7 @@ export function ProgramSplitListScene({
   return (
     <section ref={rootRef} className="w-full border-b border-foreground/10 text-foreground">
       <div className="grid min-h-[42rem] lg:grid-cols-2">
-        <div className="flex bg-[linear-gradient(180deg,rgba(239,244,255,0.88),rgba(245,248,255,0.72))] text-foreground">
+        <div className="flex bg-[#edf1f5] text-foreground">
           <div className="mx-auto flex w-full max-w-[45rem] flex-col justify-start px-5 py-16 sm:px-8 md:px-12 md:py-20 lg:ml-auto lg:px-16 xl:px-20">
             <div data-split-copy>
               <h2 className="font-display text-[2rem] leading-[1.02] text-foreground sm:text-[2.45rem] md:text-[3rem]">
@@ -814,7 +814,7 @@ export function ProgramSplitListScene({
           </div>
         </div>
 
-        <div className="flex bg-[rgba(255,247,240,0.94)]">
+        <div className="flex bg-[#fef5ed]">
           <div className="mx-auto flex w-full max-w-[45rem] flex-col justify-start px-5 py-16 sm:px-8 md:px-12 md:py-20 lg:mr-auto lg:px-16 xl:px-20">
             <div data-split-copy>
               <h2 className="font-display text-[2rem] leading-[1.02] text-foreground sm:text-[2.45rem] md:text-[3rem]">
@@ -1688,7 +1688,7 @@ export function ProgramAnalysisModesScene({
           {columns.map((column) => (
             <article
               key={`${column.heading}-${column.title}`}
-              className="rounded-[2rem] border border-border/55 bg-[linear-gradient(180deg,rgba(255,255,255,0.94),rgba(250,246,242,0.9))] p-6 shadow-[0_18px_40px_-32px_rgba(48,39,33,0.16)] md:p-8"
+              className="rounded-[2rem] border border-border/55 bg-[#faf8f5] p-6 shadow-[0_18px_40px_-32px_rgba(48,39,33,0.16)] md:p-8"
               data-analysis-card
             >
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
@@ -1716,7 +1716,7 @@ export function ProgramFinalCta({
 }: ProgramFinalCtaProps) {
   return (
     <section className="section-shell section-space">
-      <div className="overflow-hidden rounded-[2.6rem] border border-primary/20 bg-[linear-gradient(135deg,rgba(255,231,214,0.94),rgba(255,248,243,0.98))] px-5 py-7 shadow-soft md:px-8 md:py-10 lg:px-12">
+      <div className="overflow-hidden rounded-[2.6rem] border border-primary/20 bg-[#fef0e4] px-5 py-7 shadow-soft md:px-8 md:py-10 lg:px-12">
         <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
           <div>
             <p className="text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-primary/72">

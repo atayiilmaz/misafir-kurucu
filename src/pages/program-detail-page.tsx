@@ -16,9 +16,9 @@ import { SITE_NAME, SITE_URL, absoluteUrl, useSeo } from "@/lib/seo";
 
 const sectionBands = {
   blue:
-    "bg-[linear-gradient(180deg,rgba(239,244,255,0.88),rgba(245,248,255,0.72))]",
+    "bg-[#edf1f5]",
   orange:
-    "bg-[linear-gradient(180deg,rgba(255,246,240,0.92),rgba(255,250,246,0.76))]",
+    "bg-[#fef5ed]",
 } as const;
 
 export function ProgramDetailPage() {

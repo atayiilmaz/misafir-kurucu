@@ -106,7 +106,7 @@ Bu süreçte ben misafirim, siz kurucusunuz.`}
         contentClassName="section-shell"
         imageSrc="/images/herosection.jpeg"
         imageClassName="object-[center_64%]"
-        overlayClassName="bg-[linear-gradient(180deg,rgba(244,248,252,0.82),rgba(244,248,252,0.9))]"
+        overlayClassName="bg-[#edf1f5]"
         fromYPercent={-8}
         toYPercent={9}
       >
@@ -151,7 +151,7 @@ Bu süreçte ben misafirim, siz kurucusunuz.`}
   "Üretim ve e-ticaret odağında geliştirdiğim iş modellerini başarıyla devrettikten sonra, bugün bu birikimi markalara aktarıyorum. Benim yaklaşımım teorinin ötesinde; markanızın doğru yapı, optimize edilmiş süreçler ve sürdürülebilir stratejilerle büyümesini sağlamaktır. Sektördeki 16 yılımı, markanızın en güvenli yolu bulması için kullanıyorum."
 
         ]}
-        backgroundClassName="bg-[#eef2f6]"
+        backgroundClassName="bg-[#edf1f5]"
       />
       <FeatureSection
         reverse
@@ -167,7 +167,7 @@ Bu süreçte ben misafirim, siz kurucusunuz.`}
         items={outcomeItems}
         imageSrc="/images/featuresection2.jpeg"
         imageAlt="Program kazanımlarını anlatan görsel"
-        backgroundClassName="bg-[#eef2f6]"
+        backgroundClassName="bg-[#edf1f5]"
       />
       <FeatureSection
         reverse
