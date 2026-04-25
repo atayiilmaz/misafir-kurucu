@@ -234,7 +234,7 @@ export function ProgramHeroScene({ program }: ProgramHeroSceneProps) {
   return (
     <section
       ref={rootRef}
-      className="border-b border-foreground/10 bg-[#fef5ed] pb-0 pt-0 text-foreground"
+      className="border-b border-foreground/10 pb-0 pt-0 text-foreground"
     >
       <div className="grid w-full lg:min-h-[calc(100svh-4.35rem)] lg:grid-cols-2">
         <div className="flex">
@@ -834,7 +834,7 @@ export function ProgramSplitListScene({
           </div>
         </div>
 
-        <div className="flex bg-[#fef5ed]">
+        <div className="flex">
           <div className="mx-auto flex w-full max-w-[45rem] flex-col justify-start px-5 py-16 sm:px-8 md:px-12 md:py-20 lg:mr-auto lg:px-16 xl:px-20">
             <div data-split-copy>
               <h2 className="font-display text-[2rem] leading-[1.02] text-foreground sm:text-[2.45rem] md:text-[3rem]">

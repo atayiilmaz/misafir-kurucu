@@ -21,7 +21,7 @@ const sectionBands = {
   blue:
     "bg-[#edf1f5]",
   orange:
-    "bg-[#fef5ed]",
+    "",
 } as const;
 
 export function ProgramDetailPage() {
