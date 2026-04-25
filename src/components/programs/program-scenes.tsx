@@ -817,7 +817,7 @@ export function ProgramSplitListScene({
                   className="flex gap-5 border-b border-foreground/12 py-5 last:border-b-0"
                   data-split-row
                 >
-                  <span className="mt-3 h-px w-5 shrink-0 bg-primary/75" />
+                  <MoveRight className="mt-1.5 h-4 w-4 shrink-0 text-primary/75" />
                   <p className="max-w-2xl text-base leading-8 text-foreground/74 md:text-[1.05rem]">
                     {item}
                   </p>
