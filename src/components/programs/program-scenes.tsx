@@ -420,7 +420,7 @@ export function ProgramBenefitCardsScene({
   );
 
   return (
-    <section ref={rootRef} className="section-shell section-space">
+    <section ref={rootRef} className="section-shell section-space border-b border-foreground/10">
       <div>
         <h2
           className="max-w-3xl font-display text-[1.9rem] leading-[1.02] text-foreground sm:text-[2.3rem] md:text-[3rem]"
@@ -471,8 +471,6 @@ export function ProgramBenefitCardsScene({
             );
           })}
         </div>
-
-        <div className="mt-14 h-px w-full bg-foreground/12" />
 
       </div>
     </section>
