@@ -243,7 +243,7 @@ export function AboutPage() {
         contentClassName="px-5 py-6 md:px-8 md:py-8 lg:px-10 lg:py-10"
         imageSrc="/images/aboutme.jpeg"
         imageClassName="object-[center_32%]"
-        overlayClassName="bg-[#fef0e4]/88"
+        overlayClassName="bg-[rgba(250, 220, 190, 0.6)]"
         fromYPercent={-7}
         toYPercent={8}
       >

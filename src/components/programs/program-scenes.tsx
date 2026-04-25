@@ -472,6 +472,8 @@ export function ProgramBenefitCardsScene({
           })}
         </div>
 
+        <div className="mt-14 h-px w-full bg-foreground/12" />
+
       </div>
     </section>
   );

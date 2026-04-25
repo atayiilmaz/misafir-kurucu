@@ -106,7 +106,7 @@ Bu süreçte ben misafirim, siz kurucusunuz.`}
         contentClassName="section-shell"
         imageSrc="/images/herosection.jpeg"
         imageClassName="object-[center_64%]"
-        overlayClassName="bg-[#edf1f5]"
+        overlayClassName="bg-[rgba(200, 220, 240, 0.6)]"
         fromYPercent={-8}
         toYPercent={9}
       >
