@@ -205,97 +205,98 @@ export function ProgramHeroScene({ program }: ProgramHeroSceneProps) {
   );
 
   return (
-    <section ref={rootRef} className="pb-0 pt-0 text-foreground">
-      <div className="section-shell">
-        <div className="grid min-h-[30rem] lg:grid-cols-[0.92fr_1.08fr]">
-          <div>
-            <div className="ml-auto flex h-full w-full max-w-[41rem] flex-col justify-start px-0 py-10 md:py-14 lg:px-10 lg:py-14 xl:px-12">
-              <div className="max-w-4xl overflow-hidden">
-                <h1 className="max-w-[11.5ch] text-[2.35rem] leading-[0.98] text-foreground sm:text-[3.2rem] md:text-[4.5rem] md:leading-[0.95] lg:text-[4.5rem]">
-                  <span
-                    className={cn("font-display", program.slug === "program-3" && "tracking-[-0.015em]")}
-                    data-hero-word
-                  >
-                    {subtitleLead}
-                  </span>
-                  {accentWord ? (
-                    <>
-                      <br />
-                      <span
-                        className="font-display text-primary"
-                        data-hero-word
-                      >
-                        {accentWord}
-                      </span>
-                    </>
-                  ) : null}
-                </h1>
-              </div>
-              <div className="mt-10 max-w-[37rem] space-y-5">
-                {descriptionParagraphs.map((paragraph) => (
-                  <p
-                    key={paragraph}
-                    className="text-[1rem] leading-8 text-foreground/72 md:text-[1.02rem]"
-                    data-hero-copy
-                  >
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
-              {program.slug === "program-3" ? (
-                <div className="mt-12 max-w-[37rem]" data-hero-copy>
-                  <div className="h-px w-full bg-[linear-gradient(90deg,rgba(43,31,22,0.2),rgba(43,31,22,0.12))]" />
-                  <div className="grid gap-7 pt-6 sm:grid-cols-3 sm:gap-6">
-                    <div>
-                      <p className="font-display text-[2.05rem] leading-none text-foreground">
-                        16
-                      </p>
-                      <p className="mt-4 text-[0.68rem] uppercase tracking-[0.22em] text-foreground/42 md:text-[0.72rem]">
-                        Yıl sektör deneyimi
-                      </p>
-                    </div>
-                    <div>
-                      <p className="font-display text-[2.05rem] leading-none text-foreground">
-                        90'
-                      </p>
-                      <p className="mt-4 text-[0.68rem] uppercase tracking-[0.22em] text-foreground/42 md:text-[0.72rem]">
-                        Odaklı seans
-                      </p>
-                    </div>
-                    <div>
-                      <p className="font-display text-[2.05rem] leading-none text-foreground">
-                        Esnek
-                      </p>
-                      <p className="mt-4 text-[0.68rem] uppercase tracking-[0.22em] text-foreground/42 md:text-[0.72rem]">
-                        İhtiyaca göre süreç
-                      </p>
-                    </div>
+    <section
+      ref={rootRef}
+      className="border-b border-foreground/10 bg-[rgba(255,247,240,0.94)] pb-0 pt-0 text-foreground"
+    >
+      <div className="grid w-full lg:min-h-[calc(100svh-4.35rem)] lg:grid-cols-2">
+        <div className="flex">
+          <div className="flex h-full w-full flex-col justify-center px-5 py-12 sm:px-8 md:px-12 md:py-16 lg:px-16 lg:py-20 xl:px-20">
+            <div className="max-w-4xl overflow-hidden">
+              <h1 className="max-w-[11.5ch] text-[2.35rem] leading-[0.98] text-foreground sm:text-[3.2rem] md:text-[4.5rem] md:leading-[0.95] lg:text-[4.5rem]">
+                <span
+                  className={cn("font-display", program.slug === "program-3" && "tracking-[-0.015em]")}
+                  data-hero-word
+                >
+                  {subtitleLead}
+                </span>
+                {accentWord ? (
+                  <>
+                    <br />
+                    <span
+                      className="font-display text-primary"
+                      data-hero-word
+                    >
+                      {accentWord}
+                    </span>
+                  </>
+                ) : null}
+              </h1>
+            </div>
+            <div className="mt-10 max-w-[37rem] space-y-5">
+              {descriptionParagraphs.map((paragraph) => (
+                <p
+                  key={paragraph}
+                  className="text-[1rem] leading-8 text-foreground/72 md:text-[1.02rem]"
+                  data-hero-copy
+                >
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+            {program.slug === "program-3" ? (
+              <div className="mt-12 max-w-[37rem]" data-hero-copy>
+                <div className="h-px w-full bg-[linear-gradient(90deg,rgba(43,31,22,0.2),rgba(43,31,22,0.12))]" />
+                <div className="grid gap-7 pt-6 sm:grid-cols-3 sm:gap-6">
+                  <div>
+                    <p className="font-display text-[2.05rem] leading-none text-foreground">
+                      16
+                    </p>
+                    <p className="mt-4 text-[0.68rem] uppercase tracking-[0.22em] text-foreground/42 md:text-[0.72rem]">
+                      Yıl sektör deneyimi
+                    </p>
+                  </div>
+                  <div>
+                    <p className="font-display text-[2.05rem] leading-none text-foreground">
+                      90'
+                    </p>
+                    <p className="mt-4 text-[0.68rem] uppercase tracking-[0.22em] text-foreground/42 md:text-[0.72rem]">
+                      Odaklı seans
+                    </p>
+                  </div>
+                  <div>
+                    <p className="font-display text-[2.05rem] leading-none text-foreground">
+                      Esnek
+                    </p>
+                    <p className="mt-4 text-[0.68rem] uppercase tracking-[0.22em] text-foreground/42 md:text-[0.72rem]">
+                      İhtiyaca göre süreç
+                    </p>
                   </div>
                 </div>
-              ) : (
-                <div
-                  className="mt-10 h-px w-full max-w-[37rem] bg-foreground/12"
-                  data-hero-copy
-                />
-              )}
-              <div className="mt-10" data-hero-copy>
-                <SubtleButton href="/gorusme-planlayin" size="lg">
-                  {program.hero.ctaLabel}
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </SubtleButton>
               </div>
+            ) : (
+              <div
+                className="mt-10 h-px w-full max-w-[37rem] bg-foreground/12"
+                data-hero-copy
+              />
+            )}
+            <div className="mt-10" data-hero-copy>
+              <SubtleButton href="/gorusme-planlayin" size="lg">
+                {program.hero.ctaLabel}
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </SubtleButton>
             </div>
           </div>
+        </div>
 
-          <div className="relative min-h-[22rem] overflow-hidden" data-hero-media>
-            <img
-              src={program.heroImage}
-              alt={program.heroImageAlt}
-              className="absolute inset-0 h-full w-full object-cover"
-              data-hero-media-inner
-            />
-            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(24,18,15,0.06),rgba(24,18,15,0.18))]" />
-          </div>
+        <div className="relative min-h-[22rem] overflow-hidden sm:min-h-[28rem] lg:min-h-full" data-hero-media>
+          <img
+            src={program.heroImage}
+            alt={program.heroImageAlt}
+            className="absolute inset-0 h-full w-full object-cover"
+            data-hero-media-inner
+          />
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(24,18,15,0.06),rgba(24,18,15,0.18))]" />
         </div>
       </div>
 
