@@ -96,6 +96,10 @@ export type ProgramData = {
     intro: string[];
     steps: ProgramHowItWorksStep[];
   };
+  sessionContent?: {
+    title: string;
+    cards: ProgramBenefitCard[];
+  };
   analysisModes?: {
     title: string;
     columns: ProgramAnalysisMode[];
@@ -637,6 +641,47 @@ export const programs: Record<ProgramSlug, ProgramData> = {
           title: "Özet & Takip",
           description:
             "Görüşme sonrası seans özeti ve uygulanabilir notlar iletilir.",
+        },
+      ],
+    },
+    sessionContent: {
+      title: "Seans içeriği",
+      cards: [
+        {
+          eyebrow: "01",
+          title: "Birebir Zoom Seansı",
+          description:
+            "90 dakikalık odaklı görüşmede yalnızca sizin konunuza ve markanıza çözüm üretilir.",
+        },
+        {
+          eyebrow: "02",
+          title: "Seans Öncesi Hazırlık",
+          description:
+            "Görüşmeyi verimli tutmak için kısa bir ön değerlendirme formu paylaşılır.",
+        },
+        {
+          eyebrow: "03",
+          title: "Eylem Planı & Özet",
+          description:
+            "Görüşme sonrası uygulanabilir adımlar ve kararlar yazılı olarak iletilir.",
+        },
+        {
+          eyebrow: "04",
+          title: "İlgili Kaynaklar",
+          description:
+            "Konuya özel şablon, döküman veya kılavuz varsa paylaşılır.",
+        },
+        {
+          eyebrow: "05",
+          title: "Kısa Süreli Takip Desteği",
+          description:
+            "Seans sonrasında 48 saat boyunca mesaj üzerinden soru sorma imkânı.",
+        },
+        {
+          eyebrow: "06",
+          title: "Ek Seans Esnekliği",
+          description:
+            "İhtiyaç duyduğunuzda yeni seans eklenebilir. Taahhüt yok, esneklik var.",
         },
       ],
     },

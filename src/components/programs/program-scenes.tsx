@@ -89,6 +89,11 @@ type ProgramHowItWorksSceneProps = {
   steps: ProgramHowItWorksStep[];
 };
 
+type ProgramSessionContentSceneProps = {
+  title: string;
+  cards: ProgramBenefitCard[];
+};
+
 type ProgramFinalCtaProps = {
   title: string;
   description: string;
@@ -1838,6 +1843,131 @@ export function ProgramHowItWorksScene({
               ))}
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function ProgramSessionContentScene({
+  title,
+  cards,
+}: ProgramSessionContentSceneProps) {
+  const rootRef = useRef<HTMLElement | null>(null);
+
+  useGSAP(
+    () => {
+      const root = rootRef.current;
+
+      if (!root) {
+        return;
+      }
+
+      const mm = gsap.matchMedia();
+
+      mm.add(
+        {
+          reduce: "(prefers-reduced-motion: reduce)",
+          motion: "(prefers-reduced-motion: no-preference)",
+        },
+        (context) => {
+          const conditions = context.conditions as
+            | { reduce?: boolean; motion?: boolean }
+            | undefined;
+
+          const cardsToAnimate = gsap.utils.toArray<HTMLElement>(
+            "[data-session-card]",
+          );
+
+          if (conditions?.reduce) {
+            gsap.set(["[data-session-copy]", cardsToAnimate], {
+              autoAlpha: 1,
+              y: 0,
+              clearProps: "all",
+            });
+            return;
+          }
+
+          const timeline = gsap.timeline({
+            defaults: {
+              ease: "power3.out",
+            },
+            scrollTrigger: {
+              trigger: root,
+              start: "top 76%",
+              once: true,
+            },
+          });
+
+          timeline
+            .from("[data-session-copy]", {
+              autoAlpha: 0,
+              y: 40,
+              duration: 0.84,
+            })
+            .from(
+              cardsToAnimate,
+              {
+                autoAlpha: 0,
+                y: 56,
+                scale: 0.97,
+                stagger: 0.08,
+                duration: 0.88,
+              },
+              0.14,
+            );
+        },
+      );
+
+      return () => mm.revert();
+    },
+    { scope: rootRef },
+  );
+
+  return (
+    <section ref={rootRef} className="section-shell section-space border-b border-foreground/10">
+      <div>
+        <h2
+          className="max-w-3xl font-display text-[1.9rem] leading-[1.02] text-foreground sm:text-[2.3rem] md:text-[3rem]"
+          data-session-copy
+        >
+          {title}
+        </h2>
+
+        <div className="mt-14 grid overflow-hidden border border-foreground/12 bg-white/35 md:grid-cols-2">
+          {cards.map((card, index) => {
+            const isLastRow = index >= cards.length - 2;
+            const isRightColumn = index % 2 === 1;
+
+            return (
+              <article
+                key={`${card.title}-${card.description ?? "empty"}`}
+                className={cn(
+                  "group relative border-b border-foreground/12 p-7 transition-colors duration-300 hover:bg-white/50 md:border-r md:px-8 md:py-10",
+                  isLastRow && "md:border-b-0",
+                  isRightColumn && "md:border-r-0",
+                  index === cards.length - 1 && "border-b-0",
+                )}
+                data-session-card
+              >
+                <div className="relative flex h-full flex-col">
+                  {card.eyebrow ? (
+                    <p className="mb-6 text-[0.74rem] font-semibold uppercase tracking-[0.18em] text-primary/70">
+                      {card.eyebrow}
+                    </p>
+                  ) : null}
+                  <h3 className="text-[1.25rem] font-semibold leading-tight text-foreground md:text-[1.42rem]">
+                    {card.title}
+                  </h3>
+                  {card.description ? (
+                    <p className="mt-4 max-w-[32rem] text-sm leading-7 text-foreground/60 md:text-[0.95rem]">
+                      {card.description}
+                    </p>
+                  ) : null}
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

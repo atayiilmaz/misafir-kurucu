@@ -9,6 +9,7 @@ import {
   ProgramNarrativeScene,
   ProgramPackageScene,
   ProgramProcessScene,
+  ProgramSessionContentScene,
   ProgramSplitListScene,
   ProgramSupportScene,
 } from "@/components/programs/program-scenes";
@@ -214,6 +215,18 @@ export function ProgramDetailPage() {
     });
   }
 
+  if (program.sessionContent) {
+    sections.push({
+      key: "session-content",
+      node: (
+        <ProgramSessionContentScene
+          title={program.sessionContent.title}
+          cards={program.sessionContent.cards}
+        />
+      ),
+    });
+  }
+
   return (
     <>
       <ProgramHeroScene program={program} />
@@ -223,6 +236,8 @@ export function ProgramDetailPage() {
           className={[
             section.key === "how-it-works"
               ? sectionBands.orange
+              : section.key === "session-content"
+                ? sectionBands.blue
               : index % 2 === 0
                 ? sectionBands.blue
                 : sectionBands.orange,
