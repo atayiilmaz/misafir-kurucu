@@ -92,7 +92,7 @@ function PricingCard({
       <div>
         <div className="flex items-start justify-between gap-4">
           <div>
-            <h3 className="font-display text-[2rem] leading-none sm:text-[2.2rem] md:text-[2.65rem]">
+            <h3 className="pricing-plan-title font-display text-[2rem] leading-none sm:text-[2.2rem] md:text-[2.65rem]">
               {titleLines.map((line, lineIndex) => (
                 <span key={`${line}-${lineIndex}`} className="block">
                   {line}
@@ -151,7 +151,7 @@ export function PricingSection({ plans }: PricingSectionProps) {
   return (
     <RevealSection
       as="section"
-      className="section-shell section-space-lg"
+      className="pricing-section section-shell section-space-lg"
       id="programlar"
       itemSelector="[data-gsap-item]"
     >

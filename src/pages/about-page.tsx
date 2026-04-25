@@ -212,7 +212,7 @@ export function AboutPage() {
               data-gsap-item
             >
               <div className="relative">
-                <p className="font-display text-[1.55rem] leading-[1.04] text-foreground transition-colors duration-300 group-hover:text-primary md:text-[1.85rem]">
+                <p className="about-proof-title font-display text-[1.55rem] leading-[1.04] text-foreground transition-colors duration-300 group-hover:text-primary md:text-[1.85rem]">
                   <span className="block">{topLine}</span>
                   <span className="mt-1 block text-[0.9em] font-normal tracking-[-0.02em] opacity-75">
                     {bottomLine}

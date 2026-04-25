@@ -93,7 +93,7 @@ export function ParallaxScrollFeatureSection({
   sections,
 }: ParallaxScrollFeatureSectionProps) {
   return (
-    <section className="section-space">
+    <section className="parallax-scroll-feature-section section-space">
       <div className="section-shell">
         <div className="flex min-h-[44vh] flex-col items-center justify-center rounded-[2.5rem] border border-border/60 bg-white/80 px-6 py-12 text-center shadow-soft md:px-10">
           <p className="section-kicker">{eyebrow}</p>

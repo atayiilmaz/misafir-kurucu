@@ -258,3 +258,54 @@ main section :is(h1, h2, h3, h4, h5, h6) :is(span, em, strong) {
     line-height: 1.68;
   }
 }
+
+@media (min-width: 768px) {
+  main section h1[class*="md:text-[4.5rem]"],
+  main section h1[class*="lg:text-[4.5rem]"],
+  main section h1[class*="xl:text-[4.5rem]"],
+  main section h1[class*="md:text-[4rem]"],
+  main section .home-hero-title,
+  main section .about-top-title {
+    font-size: 56px !important;
+  }
+
+  main section :is(h2, h3)[class*="md:text-[3rem]"],
+  main section .section-title {
+    font-size: 32px !important;
+  }
+
+  main section.parallax-image-section .font-display,
+  main section .parallax-image-section .font-display,
+  main section.parallax-image-section .font-display :is(span, em, strong),
+  main section .parallax-image-section .font-display :is(span, em, strong) {
+    font-size: 32px !important;
+  }
+
+  main section.parallax-scroll-feature-section [class*="text-lg"],
+  main section .parallax-scroll-feature-section [class*="text-lg"],
+  main section.parallax-scroll-feature-section [class*="md:text-[1.02rem]"],
+  main section .parallax-scroll-feature-section [class*="md:text-[1.02rem]"],
+  main section.parallax-scroll-feature-section [class*="md:text-[1.08rem]"],
+  main section .parallax-scroll-feature-section [class*="md:text-[1.08rem]"] {
+    font-size: 18px !important;
+  }
+
+  main section h1.home-hero-title {
+    font-size: 64px !important;
+  }
+
+  main section .page-intro-title-large {
+    font-size: 56px !important;
+  }
+
+  main section.pricing-section .section-title,
+  main section.pricing-section .pricing-plan-title,
+  main section.pricing-section .pricing-plan-title :is(span, em, strong) {
+    font-size: 36px !important;
+  }
+
+  main section .about-proof-title,
+  main section .about-proof-title :is(span, em, strong) {
+    font-size: 24px !important;
+  }
+}

@@ -1,11 +1,13 @@
 import { RevealSection } from "@/components/gsap/reveal-section";
+import { cn } from "@/lib/utils";
 
 interface PageIntroProps {
   title: string;
   description: string;
+  titleClassName?: string;
 }
 
-export function PageIntro({ title, description }: PageIntroProps) {
+export function PageIntro({ title, description, titleClassName }: PageIntroProps) {
   return (
     <RevealSection
       as="section"
@@ -14,7 +16,7 @@ export function PageIntro({ title, description }: PageIntroProps) {
     >
       <div className="mx-auto max-w-3xl text-center">
         <h1
-          className="section-title text-[2.8rem] sm:text-[3rem] md:text-[3.5rem]"
+          className={cn("section-title text-[2.8rem] sm:text-[3rem] md:text-[3.5rem]", titleClassName)}
           data-gsap-item
         >
           {title}

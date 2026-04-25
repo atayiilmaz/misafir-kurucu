@@ -32,6 +32,7 @@ export function FaqPage() {
       <PageIntro
         title="Aradığınız cevap burada olabilir"
         description="Misafir Kurucu danışmanlığıyla ilgili en sık gelen soruları burada topladım. Program yapısı, görüşme düzeni ve başlangıç seviyesiyle ilgili temel başlıkları hızlıca inceleyebilirsiniz."
+        titleClassName="page-intro-title-large"
       />
 
       <RevealSection as="section" className="section-shell pt-0 pb-10 md:pb-16">

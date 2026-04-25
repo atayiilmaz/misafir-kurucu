@@ -100,7 +100,7 @@ export function ParallaxImageSection({
     Component,
     {
       ref: rootRef as Ref<HTMLElement>,
-      className: cn("relative isolate overflow-hidden", className),
+      className: cn("parallax-image-section relative isolate overflow-hidden", className),
       ...props,
     },
     <>

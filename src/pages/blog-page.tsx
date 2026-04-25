@@ -72,6 +72,7 @@ export function BlogPage() {
       <PageIntro
         title="Sosyal medya içeriklerinin derinleşmiş hali"
         description="Kısa videolarda değindiğim başlıkları burada daha geniş bağlamıyla anlatıyorum: marka kurulumundan üretim risklerine, içerikten satışa kadar."
+        titleClassName="page-intro-title-large"
       />
 
       <RevealSection
