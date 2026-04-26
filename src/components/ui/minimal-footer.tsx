@@ -12,15 +12,6 @@ const company = [
 const resources = [
   { title: "Ücretsiz İçerikler", href: "/blog" },
   { title: "Görüşme Planlayın", href: "/gorusme-planlayin" },
-  {
-    title: "Instagram",
-    href: "https://www.instagram.com/misafirkurucu/",
-  },
-  {
-    title: "LinkedIn",
-    href: "https://www.linkedin.com/in/sevincgurguzel/",
-  },
-  { title: "E-posta", href: "mailto:misafirkurucu@gmail.com" },
 ];
 
 const socialLinks = [

@@ -323,7 +323,7 @@ export const programs: Record<ProgramSlug, ProgramData> = {
     heroTitle: "Markanı Büyüt",
     href: "/programlar/program-2",
     menuLabel: "Markanı Büyüt",
-    listingSubtitle: "Markanız Var, Ama Henüz Tam Potansiyeline Ulaşmadı.",
+    listingSubtitle: "Tekstil Markanız Var ve Karlı Bir Büyüme için Daha Akıllı Sistemlere Geçme Zamanı",
     listingDescription:
       "Satışlarınızı bir üst seviyeye taşımak, dijital varlığınızı güçlendirmek ya da markanızı daha profesyonel bir yapıya oturtmak isteyen kurucular için.",
     teaserPoints: ["Dijital Varlık", "Stratejik Büyüme", "Sistemleme"],
@@ -344,7 +344,7 @@ export const programs: Record<ProgramSlug, ProgramData> = {
     supportImageAlt:
       "Planlama, not alma ve karar süreçlerini temsil eden masaüstü çalışma alanı",
     hero: {
-      subtitle: "Markanız Var, Ama Henüz Tam Potansiyeline Ulaşmadı.",
+      subtitle: "Tekstil Markanız Var ve Karlı Bir Büyüme için Daha Akıllı Sistemlere Geçme Zamanı",
       description:
         "Satışlarınızı bir üst seviyeye taşımak, dijital varlığınızı güçlendirmek ya da\nmarkanızı daha profesyonel bir yapıya oturtmak isteyen kurucular için.\n\n16 yıllık sektör deneyimiyle; markanızı bulunduğu noktadan stratejik ve kârlı bir\nbüyüme modeline taşıyoruz.",
       ctaLabel: "Görüşme Planlayın",
@@ -401,7 +401,6 @@ export const programs: Record<ProgramSlug, ProgramData> = {
         "Dijitalde varlık gösteremiyor ya da dönüşüm alamıyorsunuz",
         "Sosyal medya hesaplarınız var ama müşteriye dönüşmüyor",
         "Satışlar bir noktadan sonra platoya girdi",
-        "Her şey sizi bekliyor, süreçler kişilere bağlı",
         "Global marka olmayı hedefliyorsunuz",
         "Marka algınız ürün kalitenizin gerisinde kalıyor",
       ],
@@ -409,9 +408,8 @@ export const programs: Record<ProgramSlug, ProgramData> = {
     narrative: {
       title: "Neden benimle çalışmalısınız?",
       paragraphs: [
-        "Tekstil sektörü deneme-yanılma yöntemini kaldırmayacak kadar hızlı ve maliyetlidir. Size sadece teorik bilgi vermiyorum; 16 yıllık network’ümü, üretim tecrübemi ve ticari öngörülerimi doğrudan markanıza aktarıyorum. Karşınızda kalabalık ekipler değil, her detaya bizzat hâkim olan bir yol arkadaşı bulacaksınız.",
-        "Bir ajans değil, sektörün mutfağından gelen bir uzmandan kişiselleştirilmiş danışmanlık alacaksınız. Tekstil dünyasında markanızı sağlam temeller üzerine kurmak istiyorsanız, tüm süreçte birebir yanınızdayım.",
-      ],
+        "Tekstil sektörü deneme-yanılma yöntemini kaldırmayacak kadar hızlı ve maliyetlidir. Ben size sadece teorik bilgi vermiyorum; 16 yıllık sektör bağlantılarımı, üretim tecrübemi ve ticari öngörülerimi doğrudan markanıza aktarıyorum. Karşınızda kalabalık ekipler değil, her detaya bizzat hakim olan bir yol arkadaşı bulacaksınız.",
+        "Tekstil dünyasına adım atarken markanızı sağlam temeller üzerine kurmak istiyorsanız, tüm süreçte birebir yanınızdayım. Bir ajanstan değil, sektörün mutfağından gelen bir uzmandan kişiselleştirilmiş danışmanlık alacaksınız.", ]
     },
     analysisModes: {
       title: "Analiz yöntemi",
