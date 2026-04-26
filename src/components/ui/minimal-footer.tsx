@@ -1,5 +1,6 @@
 import { Scissors } from "lucide-react";
-import { FaEnvelope, FaInstagram, FaTiktok, FaYoutube } from "react-icons/fa6";
+import { FaEnvelope, FaTiktok, FaYoutube } from "react-icons/fa6";
+import { RiInstagramFill } from "react-icons/ri";
 import { AppLink } from "@/components/ui/app-link";
 
 const company = [
@@ -24,7 +25,7 @@ const resources = [
 
 const socialLinks = [
   {
-    icon: <FaInstagram className="size-4" />,
+    icon: <RiInstagramFill className="size-4" />,
     link: "https://www.instagram.com/misafirkurucu/",
   },
   {

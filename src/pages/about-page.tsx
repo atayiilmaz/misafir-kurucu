@@ -128,9 +128,6 @@ export function AboutPage() {
               <h1 className="about-top-title font-display text-[2.3rem] leading-[0.99] sm:text-[2.75rem] md:text-[4.5rem] lg:text-[4.5rem] xl:text-[4.5rem]">
                 Dünyanın daha fazla seri üretime değil; anlamlı, özgün ve değer yaratan bağımsız markalara ihtiyacı olduğuna inanıyorum.
               </h1>
-              <p className="about-top-copy mt-5 max-w-2xl text-[1.06rem] leading-8 text-muted-foreground md:text-[1.12rem] md:leading-8">
-                Ben de bu boşluğu dolduran markaların ortaya çıkmasına katkı sağlıyorum.
-              </p>
             </div>
           </div>
         </div>
