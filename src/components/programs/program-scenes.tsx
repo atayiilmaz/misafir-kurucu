@@ -1245,7 +1245,6 @@ export function ProgramPackageScene({
 }
 
 export function ProgramSupportScene({
-  title,
   columns,
   image,
   imageAlt,
@@ -1336,35 +1335,34 @@ export function ProgramSupportScene({
     return (
       <section ref={rootRef} className="section-shell section-space">
         <div>
-          <h2
-            className="max-w-xl font-display text-[1.82rem] leading-[1.04] text-foreground md:text-[3rem]"
-            data-support-copy
-          >
-            {title}
-          </h2>
-          <div className={cn("mt-8 grid gap-6", columns.length > 1 ? "lg:grid-cols-2" : "")}>
+          <div className={cn("grid gap-10", columns.length > 1 ? "lg:grid-cols-2" : "")}>
             {columns.map((column, index) => (
               <div
                 key={`${column.heading ?? "support"}-${index}`}
-                className="border-t border-border/35 pt-5"
+                className=""
                 data-support-column
               >
                 {column.heading ? (
-                  <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-primary/88">
+                  <h2
+                    className="max-w-xl font-display text-[1.82rem] leading-[1.04] text-foreground md:text-[3rem]"
+                    data-support-copy
+                  >
                     {column.heading}
-                  </h3>
+                  </h2>
                 ) : null}
-                <ul className={cn("space-y-4", column.heading ? "mt-5" : "")}>
-                  {column.items.map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-start gap-3 text-base leading-7 text-foreground/74 md:text-lg md:leading-8"
-                    >
-                      <MoveRight className="mt-1 h-4 w-4 shrink-0 text-accent" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                <div className={cn("border-t border-border/35", column.heading ? "mt-5 pt-8" : "")}>
+                  <ul className="space-y-4">
+                    {column.items.map((item) => (
+                      <li
+                        key={item}
+                        className="flex items-start gap-3 text-base leading-7 text-foreground/74 md:text-lg md:leading-8"
+                      >
+                        <MoveRight className="mt-1 h-4 w-4 shrink-0 text-accent" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             ))}
           </div>
@@ -1377,35 +1375,34 @@ export function ProgramSupportScene({
     <section ref={rootRef} className="section-shell section-space">
       <div className="grid gap-8 lg:grid-cols-[1.12fr_0.88fr]">
         <div>
-          <h2
-            className="max-w-xl font-display text-[1.82rem] leading-[1.04] text-foreground md:text-[3rem]"
-            data-support-copy
-          >
-            {title}
-          </h2>
-          <div className={cn("mt-8 grid gap-6", columns.length > 1 ? "lg:grid-cols-2" : "")}>
+          <div className={cn("grid gap-10", columns.length > 1 ? "lg:grid-cols-2" : "")}>
             {columns.map((column, index) => (
               <div
                 key={`${column.heading ?? "support"}-${index}`}
-                className="border-t border-border/35 pt-5"
+                className=""
                 data-support-column
               >
                 {column.heading ? (
-                  <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-primary/88">
+                  <h2
+                    className="max-w-xl font-display text-[1.82rem] leading-[1.04] text-foreground md:text-[3rem]"
+                    data-support-copy
+                  >
                     {column.heading}
-                  </h3>
+                  </h2>
                 ) : null}
-                <ul className={cn("space-y-4", column.heading ? "mt-5" : "")}>
-                  {column.items.map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-start gap-3 text-base leading-7 text-foreground/74 md:text-lg md:leading-8"
-                    >
-                      <MoveRight className="mt-1 h-4 w-4 shrink-0 text-accent" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                <div className={cn("border-t border-border/35", column.heading ? "mt-5 pt-8" : "")}>
+                  <ul className="space-y-4">
+                    {column.items.map((item) => (
+                      <li
+                        key={item}
+                        className="flex items-start gap-3 text-base leading-7 text-foreground/74 md:text-lg md:leading-8"
+                      >
+                        <MoveRight className="mt-1 h-4 w-4 shrink-0 text-accent" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             ))}
           </div>
