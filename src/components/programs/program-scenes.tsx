@@ -481,6 +481,11 @@ export function ProgramBenefitCardsScene({
                   <h3 className="text-[1.25rem] font-semibold leading-tight text-foreground md:text-[1.42rem]">
                     {card.title}
                   </h3>
+                  {card.preDescription ? (
+                    <p className="mt-4 max-w-[26rem] whitespace-pre-line text-sm leading-7 text-foreground/60 md:text-[0.95rem]">
+                      {card.preDescription}
+                    </p>
+                  ) : null}
                   {card.description ? (
                     <p className="mt-4 max-w-[26rem] whitespace-pre-line text-sm leading-7 text-foreground/60 md:text-[0.95rem]">
                       {card.description}

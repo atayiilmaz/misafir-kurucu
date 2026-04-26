@@ -8,6 +8,7 @@ export type ProgramPackageItem = {
 export type ProgramBenefitCard = {
   eyebrow?: string;
   title: string;
+  preDescription?: string;
   description?: string;
   highlight?: boolean;
 };
@@ -188,9 +189,11 @@ export const programs: Record<ProgramSlug, ProgramData> = {
       title: "Bu paket sana ne sağlar?",
       cards: [
         {
-          title: "Sermayeni korursun",
+          title: "Deneme-yanılma ile aylar kaybetmezsin.",
+          preDescription:
+            "Tekstil sektörü deneme-yanılma yöntemini kaldırmayacak kadar hızlı ve maliyetlidir.",
           description:
-            "Başlangıçta yapılan pahalı hataların önüne geçer, bütçeni doğru önceliklere yönlendirirsin.",
+            "Daha önce test edilmiş saha deneyimiyle ilerler, markanı kurarken hangi risklerden uzak durman gerektiğini bilirsin.",
         },
         {
           title: "Kaostan kurtulursun",
@@ -208,9 +211,9 @@ export const programs: Record<ProgramSlug, ProgramData> = {
             "Aylar sürecek araştırma ve kararsızlık yerine, uygulanabilir bir yol haritasıyla daha hızlı aksiyon alırsın.",
         },
         {
-          title: "Deneme-yanılma ile aylar kaybetmezsin.",
+          title: "Sermayeni korursun",
           description:
-            "Daha önce test edilmiş saha deneyimiyle ilerler, markanı kurarken hangi risklerden uzak durman gerektiğini bilirsin.",
+            "Başlangıçta yapılan pahalı hataların önüne geçer, bütçeni doğru önceliklere yönlendirirsin.",
         },
       ],
     },
