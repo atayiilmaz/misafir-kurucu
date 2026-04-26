@@ -36,13 +36,15 @@ const resourceItems = [
   "Mevcut markalar için yeniden yapılandırma dökümanları",
 ];
 
+const homeHeroImage = "/images/heronew.jpeg";
+
 export function HomePage() {
   useSeo({
     title: "Moda markası kurmak ve büyütmek için birebir danışmanlık",
     description:
       "Misafir Kurucu ile moda markanı kurmak, büyütmek veya kritik kararlarını netleştirmek için birebir çalış. Programlar, danışmanlık yapısı ve saha deneyimi aynı çatı altında.",
     path: "/",
-    image: "/images/herosection.jpeg",
+    image: homeHeroImage,
     keywords: [
       "moda markası danışmanlığı",
       "tekstil danışmanlığı",
@@ -56,7 +58,7 @@ export function HomePage() {
         "@type": "Organization",
         name: SITE_NAME,
         url: SITE_URL,
-        image: absoluteUrl("/images/herosection.jpeg"),
+        image: absoluteUrl(homeHeroImage),
         email: "mailto:misafirkurucu@gmail.com",
         sameAs: [
           "https://www.instagram.com/misafirkurucu/",
@@ -99,7 +101,7 @@ export function HomePage() {
         subtitle={`İster yeni başlıyor olun, ister markanızı büyütüyor olun; bu süreci netleştiriyor ve satış getiren bir yapıya dönüştürüyorum.
 Bu süreçte ben misafirim, siz kurucusunuz.`}
         callToAction={{ text: "Programları Keşfet", href: "/#programlar" }}
-        backgroundImage="/images/herosection.jpeg"
+        backgroundImage={homeHeroImage}
       />
 
       <ParallaxImageSection
