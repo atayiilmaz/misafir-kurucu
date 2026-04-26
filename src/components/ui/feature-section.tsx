@@ -3,8 +3,8 @@ import { cn } from "@/lib/utils";
 
 const aboutParagraphs = [
   "16 yılı aşkın süredir tekstil sektörünün içindeyim.",
-  "Tekstil dünyasına kendi mağazamı kurarak adım attım; üretimden tedariğe, e-ticaretten marka inşasına kadar tüm süreçleri bizzat sahada yönettim. Bu yolculukta sadece başarılı modeller kurmakla kalmadım, aynı zamanda kriz yönetimini ve yeniden yapılanmayı deneyimleyerek esneklik kazandım.",
-  "Üretim ve e-ticaret odağında geliştirdiğim iş modellerini başarıyla devrettikten sonra, bugün bu birikimi markalara aktarıyorum. Benim yaklaşımım teorinin ötesinde; markanızın doğru yapı, optimize edilmiş süreçler ve sürdürülebilir stratejilerle büyümesini sağlamaktır. Sektördeki 16 yılımı, markanızın en güvenli yolu bulması için kullanıyorum."
+  "Tekstil dünyasına kendi mağazamı kurarak adım attım; üretimden tedariğe, e-ticaretten marka inşasına kadar tüm süreçleri bizzat sahada yönettim. Bu yolculukta sadece başarılı markalar kurmakla kalmadım, aynı zamanda kriz yönetimini ve yeniden yapılanmayı deneyimleyerek esneklik kazandım.",
+  "Üretim ve e-ticaret odağında geliştirdiğim iş modellerini başarıyla devrettikten sonra, bugün bu birikimimi markalara aktarıyorum. Benim yaklaşımım teorinin ötesinde; markanızın doğru yapı, optimize edilmiş süreçler ve sürdürülebilir stratejilerle büyümesini sağlamaktır. Sektördeki 16 yılımı, markanızın en güvenli yolu bulması için kullanıyorum."
 ];
 
 type FeatureSectionProps = {

@@ -796,7 +796,8 @@ export const plans: PricingPlan[] = [
 
 "Hızlı Çözüm: Kısa Süre İçinde Aksiyon Planı",
 
-"Odak Noktası: %100 İhtiyaca Özel Kurgu"
+"Odak Noktası: %100 İhtiyaca Özel Kurgu",
+"Çıktı Hızlı aksiyon planı"
     ],
     buttonText: "Programı İncele",
     href: "/programlar/program-3",

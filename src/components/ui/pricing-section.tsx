@@ -70,6 +70,7 @@ function PricingCard({
     : description;
   const isFoundationPlan = title === "Markanı Kur";
   const isGrowthPlan = title === "Markanı Büyüt";
+  const isStrategicPlan = title === "Stratejik Çözümler";
   const heroIcons = [
     <AArrowUpIcon key="hero-icon-up" size={34} className={theme.iconClass} />,
     <TrendingUpIcon key="hero-icon-trending" size={34} className={theme.iconClass} />,
@@ -154,16 +155,28 @@ function PricingCard({
             )}
           </>
         ) : (
-          <div className="mt-5 space-y-4">
-            {hasDescriptionHeading ? (
-              <p className={cn("text-base font-semibold leading-7", theme.bodyClass)}>
-                {descriptionHeading}
+          <>
+            <div className="mt-5 space-y-4">
+              {hasDescriptionHeading ? (
+                <p className={cn("text-base font-semibold leading-7", theme.bodyClass)}>
+                  {descriptionHeading}
+                </p>
+              ) : null}
+              <p className={cn("whitespace-pre-line text-base leading-7", theme.bodyClass)}>
+                {descriptionBody}
               </p>
+            </div>
+            {isStrategicPlan ? (
+              <div className="mt-8 grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4 text-[#5f3e2c]">
+                <span className="text-sm font-semibold leading-6 text-[#645651]">
+                  Çıktı
+                </span>
+                <span className="shrink-0 text-right text-lg font-semibold leading-6 text-[#5f3e2c]">
+                  Hızlı aksiyon planı
+                </span>
+              </div>
             ) : null}
-            <p className={cn("whitespace-pre-line text-base leading-7", theme.bodyClass)}>
-              {descriptionBody}
-            </p>
-          </div>
+          </>
         )}
       </div>
 
