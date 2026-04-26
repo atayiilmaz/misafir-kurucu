@@ -548,7 +548,7 @@ export const programs: Record<ProgramSlug, ProgramData> = {
     menuLabel: "Stratejik Çözümler",
     listingSubtitle: "İhtiyacın Kadar, Doğru Noktada Danışmanlık",
     listingDescription:
-      "Her markanın farklıdır. Bu yüzden sana hazır paket değil, tam ihtiyacın olan noktada birebir stratejik destek sunulur.",
+      "Her markanın ihtiyaçları farklıdır. Bu yüzden sana hazır paket değil, tam ihtiyacın olan noktada birebir stratejik destek sunulur.",
     teaserPoints: [
       "Sadece ihtiyaç duyduğun konuda",
       "Tam ihtiyaç duyduğun zamanda",
@@ -574,7 +574,7 @@ export const programs: Record<ProgramSlug, ProgramData> = {
     hero: {
       subtitle: "İhtiyacın Kadar, Doğru Noktada Danışmanlık",
       description:
-        "Her markanın farklıdır. Bu yüzden sana hazır paket değil, tam ihtiyacın olan noktada birebir stratejik destek sunulur.",
+        "Her markanın ihtiyaçları farklıdır. Bu yüzden sana hazır paket değil, tam ihtiyacın olan noktada birebir stratejik destek sunulur.",
       ctaLabel: "Seansını Planla",
       ticker: [
         "Marka Stratejisi & Konumlandırma",
@@ -588,7 +588,7 @@ export const programs: Record<ProgramSlug, ProgramData> = {
       ],
     },
     benefits: {
-      title: "90 dakikada ne elde edersiniz?",
+      title: "Ne elde edersiniz?",
       cards: [
         {
           title: "Sadece ihtiyaç duyduğun konuda",
