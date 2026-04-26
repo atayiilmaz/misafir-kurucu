@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react";
 import { AdminRouteGuard } from "@/features/admin/admin-route-guard";
 import { SiteLayout } from "@/components/site-layout";
 import { AboutPage } from "@/pages/about-page";
@@ -41,6 +42,7 @@ export default function App() {
           <Route path="/admin/posts/:id" element={<AdminPostEditorPage />} />
         </Route>
       </Routes>
+      <Analytics />
     </BrowserRouter>
   );
 }
