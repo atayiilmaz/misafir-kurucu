@@ -3,6 +3,7 @@ import { ParallaxImageSection } from "@/components/gsap/parallax-image-section";
 import FeatureSection from "@/components/ui/feature-section";
 import { HeroSection } from "@/components/ui/hero-section-2";
 import { PackageFinderSection } from "@/components/ui/package-finder-section";
+import { PricingHelpCtaSection } from "@/components/ui/pricing-help-cta-section";
 import { PricingSection } from "@/components/ui/pricing-section";
 import { plans } from "@/content/programs";
 import { SITE_AUTHOR, SITE_NAME, SITE_URL, absoluteUrl, useSeo } from "@/lib/seo";
@@ -144,6 +145,7 @@ Bu süreçte ben misafirim, siz kurucusunuz.`}
 
       <PackageFinderSection />
       <PricingSection plans={plans} />
+      <PricingHelpCtaSection />
       <FeatureSection
         id="hakkimda"
         title=""
