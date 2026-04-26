@@ -509,6 +509,7 @@ export const programs: Record<ProgramSlug, ProgramData> = {
       title: "Neye yatırım yapıyorsunuz?",
       columns: [
         {
+          heading: "Neye yatırım yapıyorsunuz?",
           items: [
             "Haftada 2 gün, 1 saatlik birebir Zoom görüşmesi",
             "Tercihli yerinde mağaza / üretim yeri analizi",
@@ -516,6 +517,19 @@ export const programs: Record<ProgramSlug, ProgramData> = {
             "Günlük sohbet & karar desteği",
             "Markanın tüm kararlarını yöneten net bir marka çerçevesi",
             "Sürekli geri bildirim — 12 hafta boyunca",
+          ],
+        },
+        {
+          heading: "Hangi kaynaklara erişirsin?",
+          items: [
+            "Satış kanalı analizi ve büyüme yol haritası şablonları",
+            "Mevcut koleksiyon ve fiyatlandırma revizyonu dökümanları",
+            "Üretim ve tedarik süreçleri optimizasyon çıktıları",
+            "Marka dili, görsel kimlik ve içerik tutarlılığı rehberi",
+            "E-ticaret başarı planı",
+            "Sosyal medya içerik planı ve marka sesi şablonları",
+            "Dijital kanal ve lansman planları",
+            "Yeniden yapılandırma ve ölçekleme dökümanları",
           ],
         },
       ],
