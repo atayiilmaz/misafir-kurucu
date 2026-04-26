@@ -34,21 +34,13 @@ const socialLinks = [
     link: "https://www.instagram.com/misafirkurucu/",
   },
   {
-    icon: <Linkedin className="size-4" />,
-    link: "https://www.linkedin.com/in/sevincgurguzel/",
-  },
-  {
     icon: <Youtube className="size-4" />,
     link: "https://www.youtube.com/@misafirkurucu",
   },
   {
-    icon: <Send className="size-4" />,
-    link: "https://www.instagram.com/misafirkurucu/",
-  },
-  {
     icon: <Mail className="size-4" />,
     link: "mailto:misafirkurucu@gmail.com",
-  },
+  }
 ];
 
 export function MinimalFooter() {
@@ -72,9 +64,7 @@ export function MinimalFooter() {
                   </div>
                 </div>
                 <p className="max-w-sm text-base leading-7 text-muted-foreground">
-                  Sevinç tarafından verilen, tekstil sektöründe girişimcilik
-                  hedefleyenler için üretim, marka ve satış tarafını bir araya
-                  getiren uygulanabilir danışmanlık.
+Tekstil girişimcileri için üretimden satışa, fikirden markaya — uçtan uca danışmanlık.
                 </p>
                 <div className="flex gap-2">
                   {socialLinks.map((item, index) => (
