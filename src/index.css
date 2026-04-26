@@ -163,6 +163,10 @@ main section .section-kicker {
   font-size: 24px !important;
 }
 
+.pricing-help-cta-text {
+  font-size: 32px !important;
+}
+
 main section :is(h1, h2, h3, h4, h5, h6) :is(span, em, strong) {
   font-size: inherit !important;
 }

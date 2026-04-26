@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { AArrowUpIcon } from "@/components/ui/a-arrow-up";
 import { ChartLineIcon } from "@/components/ui/chart-line";
 import { TrendingUpIcon } from "@/components/ui/trending-up";
@@ -190,6 +190,25 @@ export function PricingSection({ plans }: PricingSectionProps) {
             <PricingCard {...plan} index={index} />
           </div>
         ))}
+      </div>
+
+      <div className="mx-auto mt-14 max-w-3xl text-center" data-gsap-item>
+        <p className="pricing-help-cta-text leading-tight text-[#6f5849]">
+          Hangi paketi seçeceğinden emin değil misin? Kısa bir görüşmeyle
+          birlikte karar verebiliriz.
+        </p>
+        <SubtleButton
+          href="/gorusme-planlayin"
+          theme="secondary"
+          size="lg"
+          className="mt-6 h-12 px-8 text-base"
+        >
+          Ücretsiz ön görüşme al
+          <ArrowRight
+            className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+            aria-hidden="true"
+          />
+        </SubtleButton>
       </div>
     </RevealSection>
   );
