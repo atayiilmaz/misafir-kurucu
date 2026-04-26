@@ -69,6 +69,7 @@ function PricingCard({
     ? descriptionBodyParts.join("\n").trim()
     : description;
   const isFoundationPlan = title === "Markanı Kur";
+  const isGrowthPlan = title === "Markanı Büyüt";
   const heroIcons = [
     <AArrowUpIcon key="hero-icon-up" size={34} className={theme.iconClass} />,
     <TrendingUpIcon key="hero-icon-trending" size={34} className={theme.iconClass} />,
@@ -110,7 +111,7 @@ function PricingCard({
           </motion.div>
         </div>
 
-        {isFoundationPlan ? (
+        {isFoundationPlan || isGrowthPlan ? (
           <>
             <div className="mt-7 space-y-2">
               <p className={cn("text-base font-semibold leading-7", theme.bodyClass)}>
@@ -121,25 +122,36 @@ function PricingCard({
               </p>
             </div>
 
-            <div className="mt-8 space-y-4 text-[#5f3e2c]">
-              <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4">
-                <span className="text-sm font-semibold leading-6 text-[#6c5448]">
-                  Tahmini tasarruf
-                  <span className="block">(yanlış başlangıç maliyeti)</span>
+            {isFoundationPlan ? (
+              <div className="mt-8 space-y-4 text-[#5f3e2c]">
+                <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4">
+                  <span className="text-sm font-semibold leading-6 text-[#6c5448]">
+                    Tahmini tasarruf
+                    <span className="block">(yanlış başlangıç maliyeti)</span>
+                  </span>
+                  <span className="shrink-0 text-right text-lg font-semibold leading-6 text-[#5f3e2c]">
+                    ₺240K – ₺400K+
+                  </span>
+                </div>
+                <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4">
+                  <span className="text-sm font-semibold leading-6 text-[#6c5448]">
+                    Kazanılan zaman
+                  </span>
+                  <span className="shrink-0 text-right text-lg font-semibold leading-6 text-[#5f3e2c]">
+                    12 – 18 ay
+                  </span>
+                </div>
+              </div>
+            ) : (
+              <div className="mt-8 grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4 text-[#5f3e2c]">
+                <span className="text-sm font-semibold leading-6 text-[#6b554a]">
+                  Tahmini verimlilik artışı
                 </span>
                 <span className="shrink-0 text-right text-lg font-semibold leading-6 text-[#5f3e2c]">
-                  ₺240K – ₺400K+
+                  %40 – %60
                 </span>
               </div>
-              <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4">
-                <span className="text-sm font-semibold leading-6 text-[#6c5448]">
-                  Kazanılan zaman
-                </span>
-                <span className="shrink-0 text-right text-lg font-semibold leading-6 text-[#5f3e2c]">
-                  12 – 18 ay
-                </span>
-              </div>
-            </div>
+            )}
           </>
         ) : (
           <div className="mt-5 space-y-4">

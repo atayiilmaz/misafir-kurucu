@@ -762,9 +762,10 @@ export const plans: PricingPlan[] = [
   {
     title: "Markanı Büyüt",
     price: "02",
-    priceDescription: "Markanız Var, Ama Henüz Tam Potansiyeline Ulaşmadı",
+    priceDescription:
+      "Tekstil Markanız Var ve Karlı Bir Büyüme için Daha Akıllı Sistemlere Geçme Zamanı",
     description:
-      "Kim için?\nSatışlarınızı bir üst seviyeye taşımak, dijital varlığınızı güçlendirmek ya da\nmarkanızı daha profesyonel bir yapıya oturtmak isteyen kurucular için.",
+      "Kimler için?\nSatışlarınızı bir üst seviyeye taşımak, dijital varlığınızı güçlendirmek ve markanızı daha profesyonel bir yapıya oturtmak isteyen kurucular için",
     features: [
       "Satış Kanalları ve Büyüme Stratejileri",
       "Marka Algısı ve Görsel Kimlik Revizyonu",
@@ -783,7 +784,7 @@ export const plans: PricingPlan[] = [
     price: "03",
     priceDescription: "İhtiyacın Kadar, Doğru Noktada Danışmanlık",
     description:
-      "Kim için?\nSpesifik bir sorunu olan, net bir cevap arayan veya süreci tamamen kendi ihtiyaçlarına göre şekillendirmek isteyen profesyoneller için.",
+      "Kimler için?\nBelirli bir sorunu olan, net bir cevap arayan veya süreci tamamen kendi ihtiyaçlarına göre şekillendirmek isteyen profesyoneller için.",
     features: [
 "Birebir Sorun Analizi ve Teknik Çözümler",
 
