@@ -239,8 +239,8 @@ export function ProgramHeroScene({ program }: ProgramHeroSceneProps) {
       <div className="grid w-full lg:min-h-[calc(100svh-4.35rem)] lg:grid-cols-2">
         <div className="flex">
           <div className="flex h-full w-full flex-col justify-center px-5 py-12 sm:px-8 md:px-12 md:py-16 lg:px-16 lg:py-20 xl:px-20">
-            <div className="max-w-4xl overflow-hidden">
-              <h1 className="max-w-[11.5ch] text-[2.35rem] leading-[0.98] text-foreground sm:text-[3.2rem] md:text-[4.5rem] md:leading-[0.95] lg:text-[4.5rem]">
+            <div className="max-w-4xl overflow-visible">
+              <h1 className="max-w-[11.5ch] pt-[0.08em] text-[2.35rem] leading-[0.98] text-foreground sm:text-[3.2rem] md:text-[4.5rem] md:leading-[0.95] lg:text-[4.5rem]">
                 <span
                   className={cn("font-display", program.slug === "program-3" && "tracking-[-0.015em]")}
                   data-hero-word

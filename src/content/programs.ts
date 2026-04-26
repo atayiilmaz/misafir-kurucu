@@ -596,7 +596,7 @@ export const programs: Record<ProgramSlug, ProgramData> = {
             "Tüm süreci baştan almak yerine, tam sıkıştığın noktadan devreye girerek hızla ilerliyoruz.",
         },
         {
-          title: "Tam ihtiyaç duyduğun zamanda",
+          title: "Doğru Zamanda",
           description:
             "Aylık danışmanlık taahhüdü olmadan, kritik kararlar öncesinde uzman görüşü alırsın.",
         },
@@ -635,8 +635,8 @@ export const programs: Record<ProgramSlug, ProgramData> = {
       order: "04",
       title: "Nasıl çalışır?",
       intro: [
-        "Bu modelde süreç tamamen sana göre şekillenir. Bir seansta istediğin konuya odaklanır, net bir eylem planıyla çıkarsın.",
-        "Spesifik sorunuza uygulanabilir bir yol çizilir. Hazır şablon değil, markanıza özel çözümler sunulur.",
+        "Bu modelde süreç tamamen sana göre şekillenir. İstediğin konuya odaklanılır ve net bir eylem planı çıkarılır.",
+        "Spesifik sorunuza uygulanabilir bir yol çizilir. Hazır şablon değil, size özel çözümler sunulur.",
       ],
       steps: [
         {
@@ -647,9 +647,9 @@ export const programs: Record<ProgramSlug, ProgramData> = {
         },
         {
           label: "ADIM 2",
-          title: "Seans Planlanır",
+          title: "Seans/Seanslar Planlanır",
           description:
-            "Zoom üzerinden 90 dakikalık birebir görüşme takvime eklenir.",
+            "Zoom üzerinden 90 dakikalık birebir görüşmeler gerçekleştirilir.",
         },
         {
           label: "ADIM 3",
