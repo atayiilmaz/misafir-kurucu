@@ -2054,7 +2054,7 @@ export function ProgramWhyMeScene({
             {quoteParts[0]}
             {quoteParts.length > 1 ? (
               <>
-                <span className="!text-[24px] text-primary/55">{accent}</span>
+                <span className="!text-[24px] text-primary">{accent}</span>
                 {quoteParts.slice(1).join(accent)}
               </>
             ) : null}

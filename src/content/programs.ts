@@ -655,7 +655,7 @@ export const programs: Record<ProgramSlug, ProgramData> = {
           label: "ADIM 3",
           title: "Odaklı Çalışma",
           description:
-            "Seans boyunca yalnızca o konuya odaklanılır, somut stratejiler ve eylem adımları belirlenir.",
+            "Seanslar boyunca yalnızca o konuya odaklanılır, somut stratejiler ve eylem adımları belirlenir.",
         },
         {
           label: "ADIM 4",
@@ -696,7 +696,7 @@ export const programs: Record<ProgramSlug, ProgramData> = {
           eyebrow: "05",
           title: "Kısa Süreli Takip Desteği",
           description:
-            "Seans sonrasında 48 saat boyunca mesaj üzerinden soru sorma imkânı.",
+            "Seans sonrasında 1 hafta boyunca mesaj üzerinden soru sorma imkânı.",
         },
         {
           eyebrow: "06",
@@ -725,7 +725,7 @@ export const programs: Record<ProgramSlug, ProgramData> = {
             "Seans öncesi kısa değerlendirme formu",
             "Seans sonrası yazılı özet & eylem planı",
             "Konuya özel kaynaklar ve dökümanlar",
-            "48 saatlik mesaj takip desteği",
+            "1 haftalık mesaj takip desteği",
             "Aylık taahhüt yok — ihtiyaç duyduğunda kullan",
           ],
         },
@@ -737,7 +737,6 @@ export const programs: Record<ProgramSlug, ProgramData> = {
             "Koleksiyon planlama dökümanları",
             "Üretim ve tedarikçi değerlendirme kılavuzları",
             "Marka konumlandırma çerçeveleri",
-            "Güvenilir üretici ve tedarikçi bağlantıları",
           ],
         },
       ],
