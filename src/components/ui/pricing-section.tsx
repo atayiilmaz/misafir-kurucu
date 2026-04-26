@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { AArrowUpIcon } from "@/components/ui/a-arrow-up";
+import { RocketIcon } from "@/components/ui/rocket";
 import { ChartLineIcon } from "@/components/ui/chart-line";
 import { TrendingUpIcon } from "@/components/ui/trending-up";
 import { RevealSection } from "@/components/gsap/reveal-section";
+import { BlocksIcon } from "@/components/ui/blocks";
 import SubtleButton from "@/components/ui/subtle-button";
 import { cn } from "@/lib/utils";
 import type { PricingPlan } from "@/content/programs";
@@ -72,9 +74,9 @@ function PricingCard({
   const isGrowthPlan = title === "Markanı Büyüt";
   const isStrategicPlan = title === "Stratejik Çözümler";
   const heroIcons = [
-    <AArrowUpIcon key="hero-icon-up" size={34} className={theme.iconClass} />,
+    <RocketIcon key="hero-icon-rocket" size={34} className={theme.iconClass} />,
     <TrendingUpIcon key="hero-icon-trending" size={34} className={theme.iconClass} />,
-    <ChartLineIcon key="hero-icon-chart" size={34} className={theme.iconClass} />,
+    <BlocksIcon key="hero-icon-up" size={34} className={theme.iconClass} />,
   ] as const;
   const heroIcon = heroIcons[index] ?? heroIcons[heroIcons.length - 1];
 
@@ -98,7 +100,7 @@ function PricingCard({
                 </span>
               ))}
             </h3>
-            <div className="mt-5">
+            <div className="mt-5 min-h-14">
               <p className={cn("whitespace-pre-line text-base leading-7", theme.bodyClass)}>
                 {priceDescription}
               </p>
@@ -156,7 +158,7 @@ function PricingCard({
           </>
         ) : (
           <>
-            <div className="mt-5 space-y-4">
+            <div className="mt-7 space-y-4">
               {hasDescriptionHeading ? (
                 <p className={cn("text-base font-semibold leading-7", theme.bodyClass)}>
                   {descriptionHeading}
