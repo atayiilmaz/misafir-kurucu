@@ -746,7 +746,7 @@ export const plans: PricingPlan[] = [
     priceDescription:
       "Fikrini Gerçek Bir Markaya Dönüştür: 0'dan Başarılı Bir Lansmana",
     description:
-      "Kim için?\nSağlam temeller atmak ve acele etmeden doğru\nbir başlangıç yapmak isteyen kurucular.",
+      "Kim için?\nDoğru temellerle fark yaratan bir tekstil markası kurmak isteyenler için",
     features: [
       "Stratejik Marka Çerçevesi",
       "Koleksiyon planlaması ve üretimi",
@@ -754,7 +754,7 @@ export const plans: PricingPlan[] = [
       "Tahmini Toplam Tasarruf: ₺240.000 –\n₺400.000+",
       "Zaman Kaybı (12 - 18 Ay): Paha Biçilemez",
     ],
-    buttonText: "Programı İncele",
+    buttonText: "Paketi İncele",
     href: "/programlar/program-1",
     imageSrc: programs["program-1"].heroImage,
     imageAlt: programs["program-1"].heroImageAlt,
@@ -762,7 +762,7 @@ export const plans: PricingPlan[] = [
   {
     title: "Markanı Büyüt",
     price: "02",
-    priceDescription: "Markanız Var, Ama Henüz Tam Potansiyeline Ulaşmadı.",
+    priceDescription: "Markanız Var, Ama Henüz Tam Potansiyeline Ulaşmadı",
     description:
       "Kim için?\nSatışlarınızı bir üst seviyeye taşımak, dijital varlığınızı güçlendirmek ya da\nmarkanızı daha profesyonel bir yapıya oturtmak isteyen kurucular için.",
     features: [
