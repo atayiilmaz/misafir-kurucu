@@ -1,11 +1,5 @@
-import {
-  Instagram,
-  Linkedin,
-  Mail,
-  Scissors,
-  Send,
-  Youtube,
-} from "lucide-react";
+import { Scissors } from "lucide-react";
+import { FaEnvelope, FaInstagram, FaTiktok, FaYoutube } from "react-icons/fa6";
 import { AppLink } from "@/components/ui/app-link";
 
 const company = [
@@ -30,17 +24,21 @@ const resources = [
 
 const socialLinks = [
   {
-    icon: <Instagram className="size-4" />,
+    icon: <FaInstagram className="size-4" />,
     link: "https://www.instagram.com/misafirkurucu/",
   },
   {
-    icon: <Youtube className="size-4" />,
+    icon: <FaYoutube className="size-4" />,
     link: "https://www.youtube.com/@misafirkurucu",
   },
   {
-    icon: <Mail className="size-4" />,
+    icon: <FaTiktok className="size-4" />,
+    link: "https://www.tiktok.com/@misafirkurucu",
+  },
+  {
+    icon: <FaEnvelope className="size-4" />,
     link: "mailto:misafirkurucu@gmail.com",
-  }
+  },
 ];
 
 export function MinimalFooter() {
