@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { ArrowRight, RotateCcw } from "lucide-react";
 import { RevealSection } from "@/components/gsap/reveal-section";
-import { AppLink } from "@/components/ui/app-link";
+import SubtleButton from "@/components/ui/subtle-button";
 import { cn } from "@/lib/utils";
 
 type Segment = "new" | "active" | "focused";
@@ -144,21 +144,21 @@ const results: Record<Segment, Result> = {
     description:
       "Sıfırdan doğru temeller atmak, koleksiyon ve lansman adımlarını birbirine bağlı bir plana dönüştürmek için en uygun başlangıç.",
     href: "/programlar/program-1",
-    cta: "Markanı Kur programını incele",
+    cta: "Markanı Kur paketini incele",
   },
   active: {
     title: "Markanı Büyüt",
     description:
       "Potansiyelinin altında kalan markana ivme kazandırmak; satış, dijital görünürlük, marka algısı ve operasyonu birlikte güçlendirmek için doğru seçim.",
     href: "/programlar/program-2",
-    cta: "Markanı Büyüt programını incele",
+    cta: "Markanı Büyüt paketini incele",
   },
   focused: {
     title: "Stratejik Çözümler",
     description:
       "Uzun bir programa değil, belirli bir soruna odaklanan net analiz, hızlı karar desteği ve uygulanabilir aksiyon planı için tasarlandı.",
     href: "/programlar/program-3",
-    cta: "Stratejik Çözümler programını incele",
+    cta: "Stratejik Çözümler paketini incele",
   },
 };
 
@@ -199,7 +199,7 @@ export function PackageFinderSection() {
     >
       <div className="section-shell">
         <div className="mx-auto max-w-3xl text-center" data-gsap-item>
-          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">
+          <p className="package-finder-eyebrow font-semibold uppercase tracking-[0.24em] text-primary">
             Nerede olduğunu anlayalım
           </p>
           <h2 className="section-title mt-4">Hangi paket bana uygun?</h2>
@@ -209,7 +209,9 @@ export function PackageFinderSection() {
         </div>
 
         <div
-          className="mx-auto mt-12 max-w-4xl border-t border-[#e5c6b2] pt-8"
+          className={cn(
+            "mx-auto mt-12 max-w-4xl rounded-[2rem] border border-[#efc8af] bg-[#fff1e6] p-6 shadow-[0_28px_76px_-62px_rgba(255,129,5,0.42)] sm:p-8",
+          )}
           data-gsap-item
         >
           <div className="grid grid-cols-3 gap-3" aria-hidden="true">
@@ -229,37 +231,41 @@ export function PackageFinderSection() {
           </div>
 
           {showResult ? (
-            <div className="mx-auto mt-9 max-w-4xl rounded-[1.75rem] border border-[#efc8af] bg-[linear-gradient(180deg,rgba(255,246,239,0.96),rgba(255,251,247,0.9))] p-7 text-left shadow-[0_26px_64px_-50px_rgba(255,129,5,0.35)] sm:p-10">
-              <span className="inline-flex rounded-full border border-primary/20 bg-primary/10 px-6 py-1.5 text-sm font-semibold text-primary">
-                Önerilen paket
-              </span>
-              <h3 className="mt-6 font-display text-[2.25rem] leading-none text-foreground sm:text-[2.85rem]">
-                {result.title}
-              </h3>
-              <p className="mt-5 max-w-3xl text-[1.05rem] leading-8 text-[#6f5849]">
-                {result.description}
-              </p>
-              <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
-                <AppLink
+            <div className="mt-8">
+              <div className="rounded-[1.55rem] border border-[#efc8af] bg-[linear-gradient(180deg,rgba(255,250,246,0.98),rgba(255,246,239,0.94))] p-6 text-left shadow-[0_24px_64px_-54px_rgba(255,129,5,0.38)] sm:p-8 md:p-10">
+                <span className="inline-flex rounded-full border border-primary/20 bg-primary/10 px-6 py-1.5 text-sm font-semibold text-primary">
+                  Önerilen paket
+                </span>
+                <h3 className="mt-6 font-display text-[2.25rem] leading-none text-foreground sm:text-[2.85rem]">
+                  {result.title}
+                </h3>
+                <p className="mt-5 max-w-3xl text-[1.05rem] leading-8 text-[#6f5849]">
+                  {result.description}
+                </p>
+                <SubtleButton
                   href={result.href}
-                  className="surface-primary-gradient inline-flex h-12 items-center justify-center gap-3 rounded-full px-8 text-base font-semibold text-white shadow-[0_18px_36px_-24px_rgba(255,129,5,0.55)] transition-all duration-300 hover:shadow-[0_22px_42px_-24px_rgba(255,129,5,0.65)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/35"
+                  size="lg"
+                  className="mt-8 h-12 w-full max-w-full px-4 text-[0.9rem] sm:w-auto sm:px-8 sm:text-base"
                 >
-                  {result.cta}
+                  <span className="hidden sm:inline">{result.cta}</span>
+                  <span className="sm:hidden">Paketi incele</span>
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </AppLink>
+                </SubtleButton>
+              </div>
+              <div className="mt-5">
                 <button
                   type="button"
                   onClick={resetQuiz}
-                  className="inline-flex h-12 items-center justify-center gap-2 rounded-full px-5 text-sm font-semibold text-[#6f5849] transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/35"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#7b6557] underline decoration-[#7b6557]/70 underline-offset-4 transition-colors hover:text-primary hover:decoration-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/35"
                 >
-                  <RotateCcw className="h-4 w-4" aria-hidden="true" />
+                  <RotateCcw className="h-3.5 w-3.5" aria-hidden="true" />
                   Tekrar dene
                 </button>
               </div>
             </div>
           ) : (
             <div className="mt-9">
-              <p className="text-center font-display text-[1.75rem] leading-tight text-foreground sm:text-[2.05rem]">
+              <p className="package-finder-question text-center font-display leading-tight text-foreground">
                 {currentQuestion.title}
               </p>
               <div className="mx-auto mt-7 grid max-w-3xl gap-3">
@@ -268,7 +274,7 @@ export function PackageFinderSection() {
                     key={option.value}
                     type="button"
                     onClick={() => handleOption(option.value)}
-                    className="group flex w-full items-center justify-between gap-5 border border-[#e3c6b3] bg-white/55 px-5 py-4 text-left transition-all duration-300 hover:border-[#d49064] hover:bg-white/85 hover:shadow-[0_16px_32px_-28px_rgba(84,48,28,0.38)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/35"
+                    className="group flex w-full items-center justify-between gap-5 rounded-[1rem] border border-[#e3c6b3] bg-white/55 px-5 py-4 text-left transition-all duration-300 hover:border-[#d49064] hover:bg-white/85 hover:shadow-[0_16px_32px_-28px_rgba(84,48,28,0.38)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/35"
                   >
                     <span>
                       <span className="block font-semibold leading-6 text-foreground">
