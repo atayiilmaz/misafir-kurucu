@@ -72,7 +72,7 @@ export function AboutPage() {
     description:
       "Sevinç Gürgüzel'in mağazacılık, üretim ve marka kurma deneyiminden beslenen saha hikâyesini ve Misafir Kurucu yaklaşımını keşfedin.",
     path: "/hakkimda",
-    image: "/images/aboutme.jpeg",
+    image: "/images/features1.jpeg",
     keywords: [
       "sevinç gürgüzel",
       "misafir kurucu hakkında",
@@ -88,7 +88,7 @@ export function AboutPage() {
       about: {
         "@type": "Person",
         name: SITE_AUTHOR,
-        image: absoluteUrl("/images/aboutme.jpeg"),
+        image: absoluteUrl("/images/features1.jpeg"),
         sameAs: [
           "https://www.instagram.com/p/DTQhlJ5DUdV/?igsh=NDFwNGE2ZTZuY3o%3D",
           "https://www.linkedin.com/in/sevincgurguzel/",
@@ -114,7 +114,7 @@ export function AboutPage() {
           >
             <div className="absolute -left-4 -top-4 hidden h-32 w-32 rounded-full bg-primary/10 blur-3xl md:block" />
             <img
-              src="/images/aboutme.jpeg"
+              src="/images/features1.jpeg"
               alt="Sevinç portresi"
               className="about-top-media relative aspect-[4/5] w-full rounded-[2.25rem] object-cover shadow-soft"
             />
@@ -238,8 +238,8 @@ export function AboutPage() {
         as="div"
         className="w-full rounded-[2.4rem] border border-primary/16 shadow-[0_24px_54px_-34px_rgba(84,48,28,0.34)]"
         contentClassName="px-5 py-6 md:px-8 md:py-8 lg:px-10 lg:py-10"
-        imageSrc="/images/aboutme.jpeg"
-        imageClassName="object-[center_32%]"
+        imageSrc="/images/features.jpeg"
+        imageClassName="object-[center_50%]"
         overlayClassName="bg-[rgba(250, 220, 190, 0.6)]"
         fromYPercent={-7}
         toYPercent={8}

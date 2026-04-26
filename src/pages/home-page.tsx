@@ -169,7 +169,7 @@ Bu süreçte ben misafirim, siz kurucusunuz.`}
       <FeatureSection
         title="Ne Elde Edersin?"
         items={outcomeItems}
-        imageSrc="/images/featuresection2.jpeg"
+        imageSrc="/images/features2.jpeg"
         imageAlt="Program kazanımlarını anlatan görsel"
         backgroundClassName="bg-[#edf1f5]"
       />
@@ -177,7 +177,7 @@ Bu süreçte ben misafirim, siz kurucusunuz.`}
         reverse
         title="Hangi Kaynaklara Erişirsin?"
         items={resourceItems}
-        imageSrc="/images/featuresection3.jpeg"
+        imageSrc="/images/features3.jpeg"
         imageAlt="Kaynaklara erişimi anlatan görsel"
         compactImage
         compactGap

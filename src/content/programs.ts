@@ -161,16 +161,14 @@ export const programs: Record<ProgramSlug, ProgramData> = {
       "Moda markası kurulumuna eşlik eden editoryal moda görseli",
     heroImage: "/images/markanikur.png",
     heroImageAlt: "Markanı Kur programı hero görseli",
-    storyImage: "/images/sitecontent.png",
+    storyImage: "/images/new3.jpeg",
     storyImageAlt:
-      "Marka planlaması ve koleksiyon hazırlığını gösteren masaüstü düzeni",
-    audienceImage:
-      "https://images.unsplash.com/photo-1753162657464-7f829c766d54?auto=format&fit=crop&w=1600&q=80",
-    audienceImageAlt: "Moda markası kurulum sürecinde çalışan tasarımcı",
-    supportImage:
-      "https://images.unsplash.com/photo-1764740109279-c7a8abd78821?auto=format&fit=crop&w=1600&q=80",
+      "Marka planlaması ve koleksiyon hazırlığını gösteren çalışma masası",
+    audienceImage: "/images/new.jpeg",
+    audienceImageAlt: "Moda markası kurulum sürecini anlatan koleksiyon planı",
+    supportImage: "/images/featuresections.jpeg",
     supportImageAlt:
-      "Teknik çizim ve üretim planlamasını temsil eden yaratıcı çalışma masası",
+      "Teknik üretim ve atölye planlamasını temsil eden çalışma alanı",
     hero: {
       subtitle:
         "Fikrini Gerçek Bir Markaya Dönüştür: 0'dan Başarılı Bir Lansmana",
@@ -332,17 +330,15 @@ export const programs: Record<ProgramSlug, ProgramData> = {
     showcaseImageAlt: "Marka büyümesini çağrıştıran moda görseli",
     heroImage: "/images/markanibuyut.png",
     heroImageAlt: "Markanı Büyüt programı hero görseli",
-    storyImage: "/images/sitecontent.png",
+    storyImage: "/images/new2.jpeg",
     storyImageAlt:
-      "İçerik, koleksiyon ve marka düzenini gösteren çalışma alanı",
-    audienceImage:
-      "https://images.unsplash.com/photo-1759752393718-7b57f6da3caa?auto=format&fit=crop&w=1600&q=80",
+      "İçerik, koleksiyon ve marka düzenini gösteren stil panosu",
+    audienceImage: "/images/new3.jpeg",
     audienceImageAlt:
-      "Büyüme potansiyeli taşıyan butik mağaza ve koleksiyon düzeni",
-    supportImage:
-      "https://images.unsplash.com/photo-1683921070230-9f046e462e46?auto=format&fit=crop&w=1600&q=80",
+      "Büyüme sürecindeki koleksiyon ve ürün planlama masası",
+    supportImage: "/images/new.jpeg",
     supportImageAlt:
-      "Planlama, not alma ve karar süreçlerini temsil eden masaüstü çalışma alanı",
+      "Planlama ve karar süreçlerini temsil eden sezon takvimi",
     hero: {
       subtitle: "Tekstil Markanız Var ve Karlı Bir Büyüme için Daha Akıllı Sistemlere Geçme Zamanı",
       description:
@@ -560,17 +556,15 @@ export const programs: Record<ProgramSlug, ProgramData> = {
       "Stratejik ortaklık ve birebir danışmanlık sürecini temsil eden görsel",
     heroImage: "/images/stratejik.png",
     heroImageAlt: "Stratejik Ortaklık programı hero görseli",
-    storyImage:
-      "https://images.unsplash.com/photo-1683921070230-9f046e462e46?auto=format&fit=crop&w=1600&q=80",
+    storyImage: "/images/featuresections.jpeg",
     storyImageAlt:
-      "Stratejik karar alma ve planlamayı çağrıştıran masaüstü düzeni",
-    audienceImage: "/images/sitecontent.png",
+      "Stratejik üretim ve uygulama sürecini çağrıştıran atölye alanı",
+    audienceImage: "/images/new2.jpeg",
     audienceImageAlt:
-      "Stratejik danışmanlık ve koleksiyon planlamasını çağrıştıran flatlay",
-    supportImage:
-      "https://images.unsplash.com/photo-1764740109279-c7a8abd78821?auto=format&fit=crop&w=1600&q=80",
+      "Stratejik danışmanlık ve koleksiyon planlamasını çağrıştıran stil defteri",
+    supportImage: "/images/new3.jpeg",
     supportImageAlt:
-      "Marka stratejisi ve uygulama planlarını temsil eden teknik çalışma masası",
+      "Marka stratejisi ve uygulama planlarını temsil eden çalışma masası",
     hero: {
       subtitle: "İhtiyacın Kadar, Doğru Noktada Danışmanlık",
       description:

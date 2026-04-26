@@ -28,7 +28,7 @@ export default function FeatureSection({
   headline,
   paragraphs = aboutParagraphs,
   items,
-  imageSrc = "/images/aboutme.jpeg",
+  imageSrc = "/images/features1.jpeg",
   imageAlt = "Sevinç hakkında görsel",
   backgroundClassName,
   compactImage = false,
