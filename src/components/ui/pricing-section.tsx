@@ -1,8 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { AArrowUpIcon } from "@/components/ui/a-arrow-up";
 import { RocketIcon } from "@/components/ui/rocket";
-import { ChartLineIcon } from "@/components/ui/chart-line";
 import { TrendingUpIcon } from "@/components/ui/trending-up";
 import { RevealSection } from "@/components/gsap/reveal-section";
 import { BlocksIcon } from "@/components/ui/blocks";
