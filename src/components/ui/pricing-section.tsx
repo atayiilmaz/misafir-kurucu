@@ -116,7 +116,7 @@ function PricingCard({
 
         {isFoundationPlan || isGrowthPlan ? (
           <>
-            <div className="mt-7 space-y-2">
+            <div className="mt-7 min-h-[9rem] space-y-2">
               <p className={cn("text-base font-semibold leading-7", theme.bodyClass)}>
                 Kimler için?
               </p>
@@ -158,7 +158,7 @@ function PricingCard({
           </>
         ) : (
           <>
-            <div className="mt-7 space-y-4">
+            <div className="mt-7 min-h-[9rem] space-y-2">
               {hasDescriptionHeading ? (
                 <p className={cn("text-base font-semibold leading-7", theme.bodyClass)}>
                   {descriptionHeading}
