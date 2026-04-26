@@ -155,6 +155,10 @@ main section .section-kicker {
   line-height: 1.25 !important;
 }
 
+.package-finder-title {
+  font-size: 36px !important;
+}
+
 .package-finder-question {
   font-size: 24px !important;
 }
@@ -310,6 +314,10 @@ main section :is(h1, h2, h3, h4, h5, h6) :is(span, em, strong) {
   main section.pricing-section .section-title,
   main section.pricing-section .pricing-plan-title,
   main section.pricing-section .pricing-plan-title :is(span, em, strong) {
+    font-size: 36px !important;
+  }
+
+  main section .package-finder-title {
     font-size: 36px !important;
   }
 

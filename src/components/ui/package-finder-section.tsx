@@ -202,7 +202,9 @@ export function PackageFinderSection() {
           <p className="package-finder-eyebrow font-semibold uppercase tracking-[0.24em] text-primary">
             Nerede olduğunu anlayalım
           </p>
-          <h2 className="section-title mt-4">Hangi paket bana uygun?</h2>
+          <h2 className="package-finder-title section-title mt-4">
+            Hangi paket bana uygun?
+          </h2>
           <p className="mx-auto mt-4 max-w-2xl text-[#6f5849]">
             3 kısa soruyla sana en uygun çalışma modelini bulalım.
           </p>
