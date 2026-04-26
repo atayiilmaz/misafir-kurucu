@@ -169,7 +169,7 @@ function PricingCard({
             {isStrategicPlan ? (
               <div className="mt-8 grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4 text-[#5f3e2c]">
                 <span className="text-sm font-semibold leading-6 text-[#645651]">
-                  Çıktı
+                  Kazanımlar
                 </span>
                 <span className="shrink-0 text-right text-lg font-semibold leading-6 text-[#5f3e2c]">
                   Hızlı aksiyon planı
@@ -219,7 +219,7 @@ export function PricingSection({ plans }: PricingSectionProps) {
 
       <div className="mx-auto mt-14 max-w-3xl text-center" data-gsap-item>
         <p className="pricing-help-cta-text leading-tight text-[#6f5849]">
-          Hangi paketi seçeceğinden emin değil misin? Kısa bir görüşmeyle
+          Hangi paketi seçeceğinden hala emin değil misin? Kısa bir görüşmeyle
           birlikte karar verebiliriz.
         </p>
         <SubtleButton
