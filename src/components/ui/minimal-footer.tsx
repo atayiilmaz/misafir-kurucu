@@ -1,4 +1,3 @@
-import { Scissors } from "lucide-react";
 import { FaEnvelope, FaTiktok, FaYoutube } from "react-icons/fa6";
 import { RiInstagramFill } from "react-icons/ri";
 import { AppLink } from "@/components/ui/app-link";
@@ -44,14 +43,13 @@ export function MinimalFooter() {
             <div className="grid grid-cols-6 gap-8 p-5 md:p-8">
               <div className="col-span-6 flex flex-col gap-5 md:col-span-4">
                 <div className="flex items-center gap-4">
-                  <div className="flex items-center gap-3">
-                    <span className="flex h-11 w-11 items-center justify-center rounded-full bg-primary text-primary-foreground">
-                      <Scissors className="size-4" />
-                    </span>
-                    <p className="font-display text-3xl leading-none">
-                      Misafir Kurucu
-                    </p>
-                  </div>
+                  <AppLink href="/" className="inline-flex">
+                    <img
+                      alt="Misafir Kurucu"
+                      className="h-20 w-auto sm:h-24"
+                      src="/images/mk-logo.svg"
+                    />
+                  </AppLink>
                 </div>
                 <p className="max-w-sm text-base leading-7 text-muted-foreground">
 Tekstil girişimcileri için üretimden satışa, fikirden markaya — uçtan uca danışmanlık.

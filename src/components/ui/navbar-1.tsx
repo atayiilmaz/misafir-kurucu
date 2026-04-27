@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { NavLink, useLocation } from "react-router-dom";
-import { ChevronDown, Menu, Scissors, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { AppLink } from "@/components/ui/app-link";
 import SubtleButton from "@/components/ui/subtle-button";
 import { cn } from "@/lib/utils";
@@ -66,17 +66,14 @@ export function Navbar1({ items }: Navbar1Props) {
   return (
     <header className="sticky top-0 z-50 border-b-[1.5px] border-foreground/20 bg-[#fef3e9] shadow-[0_10px_22px_-22px_rgba(43,31,22,0.2)]">
       <div className="mx-auto flex w-full max-w-[90rem] items-center px-3 py-3 md:px-4 lg:px-5">
-        <AppLink href="/" className="flex items-center gap-3">
-          <motion.div
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-foreground/15 bg-white text-primary"
-            whileHover={{ rotate: 8, scale: 1.04 }}
+        <AppLink href="/" className="flex items-center">
+          <motion.img
+            alt="Misafir Kurucu"
+            className="h-12 w-auto sm:h-14"
+            src="/images/mk-logo.svg"
+            whileHover={{ scale: 1.03 }}
             transition={{ duration: 0.25 }}
-          >
-            <Scissors className="h-5 w-5" />
-          </motion.div>
-          <p className="font-display text-lg font-semibold leading-none text-foreground sm:text-xl">
-            Misafir Kurucu
-          </p>
+          />
         </AppLink>
 
         <div className="ml-auto hidden items-center gap-8 md:flex">
