@@ -9,6 +9,7 @@ import {
   BLOG_QUERY_GC_TIME,
   fetchPublishedBlogPostBySlug,
 } from "@/features/blog/api";
+import { DEFAULT_BLOG_COVER_IMAGE } from "@/features/blog/constants";
 import { formatBlogDate } from "@/features/blog/utils";
 import { SITE_AUTHOR, SITE_NAME, SITE_URL, absoluteUrl, useSeo } from "@/lib/seo";
 import { hasSupabaseConfig } from "@/lib/supabase";
@@ -24,6 +25,7 @@ export function BlogDetailPage() {
     enabled: Boolean(slug) && isConfigured,
   });
   const post = detailQuery.data;
+  const seoImage = post?.coverImageUrl || DEFAULT_BLOG_COVER_IMAGE;
 
   useSeo({
     title: post?.title ?? "Blog yazısı",
@@ -31,7 +33,7 @@ export function BlogDetailPage() {
       post?.excerpt ??
       "Misafir Kurucu blogundaki moda markası stratejileri ve saha deneyimi odaklı yazıları inceleyin.",
     path: slug ? `/blog/${slug}` : "/blog",
-    image: post?.coverImageUrl ?? "/images/herosection.jpeg",
+    image: seoImage,
     type: post ? "article" : "website",
     noindex: !slug || (!detailQuery.isLoading && !post),
     publishedTime: post?.publishedAt ?? undefined,
@@ -43,9 +45,7 @@ export function BlogDetailPage() {
           "@type": "BlogPosting",
           headline: post.title,
           description: post.excerpt,
-          image: post.coverImageUrl
-            ? [absoluteUrl(post.coverImageUrl)]
-            : [absoluteUrl("/images/herosection.jpeg")],
+          image: [absoluteUrl(post.coverImageUrl || DEFAULT_BLOG_COVER_IMAGE)],
           datePublished: post.publishedAt ?? post.updatedAt,
           dateModified: post.updatedAt,
           mainEntityOfPage: absoluteUrl(`/blog/${post.slug}`),
@@ -124,6 +124,7 @@ export function BlogDetailPage() {
   }
 
   const resolvedPost = detailQuery.data;
+  const coverImage = resolvedPost.coverImageUrl || DEFAULT_BLOG_COVER_IMAGE;
   const publishedLabel = formatBlogDate(resolvedPost.publishedAt ?? resolvedPost.updatedAt);
 
   return (
@@ -152,15 +153,13 @@ export function BlogDetailPage() {
         </div>
       </header>
 
-      {resolvedPost.coverImageUrl ? (
-        <div className="mx-auto mt-10 max-w-6xl" data-gsap-item>
-          <img
-            src={resolvedPost.coverImageUrl}
-            alt={resolvedPost.title}
-            className="h-[22rem] w-full rounded-[2.25rem] border border-white/70 object-cover shadow-[0_30px_80px_-52px_rgba(46,31,19,0.42)] md:h-[30rem]"
-          />
-        </div>
-      ) : null}
+      <div className="mx-auto mt-10 max-w-6xl" data-gsap-item>
+        <img
+          src={coverImage}
+          alt={resolvedPost.title}
+          className="h-[22rem] w-full rounded-[2.25rem] border border-white/70 object-cover shadow-[0_30px_80px_-52px_rgba(46,31,19,0.42)] md:h-[30rem]"
+        />
+      </div>
 
       <div className="mx-auto mt-14 max-w-[48rem]" data-gsap-item>
         <div className="mb-10 h-px w-full bg-gradient-to-r from-transparent via-border/80 to-transparent" />

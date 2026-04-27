@@ -138,6 +138,14 @@ const sharedMentorParagraph =
 const sharedClosingParagraph =
   "Tekstil dünyasına adım atarken markanızı sağlam temeller üzerine kurmak istiyorsanız, tüm süreçte birebir yanınızdayım. Bir ajanstan değil, sektörün mutfağından gelen bir uzmandan kişiselleştirilmiş danışmanlık alacaksınız.";
 
+const programDetailImageAlts = {
+  workspace: "Misafir Kurucu danışmanlık sürecinden çalışma alanı detayı",
+  planning: "Moda markası planlama sürecinden detay görseli",
+  consultation: "Birebir danışmanlık ve marka değerlendirme sürecinden detay görseli",
+  studio: "Tekstil markası hazırlık sürecinden stüdyo detayı",
+  retail: "Marka büyüme ve satış kanalı planlamasından detay görseli",
+} as const;
+
 export const programs: Record<ProgramSlug, ProgramData> = {
   "program-1": {
     slug: "program-1",
@@ -161,14 +169,12 @@ export const programs: Record<ProgramSlug, ProgramData> = {
       "Moda markası kurulumuna eşlik eden editoryal moda görseli",
     heroImage: "/images/markanikur.png",
     heroImageAlt: "Markanı Kur programı hero görseli",
-    storyImage: "/images/new3.jpeg",
-    storyImageAlt:
-      "Marka planlaması ve koleksiyon hazırlığını gösteren çalışma masası",
-    audienceImage: "/images/new.jpeg",
-    audienceImageAlt: "Moda markası kurulum sürecini anlatan koleksiyon planı",
-    supportImage: "/images/featuresections.jpeg",
-    supportImageAlt:
-      "Teknik üretim ve atölye planlamasını temsil eden çalışma alanı",
+    storyImage: "/images/last5.jpeg",
+    storyImageAlt: programDetailImageAlts.workspace,
+    audienceImage: "/images/last4.jpeg",
+    audienceImageAlt: programDetailImageAlts.planning,
+    supportImage: "/images/last6.jpeg",
+    supportImageAlt: programDetailImageAlts.consultation,
     hero: {
       subtitle:
         "Fikrini Gerçek Bir Markaya Dönüştür: 0'dan Başarılı Bir Lansmana",
@@ -330,15 +336,12 @@ export const programs: Record<ProgramSlug, ProgramData> = {
     showcaseImageAlt: "Marka büyümesini çağrıştıran moda görseli",
     heroImage: "/images/markanibuyut.png",
     heroImageAlt: "Markanı Büyüt programı hero görseli",
-    storyImage: "/images/new2.jpeg",
-    storyImageAlt:
-      "İçerik, koleksiyon ve marka düzenini gösteren stil panosu",
-    audienceImage: "/images/new3.jpeg",
-    audienceImageAlt:
-      "Büyüme sürecindeki koleksiyon ve ürün planlama masası",
-    supportImage: "/images/new.jpeg",
-    supportImageAlt:
-      "Planlama ve karar süreçlerini temsil eden sezon takvimi",
+    storyImage: "/images/last2.jpeg",
+    storyImageAlt: programDetailImageAlts.studio,
+    audienceImage: "/images/last5.jpeg",
+    audienceImageAlt: programDetailImageAlts.workspace,
+    supportImage: "/images/last.jpeg",
+    supportImageAlt: programDetailImageAlts.retail,
     hero: {
       subtitle: "Tekstil Markanız Var ve Karlı Bir Büyüme için Daha Akıllı Sistemlere Geçme Zamanı",
       description:
@@ -556,15 +559,12 @@ export const programs: Record<ProgramSlug, ProgramData> = {
       "Stratejik ortaklık ve birebir danışmanlık sürecini temsil eden görsel",
     heroImage: "/images/stratejik.png",
     heroImageAlt: "Stratejik Ortaklık programı hero görseli",
-    storyImage: "/images/featuresections.jpeg",
-    storyImageAlt:
-      "Stratejik üretim ve uygulama sürecini çağrıştıran atölye alanı",
-    audienceImage: "/images/new2.jpeg",
-    audienceImageAlt:
-      "Stratejik danışmanlık ve koleksiyon planlamasını çağrıştıran stil defteri",
-    supportImage: "/images/new3.jpeg",
-    supportImageAlt:
-      "Marka stratejisi ve uygulama planlarını temsil eden çalışma masası",
+    storyImage: "/images/last6.jpeg",
+    storyImageAlt: programDetailImageAlts.consultation,
+    audienceImage: "/images/last2.jpeg",
+    audienceImageAlt: programDetailImageAlts.studio,
+    supportImage: "/images/last5.jpeg",
+    supportImageAlt: programDetailImageAlts.workspace,
     hero: {
       subtitle: "İhtiyacın Kadar, Doğru Noktada Danışmanlık",
       description:

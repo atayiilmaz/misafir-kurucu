@@ -1,5 +1,6 @@
 import { CalendarDays, ChevronRight } from "lucide-react";
 import { AppLink } from "@/components/ui/app-link";
+import { DEFAULT_BLOG_COVER_IMAGE } from "@/features/blog/constants";
 import { type BlogPostListItem } from "@/features/blog/types";
 import { formatBlogDate } from "@/features/blog/utils";
 
@@ -8,19 +9,15 @@ interface BlogCardProps {
 }
 
 export function BlogCard({ post }: BlogCardProps) {
+  const coverImage = post.coverImageUrl || DEFAULT_BLOG_COVER_IMAGE;
+
   return (
     <article className="group overflow-hidden rounded-[2rem] border border-white/70 bg-white/85 shadow-soft transition-[transform,box-shadow,border-color,background] duration-300 ease-out hover:-translate-y-1 hover:border-primary/20 hover:bg-white hover:shadow-[0_28px_54px_-32px_rgba(62,48,38,0.34)]">
-      {post.coverImageUrl ? (
-        <img
-          src={post.coverImageUrl}
-          alt={post.title}
-          className="h-80 w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
-        />
-      ) : (
-        <div className="flex h-80 items-center justify-center bg-[#edf1f5] text-sm text-muted-foreground transition-colors duration-300 group-hover:bg-[#e3e8ed]">
-          Kapak gorseli yok
-        </div>
-      )}
+      <img
+        src={coverImage}
+        alt={post.title}
+        className="h-80 w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+      />
 
       <div className="p-6">
         <div className="mb-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
