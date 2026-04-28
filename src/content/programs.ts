@@ -762,7 +762,7 @@ export const plans: PricingPlan[] = [
       "Tahmini Toplam Tasarruf: ₺240.000 –\n₺400.000+",
       "Zaman Kaybı (12 - 18 Ay): Paha Biçilemez",
     ],
-    buttonText: "Paketi İncele",
+    buttonText: "Programı İncele",
     href: "/programlar/program-1",
     imageSrc: programs["program-1"].heroImage,
     imageAlt: programs["program-1"].heroImageAlt,
