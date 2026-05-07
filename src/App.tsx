@@ -9,6 +9,7 @@ import { BlogPage } from "@/pages/blog-page";
 import { BlogDetailPage } from "@/pages/blog-detail-page";
 import { ConsultationPage } from "@/pages/consultation-page";
 import { FaqPage } from "@/pages/faq-page";
+import { FreeResourcePage } from "@/pages/free-resource-page";
 import { HomePage } from "@/pages/home-page";
 import { NotFoundPage } from "@/pages/not-found-page";
 import { ProgramDetailPage } from "@/pages/program-detail-page";
@@ -32,6 +33,10 @@ export default function App() {
           <Route
             path="/gorusme-planlayin"
             element={<ConsultationPage />}
+          />
+          <Route
+            path="/ucretsiz-kaynak"
+            element={<FreeResourcePage />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
