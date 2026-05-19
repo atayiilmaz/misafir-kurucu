@@ -10,5 +10,11 @@ verify_jwt = false
 [functions.admin-media-upload-url]
 verify_jwt = false
 
+[functions.subscribe-email]
+verify_jwt = false
+
+[functions.admin-emails-list]
+verify_jwt = false
+
 [functions.admin-blog-delete]
 verify_jwt = false

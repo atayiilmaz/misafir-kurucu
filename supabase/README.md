@@ -26,6 +26,8 @@ supabase functions deploy admin-blog-list
 supabase functions deploy admin-blog-upsert
 supabase functions deploy admin-blog-delete
 supabase functions deploy admin-media-upload-url
+supabase functions deploy subscribe-email --no-verify-jwt
+supabase functions deploy admin-emails-list --no-verify-jwt
 ```
 
 ## 5. Frontend env dosyasini doldur
