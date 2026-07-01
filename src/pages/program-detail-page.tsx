@@ -87,8 +87,14 @@ type ProgramEditorialContent = {
   };
 };
 
+const legacyProgramSlugs: Record<string, ProgramSlug> = {
+  "program-1": "markani-kur",
+  "program-2": "markani-buyut",
+  "program-3": "markani-konumlandir",
+};
+
 const detailContent: Record<ProgramSlug, ProgramEditorialContent> = {
-  "program-1": {
+  "markani-kur": {
     pain: [
       {
         question: "Ürün seçtim ama koleksiyonu nasıl kurgulayacağımı bilmiyorum.",
@@ -237,7 +243,7 @@ const detailContent: Record<ProgramSlug, ProgramEditorialContent> = {
       buttonLabel: "Görüşme Planla",
     },
   },
-  "program-2": {
+  "markani-buyut": {
     pain: [
       {
         question: "Sosyal medya hesaplarım var ama müşteriye dönüşmüyor.",
@@ -399,7 +405,7 @@ const detailContent: Record<ProgramSlug, ProgramEditorialContent> = {
       buttonLabel: "Görüşme Planla",
     },
   },
-  "program-3": {
+  "markani-konumlandir": {
     pain: [
       {
         question: "Hesabım sadece ürün paylaşan bir vitrin gibi duruyor.",
@@ -720,7 +726,10 @@ function ProgramEditorialDetail({ content }: { content: ProgramEditorialContent 
 
 export function ProgramDetailPage() {
   const { slug } = useParams();
-  const program = slug ? programs[slug as ProgramSlug] : null;
+  const resolvedSlug = slug
+    ? (slug in programs ? (slug as ProgramSlug) : legacyProgramSlugs[slug])
+    : null;
+  const program = resolvedSlug ? programs[resolvedSlug] : null;
 
   useSeo({
     title: program ? program.name : "Program bulunamadı",
@@ -754,6 +763,10 @@ export function ProgramDetailPage() {
 
   if (!program) {
     return <Navigate to="/" replace />;
+  }
+
+  if (slug !== program.slug) {
+    return <Navigate to={program.href} replace />;
   }
 
   return (

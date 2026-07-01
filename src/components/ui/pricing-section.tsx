@@ -31,6 +31,7 @@ function PricingCard({
   description,
   buttonText,
   href,
+  stats,
   index,
 }: PricingCardProps) {
   const themes = [
@@ -68,9 +69,6 @@ function PricingCard({
   const descriptionBody = hasDescriptionHeading
     ? descriptionBodyParts.join("\n").trim()
     : description;
-  const isFoundationPlan = title === "Markanı Kur";
-  const isGrowthPlan = title === "Markanı Büyüt";
-  const isStrategicPlan = title === "Markanı Konumlandır";
   const heroIcons = [
     <RocketIcon key="hero-icon-rocket" size={34} className={theme.iconClass} />,
     <TrendingUpIcon key="hero-icon-trending" size={34} className={theme.iconClass} />,
@@ -112,72 +110,32 @@ function PricingCard({
           </motion.div>
         </div>
 
-        {isFoundationPlan || isGrowthPlan ? (
-          <>
-            <div className="mt-7 min-h-[9rem] space-y-2">
-              <p className={cn("text-base font-semibold leading-7", theme.bodyClass)}>
-                Kimler için?
-              </p>
-              <p className={cn("text-base leading-7", theme.bodyClass)}>
-                {descriptionBody}
-              </p>
-            </div>
+        <div className="mt-7 min-h-[9rem] space-y-2">
+          {hasDescriptionHeading ? (
+            <p className={cn("text-base font-semibold leading-7", theme.bodyClass)}>
+              {descriptionHeading}
+            </p>
+          ) : null}
+          <p className={cn("whitespace-pre-line text-base leading-7", theme.bodyClass)}>
+            {descriptionBody}
+          </p>
+        </div>
 
-            {isFoundationPlan ? (
-              <div className="mt-8 space-y-4 text-[#5f3e2c]">
-                <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4">
-                  <span className="text-sm font-semibold leading-6 text-[#6c5448]">
-                    Tahmini tasarruf
-                    <span className="block">(yanlış başlangıç maliyeti)</span>
-                  </span>
-                  <span className="shrink-0 text-right text-lg font-semibold leading-6 text-[#5f3e2c]">
-                    ₺240K – ₺400K+
-                  </span>
-                </div>
-                <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4">
-                  <span className="text-sm font-semibold leading-6 text-[#6c5448]">
-                    Kazanılan zaman
-                  </span>
-                  <span className="shrink-0 text-right text-lg font-semibold leading-6 text-[#5f3e2c]">
-                    12 – 18 ay
-                  </span>
-                </div>
-              </div>
-            ) : (
-              <div className="mt-8 grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4 text-[#5f3e2c]">
-                <span className="text-sm font-semibold leading-6 text-[#6b554a]">
-                  Tahmini verimlilik artışı
-                </span>
-                <span className="shrink-0 text-right text-lg font-semibold leading-6 text-[#5f3e2c]">
-                  %40 – %60
-                </span>
-              </div>
-            )}
-          </>
-        ) : (
-          <>
-            <div className="mt-7 min-h-[9rem] space-y-2">
-              {hasDescriptionHeading ? (
-                <p className={cn("text-base font-semibold leading-7", theme.bodyClass)}>
-                  {descriptionHeading}
-                </p>
-              ) : null}
-              <p className={cn("whitespace-pre-line text-base leading-7", theme.bodyClass)}>
-                {descriptionBody}
-              </p>
+        <div className="mt-8 space-y-0 text-[#5f3e2c]">
+          {stats.map((stat) => (
+            <div
+              key={`${title}-${stat.label}`}
+              className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-4 border-t border-black/10 py-3 first:border-t-0"
+            >
+              <span className={cn("text-sm font-semibold leading-6", theme.bodyClass)}>
+                {stat.label}
+              </span>
+              <span className="shrink-0 text-right text-sm font-semibold leading-6 text-[#5f3e2c]">
+                {stat.value}
+              </span>
             </div>
-            {isStrategicPlan ? (
-              <div className="mt-8 grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4 text-[#5f3e2c]">
-                <span className="text-sm font-semibold leading-6 text-[#645651]">
-                  Kazanımlar
-                </span>
-                <span className="shrink-0 text-right text-lg font-semibold leading-6 text-[#5f3e2c]">
-                  Strateji planı
-                </span>
-              </div>
-            ) : null}
-          </>
-        )}
+          ))}
+        </div>
       </div>
 
       <SubtleButton

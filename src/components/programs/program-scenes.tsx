@@ -117,7 +117,7 @@ export function ProgramHeroScene({ program }: ProgramHeroSceneProps) {
   );
   const subtitleWords = program.hero.subtitle.split(" ");
   const accentWord =
-    program.slug === "program-3" ? subtitleWords[subtitleWords.length - 1] : null;
+    program.slug === "markani-konumlandir" ? subtitleWords[subtitleWords.length - 1] : null;
   const subtitleLead = accentWord
     ? subtitleWords.slice(0, -1).join(" ")
     : program.hero.subtitle;
@@ -242,7 +242,7 @@ export function ProgramHeroScene({ program }: ProgramHeroSceneProps) {
             <div className="max-w-4xl overflow-visible">
               <h1 className="max-w-[11.5ch] pt-[0.08em] text-[2.35rem] leading-[0.98] text-foreground sm:text-[3.2rem] md:text-[4.5rem] md:leading-[0.95] lg:text-[4.5rem]">
                 <span
-                  className={cn("font-display", program.slug === "program-3" && "tracking-[-0.015em]")}
+                  className={cn("font-display", program.slug === "markani-konumlandir" && "tracking-[-0.015em]")}
                   data-hero-word
                 >
                   {subtitleLead}
@@ -271,7 +271,7 @@ export function ProgramHeroScene({ program }: ProgramHeroSceneProps) {
                 </p>
               ))}
             </div>
-            {program.slug === "program-3" ? (
+            {program.slug === "markani-konumlandir" ? (
               <div className="mt-12 max-w-[37rem]" data-hero-copy>
                 <div className="h-px w-full bg-[linear-gradient(90deg,rgba(43,31,22,0.2),rgba(43,31,22,0.12))]" />
                 <div className="grid gap-7 pt-6 sm:grid-cols-3 sm:gap-6">

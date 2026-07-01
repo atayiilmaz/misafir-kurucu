@@ -143,21 +143,21 @@ const results: Record<Segment, Result> = {
     title: "Markanı Kur",
     description:
       "Sıfırdan doğru temeller atmak, koleksiyon ve lansman adımlarını birbirine bağlı bir plana dönüştürmek için en uygun başlangıç.",
-    href: "/programlar/program-1",
+    href: "/programlar/markani-kur",
     cta: "Markanı Kur paketini incele",
   },
   active: {
     title: "Markanı Büyüt",
     description:
       "Potansiyelinin altında kalan markana ivme kazandırmak; satış, dijital görünürlük, marka algısı ve operasyonu birlikte güçlendirmek için doğru seçim.",
-    href: "/programlar/program-2",
+    href: "/programlar/markani-buyut",
     cta: "Markanı Büyüt paketini incele",
   },
   focused: {
     title: "Markanı Konumlandır",
     description:
       "Sosyal medya, içerik dili ve dijital algısı güçlü ürünü desteklemeyen markalar için kimlik, platform ve iletişim yönünü netleştiren odaklı çalışma modeli.",
-    href: "/programlar/program-3",
+    href: "/programlar/markani-konumlandir",
     cta: "Markanı Konumlandır paketini incele",
   },
 };

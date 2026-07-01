@@ -1,4 +1,4 @@
-export type ProgramSlug = "program-1" | "program-2" | "program-3";
+export type ProgramSlug = "markani-kur" | "markani-buyut" | "markani-konumlandir";
 
 export type ProgramPackageItem = {
   title: string;
@@ -125,6 +125,10 @@ export type PricingPlan = {
   priceDescription: string;
   description: string;
   features: string[];
+  stats: Array<{
+    label: string;
+    value: string;
+  }>;
   buttonText: string;
   href: string;
   imageSrc: string;
@@ -147,12 +151,12 @@ const programDetailImageAlts = {
 } as const;
 
 export const programs: Record<ProgramSlug, ProgramData> = {
-  "program-1": {
-    slug: "program-1",
+  "markani-kur": {
+    slug: "markani-kur",
     order: "01",
     name: "Markanı Kur",
     heroTitle: "Markanı Kur",
-    href: "/programlar/program-1",
+    href: "/programlar/markani-kur",
     menuLabel: "Markanı Kur",
     listingSubtitle:
       "Fikrini Gerçek Bir Markaya Dönüştür: 0'dan Başarılı Bir Lansmana",
@@ -176,18 +180,17 @@ export const programs: Record<ProgramSlug, ProgramData> = {
     supportImage: "/images/last6.jpeg",
     supportImageAlt: programDetailImageAlts.consultation,
     hero: {
-      subtitle:
-        "Fikrini Gerçek Bir Markaya Dönüştür: 0'dan Başarılı Bir Lansmana",
+      subtitle: "Sıfırdan lansmana. Her adımda yanındayım.",
       description:
-        "Deneme-yanılma ile zaman ve para kaybetme. 16 yıllık sektör tecrübemle, markanı sağlam temeller üzerine birlikte kuralım.",
+        "Bir yolda ilerliyorsun ama doğru yönde mi, emin değilsin.\n\nNereden başlayacağını bilmiyorsan ya da başladığın halde her şey dağınık geliyorsa, doğru yerdesin.",
       ctaLabel: "Görüşme Planlayın",
       ticker: [
-        "16 yıllık sektör tecrübesi",
-        "üretim tecrübesi",
-        "ticari öngörüler",
-        "kişiselleştirilmiş danışmanlık",
+        "Marka Kimliği",
+        "Ürün & Üretim",
+        "İş Modeli",
+        "Lansman Operasyonu",
       ],
-      strips: ["Sermayeni korursun", "Kaostan kurtulursun", "Zaman kazanırsın"],
+      strips: ["Marka Kimliği", "Ürün & Üretim", "İş Modeli", "Lansman Operasyonu"],
     },
     benefits: {
       title: "Bu paket sana ne sağlar?",
@@ -320,12 +323,12 @@ export const programs: Record<ProgramSlug, ProgramData> = {
       buttonLabel: "Görüşme Planlayın",
     },
   },
-  "program-2": {
-    slug: "program-2",
+  "markani-buyut": {
+    slug: "markani-buyut",
     order: "02",
     name: "Markanı Büyüt",
     heroTitle: "Markanı Büyüt",
-    href: "/programlar/program-2",
+    href: "/programlar/markani-buyut",
     menuLabel: "Markanı Büyüt",
     listingSubtitle: "Tekstil Markanız Var ve Karlı Bir Büyüme için Daha Akıllı Sistemlere Geçme Zamanı",
     listingDescription:
@@ -343,21 +346,21 @@ export const programs: Record<ProgramSlug, ProgramData> = {
     supportImage: "/images/last.jpeg",
     supportImageAlt: programDetailImageAlts.retail,
     hero: {
-      subtitle: "Tekstil Markanız Var ve Karlı Bir Büyüme için Daha Akıllı Sistemlere Geçme Zamanı",
+      subtitle: "Karlı Bir Büyüme için Daha Akıllı Sistemlere Geçme Zamanı",
       description:
-        "Satışlarınızı bir üst seviyeye taşımak, dijital varlığınızı güçlendirmek ya da\nmarkanızı daha profesyonel bir yapıya oturtmak isteyen kurucular için.\n\n16 yıllık sektör deneyimiyle; markanızı bulunduğu noktadan stratejik ve kârlı bir\nbüyüme modeline taşıyoruz.",
+        "Markanızın daha güçlü algılanması, doğru müşteriye ulaşması ve sürdürülebilir şekilde büyümesi için marka stratejinizi birlikte netleştiriyoruz.",
       ctaLabel: "Görüşme Planlayın",
       ticker: [
-        "Dijital Varlık",
-        "Stratejik Büyüme",
-        "Maksimum Kârlılığı",
-        "Sistemleme",
+        "360° Marka Analizi",
+        "Marka Konumlandırma",
+        "Büyüme Kurgusu",
+        "Sistemleşme",
       ],
       strips: [
-        "Global Algı",
-        "Koleksiyon Disiplini",
-        "Stratejik Büyüme",
-        "Maksimum Kârlılığı",
+        "360° Marka Analizi",
+        "Marka Konumlandırma",
+        "Koleksiyon Stratejisi",
+        "Sistemleşme",
       ],
     },
     benefits: {
@@ -538,12 +541,12 @@ export const programs: Record<ProgramSlug, ProgramData> = {
       buttonLabel: "Görüşme Planlayın",
     },
   },
-  "program-3": {
-    slug: "program-3",
+  "markani-konumlandir": {
+    slug: "markani-konumlandir",
     order: "03",
     name: "Markanı Konumlandır",
     heroTitle: "Markanı Konumlandır",
-    href: "/programlar/program-3",
+    href: "/programlar/markani-konumlandir",
     menuLabel: "Markanı Konumlandır",
     listingSubtitle: "Sosyal medyan sadece bir vitrin olmamalı.",
     listingDescription:
@@ -557,7 +560,7 @@ export const programs: Record<ProgramSlug, ProgramData> = {
       "https://images.unsplash.com/photo-1495385794356-15371f348c31?auto=format&fit=crop&w=1200&q=80",
     showcaseImageAlt:
       "Marka konumlandırma ve dijital strateji sürecini temsil eden görsel",
-    heroImage: "/images/sitecontent.png",
+    heroImage: "/images/markanikonumlandir.png",
     heroImageAlt: "Markanı Konumlandır programı hero görseli",
     storyImage: "/images/last6.jpeg",
     storyImageAlt: programDetailImageAlts.consultation,
@@ -753,39 +756,41 @@ export const plans: PricingPlan[] = [
     title: "Markanı Kur",
     price: "01",
     priceDescription:
-      "Fikrini Gerçek Bir Markaya Dönüştür: 0'dan Başarılı Bir Lansmana",
+      "Fikrini Gerçek Bir Markaya Dönüştür: Sıfırdan Başarılı Bir Lansmana",
     description:
-      "Kim için?\nDoğru temellerle fark yaratan bir tekstil markası kurmak isteyenler için",
+      "Kimler için?\nSıfırdan marka kurmak, üretim ve tedarik sürecinde rehberliğe ihtiyaç duyan girişimciler için",
     features: [
-      "Stratejik Marka Çerçevesi",
-      "Koleksiyon planlaması ve üretimi",
-      "Maliyetli erken hataları önlemeye yönelik\nsistemler",
-      "Tahmini Toplam Tasarruf: ₺240.000 –\n₺400.000+",
-      "Zaman Kaybı (12 - 18 Ay): Paha Biçilemez",
+      "Sıfırdan marka kurulum rehberliği",
+      "Üretim ve tedarik süreci desteği",
+    ],
+    stats: [
+      { label: "Çalışma şekli", value: "1 aylık dönemler" },
+      { label: "Kapsam", value: "Strateji + üretim desteği" },
     ],
     buttonText: "Programı İncele",
-    href: "/programlar/program-1",
-    imageSrc: programs["program-1"].heroImage,
-    imageAlt: programs["program-1"].heroImageAlt,
+    href: "/programlar/markani-kur",
+    imageSrc: programs["markani-kur"].heroImage,
+    imageAlt: programs["markani-kur"].heroImageAlt,
   },
   {
     title: "Markanı Büyüt",
     price: "02",
     priceDescription:
-      "Tekstil Markanız Var ve Karlı Bir Büyüme için Daha Akıllı Sistemlere Geçme Zamanı",
+      "Karlı Bir Büyüme için Daha Akıllı Sistemlere Geçme Zamanı",
     description:
-      "Kimler için?\nSatışlarınızı bir üst seviyeye taşımak, dijital varlığınızı güçlendirmek ve markanızı daha profesyonel bir yapıya oturtmak isteyen kurucular için",
+      "Kimler için?\nÜrün satıyor ama marka olamamış, satışları potansiyelinin altında kalan kurucular için",
     features: [
-      "Satış Kanalları ve Büyüme Stratejileri",
-      "Marka Algısı ve Görsel Kimlik Revizyonu",
-      "Operasyonel Süreçlerin Sistematize Edilmesi",
-      "Veri Odaklı Dijital Dönüşüm ve Pazarlama Planı",
-      "Tahmini Verimlilik Artışı: %40 - %60"
+      "Markalaşma ve büyüme stratejisi",
+      "Satış potansiyelini açığa çıkaran sistem",
+    ],
+    stats: [
+      { label: "Çalışma şekli", value: "1 aylık dönemler" },
+      { label: "Kapsam", value: "Markalaşma + büyüme" },
     ],
     buttonText: "Programı İncele",
-    href: "/programlar/program-2",
-    imageSrc: programs["program-2"].heroImage,
-    imageAlt: programs["program-2"].heroImageAlt,
+    href: "/programlar/markani-buyut",
+    imageSrc: programs["markani-buyut"].heroImage,
+    imageAlt: programs["markani-buyut"].heroImageAlt,
     highlight: true,
   },
   {
@@ -793,18 +798,19 @@ export const plans: PricingPlan[] = [
     price: "03",
     priceDescription: "Sosyal medyan sadece bir vitrin olmamalı.",
     description:
-      "Kimler için?\nÜrünü güçlü olduğu halde sosyal medya, içerik dili ve dijital algısı satışa ya da güvene dönüşmeyen markalar için.",
+      "Kimler için?\nSadece ürün paylaşan, marka kimliği ve sosyal medya stratejisi net olmayanlar için",
     features: [
-      "Marka kimliği ve dijital algı netleştirme",
-      "Sosyal medya içerik dili ve platform stratejisi",
-      "E-ticaret konumlandırma yol haritası",
-      "5 seanslık odaklı marka konumlandırma süreci",
-      "Çıktı: Uygulamaya hazır strateji planı",
+      "Marka kimliği ve sosyal medya stratejisi",
+      "5 seanslık konumlandırma planı",
+    ],
+    stats: [
+      { label: "Çalışma şekli", value: "5 seans, 1'er saat" },
+      { label: "Kapsam", value: "Strateji ve plan" },
     ],
     buttonText: "Programı İncele",
-    href: "/programlar/program-3",
-    imageSrc: programs["program-3"].heroImage,
-    imageAlt: programs["program-3"].heroImageAlt,
+    href: "/programlar/markani-konumlandir",
+    imageSrc: programs["markani-konumlandir"].heroImage,
+    imageAlt: programs["markani-konumlandir"].heroImageAlt,
   },
 ];
 
