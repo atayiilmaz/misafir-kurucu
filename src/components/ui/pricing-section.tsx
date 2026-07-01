@@ -70,7 +70,7 @@ function PricingCard({
     : description;
   const isFoundationPlan = title === "Markanı Kur";
   const isGrowthPlan = title === "Markanı Büyüt";
-  const isStrategicPlan = title === "Stratejik Çözümler";
+  const isStrategicPlan = title === "Markanı Konumlandır";
   const heroIcons = [
     <RocketIcon key="hero-icon-rocket" size={34} className={theme.iconClass} />,
     <TrendingUpIcon key="hero-icon-trending" size={34} className={theme.iconClass} />,
@@ -172,7 +172,7 @@ function PricingCard({
                   Kazanımlar
                 </span>
                 <span className="shrink-0 text-right text-lg font-semibold leading-6 text-[#5f3e2c]">
-                  Hızlı aksiyon planı
+                  Strateji planı
                 </span>
               </div>
             ) : null}

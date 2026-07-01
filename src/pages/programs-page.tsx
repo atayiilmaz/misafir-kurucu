@@ -8,13 +8,13 @@ export function ProgramsPage() {
   useSeo({
     title: "Programlar",
     description:
-      "Markanı Kur, Markanı Büyüt ve Stratejik Ortaklık programlarını inceleyin. İhtiyacınıza göre kurulum, büyüme veya ihtiyaç anında stratejik destek için birebir çalışma modelleri.",
+      "Markanı Kur, Markanı Büyüt ve Markanı Konumlandır programlarını inceleyin. İhtiyacınıza göre kurulum, büyüme veya dijital konumlandırma için birebir çalışma modelleri.",
     path: "/programlar",
     image: "/images/markanibuyut.png",
     keywords: [
       "markanı kur",
       "markanı büyüt",
-      "stratejik ortaklık",
+      "markanı konumlandır",
       "moda markası programları",
     ],
     structuredData: {
@@ -72,8 +72,8 @@ export function ProgramsPage() {
                 data-gsap-item
               >
                 Hazır paket değil, markanın bulunduğu noktaya göre ilerleyen üç
-                farklı çalışma modeli var: kurulum, büyüme ve ihtiyaç anında
-                stratejik destek.
+                farklı çalışma modeli var: kurulum, büyüme ve dijital
+                konumlandırma.
               </p>
               <SubtleButton
                 href="/gorusme-planlayin"

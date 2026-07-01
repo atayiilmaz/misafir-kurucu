@@ -154,11 +154,11 @@ const results: Record<Segment, Result> = {
     cta: "Markanı Büyüt paketini incele",
   },
   focused: {
-    title: "Stratejik Çözümler",
+    title: "Markanı Konumlandır",
     description:
-      "Uzun bir programa değil, belirli bir soruna odaklanan net analiz, hızlı karar desteği ve uygulanabilir aksiyon planı için tasarlandı.",
+      "Sosyal medya, içerik dili ve dijital algısı güçlü ürünü desteklemeyen markalar için kimlik, platform ve iletişim yönünü netleştiren odaklı çalışma modeli.",
     href: "/programlar/program-3",
-    cta: "Stratejik Çözümler paketini incele",
+    cta: "Markanı Konumlandır paketini incele",
   },
 };
 

@@ -23,7 +23,7 @@ const outcomeItems = [
   "Sistem Odaklı İlerleme: Deneme-yanılma yönteminin getirdiği maliyet ve zaman kaybı yerine, test edilmiş ve çalışan sistemlerle ilerleme.",
   "Stratejik Kaynak Planlaması: Kumaş, aksesuar ve dikim aşamalarında markanızın kimliğiyle örtüşen doğru iş ortaklarının seçimi.",
   "Stratejik Mentorluk: Yalnızlık hissi yerine, her adımda objektif geri bildirim ve profesyonel yönlendirme ile kesintisiz ilerleme.",
-  "Risk Yönetimi: Potansiyel krizleri önceden öngören ve süreci profesyonel bir süzgeçten geçiren stratejik ortaklık.",
+  "Risk Yönetimi: Potansiyel krizleri önceden öngören ve süreci profesyonel bir süzgeçten geçiren stratejik rehberlik.",
 ];
 
 const resourceItems = [

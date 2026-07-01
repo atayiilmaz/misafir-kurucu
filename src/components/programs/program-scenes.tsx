@@ -277,26 +277,26 @@ export function ProgramHeroScene({ program }: ProgramHeroSceneProps) {
                 <div className="grid gap-7 pt-6 sm:grid-cols-3 sm:gap-6">
                   <div>
                     <p className="font-display text-[2.05rem] leading-none text-foreground">
-                      16
+                      5
                     </p>
                     <p className="mt-4 text-[0.68rem] uppercase tracking-[0.22em] text-foreground/42 md:text-[0.72rem]">
-                      Yıl sektör deneyimi
+                      Seans
                     </p>
                   </div>
                   <div>
                     <p className="font-display text-[2.05rem] leading-none text-foreground">
-                      90'
+                      1 Saat
                     </p>
                     <p className="mt-4 text-[0.68rem] uppercase tracking-[0.22em] text-foreground/42 md:text-[0.72rem]">
-                      Odaklı seans
+                      Her görüşme
                     </p>
                   </div>
                   <div>
                     <p className="font-display text-[2.05rem] leading-none text-foreground">
-                      Esnek
+                      Strateji
                     </p>
                     <p className="mt-4 text-[0.68rem] uppercase tracking-[0.22em] text-foreground/42 md:text-[0.72rem]">
-                      İhtiyaca göre süreç
+                      Plan ve yön
                     </p>
                   </div>
                 </div>

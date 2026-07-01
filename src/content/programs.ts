@@ -541,24 +541,24 @@ export const programs: Record<ProgramSlug, ProgramData> = {
   "program-3": {
     slug: "program-3",
     order: "03",
-    name: "Stratejik Çözümler",
-    heroTitle: "Stratejik Çözümler",
+    name: "Markanı Konumlandır",
+    heroTitle: "Markanı Konumlandır",
     href: "/programlar/program-3",
-    menuLabel: "Stratejik Çözümler",
-    listingSubtitle: "İhtiyacın Kadar, Doğru Noktada Danışmanlık",
+    menuLabel: "Markanı Konumlandır",
+    listingSubtitle: "Sosyal medyan sadece bir vitrin olmamalı.",
     listingDescription:
-      "Her markanın ihtiyaçları farklıdır. Bu yüzden sana hazır paket değil, tam ihtiyacın olan noktada birebir stratejik destek sunulur.",
+      "Markan; kimliğini, hikayeni ve değerini anlatan güçlü bir alana dönüşmeli.",
     teaserPoints: [
-      "Sadece ihtiyaç duyduğun konuda",
-      "Tam ihtiyaç duyduğun zamanda",
-      "Net ve uygulanabilir çözümler",
+      "Marka kimliği",
+      "Sosyal medya stratejisi",
+      "E-ticaret konumlandırması",
     ],
     showcaseImage:
       "https://images.unsplash.com/photo-1495385794356-15371f348c31?auto=format&fit=crop&w=1200&q=80",
     showcaseImageAlt:
-      "Stratejik ortaklık ve birebir danışmanlık sürecini temsil eden görsel",
-    heroImage: "/images/stratejik.png",
-    heroImageAlt: "Stratejik Ortaklık programı hero görseli",
+      "Marka konumlandırma ve dijital strateji sürecini temsil eden görsel",
+    heroImage: "/images/sitecontent.png",
+    heroImageAlt: "Markanı Konumlandır programı hero görseli",
     storyImage: "/images/last6.jpeg",
     storyImageAlt: programDetailImageAlts.consultation,
     audienceImage: "/images/last2.jpeg",
@@ -566,19 +566,20 @@ export const programs: Record<ProgramSlug, ProgramData> = {
     supportImage: "/images/last5.jpeg",
     supportImageAlt: programDetailImageAlts.workspace,
     hero: {
-      subtitle: "İhtiyacın Kadar, Doğru Noktada Danışmanlık",
+      subtitle: "Sosyal medyan sadece bir vitrin olmamalı.",
       description:
-        "Her markanın ihtiyaçları farklıdır. Bu yüzden sana hazır paket değil, tam ihtiyacın olan noktada birebir stratejik destek sunulur.",
-      ctaLabel: "Seansını Planla",
+        "Markan; kimliğini, hikayeni ve değerini anlatan güçlü bir alana dönüşmeli.",
+      ctaLabel: "Görüşme Planlayın",
       ticker: [
-        "Marka Stratejisi & Konumlandırma",
-        "Ürün & Koleksiyon Yönetimi",
-        "Satış & Büyüme Stratejileri",
+        "Marka Kimliği",
+        "Pazarlama Planı",
+        "Sosyal Medya Stratejisi",
+        "E-Ticaret Stratejisi",
       ],
       strips: [
-        "Sadece ihtiyaç duyduğun konuda",
-        "Tam ihtiyaç duyduğun zamanda",
-        "Net ve uygulanabilir çözümler",
+        "Marka Kimliği",
+        "Sosyal Medya Stratejisi",
+        "E-Ticaret Stratejisi",
       ],
     },
     benefits: {
@@ -736,9 +737,9 @@ export const programs: Record<ProgramSlug, ProgramData> = {
       ],
     },
     finalCta: {
-      title: "Seansını Planla",
+      title: "Markanı Konumlandır",
       description: "",
-      buttonLabel: "Seansını Planla",
+      buttonLabel: "Görüşme Planlayın",
     },
   },
 };
@@ -788,24 +789,17 @@ export const plans: PricingPlan[] = [
     highlight: true,
   },
   {
-    title: "Stratejik Çözümler",
+    title: "Markanı Konumlandır",
     price: "03",
-    priceDescription: "İhtiyacın Kadar, Doğru Noktada Danışmanlık",
+    priceDescription: "Sosyal medyan sadece bir vitrin olmamalı.",
     description:
-      "Kimler için?\nBelirli bir sorunu olan, net bir cevap arayan veya süreci tamamen kendi ihtiyaçlarına göre şekillendirmek isteyen profesyoneller için.",
+      "Kimler için?\nÜrünü güçlü olduğu halde sosyal medya, içerik dili ve dijital algısı satışa ya da güvene dönüşmeyen markalar için.",
     features: [
-"Birebir Sorun Analizi ve Teknik Çözümler",
-
-"Ürün & Koleksiyon Yönetimi Özel Danışmanlığı",
-
-"Hızlı Aksiyon Planı ve Uygulanabilir Çözüm Seti",
-
-"Kritik Karar Anlarında Uzman Mentorluğu",
-
-"Hızlı Çözüm: Kısa Süre İçinde Aksiyon Planı",
-
-"Odak Noktası: %100 İhtiyaca Özel Kurgu",
-"Çıktı Hızlı aksiyon planı"
+      "Marka kimliği ve dijital algı netleştirme",
+      "Sosyal medya içerik dili ve platform stratejisi",
+      "E-ticaret konumlandırma yol haritası",
+      "5 seanslık odaklı marka konumlandırma süreci",
+      "Çıktı: Uygulamaya hazır strateji planı",
     ],
     buttonText: "Programı İncele",
     href: "/programlar/program-3",
