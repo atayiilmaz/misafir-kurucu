@@ -503,7 +503,7 @@ const detailContent: Record<ProgramSlug, ProgramEditorialContent> = {
 
 function SectionLabel({ children }: { children: string }) {
   return (
-    <div className="mb-10 text-[11px] font-medium uppercase tracking-[0.14em] text-[#888]">
+    <div className="mb-10 text-[14px] font-semibold uppercase tracking-[0.14em] text-[#888]">
       {children}
     </div>
   );
@@ -513,7 +513,7 @@ function DividerLabel({ children }: { children: string }) {
   return (
     <div className="flex items-center gap-6 py-8 first:pt-0">
       <div className="h-px flex-1 bg-[#e8ddd0]" />
-      <div className="whitespace-nowrap text-center text-[11px] font-medium uppercase tracking-[0.1em] text-[#B86F2E]">
+      <div className="whitespace-nowrap text-center text-[14px] font-semibold uppercase tracking-[0.1em] text-[#B86F2E]">
         {children}
       </div>
       <div className="h-px flex-1 bg-[#e8ddd0]" />
@@ -527,11 +527,11 @@ function ProgramEditorialDetail({ content }: { content: ProgramEditorialContent 
       <div className="border-b border-[#e8ddd0] py-14">
         <div className="grid gap-px overflow-hidden rounded-2xl border border-[#e8ddd0] bg-[#e8ddd0] md:grid-cols-2">
           {content.pain.map((item) => (
-            <div key={item.question} className="bg-[#fffaf5] p-6">
-              <div className="text-[15px] font-medium leading-[1.4] text-[#1a1a1a]">
+            <div key={item.question} className="bg-[#fffaf5] p-6 md:p-7">
+              <div className="text-[1.12rem] font-semibold leading-[1.45] text-[#1a1a1a] md:text-[1.2rem]">
                 {item.question}
               </div>
-              <div className="mt-1 text-[13px] leading-[1.5] text-[#888]">
+              <div className="mt-2 text-base leading-7 text-[#666] md:text-[1.05rem]">
                 {item.answer}
               </div>
             </div>
@@ -541,10 +541,10 @@ function ProgramEditorialDetail({ content }: { content: ProgramEditorialContent 
 
       <div className="grid items-center gap-10 border-b border-[#e8ddd0] py-14 md:grid-cols-2 md:gap-16">
         <div>
-          <div className="font-display text-[28px] leading-[1.25] text-[#1a1a1a]">
+          <div className="font-display text-[2rem] leading-[1.12] text-[#1a1a1a] md:text-[2.55rem]">
             {content.intro.title}
           </div>
-          <div className="mt-5 space-y-4 text-[15px] leading-[1.75] text-[#555]">
+          <div className="mt-6 space-y-4 text-base leading-8 text-[#555] md:text-[1.08rem] md:leading-9">
             {content.intro.paragraphs.map((paragraph) => (
               <div key={paragraph}>{paragraph}</div>
             ))}
@@ -553,10 +553,10 @@ function ProgramEditorialDetail({ content }: { content: ProgramEditorialContent 
         <div className="flex flex-col gap-6">
           {content.intro.stats.map((stat) => (
             <div key={`${stat.value}-${stat.label}`} className="rounded-2xl bg-[#f5ede3] p-6">
-              <div className="font-display text-[36px] leading-none text-[#B86F2E]">
+              <div className="font-display text-[2.75rem] leading-none text-[#B86F2E] md:text-[3.2rem]">
                 {stat.value}
               </div>
-              <div className="mt-2 text-[13px] leading-[1.5] text-[#555]">
+              <div className="mt-3 text-base leading-7 text-[#555] md:text-[1.05rem]">
                 {stat.label}
               </div>
             </div>
@@ -573,13 +573,13 @@ function ProgramEditorialDetail({ content }: { content: ProgramEditorialContent 
               <div className="grid gap-10 py-6 md:grid-cols-3">
                 {group.items.map((item) => (
                   <div key={item.number}>
-                    <div className="font-serif text-[14px] text-[#B86F2E]">
+                    <div className="font-serif text-base font-semibold tracking-[0.04em] text-[#B86F2E]">
                       {item.number}
                     </div>
-                    <div className="mt-4 font-serif text-[24px] leading-[1.2] text-[#1a1a1a]">
+                    <div className="mt-4 font-serif text-[1.75rem] leading-[1.14] text-[#1a1a1a] md:text-[1.95rem]">
                       {item.title}
                     </div>
-                    <div className="mt-4 text-[14px] leading-[1.7] text-[#555]">
+                    <div className="mt-4 text-base leading-8 text-[#555] md:text-[1.05rem]">
                       {item.body}
                     </div>
                   </div>
@@ -599,14 +599,14 @@ function ProgramEditorialDetail({ content }: { content: ProgramEditorialContent 
                 key={item.number}
                 className="grid gap-6 border-b border-[#e8ddd0] py-7 last:border-b-0 md:grid-cols-[90px_1fr]"
               >
-                <div className="pt-1 font-serif text-[13px] tracking-[0.05em] text-[#B86F2E]">
+                <div className="pt-1 font-serif text-base font-semibold tracking-[0.05em] text-[#B86F2E]">
                   {item.number}
                 </div>
                 <div>
-                  <div className="font-serif text-[22px] leading-[1.2] text-[#1a1a1a]">
+                  <div className="font-serif text-[1.65rem] leading-[1.16] text-[#1a1a1a] md:text-[1.9rem]">
                     {item.title}
                   </div>
-                  <div className="mt-3 max-w-[640px] text-[14px] leading-[1.7] text-[#555]">
+                  <div className="mt-4 max-w-[640px] text-base leading-8 text-[#555] md:text-[1.05rem]">
                     {item.body}
                   </div>
                 </div>
@@ -618,19 +618,19 @@ function ProgramEditorialDetail({ content }: { content: ProgramEditorialContent 
 
       {content.outputs ? (
         <div className="border-b border-[#e8ddd0] py-14">
-          <div className="mb-3 text-[11px] font-medium uppercase tracking-[0.14em] text-[#888]">
+          <div className="mb-3 text-[14px] font-semibold uppercase tracking-[0.14em] text-[#888]">
             {content.outputs.label}
           </div>
-          <div className="mb-8 max-w-[520px] font-display text-[22px] leading-[1.3] text-[#1a1a1a]">
+          <div className="mb-8 max-w-[620px] font-display text-[1.85rem] leading-[1.16] text-[#1a1a1a] md:text-[2.2rem]">
             {content.outputs.intro}
           </div>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {content.outputs.items.map((item) => (
-              <div key={item.title} className="rounded-[10px] border border-[#e8ddd0] p-5">
-                <div className="text-[13px] font-medium leading-[1.4] text-[#1a1a1a]">
+              <div key={item.title} className="rounded-[10px] border border-[#e8ddd0] p-5 md:p-6">
+                <div className="text-base font-semibold leading-6 text-[#1a1a1a] md:text-[1.05rem]">
                   {item.title}
                 </div>
-                <div className="mt-1 text-[12px] leading-[1.5] text-[#888]">
+                <div className="mt-2 text-[0.95rem] leading-7 text-[#666] md:text-base">
                   {item.description}
                 </div>
               </div>
@@ -645,10 +645,10 @@ function ProgramEditorialDetail({ content }: { content: ProgramEditorialContent 
           <div className="grid overflow-hidden rounded-2xl border border-[#e8ddd0] md:grid-cols-4">
             {content.timeline.items.map((item) => (
               <div key={item.title} className="border-b border-[#e8ddd0] p-6 last:border-b-0 md:border-b-0 md:border-r md:last:border-r-0">
-                <div className="text-[14px] font-medium text-[#1a1a1a]">
+                <div className="text-base font-semibold leading-6 text-[#1a1a1a] md:text-[1.05rem]">
                   {item.title}
                 </div>
-                <div className="mt-2 text-[12.5px] leading-[1.55] text-[#888]">
+                <div className="mt-2 text-[0.95rem] leading-7 text-[#666] md:text-base">
                   {item.description}
                 </div>
               </div>
@@ -659,22 +659,22 @@ function ProgramEditorialDetail({ content }: { content: ProgramEditorialContent 
 
       {content.addons ? (
         <div className="border-b border-[#e8ddd0] py-14">
-          <div className="mb-3 text-[11px] font-medium uppercase tracking-[0.14em] text-[#888]">
+          <div className="mb-3 text-[14px] font-semibold uppercase tracking-[0.14em] text-[#888]">
             {content.addons.label}
           </div>
-          <div className="max-w-[600px] font-display text-[22px] leading-[1.3] text-[#1a1a1a]">
+          <div className="max-w-[680px] font-display text-[1.85rem] leading-[1.16] text-[#1a1a1a] md:text-[2.2rem]">
             {content.addons.intro}
           </div>
-          <div className="mt-3 max-w-[600px] text-[14px] leading-[1.6] text-[#888]">
+          <div className="mt-4 max-w-[680px] text-base leading-8 text-[#666] md:text-[1.05rem]">
             {content.addons.sub}
           </div>
           <div className="mt-8 grid overflow-hidden rounded-2xl border border-[#e8ddd0] sm:grid-cols-2 lg:grid-cols-3">
             {content.addons.items.map((item) => (
               <div key={item.title} className="border-b border-[#e8ddd0] p-6 sm:border-r lg:[&:nth-child(3n)]:border-r-0 lg:[&:nth-last-child(-n+3)]:border-b-0">
-                <div className="text-[14px] font-medium text-[#1a1a1a]">
+                <div className="text-base font-semibold leading-6 text-[#1a1a1a] md:text-[1.05rem]">
                   {item.title}
                 </div>
-                <div className="mt-1.5 text-[12.5px] leading-[1.5] text-[#888]">
+                <div className="mt-2 text-[0.95rem] leading-7 text-[#666] md:text-base">
                   {item.description}
                 </div>
               </div>
@@ -687,13 +687,13 @@ function ProgramEditorialDetail({ content }: { content: ProgramEditorialContent 
         <div className="grid gap-px overflow-hidden rounded-2xl border border-[#e8ddd0] bg-[#e8ddd0] md:grid-cols-2">
           {content.how.panels.map((panel) => (
             <div key={panel.title} className="bg-[#fffaf5] p-8">
-              <div className="font-display text-[19px] leading-[1.3] text-[#1a1a1a]">
+              <div className="font-display text-[1.75rem] leading-[1.18] text-[#1a1a1a] md:text-[2rem]">
                 {panel.title}
               </div>
               <div className="mt-5 flex flex-col gap-3">
                 {panel.items.map((item) => (
-                  <div key={item} className="grid grid-cols-[1.25rem_1fr] text-[14px] leading-[1.55] text-[#555]">
-                    <div className="pt-0.5 text-[11px] text-[#B86F2E]">-</div>
+                  <div key={item} className="grid grid-cols-[1.25rem_1fr] text-base leading-8 text-[#555] md:text-[1.05rem]">
+                    <div className="pt-0.5 text-base text-[#B86F2E]">-</div>
                     <div>{item}</div>
                   </div>
                 ))}
@@ -702,17 +702,17 @@ function ProgramEditorialDetail({ content }: { content: ProgramEditorialContent 
           ))}
         </div>
         {content.how.note ? (
-          <div className="mt-8 rounded-r-[10px] border-l-2 border-[#B86F2E] bg-[#f5ede3] px-6 py-5 text-[14px] leading-[1.65] text-[#555]">
+          <div className="mt-8 rounded-r-[10px] border-l-2 border-[#B86F2E] bg-[#f5ede3] px-6 py-5 text-base leading-8 text-[#555] md:text-[1.05rem]">
             {content.how.note}
           </div>
         ) : null}
       </div>
 
       <div className="pt-16">
-        <div className="max-w-[480px] font-display text-[30px] leading-[1.2] text-[#1a1a1a]">
+        <div className="max-w-[560px] font-display text-[2.25rem] leading-[1.08] text-[#1a1a1a] md:text-[3rem]">
           {content.cta.title}
         </div>
-        <div className="mt-3 text-[15px] text-[#555]">
+        <div className="mt-4 text-base leading-8 text-[#555] md:text-[1.08rem]">
           {content.cta.sub}
         </div>
         <SubtleButton href="/gorusme-planlayin" size="lg" className="mt-8">
