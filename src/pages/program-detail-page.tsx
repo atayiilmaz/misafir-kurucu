@@ -218,7 +218,7 @@ const detailContent: Record<ProgramSlug, ProgramEditorialContent> = {
         {
           title: "Nasıl çalışıyoruz?",
           items: [
-            "Haftada 2 kez bire bir Zoom görüşmesi",
+            "Aylık 5 saat Zoom üzerinden birebir seans",
             "Günlük WhatsApp desteği",
             "Tüm kararlar birlikte alınır",
             "1 aylık dönemlerle ilerliyoruz",
@@ -381,7 +381,7 @@ const detailContent: Record<ProgramSlug, ProgramEditorialContent> = {
         {
           title: "Nasıl çalışıyoruz?",
           items: [
-            "Haftada 2 kez bire bir Zoom görüşmesi",
+            "Aylık 5 saat Zoom üzerinden birebir seans",
             "Tercihli yerinde mağaza / üretim yeri analizi",
             "Günlük sohbet ve karar desteği",
             "1 aylık dönemlerle ilerliyoruz",
