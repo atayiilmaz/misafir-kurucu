@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 export const SITE_NAME = "Misafir Kurucu";
-export const SITE_URL = (import.meta.env.VITE_SITE_URL ?? "https://misafirkurucu.com").replace(/\/+$/, "");
+export const SITE_URL = (import.meta.env.VITE_SITE_URL ?? "https://www.misafirkurucu.com").replace(/\/+$/, "");
 export const SITE_AUTHOR = "Sevinç Gürgüzel";
 export const SITE_DESCRIPTION =
   "Moda markası kurmak, büyütmek ve stratejik kararları netleştirmek isteyen kurucular için birebir danışmanlık, programlar ve içerikler.";
